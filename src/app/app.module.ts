@@ -14,6 +14,9 @@ import { IndexReviewsComponent } from './components/index-reviews/index-reviews.
 import { IndexPlacesComponent } from './components/index-places/index-places.component';
 import { IndexSubscribeComponent } from './components/index-subscribe/index-subscribe.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ToursComponent } from './pages/tours/tours.component';
+import { IndexComponent } from './pages/index/index.component';
+import { HeaderImageComponent } from './pages/tours/components/header-image/header-image.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { FooterComponent } from './components/footer/footer.component';
     IndexPlacesComponent,
     IndexSubscribeComponent,
     FooterComponent,
+    ToursComponent,
+    IndexComponent,
+    HeaderImageComponent,
   ],
   imports: [
     BrowserModule,

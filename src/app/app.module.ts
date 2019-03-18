@@ -30,6 +30,9 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ArrowUpComponent } from './shared/components/arrow-up/arrow-up.component';
 import { ContactBodyComponent } from './pages/contact/components/contact-body/contact-body.component';
 import { ContactHeaderComponent } from './pages/contact/components/contact-header/contact-header.component';
+import { HotelsHeaderComponent } from './pages/hotels/components/hotels-header/hotels-header.component';
+import { HotelsHotelsComponent } from './pages/hotels/components/hotels-hotels/hotels-hotels.component';
+import { HotelsSidebarComponent } from './pages/hotels/components/hotels-sidebar/hotels-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +64,9 @@ import { ContactHeaderComponent } from './pages/contact/components/contact-heade
     ArrowUpComponent,
     ContactBodyComponent,
     ContactHeaderComponent,
+    HotelsHeaderComponent,
+    HotelsHotelsComponent,
+    HotelsSidebarComponent,
   ],
   imports: [
     BrowserModule,

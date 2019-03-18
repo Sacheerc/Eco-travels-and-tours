@@ -33,6 +33,7 @@ import { ContactHeaderComponent } from './pages/contact/components/contact-heade
 import { HotelsHeaderComponent } from './pages/hotels/components/hotels-header/hotels-header.component';
 import { HotelsHotelsComponent } from './pages/hotels/components/hotels-hotels/hotels-hotels.component';
 import { HotelsSidebarComponent } from './pages/hotels/components/hotels-sidebar/hotels-sidebar.component';
+import { TourPlacesComponent } from './pages/tour-places/tour-places.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { HotelsSidebarComponent } from './pages/hotels/components/hotels-sidebar
     HotelsHeaderComponent,
     HotelsHotelsComponent,
     HotelsSidebarComponent,
+    TourPlacesComponent,
   ],
   imports: [
     BrowserModule,

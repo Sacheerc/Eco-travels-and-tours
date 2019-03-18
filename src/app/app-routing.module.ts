@@ -5,6 +5,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { HotelsComponent } from './pages/hotels/hotels.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   {path:"",component:IndexComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:"hotels",component:HotelsComponent},
   {path:"services",component:ServicesComponent},
   {path:"about",component:AboutusComponent},
+  {path:"contact",component:ContactComponent},
 ];
 
 @NgModule({

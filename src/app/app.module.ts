@@ -26,6 +26,10 @@ import { ServicesServicesComponent } from './pages/services/components/services-
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { AboutusHeaderComponent } from './pages/aboutus/components/aboutus-header/aboutus-header.component';
 import { AboutusContentComponent } from './pages/aboutus/components/aboutus-content/aboutus-content.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ArrowUpComponent } from './shared/components/arrow-up/arrow-up.component';
+import { ContactBodyComponent } from './pages/contact/components/contact-body/contact-body.component';
+import { ContactHeaderComponent } from './pages/contact/components/contact-header/contact-header.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,10 @@ import { AboutusContentComponent } from './pages/aboutus/components/aboutus-cont
     AboutusComponent,
     AboutusHeaderComponent,
     AboutusContentComponent,
+    ContactComponent,
+    ArrowUpComponent,
+    ContactBodyComponent,
+    ContactHeaderComponent,
   ],
   imports: [
     BrowserModule,

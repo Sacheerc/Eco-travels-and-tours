@@ -3,7 +3,7 @@
 // required modules
 var express = require("express");
 var router = express.Router();
-var User = require("c:/Users/Hp/Desktop/back-end/src/models/user");
+var User = require("../models/user");
 
 // POST route for logging
 router.get("/", function(req, res, next) {

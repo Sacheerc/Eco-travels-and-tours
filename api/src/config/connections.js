@@ -2,7 +2,7 @@
 var mongoose = require("mongoose");
 
 // Build the connection string
-var dbURI ="mongodb+srv://admin:ecotravels@ecotravels-xre1s.gcp.mongodb.net/ecotravels?retryWrites=true";
+var dbURI ="mongodb+srv://admin:pUoDr1d77k7nc2Eo@ecotravels-xre1s.gcp.mongodb.net/ecotravels?retryWrites=true";
 
 // Create the database connection
 mongoose.connect(dbURI);

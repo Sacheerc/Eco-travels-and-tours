@@ -1,27 +1,62 @@
-# EcoTravels
+# Eco-Travels
+## LOGO
+![enter image description here](https://lh3.googleusercontent.com/v85slgTNrIllgdgf12sOPaERbzNQUOYMRon1w6c4r2xJm7FdGg0w0AJgm31cmqKx9oMGsMjclZdc "Logo")
+# Introduction
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.4.
+MEAN stack (MongoDB, Express, Angular,Node.js) based application for online tour reservation and booking. The project contains with well guided comments and MVC (Model, View, Controller) architecture.
 
-## Development server
+# Main Project Structure
+There are three efferent major applications for
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ - Front end client application
+ - Front end admin application
+ - Back end node express application
 
-## Code scaffolding
+> you have to configure  above application one by one separately. Follow the installation instructions.   
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Installation
+***Preferred Editor : Visual Studio Code (You can use your own java script editor )***
 
-## Build
+ 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ - Clone the repository in to your local machine
+ - Open the root directory(Eco-travels-and-tours) from Visual Studio Code.
+ - Open three new terminals and type following commands
+	 > cd client
+	 > npm install
+	 ng serve --open
+	 
+	 > cd admin
+	 npm install
+	 ng serve --port=8080 --open
+	
+	> cd api
+	npm install
+	nodemon start
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Angular Application Folder Structure
 
-## Running end-to-end tests
+![enter image description here](https://lh3.googleusercontent.com/qkW2eOUZFO2QZy2kdUAGcasxf6X66gh4L-fyHZM8okIonnAWfn3X-s6AWyxPSw_ORq61DJMaYaXR)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Developers
+<table>
+<tr>
+<td align="center"><img src="https://avatars1.githubusercontent.com/u/25397168?s=460&v=4" width=200></td>
+<td align="center"><img src="https://avatars1.githubusercontent.com/u/29378743?s=460&v=4" width=200></td>
+<td align="center"><img src="https://avatars3.githubusercontent.com/u/26787267?s=400&v=4" width=200></td>
+<td align="center"><img src="https://avatars0.githubusercontent.com/u/27485094?s=400&v=4" width=200></td>
+<td align="center"><img src="https://avatars1.githubusercontent.com/u/31557486?s=400&v=4" width=200></td>
+</tr>
+<tr>
+
+<td align="center"><a href="https://github.com/dinuka-kasun-medis">Dinuka Kasun Medis</a></td>
+<td align="center"><a href="https://github.com/Sacheerc">Sachintha Rathnayake</a></td>
+<td align="center"><a href="https://github.com/kusalkw">Kusal Kalhara</a></td>
+<td align="center"><a href="https://github.com/TharushiJay">Tharushi Jayasekara</a></td>
+<td align="center"><a href="https://github.com/Maneesha15">Maneesha Maduwanthi</a></td>
+</tr>
+</table>
+

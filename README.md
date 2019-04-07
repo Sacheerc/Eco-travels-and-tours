@@ -22,17 +22,25 @@ There are three efferent major applications for
  - Clone the repository in to your local machine
  - Open the root directory(Eco-travels-and-tours) from Visual Studio Code.
  - Open three new terminals and type following commands
-	 > cd client
-	 > npm install
-	 ng serve --open
-	 
-	 > cd admin
-	 npm install
-	 ng serve --port=8080 --open
-	
-	> cd api
-	npm install
-	nodemon start
+ 	<br>
+	`cd client`
+	<br>
+	`npm install`
+	<br>
+	`ng serve --open`
+	<br><br>
+	`cd admin`
+	<br>
+	`npm install`
+	<br>
+	`ng serve --port=8080 --open`
+	<br><br>
+	`cd api`
+	<br>
+	`npm install`
+	<br>
+	`nodemon start`
+	<br><br>
 
 
 ## Angular Application Folder Structure

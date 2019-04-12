@@ -1,5 +1,5 @@
 # Eco-Travels
-## LOGO
+
 ![enter image description here](https://lh3.googleusercontent.com/v85slgTNrIllgdgf12sOPaERbzNQUOYMRon1w6c4r2xJm7FdGg0w0AJgm31cmqKx9oMGsMjclZdc "Logo")
 # Introduction
 

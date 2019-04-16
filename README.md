@@ -48,7 +48,7 @@ There are three efferent major applications for
 ![enter image description here](https://lh3.googleusercontent.com/qkW2eOUZFO2QZy2kdUAGcasxf6X66gh4L-fyHZM8okIonnAWfn3X-s6AWyxPSw_ORq61DJMaYaXR)
 
 ## Local Environment Browser Cofigurations
- You have to send requests through different base URL. This will be blocked by "Cross Origin Policy of Browsers". To allow these requests please use following instructions.
+ While we are in developing stage, we have to send http requests through different base URLS(Cross Origin Concept). This will be blocked by "Cross Origin Policy of Browsers". To allow these http cros origin requests, we have to use following extensions.
  ### Google Chrome
  Install and activate this extension while you are in testing mode. Otherwise please make sure to disable this extention to protect your privacy.<br>
  <a href="https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc/related">Cross Origin Allower Extention</a>
@@ -57,7 +57,7 @@ There are three efferent major applications for
  Install and activate this extension while you are in testing mode. Otherwise please make sure to disable this extention to protect your 	privacy.<br>
  <a href="https://addons.mozilla.org/en-US/firefox/addon/moesif-origin-cors-changer1">Cross Origin Allower Extention</a>
 
-### Developers
+## Developers
 <table>
 <tr>
 <td align="center"><img src="https://avatars1.githubusercontent.com/u/25397168?s=460&v=4" width=200></td>

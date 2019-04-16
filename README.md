@@ -47,7 +47,11 @@ There are three efferent major applications for
 
 ![enter image description here](https://lh3.googleusercontent.com/qkW2eOUZFO2QZy2kdUAGcasxf6X66gh4L-fyHZM8okIonnAWfn3X-s6AWyxPSw_ORq61DJMaYaXR)
 
-
+## Local Environment Browser Cofigurations
+ You have to send requests through different base URL. This will be blocked by "Cross Origin Policy of Browsers". To allow these requests please use following instructions.
+ ### Google Chrome
+ Install and activate this extension while you are in testing mode. Otherwise please make sure to disable this extention to protect your privacy.<br>
+ <a href="https://github.com/dinuka-kasun-medis">Cross Origin Allower Extention</a>
 
 ### Developers
 <table>

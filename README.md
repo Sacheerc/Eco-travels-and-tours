@@ -52,6 +52,10 @@ There are three efferent major applications for
  ### Google Chrome
  Install and activate this extension while you are in testing mode. Otherwise please make sure to disable this extention to protect your privacy.<br>
  <a href="https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc/related">Cross Origin Allower Extention</a>
+ <br>
+ ### FireFox
+ Install and activate this extension while you are in testing mode. Otherwise please make sure to disable this extention to protect your 	privacy.<br>
+ <a href=" https://addons.mozilla.org/en-US/firefox/addon/moesif-origin-cors-changer1/">Cross Origin Allower Extention</a>
 
 ### Developers
 <table>

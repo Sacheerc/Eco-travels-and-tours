@@ -34,6 +34,9 @@ import { HotelsHeaderComponent } from './pages/hotels/components/hotels-header/h
 import { HotelsHotelsComponent } from './pages/hotels/components/hotels-hotels/hotels-hotels.component';
 import { HotelsSidebarComponent } from './pages/hotels/components/hotels-sidebar/hotels-sidebar.component';
 import { TourPlacesComponent } from './pages/tour-places/tour-places.component';
+import { QaforumComponent } from './pages/qaforum/qaforum.component';
+import { QaforumBodyComponent } from './pages/qaforum/components/qaforum-body/qaforum-body.component';
+import { QaforumHeaderComponent } from './pages/qaforum/components/qaforum-header/qaforum-header.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,9 @@ import { TourPlacesComponent } from './pages/tour-places/tour-places.component';
     HotelsHotelsComponent,
     HotelsSidebarComponent,
     TourPlacesComponent,
+    QaforumComponent,
+    QaforumBodyComponent,
+    QaforumHeaderComponent,
   ],
   imports: [
     BrowserModule,

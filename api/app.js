@@ -40,15 +40,15 @@ app.use(
 // required routers
 // var indexRouter = require("./src/routes/index");
 var registerRouter = require("./src/routes/register");
-// var loginRouter = require("./src/routes/login");
-// var logoutRouter = require("./src/routes/logout");
+var loginRouter = require("./src/routes/login");
+var logoutRouter = require("./src/routes/logout");
 var profileRouter = require("./src/routes/profile");
 
 // application routings
 // app.use("/", indexRouter);
 app.use("/register", registerRouter);
-// app.use("/login", loginRouter);
-// app.use("/logout", logoutRouter);
+app.use("/login", loginRouter);
+app.use("/logout", logoutRouter);
 app.use("/profile", profileRouter);
 
 // catch 404 and forward to error handler

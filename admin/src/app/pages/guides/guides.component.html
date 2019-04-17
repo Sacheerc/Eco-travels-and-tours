@@ -1,0 +1,53 @@
+<div class="wrapping">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-12 ">
+        <h1 style="text-align:center;">Manage guids</h1>
+      </div>
+      <div class="col-md-12" style="text-align:right;">
+        <div class="regbutton">
+          <button class="btn btn-success" (click)="registerGuide()">Register Guides</button>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary">Send Emails</button>
+    </div>
+    <div class="col-md-10">
+      <div *ngIf="openreg" class="container">
+        <app-register-guide></app-register-guide>
+      </div>
+
+      <div class="container">
+        <table class="table table-hover table-dark">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Tour Guid Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">Phone number</th>
+              <th scope="col">Email</th>
+              <th scope="col">state</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let guide of guides">
+              <th>{{guide.Id}}</th>
+              <th>{{guide.Name}}</th>
+              <th>{{guide.Address}}</th>
+              <th>{{guide.phone}}</th>
+              <th>{{guide.email}}</th>
+              <th>{{guide.state}}</th>
+              <button type="button" class="btn btn-outline-primary"> Alocate</button>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

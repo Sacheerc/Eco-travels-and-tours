@@ -1,0 +1,12 @@
+.jumbotron{
+    background-image: url(src/assets/img/cover2.jpg);
+    background-size: cover;
+}
+
+.header{
+    float: left;
+}
+
+.regbutton{
+   font-size: 20px;
+}

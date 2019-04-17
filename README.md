@@ -1,3 +1,7 @@
+[![npm version](https://badge.fury.io/js/%40angular%2Fcore.svg)](https://badge.fury.io/js/%40angular%2Fcore)
+[![Website myfakewebsitethatshouldnotexist.at.least.i.hope](https://img.shields.io/website-up-down-green-red/http/myfakewebsitethatshouldnotexist.at.least.i.hope.svg)](http://myfakewebsitethatshouldnotexist.at.least.i.hope/)
+[![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+
 # Eco-Travels
 
 ![enter image description here](https://lh3.googleusercontent.com/v85slgTNrIllgdgf12sOPaERbzNQUOYMRon1w6c4r2xJm7FdGg0w0AJgm31cmqKx9oMGsMjclZdc "Logo")

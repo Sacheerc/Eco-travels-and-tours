@@ -7,6 +7,7 @@ import { ServicesComponent } from './pages/services/services.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { TourPlacesComponent } from './pages/tour-places/tour-places.component';
+import { QaforumComponent } from './pages/qaforum/qaforum.component';
 
 const routes: Routes = [
   {path:"",component:IndexComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:"about",component:AboutusComponent},
   {path:"contact",component:ContactComponent},
   {path:"tour-places",component:TourPlacesComponent},
+  {path:"qaforum",component:QaforumComponent},
 ];
 
 @NgModule({

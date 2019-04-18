@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +11,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GuidesComponent } from './pages/guides/guides.component';
 import { RegisterGuideComponent } from './pages/guides/register-guide/register-guide.component';
+
+// Import services
+import { LoginService } from './services/login.service';
+
 
 @NgModule({
   declarations: [
@@ -22,9 +28,11 @@ import { RegisterGuideComponent } from './pages/guides/register-guide/register-g
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

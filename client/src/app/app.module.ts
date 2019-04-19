@@ -39,6 +39,7 @@ import { QaforumBodyComponent } from './pages/qaforum/components/qaforum-body/qa
 import { QaforumHeaderComponent } from './pages/qaforum/components/qaforum-header/qaforum-header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { TourPlacesSidebarComponent } from './pages/tour-places/components/tour-places-sidebar/tour-places-sidebar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,6 +77,7 @@ import { FormsModule } from '@angular/forms';
     QaforumComponent,
     QaforumBodyComponent,
     QaforumHeaderComponent,
+    TourPlacesSidebarComponent,
   ],
   imports: [
     BrowserModule,

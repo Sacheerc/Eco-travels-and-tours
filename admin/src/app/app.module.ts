@@ -12,7 +12,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 // Import services
 import { LoginService } from './services/login.service';
-
+import { GuidesComponent } from './pages/guides/guides.component';
+import { CustomersComponent } from './pages/customers/customers.component';
+import { PackagesComponent } from './pages/packages/packages.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { LoginService } from './services/login.service';
     SidebarComponent,
     NavbarComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    GuidesComponent,
+    CustomersComponent,
+    PackagesComponent
   ],
   imports: [
     BrowserModule,

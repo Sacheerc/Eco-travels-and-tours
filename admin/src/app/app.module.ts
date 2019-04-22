@@ -13,7 +13,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 // Import services
 import { LoginService } from './services/login.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,

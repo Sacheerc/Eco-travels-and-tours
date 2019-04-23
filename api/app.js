@@ -52,6 +52,7 @@ app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);
 app.use("/profile", profileRouter);
 app.use("/tourPackage", tourPackageRouter);
+app.use(express.static('public/images/tourpackages'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

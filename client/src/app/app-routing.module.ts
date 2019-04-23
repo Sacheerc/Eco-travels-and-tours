@@ -10,13 +10,13 @@ import { TourPlacesComponent } from './pages/tour-places/tour-places.component';
 import { QaforumComponent } from './pages/qaforum/qaforum.component';
 
 const routes: Routes = [
-  {path:"",component:IndexComponent},
+  {path:"aaa",component:IndexComponent},
   {path:"tours",component:ToursComponent},
   {path:"hotels",component:HotelsComponent},
   {path:"services",component:ServicesComponent},
   {path:"about",component:AboutusComponent},
   {path:"contact",component:ContactComponent},
-  {path:"tour-places",component:TourPlacesComponent},
+  {path:"",component:TourPlacesComponent},
   {path:"qaforum",component:QaforumComponent},
 ];
 

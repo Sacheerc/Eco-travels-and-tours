@@ -10,11 +10,8 @@ TourPackageController.prototype.getTourPackages = (callback)=>{
             err.status = 401;
             callback(err);
           } else {
-            var packages = {};
-            docs.forEach(function(doc) {
-                packages[doc._id] = doc;
-            });
-            callback(null, packages);
+           
+            callback(null, docs);
           }
     });
 }

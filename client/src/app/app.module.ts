@@ -37,7 +37,9 @@ import { TourPlacesComponent } from './pages/tour-places/tour-places.component';
 import { QaforumComponent } from './pages/qaforum/qaforum.component';
 import { QaforumBodyComponent } from './pages/qaforum/components/qaforum-body/qaforum-body.component';
 import { QaforumHeaderComponent } from './pages/qaforum/components/qaforum-header/qaforum-header.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { TourPlacesSidebarComponent } from './pages/tour-places/components/tour-places-sidebar/tour-places-sidebar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,10 +77,13 @@ import { QaforumHeaderComponent } from './pages/qaforum/components/qaforum-heade
     QaforumComponent,
     QaforumBodyComponent,
     QaforumHeaderComponent,
+    TourPlacesSidebarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

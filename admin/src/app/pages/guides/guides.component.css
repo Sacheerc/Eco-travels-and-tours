@@ -10,3 +10,8 @@
 .regbutton{
    font-size: 20px;
 }
+
+.col-md-2 button{
+    padding-left: 20px;
+
+}

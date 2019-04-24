@@ -18,7 +18,8 @@
     </div>
     <div class="col-md-10">
       <div *ngIf="openreg" class="container">
-        <app-register-guide></app-register-guide>
+        <app-register-guide [state]=openreg></app-register-guide>
+        <br>
       </div>
 
       <div class="container">

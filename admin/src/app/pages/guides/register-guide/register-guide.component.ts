@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { RegisterguidesService } from 'src/app/services/registerguides.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-guide',
@@ -6,14 +8,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register-guide.component.css']
 })
 export class RegisterGuideComponent implements OnInit {
+  name:string;
+  address:string;
+  phonenumber:number;
+  age:number;
+  email:string;
+  NIC: string;
 
-  constructor() { }
+  @Input() state:boolean;
+
+  constructor(private regGuides:RegisterguidesService, private routs:Router) { }
 
   ngOnInit() {
   }
 
-  addGuide(){
-     
+  submitForm(){
+    var body = `name=${this.name}&address=${this.address}&pnumber=${this.phonenumber}&email=${this.email}&age=${this.age}&nic=${this.NIC}`;
+    this.regGuides.login(body).subscribe((result)=>{
+      this.routs.navigate(['/guides']);
+      },
+      (err)=>{
+        alert(err.error)
+        this.routs.navigate(['/']);
+      }
+     )
+  }
+
+  close(){
+    return this.state=false;
   }
 
 }

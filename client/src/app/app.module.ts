@@ -45,6 +45,7 @@ import { TourPlacesSidebarComponent } from './pages/tour-places/components/tour-
 
 // Import services
 import { TourPackagesService } from './services/tours/tour-packages.service';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { TourPackagesService } from './services/tours/tour-packages.service';
     QaforumBodyComponent,
     QaforumHeaderComponent,
     TourPlacesSidebarComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

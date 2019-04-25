@@ -1,5 +1,6 @@
 // required modules
 var express = require("express");
+var cors = require('cors')
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
@@ -10,6 +11,9 @@ var mongoose = require("mongoose");
 
 // express app initialization
 var app = express();
+
+// Solved cross origin request problem
+app.use(cors())
 
 // initializing DB connection
 var db = mongoose.connection;
@@ -52,7 +56,7 @@ app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);
 app.use("/profile", profileRouter);
 app.use("/tourPackage", tourPackageRouter);
-app.use(express.static('public/images/tourpackages'));
+app.use(express.static('public/images'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

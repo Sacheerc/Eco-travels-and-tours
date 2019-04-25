@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +42,10 @@ import { QaforumHeaderComponent } from './pages/qaforum/components/qaforum-heade
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { TourPlacesSidebarComponent } from './pages/tour-places/components/tour-places-sidebar/tour-places-sidebar.component';
+
+// Import services
+import { TourPackagesService } from './services/tours/tour-packages.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,9 +89,10 @@ import { TourPlacesSidebarComponent } from './pages/tour-places/components/tour-
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [TourPackagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

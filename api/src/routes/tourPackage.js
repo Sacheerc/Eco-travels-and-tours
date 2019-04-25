@@ -7,11 +7,11 @@ var tourPackageController = new TourPackageController();
 
 // POST route for logging
 router.get("/", function(req, res, next) {
-    tourPackageController.getTourPackages((err, packages) => {
+    tourPackageController.getTourPackages((err, docs) => {
         if (err) {
           return next(err);
         } else {
-          res.send(packages);  
+          res.json(docs);  
         }
     });
   });

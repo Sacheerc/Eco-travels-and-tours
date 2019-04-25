@@ -9,6 +9,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { RegisterGuideComponent } from './pages/guides/register-guide/register-guide.component';
 import { GuidesComponent } from './pages/guides/guides.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { PackagesComponent } from './pages/packages/packages.component';
@@ -25,8 +26,10 @@ import { LoginService } from './services/login.service';
     LoginComponent,
     DashboardComponent,
     GuidesComponent,
+    RegisterGuideComponent,
     CustomersComponent,
     PackagesComponent
+
   ],
   imports: [
     BrowserModule,

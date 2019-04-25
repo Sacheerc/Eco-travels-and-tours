@@ -6,12 +6,14 @@ import {  GuidesComponent } from './pages/guides/guides.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { PackagesComponent } from './pages/packages/packages.component';
 
+
 const routes: Routes = [
   {path:"dashboard",component:DashboardComponent},
   {path:"",component:LoginComponent},
   {path:"guides",component:GuidesComponent},
   {path:"customers",component:CustomersComponent},
   {path:"packages",component:PackagesComponent}
+
 ];
 
 @NgModule({

@@ -3,8 +3,8 @@
     <div class="wrap-division">
       <div class="col-md-6 col-sm-6 animate-box">
         <div class="tour">
-          <a href="tour-place.html" class="tour-img" style="background-image: url(../../assets/images/tour-1.jpg);">
-            <p class="price"><span>$1500</span> <small>/ 3 Days</small></p>
+          <a href="tour-place.html" class="tour-img" [ngStyle]="{'background-image':'url(http://localhost:3000/tourpackages/'+ package.coverimage + ')'}">
+            <p class="price"><span>{{package.price}}</span> <small>/ {{package.coverimage}}</small></p>
           </a>
           <span class="desc">
             <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 545 Reviews</p>

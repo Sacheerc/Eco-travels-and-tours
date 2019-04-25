@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:"services",component:ServicesComponent},
   {path:"about",component:AboutusComponent},
   {path:"contact",component:ContactComponent},
-  {path:"tour-places",component:TourPlacesComponent},
+  {path:"tourplaces",component:TourPlacesComponent},
   {path:"qaforum",component:QaforumComponent},
 ];
 

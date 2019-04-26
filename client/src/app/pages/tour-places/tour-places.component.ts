@@ -27,10 +27,11 @@ export class TourPlacesComponent implements OnInit {
         (err)=>{
          console.log(err.error)
         }
-       )
-      
-      
+       ) 
     });
+  }
+  public getpackage(){
+    return this.package
   }
 }
 

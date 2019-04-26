@@ -15,7 +15,6 @@ export class ToursToursComponent implements OnInit {
   ngOnInit() {
     this.tourpackageservice.getpackages().subscribe((result)=>{
       this.packages=result
-      console.log(this.packages)
       },
       (err)=>{
        console.log(err.error)

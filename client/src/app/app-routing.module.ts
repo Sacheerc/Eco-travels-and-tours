@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:"services",component:ServicesComponent},
   {path:"about",component:AboutusComponent},
   {path:"contact",component:ContactComponent},
-  {path:"tourplaces",component:TourPlacesComponent},
+  {path:"tourplaces/:id",component:TourPlacesComponent},
   {path:"qaforum",component:QaforumComponent},
   {path:"**",component:PageNotFoundComponent}
 ];

@@ -14,10 +14,15 @@ const url="http://localhost:3000/tourpackage";
 
 export class TourPackagesService {
 
-  constructor(private http: HttpClient) { }
+  private packages: any;
+
+  constructor(private http: HttpClient) {
+    this.packages=[]
+   }
 
   getpackages(){
     return this.http.get(url);
   }
+
 
 }

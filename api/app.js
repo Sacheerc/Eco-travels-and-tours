@@ -48,7 +48,8 @@ var loginRouter = require("./src/routes/login");
 var logoutRouter = require("./src/routes/logout");
 var profileRouter = require("./src/routes/profile");
 var tourPackageRouter=require("./src/routes/tourPackage");
-var registerGuide = require("./src/routes/regGuides")
+var registerGuide = require("./src/routes/regGuides");
+var getGuides = require("./src/routes/getGuide");
 
 // application routings
 // app.use("/", indexRouter);
@@ -58,8 +59,11 @@ app.use("/logout", logoutRouter);
 app.use("/profile", profileRouter);
 app.use("/tourPackage", tourPackageRouter);
 app.use("/regGuide", registerGuide);
+app.use("/getguide", getGuides); 
+
 
 app.use(express.static('public/images'));
+
 
 
 // catch 404 and forward to error handler
@@ -76,3 +80,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+

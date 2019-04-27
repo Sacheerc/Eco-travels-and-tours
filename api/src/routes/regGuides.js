@@ -10,14 +10,15 @@ router.post("/", function(req, res, next) {
     console.log(
         req.body
       );  
-  if (req.body.email && req.body.name && req.body.address && req.body.phonenumber && req.body.age && req.body.nic) {
+  if (req.body.email && req.body.name && req.body.address && req.body.phonenumber && req.body.age && req.body.nic&& req.body.salary) {
     var guideData = {
       email: req.body.email,
       name: req.body.name,
       phonenumber: req.body.phonenumber,
       address: req.body.address,
       age: req.body.age,
-      nic: req.body.nic
+      nic: req.body.nic,
+      salary:req.body.salary
     };
     
 

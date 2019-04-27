@@ -5,6 +5,8 @@ import { LoginComponent } from './pages/login/login.component';
 import {  GuidesComponent } from './pages/guides/guides.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { PackagesComponent } from './pages/packages/packages.component';
+import { RegisterGuideComponent } from './pages/guides/register-guide/register-guide.component';
+import { enableDebugTools } from '@angular/platform-browser';
 
 
 const routes: Routes = [
@@ -12,7 +14,8 @@ const routes: Routes = [
   {path:"",component:LoginComponent},
   {path:"guides",component:GuidesComponent},
   {path:"customers",component:CustomersComponent},
-  {path:"packages",component:PackagesComponent}
+  {path:"packages",component:PackagesComponent},
+  {path:"regGuide", component:RegisterGuideComponent}
 
 ];
 

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-// import { TourGuide } from './tourGuide';
-// import { getMaxListeners } from 'cluster';
-
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { GetGuidesService } from 'src/app/services/get-guides.service';
 
 
 @Component({
@@ -11,39 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./guides.component.css']
 })
 export class GuidesComponent implements OnInit {
+  guides:any;
 
-//   public openreg=false;
-//   public guides:TourGuide[]=[{
-//     Id:1,
-//     Name:"Kumara De Silva",
-//     Age:45,
-//     Address:"Nugegoda",
-//     state: "Alocated" ,
-//     phone:"0774582156",
-//     email:"kds@gmail.com"
-//   },
-//   { Id:2,
-//     Name:"Saman Pthirana",
-//     Age:30,
-//     Address:"Nugegoda",
-//     state: "Not Alocated",
-//     phone:"0724589654",
-//     email:"saman@gmail.com"
-//   }
-// ]
-
-
-  constructor() { }
+  constructor(private getguideservice:GetGuidesService) { }
 
   ngOnInit() {
+    this.getguideservice.getGuides().subscribe((result)=>{
+      this.guides=result
+      console.log(this.guides)
+      },
+      (err)=>{
+       console.log(err.error)
+      }
+     )
 
 
   }
 
-  registerGuide(){
-    //this.openreg=true;
-  }
+  
 
+  
   
 
 

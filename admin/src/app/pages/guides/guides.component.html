@@ -79,10 +79,18 @@
     
                       
                   </div>
+                 
                 </div>
                 
               </div>
               <div class="card-body">
+                  <div class="col-md-4">
+                      <a class="btn btn-success" routerLink="/regGuide" >Add Guide</a>
+                      
+                    </div>
+                    <div class="container">
+                      <router-outlet></router-outlet>
+                    </div>
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
@@ -105,13 +113,13 @@
                               Salary
                             </th>
                     </thead>
-                    <tbody>
-                      <tr>
+                    <tbody *ngIf="guides.length>0">
+                      <tr *ngFor="let guide of guides">
                         <td>
-                          Dinali Perera
+                          {{guide.name}}
                         </td>
                         <td>
-                          
+                          url
                         </td>
                         <td>
                           5
@@ -120,72 +128,13 @@
                             25
                           </td>
                           <td>
-                              0786547654
+                              {{guide.phonenumber}}
                             </td>
                             <td>
-                                55 000
+                                {{guide.salary}}
                               </td>
                       </tr>
-                      <tr>
-                          <td>
-                            Nisam Silva
-                          </td>
-                          <td>
-                            
-                          </td>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                              32
-                            </td>
-                            <td>
-                                0786547654
-                              </td>
-                              <td>
-                                  65 000
-                                </td>
-                        </tr>
-                        <tr>
-                            <td>
-                              Dinali Perera
-                            </td>
-                            <td>
-                              
-                            </td>
-                            <td>
-                              5
-                            </td>
-                            <td>
-                                25
-                              </td>
-                              <td>
-                                  0786547654
-                                </td>
-                                <td>
-                                    55 000
-                                  </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Dinali Perera
-                            </td>
-                            <td>
-                              
-                            </td>
-                            <td>
-                              5
-                            </td>
-                            <td>
-                                25
-                              </td>
-                              <td>
-                                  0786547654
-                                </td>
-                                <td>
-                                    55 000
-                                  </td>
-                          </tr>
+                      
                     </tbody>
                   </table>
                 </div>
@@ -217,4 +166,4 @@
     </div>
   </div>
   
-
+m

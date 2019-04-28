@@ -1,5 +1,5 @@
 // required modules
-var User = require("../models/user");
+var User = require("../models/user-model");
 
 function AuthController() {}
 

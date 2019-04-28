@@ -5,13 +5,9 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
-var session = require("express-session");
-var MongoStore = require("connect-mongo")(session);
 var mongoose = require("mongoose");
-
 const passport = require('passport');
 const keys =require('./src/config/keys');
-const authRoutes=require('./src/routes/auth-routes');
 const passportSetup =require('./src/config/passport-setup');
 const cookieSession =require('cookie-session');
 
@@ -29,13 +25,12 @@ app.use(logger("dev"));
 // parse incoming requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(cookieParser());
 
 // serve static files from template
 app.use(express.static(path.join(__dirname, "public")));
 
-// use sessions for tracking logins
+// use cookie sessions for tracking logins
 app.use(cookieSession({
   maxAge:24*60*60*1000,
   keys:[keys.session.cookieKey]
@@ -45,23 +40,10 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(
-  session({
-    secret: "work hard",
-    resave: true,
-    saveUninitialized: false,
-    store: new MongoStore({
-      mongooseConnection: db
-    })
-  })
-);
-
 // required routers
 // var indexRouter = require("./src/routes/index");
+const authRoutes=require('./src/routes/auth-routes');
 var registerRouter = require("./src/routes/register");
-var loginRouter = require("./src/routes/login");
-var logoutRouter = require("./src/routes/logout");
-var profileRouter = require("./src/routes/profile");
 var tourPackageRouter=require("./src/routes/tourPackage");
 var registerGuide = require("./src/routes/regGuides");
 var getGuides = require("./src/routes/getGuide");
@@ -73,9 +55,6 @@ var questionRouter = require("./src/routes/question");
 // app.use("/", indexRouter);
 app.use('/auth',authRoutes);
 app.use("/register", registerRouter);
-app.use("/login", loginRouter);
-app.use("/logout", logoutRouter);
-app.use("/profile", profileRouter);
 app.use("/tourPackage", tourPackageRouter);
 app.use("/regGuide", registerGuide);
 app.use("/getguide", getGuides); 

@@ -7,7 +7,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})
 };
 
-const url="http://localhost:3000/login";
+const url="http://localhost:3000/auth/login";
 
 @Injectable({
   providedIn: 'root'

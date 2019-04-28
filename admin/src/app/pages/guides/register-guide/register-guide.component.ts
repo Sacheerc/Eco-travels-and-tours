@@ -11,7 +11,7 @@ export class RegisterGuideComponent implements OnInit {
   name:string;
   address:string;
   phonenumber:number;
-  age:number;
+  dob:string;
   email:string;
   NIC: string;
   salary:number;
@@ -24,7 +24,7 @@ export class RegisterGuideComponent implements OnInit {
   }
 
   submitForm(){
-    var body = `name=${this.name}&address=${this.address}&pnumber=${this.phonenumber}&email=${this.email}&age=${this.age}&nic=${this.NIC}&salary=${this.salary}`;
+    var body = `name=${this.name}&address=${this.address}&pnumber=${this.phonenumber}&email=${this.email}&age=${this.dob}&nic=${this.NIC}&salary=${this.salary}&tourcount=0&rate=0`;
     this.regGuides.registerguide(body).subscribe((result)=>{
       this.routs.navigate(['/guides']);
       },

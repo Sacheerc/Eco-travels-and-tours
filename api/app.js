@@ -41,6 +41,8 @@ app.use(
   })
 );
 
+
+
 // required routers
 // var indexRouter = require("./src/routes/index");
 var registerRouter = require("./src/routes/register");
@@ -50,6 +52,10 @@ var profileRouter = require("./src/routes/profile");
 var tourPackageRouter=require("./src/routes/tourPackage");
 var registerGuide = require("./src/routes/regGuides");
 var getGuides = require("./src/routes/getGuide");
+var rateSort = require("./src/routes/rateSort");
+var salarySort = require("./src/routes/salarySort");
+var tourSort = require("./src/routes/tourSort");
+
 
 // application routings
 // app.use("/", indexRouter);
@@ -59,7 +65,11 @@ app.use("/logout", logoutRouter);
 app.use("/profile", profileRouter);
 app.use("/tourPackage", tourPackageRouter);
 app.use("/regGuide", registerGuide);
-app.use("/getguide", getGuides); 
+app.use("/getguide", getGuides);
+app.use("/ratesort", rateSort); 
+app.use("/salarysort", salarySort);
+app.use("/toursort", tourSort);
+
 
 
 app.use(express.static('public/images'));

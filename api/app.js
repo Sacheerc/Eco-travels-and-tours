@@ -9,6 +9,12 @@ var session = require("express-session");
 var MongoStore = require("connect-mongo")(session);
 var mongoose = require("mongoose");
 
+const passport = require('passport');
+const keys =require('./src/config/keys');
+const authRoutes=require('./src/routes/auth-routes');
+const passportSetup =require('./src/config/passport-setup');
+const cookieSession =require('cookie-session');
+
 // express app initialization
 var app = express();
 
@@ -30,6 +36,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 // use sessions for tracking logins
+app.use(cookieSession({
+  maxAge:24*60*60*1000,
+  keys:[keys.session.cookieKey]
+}))
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(
   session({
     secret: "work hard",
@@ -56,6 +71,7 @@ var questionRouter = require("./src/routes/question");
 
 // application routings
 // app.use("/", indexRouter);
+app.use('/auth',authRoutes);
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);

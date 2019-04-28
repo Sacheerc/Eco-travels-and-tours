@@ -55,6 +55,9 @@ var getGuides = require("./src/routes/getGuide");
 var rateSort = require("./src/routes/rateSort");
 var salarySort = require("./src/routes/salarySort");
 var tourSort = require("./src/routes/tourSort");
+var questionRouter = require("./src/routes/question");
+//var answerRouter = require("./src/routes/answer");
+
 
 
 // application routings
@@ -69,6 +72,8 @@ app.use("/getguide", getGuides);
 app.use("/ratesort", rateSort); 
 app.use("/salarysort", salarySort);
 app.use("/toursort", tourSort);
+app.use("/getguide", getGuides); 
+app.use("/qaforum",questionRouter);
 
 
 
@@ -90,4 +95,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-

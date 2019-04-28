@@ -8,9 +8,7 @@ import { TourPackagesService} from 'src/app/services/tours/tour-packages.service
 })
 export class ToursToursComponent implements OnInit {
   packages:any
-  constructor(private tourpackageservice:TourPackagesService) {
-    
-   }
+  constructor(private tourpackageservice:TourPackagesService) { }
 
   ngOnInit() {
     this.tourpackageservice.getpackages().subscribe((result)=>{
@@ -21,5 +19,6 @@ export class ToursToursComponent implements OnInit {
       }
      )
   }
+  
 
 }

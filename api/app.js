@@ -50,6 +50,9 @@ var profileRouter = require("./src/routes/profile");
 var tourPackageRouter=require("./src/routes/tourPackage");
 var registerGuide = require("./src/routes/regGuides");
 var getGuides = require("./src/routes/getGuide");
+var questionRouter = require("./src/routes/question");
+//var answerRouter = require("./src/routes/answer");
+
 
 // application routings
 // app.use("/", indexRouter);
@@ -60,6 +63,7 @@ app.use("/profile", profileRouter);
 app.use("/tourPackage", tourPackageRouter);
 app.use("/regGuide", registerGuide);
 app.use("/getguide", getGuides); 
+app.use("/qaforum",questionRouter);
 
 
 app.use(express.static('public/images'));
@@ -80,4 +84,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-

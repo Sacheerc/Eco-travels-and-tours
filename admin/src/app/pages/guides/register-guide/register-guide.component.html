@@ -1,76 +1,82 @@
+<div class="wrapper ">
+  <app-sidebar></app-sidebar>
 
-  <form class="regform" #regguides="ngForm" (ngSubmit)="registerGuides()" method="POST">
-    <div class="form-group">
-      <label for="userName">Guide Name</label>
-      <div class="text">
-        <input 
-          [(ngModel)]="name"
-          type="text" 
-          class="form-control" 
-          id="userName" 
-          placeholder="Nimal De Silva" 
-          required>
+  <div class="main-panel" id="main-panel">
+    <app-navbar></app-navbar>
+
+    <div style="height: 10px;padding:1" class="panel-header">
+    </div>
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card" style="display: inline-block;">
+
+            <div class="card-header">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <h4 class="card-title">Add Tour Guide</h4>
+                </div>
+              </div>
+
+            </div>
+            <div class="card-body" style="color:black;">
+              <div class="container" style="padding-left:250px;">
+                <div class="col-md-8 ">
+                  <form class="regform" #regguides="ngForm" (ngSubmit)="submitForm()" method="POST">
+                    <div class="form-group">
+                      <label for="userName">Guide Name</label>
+                      <div class="text">
+                        <input [(ngModel)]="name" type="text" class="form-control" id="userName"
+                          placeholder="Nimal De Silva" required>
+                      </div>
+
+                    </div>
+                    <div class="form-group">
+                      <label for="address" >Address</label>
+                      <input [(ngModel)]="address" class="form-control" id="address"
+                        placeholder="10/A, ABC road, colombo.">
+
+
+                    </div>
+                    <div class="form-group">
+                      <label for="phonenumber">Phone Number</label>
+                      <input [(ngModel)]="phonenumber" type="text" class="form-control" id="phonenumber"
+                        placeholder="07712345678" required>
+
+                    </div>
+                    <div class="form-group">
+                      <label for="age">Age</label>
+                      <input [(ngModel)]="age" type="text" class="form-control" id="age" placeholder="25">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="nic">NIC</label>
+                      <input [(ngModel)]="NIC" type="text" class="form-control" id="nic" placeholder="9xxxxxxxxv">
+
+                    </div>
+                    <div class="form-group">
+                      <label for="Email1">Email address</label>
+                      <input [(ngModel)]="email" type="email" class="form-control" id="Email"
+                        placeholder="abc@gmail.com" required>
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="salary">Salary</label>
+                      <input [(ngModel)]="salary" type="number" class="form-control" id="salary"
+                        placeholder="20000" required>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a class="btn btn-primary" href="guides">Close</a>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
-    <div class="form-group">
-      <label for="address">Address</label>
-      <input 
-          [(ngModel)]="address"
-          class="form-control" 
-          id="address" 
-          placeholder="10/A, ABC road, colombo." 
-          >
-        
-
-    </div>
-    <div class="form-group">
-      <label for="phonenumber">Phone Number</label>
-      <input 
-          [(ngModel)]="phonenumber"
-          type="text" 
-          class="form-control" 
-          id="phonenumber" 
-          placeholder="07712345678" 
-          required>
-
-    </div>
-    <div class="form-group">
-        <label for="age">Age</label>
-        <input 
-          [(ngModel)]="age"
-          type="text" 
-          class="form-control" 
-          id="age" 
-          placeholder="25">
-  
-      </div>
-
-      <div class="form-group">
-        <label for="nic">NIC</label>
-        <input 
-          [(ngModel)]="NIC"
-          type="text" 
-          class="form-control" 
-          id="nic" 
-          placeholder="9xxxxxxxxv">
-  
-      </div>
-    <div class="form-group">
-      <label for="Email1">Email address</label>
-      <input
-          [(ngModel)]="email"
-          type="email" 
-          class="form-control" 
-          id="Email" 
-          placeholder="abc@gmail.com" 
-          required>
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-   
-
-    <button type="submit" class="btn btn-primary" >Submit</button>
-    <button type="button" class="btn btn-primary" (click)="close()">Close</button>
-  </form>
-  <br>
-
+  </div>
+</div>

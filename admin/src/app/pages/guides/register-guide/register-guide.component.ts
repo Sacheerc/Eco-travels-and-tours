@@ -14,6 +14,7 @@ export class RegisterGuideComponent implements OnInit {
   age:number;
   email:string;
   NIC: string;
+  salary:number;
 
   @Input() state:boolean;
 
@@ -23,8 +24,8 @@ export class RegisterGuideComponent implements OnInit {
   }
 
   submitForm(){
-    var body = `name=${this.name}&address=${this.address}&pnumber=${this.phonenumber}&email=${this.email}&age=${this.age}&nic=${this.NIC}`;
-    this.regGuides.login(body).subscribe((result)=>{
+    var body = `name=${this.name}&address=${this.address}&pnumber=${this.phonenumber}&email=${this.email}&age=${this.age}&nic=${this.NIC}&salary=${this.salary}`;
+    this.regGuides.registerguide(body).subscribe((result)=>{
       this.routs.navigate(['/guides']);
       },
       (err)=>{

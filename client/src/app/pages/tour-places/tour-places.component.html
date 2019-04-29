@@ -1,6 +1,5 @@
 <!-- import main navigation component -->
 <app-index-main-nav></app-index-main-nav>
-
 <!-- Destinations -->
 <aside id="colorlib-hero">
     <div class="flexslider">
@@ -29,28 +28,28 @@
           <div class="row">
             <div class="col-md-12">
               <div class="wrap-division">
-                <div class="col-md-12 col-md-offset-0 heading2 animate-box">
-                  <h2>Sri Lanka, Ancient City Tour</h2>
+                <div class="col-md-12 col-md-offset-0 heading2 ">
+                  <h2>{{package.package}}</h2>
                 </div>
                 <div class="row">
-                  <div class="col-md-12 animate-box">
+                  <div class="col-md-12 ">
                     <div class="room-wrap">
                       <div class="row">
                         <div class="col-md-6 col-sm-6">
-                          <div class="room-img" style="background-image: url(../../assets/images/tour-1.jpg);"></div>
+                          <div class="room-img" [ngStyle]="{'background-image':'url(http://localhost:3000/tourpackages/'+ package.coverimage + ')'}"></div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                           <div class="desc">
                             <span class="day-tour">Day 1</span>
-                            <h2>Athens, Greece</h2>
-                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                            <h2>{{package.location}}</h2>
+                            <p>{{package.description}}</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="col-md-12 animate-box">
+                  <!-- <div class="col-md-12 animate-box">
                     <div class="room-wrap">
                       <div class="row">
                         <div class="col-md-6 col-sm-6">
@@ -133,7 +132,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="col-md-12 animate-box text-center">
                     <p><a href="#" class="btn btn-primary">Book Now!</a></p>
                   </div>
@@ -161,3 +160,4 @@
 
 <!-- import arrow-up component -->
 <app-arrow-up></app-arrow-up>
+

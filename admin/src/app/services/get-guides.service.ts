@@ -1,29 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { Router } from '@angular/router';
-
+import { Observable, of, throwError } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})
 };
 
-const url="http://localhost:3000/tourpackage";
+
+const url="http://localhost:3000/getguide";
 
 @Injectable({
   providedIn: 'root'
 })
+export class GetGuidesService {
 
-export class TourPackagesService {
+  constructor(private http:HttpClient) { }
 
-  private packages: any;
-
-  constructor(private http: HttpClient,private router:Router) {
-   }
-
-  getpackages(){
+  getGuides(){
     return this.http.get(url);
   }
-
-
 }

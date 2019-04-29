@@ -1,12 +1,3 @@
-.regform{
-    background-color: rgb(64, 62, 75);
-    padding: 20px;
-    font-size: 18px;
-    color: white;
-}
-.form-control{
+.label:focus{
     color: black;
-}
-.text{
-    color:white;
 }

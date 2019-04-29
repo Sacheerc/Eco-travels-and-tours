@@ -8,6 +8,7 @@ import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { TourPlacesComponent } from './pages/tour-places/tour-places.component';
 import { QaforumComponent } from './pages/qaforum/qaforum.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path:"",component:IndexComponent},
@@ -16,8 +17,9 @@ const routes: Routes = [
   {path:"services",component:ServicesComponent},
   {path:"about",component:AboutusComponent},
   {path:"contact",component:ContactComponent},
-  {path:"tourplaces",component:TourPlacesComponent},
+  {path:"tourplaces/:id",component:TourPlacesComponent},
   {path:"qaforum",component:QaforumComponent},
+  {path:"**",component:PageNotFoundComponent}
 ];
 
 @NgModule({

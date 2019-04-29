@@ -37,6 +37,11 @@ var GuideSchema = new mongoose.Schema({
         trim:true,
         required:true
 
+    },
+    salary:{
+      type:Number,
+      trim:true,
+      required:true
     }
    
   });

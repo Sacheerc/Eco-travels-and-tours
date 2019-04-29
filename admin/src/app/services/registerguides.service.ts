@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})
 };
-const url="http://localhost:3000/guides";
+const url="http://localhost:3000/regGuide";
 
 
 @Injectable({
@@ -16,8 +17,11 @@ export class RegisterguidesService {
   constructor(private http:HttpClient) { }
 
 
-login(data){
+registerguide(data){
 
   return this.http.post(url, data, httpOptions)
 }
+
+
 }
+

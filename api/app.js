@@ -5,15 +5,21 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
-var session = require("express-session");
-var MongoStore = require("connect-mongo")(session);
 var mongoose = require("mongoose");
+const passport = require('passport');
+const keys =require('./src/config/keys');
+const passportSetup =require('./src/config/passport-setup');
+const cookieSession =require('cookie-session');
 
 // express app initialization
 var app = express();
 
 // Solved cross origin request problem
-app.use(cors())
+app.use(cors({
+  origin:['http://localhost:4200','http://127.0.0.1:4200'],
+  credentials:true
+}
+))
 
 // initializing DB connection
 var db = mongoose.connection;
@@ -23,32 +29,27 @@ app.use(logger("dev"));
 // parse incoming requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(cookieParser());
 
 // serve static files from template
 app.use(express.static(path.join(__dirname, "public")));
 
-// use sessions for tracking logins
-app.use(
-  session({
-    secret: "work hard",
-    resave: true,
-    saveUninitialized: false,
-    store: new MongoStore({
-      mongooseConnection: db
-    })
-  })
-);
+// use cookie sessions for tracking logins
+app.use(cookieSession({
+  maxAge:24*60*60*1000,
+  keys:[keys.session.cookieKey]
+}))
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 
 // required routers
 // var indexRouter = require("./src/routes/index");
+const authRoutes=require('./src/routes/auth-routes');
 var registerRouter = require("./src/routes/register");
-var loginRouter = require("./src/routes/login");
-var logoutRouter = require("./src/routes/logout");
-var profileRouter = require("./src/routes/profile");
 var tourPackageRouter=require("./src/routes/tourPackage");
 var registerGuide = require("./src/routes/regGuides");
 var getGuides = require("./src/routes/getGuide");
@@ -56,16 +57,16 @@ var rateSort = require("./src/routes/rateSort");
 var salarySort = require("./src/routes/salarySort");
 var tourSort = require("./src/routes/tourSort");
 var questionRouter = require("./src/routes/question");
+var dashBoard = require('./src/routes/dashboard')
 //var answerRouter = require("./src/routes/answer");
 
 
 
 // application routings
 // app.use("/", indexRouter);
+app.use('/auth',authRoutes);
+app.use('/dashboard',dashBoard);
 app.use("/register", registerRouter);
-app.use("/login", loginRouter);
-app.use("/logout", logoutRouter);
-app.use("/profile", profileRouter);
 app.use("/tourPackage", tourPackageRouter);
 app.use("/regGuide", registerGuide);
 app.use("/getguide", getGuides);
@@ -78,8 +79,6 @@ app.use("/qaforum",questionRouter);
 
 
 app.use(express.static('public/images'));
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

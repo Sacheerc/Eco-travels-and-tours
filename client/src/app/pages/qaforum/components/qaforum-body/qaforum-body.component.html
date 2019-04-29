@@ -1,9 +1,6 @@
-<div id="colorlib-contact">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1 animate-box">
-        <h3>Post Your Question</h3>
-        <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+<div class="container">
+      <h3></h3>
+        <!-- <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
             <div class="row form-group">
                 <div class="col-md-12">
                   <label for="subject">Topic</label>
@@ -33,10 +30,30 @@
             <strong>Q: {{ messageForm.controls.name.value }}?</strong>
             <br>
             <span>A: {{ messageForm.controls.message.value }}</span>
+          </div> -->
+          <form  #questionForm="ngForm" (ngSubmit)="onSubmit(questionForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="questionService.selectedQuestion._id">
+            <div class="row form-group">
+                <div class="col-md-12">
+                  <label>Title
+                    <label class="red-text">*</label>
+                  </label>
+                  <input type="text" name="title" #name="ngModel" [(ngModel)]="questionService.selectedQuestion.title" class="form-control" placeholder="State your question briefly" required>
+                </div>
+              </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label>Description
+                <label class="red-text">*</label>
+              </label>
+              <textarea name="description" #name="ngModel" [(ngModel)]="questionService.selectedQuestion.description" cols="30" rows="10" class="form-control" placeholder="Please elaborate!" required></textarea>
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <button class="btn btn-primary" (click)="clickSubmit()" [disabled]="!questionForm.valid">Post</button>
+            <button class="btn btn-primary" [disabled]="!questionForm.valid" (click)="resetForm(questionForm)">Cancel</button>
           </div>
 
-
+        </form>		
       </div>
-    </div>
-  </div>
-</div>

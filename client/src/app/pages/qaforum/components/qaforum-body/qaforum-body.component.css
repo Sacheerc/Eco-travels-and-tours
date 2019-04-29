@@ -1,3 +1,10 @@
 .error{
     color: red;
 }
+
+:disabled{
+    background-color: yellow;
+    border-color: yellow;
+}
+
+

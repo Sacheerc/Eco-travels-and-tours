@@ -16,15 +16,24 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService:LoginService,private router:Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.loginService.getloginpage().subscribe((result)=>{
+      console.log(result)
+      alert(result)
+      },
+      (err)=>{
+       console.log(err.error)
+      }
+     )
+   }
 
   submitForm(){
-    var body = `email=${this.email}&password=${this.password}`;
+    var body = `username=${this.email}&password=${this.password}`;
     this.loginService.login(body).subscribe((result)=>{
       this.router.navigate(['/dashboard']);
       },
       (err)=>{
-        alert(err.error)
+        console.log(err.error)
         this.router.navigate(['/']);
       }
      )

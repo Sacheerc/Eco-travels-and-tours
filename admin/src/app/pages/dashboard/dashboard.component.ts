@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from 'src/app/services/dashboard-service/dashboard.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dashBoardService:DashboardService,private router:Router) { }
 
   ngOnInit() {
+    this.dashBoardService.getdashboard().subscribe((result)=>{
+      console.log(result)
+      },
+      (err)=>{
+       console.log(err.error)
+      }
+     )
   }
 
 }

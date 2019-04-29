@@ -15,7 +15,11 @@ const cookieSession =require('cookie-session');
 var app = express();
 
 // Solved cross origin request problem
-app.use(cors())
+app.use(cors({
+  origin:['http://localhost:4200','http://127.0.0.1:4200'],
+  credentials:true
+}
+))
 
 // initializing DB connection
 var db = mongoose.connection;
@@ -48,12 +52,14 @@ var tourPackageRouter=require("./src/routes/tourPackage");
 var registerGuide = require("./src/routes/regGuides");
 var getGuides = require("./src/routes/getGuide");
 var questionRouter = require("./src/routes/question");
+var dashBoard = require('./src/routes/dashboard')
 //var answerRouter = require("./src/routes/answer");
 
 
 // application routings
 // app.use("/", indexRouter);
 app.use('/auth',authRoutes);
+app.use('/dashboard',dashBoard);
 app.use("/register", registerRouter);
 app.use("/tourPackage", tourPackageRouter);
 app.use("/regGuide", registerGuide);
@@ -62,8 +68,6 @@ app.use("/qaforum",questionRouter);
 
 
 app.use(express.static('public/images'));
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

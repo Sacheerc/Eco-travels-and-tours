@@ -1,6 +1,21 @@
 const router = require('express').Router();
 const passport = require('passport');
 
+const authCheck = (req,res,next)=>{
+  if(!req.user){
+    res.send("no");
+    console.log(req.user)
+  }else{
+    next();
+  }
+}
+
+// auth login page
+router.get('/login',authCheck,(req,res)=>{
+  res.send(req.user)
+  console.log(req.user)
+})
+
 // auth logout
 router.get('/logout',(req,res)=>{
     // handle with passport

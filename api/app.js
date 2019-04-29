@@ -37,16 +37,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 // use sessions for tracking logins
-app.use(
-  session({
-    secret: "work hard",
-    resave: true,
-    saveUninitialized: false
-    // ,store: new MongoStore({
-    //   mongooseConnection: db
-    // })
-  })
-);
+// app.use(
+//   session({
+//     secret: "work hard",
+//     resave: true,
+//     saveUninitialized: false
+//     // ,store: new MongoStore({
+//     //   mongooseConnection: db
+//     // })
+//   })
+// );
 // use cookie sessions for tracking logins
 app.use(cookieSession({
   maxAge:24*60*60*1000,

@@ -19,7 +19,7 @@ export class RegisterguidesService {
 
 registerguide(data){
 
-  console.log("data add");
+  console.log(data);
   return this.http.post(url, data, httpOptions)
 }
 

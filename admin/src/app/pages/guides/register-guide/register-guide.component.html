@@ -18,58 +18,109 @@
                   <h4 class="card-title">Add Tour Guide</h4>
                 </div>
               </div>
-
             </div>
-            <div class="card-body" style="color:black;">
+            <div class="card-body">
               <div class="container" style="padding-left:250px;">
                 <div class="col-md-8 ">
-                  <form class="regform" #regguides="ngForm" (ngSubmit)="submitForm()" method="POST">
+                  <form #guides="ngForm" (ngSubmit)="submitForm()" method="POST" action="www">
+                    
                     <div class="form-group">
                       <label for="userName">Guide Name</label>
-                      <div class="text">
-                        <input [(ngModel)]="name" type="text" class="form-control" id="userName"
-                          placeholder="Nimal De Silva" required>
-                      </div>
-
+                        <input 
+                        [(ngModel)]="name" 
+                        type="text" 
+                        class="form-control" 
+                        id="userName"
+                        name="guidename"
+                        placeholder="Nimal De Silva" 
+                        required="true"/> 
                     </div>
+
                     <div class="form-group">
                       <label for="address" >Address</label>
-                      <input [(ngModel)]="address" class="form-control" id="address"
-                        placeholder="10/A, ABC road, colombo.">
-
-
+                      <input 
+                      [(ngModel)]="address" 
+                      class="form-control" 
+                      id="address"
+                      name="address"
+                      placeholder="10/A, ABC road, colombo."/>
                     </div>
+
                     <div class="form-group">
                       <label for="phonenumber">Phone Number</label>
-                      <input [(ngModel)]="phonenumber" type="text" class="form-control" id="phonenumber"
-                        placeholder="07123456789" required>
+                      <input 
+                      [(ngModel)]="phonenumber" 
+                      type="text" 
+                      class="form-control" 
+                      id="phonenumber"
+                      name="phonenumber" 
+                      placeholder="07123456789" 
+                      required="true" />
 
                     </div>
                     <div class="form-group">
                       <label for="age">Date of Birthday</label>
-                      <input [(ngModel)]="dob" type="text" class="form-control" id="dob" placeholder="DD/MM/YY">
+                      <input 
+                      [(ngModel)]="dob" 
+                      type="text" 
+                      class="form-control" 
+                      id="dob" 
+                      name="dob"
+                      placeholder="DD/MM/YY">
                     </div>
 
                     <div class="form-group">
                       <label for="nic">NIC</label>
-                      <input [(ngModel)]="NIC" type="text" class="form-control" id="nic" placeholder="9xxxxxxxxv">
+                      <input 
+                      [(ngModel)]="NIC" 
+                      type="text" 
+                      class="form-control"
+                      pattern="[0-9]*v" 
+                      id="nic" 
+                      name="nicNum"
+                      placeholder="9xxxxxxxxv" />
 
                     </div>
                     <div class="form-group">
                       <label for="Email1">Email address</label>
-                      <input [(ngModel)]="email" type="email" class="form-control" id="Email"
-                        placeholder="abc@gmail.com" required>
+                      <input 
+                      [(ngModel)]="email" 
+                      type="email" 
+                      class="form-control" 
+                      id="Email"
+                      name="email"
+                      pattern="[a-z0-9][a-z0-9._%+-]*@[a-z0-9][a-z0-9.-]*\.[a-z]{2,20}"
+                      placeholder="abc@gmail.com" 
+                      required="true"/>
                       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                     </div>
                     <div class="form-group">
                       <label for="salary">Salary</label>
-                      <input [(ngModel)]="salary" type="number" class="form-control" id="salary"
-                        placeholder="20000" required>
+                      <input 
+                      [(ngModel)]="salary" 
+                      type="text" 
+                      class="form-control" 
+                      id="salary"
+                      name="salary"
+                      placeholder="20000" 
+                      required="true" />
 
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <a class="btn btn-primary" href="guides">Close</a>
+                    <div class="form-group">
+
+                      <label for="propic">Profile Picture</label>
+                      <a class="btn btn-success">Choose
+                      <input type="file" name="image" />
+                      </a>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a class="btn btn-primary" href="guides">Close</a>
+                    </div>
+
+                    
                   </form>
                 </div>
               </div>

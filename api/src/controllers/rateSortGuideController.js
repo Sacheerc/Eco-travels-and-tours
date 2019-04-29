@@ -18,8 +18,6 @@ RateSortGuideController.prototype.GetGuides = (callback) => {
 
     Guide.findById
     
-    
-
 }
 
 

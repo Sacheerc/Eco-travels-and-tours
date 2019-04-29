@@ -26,6 +26,40 @@ export class GuidesComponent implements OnInit {
 
   }
 
+  rateSort(){
+    this.getguideservice.getRateSortGuides().subscribe((result)=>{
+      this.guides=result
+      console.log(this.guides)
+      },
+      (err)=>{
+       console.log(err.error)
+      }
+     )
+    
+  }
+
+  salarySort(){
+    this.getguideservice.getSalarySortGuides().subscribe((result)=>{
+      this.guides=result
+      console.log(this.guides)
+      },
+      (err)=>{
+       console.log(err.error)
+      }
+     )
+  }
+
+  tourSort(){
+    this.getguideservice.getTourSortGuides().subscribe((result)=>{
+      this.guides=result
+      console.log(this.guides)
+      },
+      (err)=>{
+       console.log(err.error)
+      }
+     )
+  }
+
   
 
   

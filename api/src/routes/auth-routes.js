@@ -18,7 +18,8 @@ router.get('/login',authCheck,(req,res)=>{
 
 // auth logout
 router.get('/logout',(req,res)=>{
-    req.logOut().then(res.send(req.user));     
+    req.logOut();
+    res.send({key:'logedout'})     
 });
 
 // auth with password

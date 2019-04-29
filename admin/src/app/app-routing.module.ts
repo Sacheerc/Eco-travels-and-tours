@@ -7,12 +7,14 @@ import { CustomersComponent } from './pages/customers/customers.component';
 import { PackagesComponent } from './pages/packages/packages.component';
 import { RegisterGuideComponent } from './pages/guides/register-guide/register-guide.component';
 import { enableDebugTools } from '@angular/platform-browser';
+import { AuthGuard } from './guard/auth.guard';
+import { AuthLoginGuard } from './guard/auth-login.guard';
 
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
-  {path:"dashboard",component:DashboardComponent},
-  {path:"login",component:LoginComponent},
+  {path:"dashboard",component:DashboardComponent,canActivate:[AuthGuard]},
+  {path:"login",component:LoginComponent,canActivate:[AuthLoginGuard]},
   {path:"guides",component:GuidesComponent},
   {path:"customers",component:CustomersComponent},
   {path:"packages",component:PackagesComponent},

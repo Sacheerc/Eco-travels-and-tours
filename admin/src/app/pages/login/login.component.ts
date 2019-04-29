@@ -13,12 +13,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   email:string;
   password:string;
-
+  currentuser:any
   constructor(private loginService:LoginService,private router:Router) { }
 
   ngOnInit() {
     this.loginService.getloginpage().subscribe((result)=>{
       if(result){
+        this.currentuser=result
         this.router.navigate(['/dashboard']);
       }
       },
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
   submitForm(){
     var body = `username=${this.email}&password=${this.password}`;
     this.loginService.login(body).subscribe((result)=>{
+      localStorage.setItem('user', JSON.stringify(result)); 
       this.router.navigate(['/dashboard']);
       },
       (err)=>{

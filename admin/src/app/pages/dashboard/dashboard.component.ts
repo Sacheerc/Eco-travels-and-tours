@@ -14,11 +14,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.dashBoardService.getdashboard().subscribe((result)=>{
-      if(!result){
-        this.router.navigate(['/login']);
-      }else{
-        this.currentuser=result;
-      }
+      this.currentuser=result;
     },
       (err)=>{
        console.log(err.error)

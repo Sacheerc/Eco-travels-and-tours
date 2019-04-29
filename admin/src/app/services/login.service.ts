@@ -11,6 +11,7 @@ const httpOptions = {
 
 const urlpost="http://localhost:3000/auth/password";
 const urllogin="http://localhost:3000/auth/login";
+const urllogout="http://localhost:3000/auth/logout";
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,14 @@ export class LoginService {
         withCredentials:true,
         headers:new HttpHeaders().append('Content-Type','application/x-www-form-urlencoded')
       });
+  }
+
+  logout(){
+    return this.http.get(urllogout,{
+      observe:'body',
+      withCredentials:true,
+      headers:new HttpHeaders().append('Content-Type','application/x-www-form-urlencoded')
+    });
   }
 
   login(data) {

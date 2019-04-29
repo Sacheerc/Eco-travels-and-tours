@@ -10,8 +10,9 @@ import { enableDebugTools } from '@angular/platform-browser';
 
 
 const routes: Routes = [
+  {path:'', redirectTo:'login', pathMatch:'full'},
   {path:"dashboard",component:DashboardComponent},
-  {path:"",component:LoginComponent},
+  {path:"login",component:LoginComponent},
   {path:"guides",component:GuidesComponent},
   {path:"customers",component:CustomersComponent},
   {path:"packages",component:PackagesComponent},

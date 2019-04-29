@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const passport = require('passport');
+const authController=require('../controllers/authController')
 
 const authCheck = (req,res,next)=>{
   if(!req.user){
-    res.send("no");
-    console.log(req.user)
+    res.send(req.user);
   }else{
     next();
   }
@@ -18,9 +18,7 @@ router.get('/login',authCheck,(req,res)=>{
 
 // auth logout
 router.get('/logout',(req,res)=>{
-    // handle with passport
-    req.logOut();  
-    res.redirect('/');
+    req.logOut().then(res.send(req.user));     
 });
 
 // auth with password

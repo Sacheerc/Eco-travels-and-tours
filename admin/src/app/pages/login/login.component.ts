@@ -18,8 +18,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginService.getloginpage().subscribe((result)=>{
-      console.log(result)
-      alert(result)
+      if(result){
+        this.router.navigate(['/dashboard']);
+      }
       },
       (err)=>{
        console.log(err.error)

@@ -6,7 +6,6 @@ const httpOptions = {
 };
 
 const url="http://localhost:3000/dashboard";
-// const urllogin="http://localhost:3000/auth/login";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,11 @@ export class DashboardService {
   }
 
   getdashboard(){
-    return this.http.get(url);
+    return this.http.get(url,{
+      observe:'body',
+      withCredentials:true,
+      headers:new HttpHeaders().append('Content-Type','application/x-www-form-urlencoded')
+    });
   }
 
   

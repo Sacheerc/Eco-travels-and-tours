@@ -44,6 +44,8 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+
 // required routers
 // var indexRouter = require("./src/routes/index");
 const authRoutes=require('./src/routes/auth-routes');
@@ -51,9 +53,13 @@ var registerRouter = require("./src/routes/register");
 var tourPackageRouter=require("./src/routes/tourPackage");
 var registerGuide = require("./src/routes/regGuides");
 var getGuides = require("./src/routes/getGuide");
+var rateSort = require("./src/routes/rateSort");
+var salarySort = require("./src/routes/salarySort");
+var tourSort = require("./src/routes/tourSort");
 var questionRouter = require("./src/routes/question");
 var dashBoard = require('./src/routes/dashboard')
 //var answerRouter = require("./src/routes/answer");
+
 
 
 // application routings
@@ -63,8 +69,13 @@ app.use('/dashboard',dashBoard);
 app.use("/register", registerRouter);
 app.use("/tourPackage", tourPackageRouter);
 app.use("/regGuide", registerGuide);
+app.use("/getguide", getGuides);
+app.use("/ratesort", rateSort); 
+app.use("/salarysort", salarySort);
+app.use("/toursort", tourSort);
 app.use("/getguide", getGuides); 
 app.use("/qaforum",questionRouter);
+
 
 
 app.use(express.static('public/images'));

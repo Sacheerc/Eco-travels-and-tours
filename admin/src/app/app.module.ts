@@ -16,6 +16,8 @@ import { PackagesComponent } from './pages/packages/packages.component';
 
 // Import services
 import { LoginService } from './services/login.service';
+import { AuthGuard } from './guard/auth.guard';
+import { AuthLoginGuard } from './guard/auth-login.guard';
 
 
 @NgModule({
@@ -37,7 +39,7 @@ import { LoginService } from './services/login.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [LoginService],
+  providers: [LoginService,AuthGuard,AuthLoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

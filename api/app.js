@@ -13,10 +13,11 @@ var mongoose = require("mongoose");
 var app = express();
 
 // Solved cross origin request problem
-app.use(cors())
+app.use(cors());
 
 // initializing DB connection
-var db = mongoose.connection;
+//var db = mongoose.connection;
+mongoose.connect("mongodb+srv://Admin:pUoDr1d77k7nc2Eo@ecotravels-xre1s.gcp.mongodb.net/ecotravels?retryWrites=true")
 
 app.use(logger("dev"));
 
@@ -34,10 +35,10 @@ app.use(
   session({
     secret: "work hard",
     resave: true,
-    saveUninitialized: false,
-    store: new MongoStore({
-      mongooseConnection: db
-    })
+    saveUninitialized: false
+    // ,store: new MongoStore({
+    //   mongooseConnection: db
+    // })
   })
 );
 
@@ -69,7 +70,6 @@ app.use("/qaforum",questionRouter);
 app.use(express.static('public/images'));
 
 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error("File Not Found");
@@ -83,4 +83,6 @@ app.use(function(err, req, res, next) {
   res.send(err.message);
 });
 
-module.exports = app;
+//module.exports = app;
+
+app.listen(3000,()=>console.log("CORS enabled server started at port 3000"));

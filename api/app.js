@@ -106,6 +106,6 @@ app.use(function(err, req, res, next) {
   res.send(err.message);
 });
 
-//module.exports = app;
+module.exports = app;
 
-app.listen(3000,()=>console.log("CORS enabled server started at port 3000"));
+// app.listen(3000,()=>console.log("CORS enabled server started at port 3000"));

@@ -21,5 +21,13 @@ export class DashboardComponent implements OnInit {
     }
      )
   }
+  ngAfterViewInit() {
+    // Start chart.js charts
+    var file=require('src/assets/demo/demo.js')
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      file.demo.initDashboardPageCharts();
+    });
+    }
 
 }

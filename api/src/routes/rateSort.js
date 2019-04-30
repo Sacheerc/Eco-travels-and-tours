@@ -1,12 +1,12 @@
 
 var express=require("express");
 var router=express.Router();
-var GetGuideController = require("../controllers/GetGuideController");
+var RateSortGuideController = require("../controllers/rateSortGuideController");
 
-var getGuideController=new GetGuideController();
+var rateSortGuideController=new RateSortGuideController();
 
 router.get("/", function(req,res,next){
-    getGuideController.GetGuides((err,docs) => {
+    rateSortGuideController.GetGuides((err,docs) => {
         if(err){
             return next(err);
         }else {

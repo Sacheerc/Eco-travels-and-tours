@@ -2,6 +2,21 @@
 
 <app-qaforum-header></app-qaforum-header>
 
-<app-qaforum-body></app-qaforum-body>
-
+<div id="colorlib-contact">
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-2">              
+                <button class="btn btn-primary" (click)="toggleOn()">Ask A Question</button>
+            </div>
+        
+            <div class="col-md-8">
+                    <input type="text"  class="form-control" placeholder="Search for a question">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary">Go</button>
+            </div>
+        </div>
+        <app-qaforum-body *ngIf="isOn"></app-qaforum-body>
+        <app-question-list *ngIf="!isOn"></app-question-list> 
+</div>
 <app-footer></app-footer>

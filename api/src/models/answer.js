@@ -8,6 +8,10 @@ var answerSchema = mongoose.Schema({
             ref:"User"
         },
         username:String
+    },
+    date:{
+        type:Date,
+        default:Date.now
     }
 });
 

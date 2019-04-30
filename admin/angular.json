@@ -25,7 +25,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": ["./src/assets/demo/demo.js"],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -82,7 +82,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": ["src/assets/demo/demo.js"],
             "assets": [
               "src/favicon.ico",
               "src/assets"

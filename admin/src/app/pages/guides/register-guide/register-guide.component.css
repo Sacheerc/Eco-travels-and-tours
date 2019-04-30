@@ -1,3 +1,10 @@
-.label:focus{
+
+
+.form-group label{
     color: black;
+    font-size: 17px;
+}
+
+.form-group input{
+    border-color: rgb(128, 124, 124);
 }

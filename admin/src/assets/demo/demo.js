@@ -1,3 +1,4 @@
+
 demo = {
   initPickColor: function() {
     $('.pick-class-label').click(function() {

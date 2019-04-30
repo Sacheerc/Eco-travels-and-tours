@@ -4,6 +4,7 @@ var GetGuide = require("../models/guide");
 function GetGuideController(){}
 
 GetGuideController.prototype.GetGuides = (callback) => {
+    
     GetGuide.find({}, function(err,docs){
         if(err || !docs){
             var err = new Error("not found. ");
@@ -13,8 +14,11 @@ GetGuideController.prototype.GetGuides = (callback) => {
             callback(null, docs);
         }
     }
-    );
+    )
+
+    GetGuide.findById
     
+
 
 }
 

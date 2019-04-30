@@ -1,30 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import {QuestionService} from '../../../../services/questions/question.service';
 
 @Component({
   selector: 'app-qaforum-body',
   templateUrl: './qaforum-body.component.html',
-  styleUrls: ['./qaforum-body.component.css']
+  styleUrls: ['./qaforum-body.component.css'],
+  providers:[QuestionService]
 })
 export class QaforumBodyComponent implements OnInit {
-  messageForm: FormGroup;
-  submitted = false;
-  success = false;
-
-  constructor(private formBuilder: FormBuilder) { }
+  
+  constructor(private questionService:QuestionService){}
   
   ngOnInit() {
-    this.messageForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      message: ['', Validators.required]
-    });
+    this.resetForm();
   }
-  onSubmit() {
-    this.submitted = true;
-
-    if (this.messageForm.invalid) {
-        return;
+  resetForm(form? : NgForm)
+  {
+    if(form)
+    form.reset();
+    this.questionService.selectedQuestion={
+      _id:"",
+      title:"",
+      description:"",
+      author:{_id:"",username:""},
+      answers:[],
+      date:null
     }
-    this.success = true;
-}
+  }
+
+  onSubmit(form:NgForm){
+    alert("success");
+    this.questionService.postQuestion(form.value).subscribe((res)=>{
+    });
+    this.resetForm(form);
+  }
 }

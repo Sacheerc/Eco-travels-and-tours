@@ -1,12 +1,12 @@
 
 var express=require("express");
 var router=express.Router();
-var GetGuideController = require("../controllers/GetGuideController");
+var TourSortGuideController = require("../controllers/tourSortGuideController");
 
-var getGuideController=new GetGuideController();
+var tourSortGuideController=new TourSortGuideController();
 
 router.get("/", function(req,res,next){
-    getGuideController.GetGuides((err,docs) => {
+    tourSortGuideController.GetGuides((err,docs) => {
         if(err){
             return next(err);
         }else {

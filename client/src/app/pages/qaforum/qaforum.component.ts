@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./qaforum.component.css']
 })
 export class QaforumComponent implements OnInit {
-
+  public isOn:boolean=false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  toggleOn(){
+    this.isOn= !this.isOn;
+  }
 }

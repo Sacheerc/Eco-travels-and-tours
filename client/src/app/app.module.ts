@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexMainNavComponent } from './shared/components/index-main-nav/index-main-nav.component';
@@ -46,6 +44,7 @@ import { TourPlacesSidebarComponent } from './pages/tour-places/components/tour-
 // Import services
 import { TourPackagesService } from './services/tours/tour-packages.service';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { QuestionListComponent } from './pages/qaforum/components/question-list/question-list.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +85,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     QaforumHeaderComponent,
     TourPlacesSidebarComponent,
     PageNotFoundComponent,
+    QuestionListComponent,
   ],
   imports: [
     BrowserModule,

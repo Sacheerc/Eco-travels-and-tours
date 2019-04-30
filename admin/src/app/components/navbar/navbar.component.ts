@@ -9,11 +9,12 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  currentuser:any;
   constructor(private loginService:LoginService,private router:Router) { }
 
   ngOnInit() {
-
+    // get user informations from browser storage
+    this.currentuser=JSON.parse(localStorage.getItem('user'));
   }
 
   

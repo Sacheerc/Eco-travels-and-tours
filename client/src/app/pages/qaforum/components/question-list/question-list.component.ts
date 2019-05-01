@@ -22,5 +22,10 @@ export class QuestionListComponent implements OnInit {
       this.questionService.questions=res as Question[];
     });
   }
+  onSubmit(form:NgForm){
+    alert("success");
+    this.questionService.postAnswer(form.value).subscribe((res)=>{
+    });
+  }
 
 }

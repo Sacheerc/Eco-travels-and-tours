@@ -4,6 +4,7 @@ import { Observable, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 import { Question } from '../../shared/models/question.model';
+import { Answer } from '../../shared/models/answer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,9 @@ export class QuestionService {
     return this.http.post(this.baseURL,qstn);
   }
 
+  postAnswer(ans: Answer){
+    return this.http.post(this.baseURL+'/${ans.questionID}',ans);
+  }
   getQuestionList(){
     return this.http.get(this.baseURL);
   }

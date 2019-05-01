@@ -71,8 +71,6 @@ var salarySort = require("./src/routes/salarySort");
 var tourSort = require("./src/routes/tourSort");
 var questionRouter = require("./src/routes/question");
 var dashBoard = require('./src/routes/dashboard')
-//var answerRouter = require("./src/routes/answer");
-
 
 
 // application routings

@@ -2,6 +2,7 @@ var express=require('express');
 var router=express.Router();
 
 var Question = require("../models/question");
+var Answer = require("../models/answer");
 
 router.get("/",(req,res)=>{
     Question.find((err,allQuestions)=>{
@@ -51,6 +52,37 @@ router.post("/",(req,res)=>{
         else
         {
             res.send("Question added");
+        }
+    });
+
+});
+router.post("/:id",(req,res)=>{
+    console.log(req.body);
+    console.log("req body");
+
+    Question.findById(req.params.id,(err,question)=>{
+        if(err) {
+            console.log(err);
+        }
+        else
+        {
+            var ans=new Answer({
+                text: req.body.text,
+                author:{
+                    // _id:req.user._id,
+                    // username:req.user.username
+                    _id:123456789,
+                    username: "tharushi"
+                }
+            });
+            ans.save();
+            question.answers.push(ans);
+            question.save(function(err){
+                if(err) console.log(err);
+                else
+                {
+                    res.send("Answer added to Question");
+                }});
         }
     });
 

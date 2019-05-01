@@ -15,14 +15,16 @@ const cookieSession =require('cookie-session');
 var app = express();
 
 // Solved cross origin request problem
+//app.use(cors());
 app.use(cors({
-  origin:['http://localhost:4200','http://127.0.0.1:4200'],
+  origin:['http://localhost:4200','http://127.0.0.1:4200','http://localhost:8080','http://127.0.0.1:8080'],
   credentials:true
 }
 ))
 
 // initializing DB connection
-var db = mongoose.connection;
+//var db = mongoose.connection;
+mongoose.connect("mongodb+srv://Admin:pUoDr1d77k7nc2Eo@ecotravels-xre1s.gcp.mongodb.net/ecotravels?retryWrites=true")
 
 app.use(logger("dev"));
 
@@ -34,6 +36,17 @@ app.use(cookieParser());
 // serve static files from template
 app.use(express.static(path.join(__dirname, "public")));
 
+// use sessions for tracking logins
+// app.use(
+//   session({
+//     secret: "work hard",
+//     resave: true,
+//     saveUninitialized: false
+//     // ,store: new MongoStore({
+//     //   mongooseConnection: db
+//     // })
+//   })
+// );
 // use cookie sessions for tracking logins
 app.use(cookieSession({
   maxAge:24*60*60*1000,
@@ -94,3 +107,5 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+// app.listen(3000,()=>console.log("CORS enabled server started at port 3000"));

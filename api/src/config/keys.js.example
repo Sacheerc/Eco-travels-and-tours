@@ -1,6 +1,7 @@
 // add this file to .gitIgnore
 
 module.exports = {
+    //Generate relevent keys and ids from your api service and paste them in current place
     google:{
         clientID:<Your-google-client-Id>,
         clientSecret:<Your-googl-client-Secret-key>

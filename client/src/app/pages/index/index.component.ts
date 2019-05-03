@@ -10,6 +10,7 @@ export class IndexComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+   
   }
   ngAfterViewInit() {
     require("src/assets/js/jquery.min.js");

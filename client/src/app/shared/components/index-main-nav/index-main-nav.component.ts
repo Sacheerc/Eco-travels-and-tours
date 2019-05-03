@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index-main-nav',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index-main-nav.component.css']
 })
 export class IndexMainNavComponent implements OnInit {
-
-  constructor() { }
+  currentuser:any;
+  constructor(private loginService:LoginService,private router:Router) { }
 
   ngOnInit() {
+    this.currentuser=JSON.parse(localStorage.getItem('user'))
+  }
+
+  public logout(){
+    this.loginService.logout().subscribe(async (result)=>{
+        localStorage.removeItem('user');
+        await this.router.navigate(['/'])
+        location.reload();
+      },
+      (err)=>{
+       console.log(err.error)
+      }
+     )
   }
 
 }

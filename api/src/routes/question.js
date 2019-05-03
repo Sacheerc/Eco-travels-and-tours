@@ -58,7 +58,7 @@ router.post("/:id",(req,res)=>{
         else
         {
             var ans=new Answer({
-                text: req.body.text,
+                text: req.body.answer,
                 author:{
                     // _id:req.user._id,
                     // username:req.user.username
@@ -106,11 +106,44 @@ router.get('/:id',(req,res)=>{
 //     });
 // });
 
-// router.delete('/:id',(req,res)=>{
-//     Question.findByIdAndRemove(req.params.id,(err,question)=>{
-//         if(!err){res.send(question);}
-//         else{console.log(err);}
-//     })
-// })
+router.delete('/answer/:id',(req,res)=>{
+    Answer.findByIdAndRemove(req.params.id,(err,deletedAnswer)=>{
+        if(err) 
+            {
+                console.log(err);
+            }else
+            {
+                res.send(deletedAnswer);
+            }
+    });
+});
+
+router.delete('/:id',(req,res)=>{
+
+    
+    Question.findById(req.params.id,(err,allQuestions)=>{
+            if(err) 
+            {
+                console.log(err);
+            }else
+            {
+                allQuestions.answers.forEach(element => {
+                    Answer.findByIdAndRemove(element,(err,ans)=>{
+                            if(!err)
+                            {
+                                console.log("answer removed");
+                            }
+                                });
+                });
+                Question.findByIdAndRemove(req.params.id,(err,quest)=>{
+                    if(!err){
+                        console.log("Question removed");
+                        res.send(quest);
+                    }
+                });
+            }
+    
+        });
+})
 
 module.exports=router;

@@ -45,6 +45,7 @@ passport.use(
         clientSecret:keys.google.clientSecret
     },(accessToken,refreshToken,profile,done)=>{
         // check existing users
+        console.log(profile)
         User.findOne({googleid:profile.id}).then((currentUser)=>{
             if(currentUser){
                 // already have the user

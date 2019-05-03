@@ -1,0 +1,15 @@
+// add this file to .gitIgnore
+
+module.exports = {
+    //Generate relevent keys and ids from your api service and paste them in current place
+    google:{
+        clientID:<Your-google-client-Id>,
+        clientSecret:<Your-googl-client-Secret-key>
+    },
+    session:{
+        cookieKey:<your-cookie-key> //Any key word you want to use
+    },
+    mongouri:{
+        uri:'mongodb+srv://Admin:pUoDr1d77k7nc2Eo@ecotravels-xre1s.gcp.mongodb.net/ecotravels?retryWrites=true'
+    }
+};

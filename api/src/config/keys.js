@@ -7,5 +7,8 @@ module.exports = {
     },
     session:{
         cookieKey:'ecotravel-key-2019'
+    },
+    mongouri:{
+        uri:'mongodb+srv://Admin:pUoDr1d77k7nc2Eo@ecotravels-xre1s.gcp.mongodb.net/ecotravels?retryWrites=true'
     }
 };

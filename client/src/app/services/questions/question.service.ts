@@ -10,6 +10,7 @@ import { Answer } from '../../shared/models/answer.model';
   providedIn: 'root'
 })
 export class QuestionService {
+  selectedAnswer: Answer;
   selectedQuestion: Question;
   questions: Question[];
 
@@ -18,13 +19,25 @@ export class QuestionService {
   constructor(private http:HttpClient) { }
 
   postQuestion(qstn: Question){
+    console.log(qstn);
     return this.http.post(this.baseURL,qstn);
   }
 
-  postAnswer(ans: Answer){
-    return this.http.post(this.baseURL+'/${ans.questionID}',ans);
+  postAnswer(id: String, answer: String){
+    return this.http.post(this.baseURL+"/"+id,answer);
   }
   getQuestionList(){
     return this.http.get(this.baseURL);
   }
+    
+  deleteQuestion(id:String)
+  {
+    return this.http.delete(this.baseURL+"/"+id);
+  }
+
+  deleteAnswer(id:String)
+  {
+    return this.http.delete(this.baseURL+"/answer/"+id);
+  }
+  
 }

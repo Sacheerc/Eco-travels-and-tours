@@ -4,3 +4,4 @@ admin/node_modules/**/*
 admin/package-lock.json
 api/node_modules/**/*
 api/package-lock.json
+api/src/config/keys.js

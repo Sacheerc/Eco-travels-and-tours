@@ -1,10 +1,11 @@
 // required modules
 var mongoose = require("mongoose");
+const keys =require('./keys')
 
 mongoose.set('useCreateIndex', true);
 
 // Build the connection string
-var dbURI ="mongodb+srv://Admin:pUoDr1d77k7nc2Eo@ecotravels-xre1s.gcp.mongodb.net/ecotravels?retryWrites=true";
+var dbURI =keys.mongouri.uri
 
 // Create the database connection
 mongoose.connect(dbURI,{ useNewUrlParser: true });

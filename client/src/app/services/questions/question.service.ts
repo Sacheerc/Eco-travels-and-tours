@@ -27,4 +27,6 @@ export class QuestionService {
   getQuestionList(){
     return this.http.get(this.baseURL);
   }
+    
+  
 }

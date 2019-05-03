@@ -43,6 +43,7 @@ import { TourPlacesSidebarComponent } from './pages/tour-places/components/tour-
 
 // Import services
 import { TourPackagesService } from './services/tours/tour-packages.service';
+import { LoginService } from './services/login/login.service'
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { QuestionListComponent } from './pages/qaforum/components/question-list/question-list.component';
 import { ProfileComponent } from './pages/profile/profile/profile.component';
@@ -95,7 +96,7 @@ import { ProfileComponent } from './pages/profile/profile/profile.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [TourPackagesService],
+  providers: [TourPackagesService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

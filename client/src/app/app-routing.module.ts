@@ -10,6 +10,7 @@ import { TourPlacesComponent } from './pages/tour-places/tour-places.component';
 import { QaforumComponent } from './pages/qaforum/qaforum.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ProfileComponent } from './pages/profile/profile/profile.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {path:"",component:IndexComponent},

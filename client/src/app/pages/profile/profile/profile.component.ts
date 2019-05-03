@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login/login.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-profile',
@@ -6,11 +9,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor() { }
+  currentuser:any;
+  constructor(private loginService:LoginService,private router:Router) { }
 
   ngOnInit() {
-    alert("hello")
+    this.loginService.getloginpage().subscribe((result)=>{
+      if(result){
+        localStorage.setItem('user',JSON.stringify(result))
+      }else{
+        localStorage.removeItem('user');
+        this.router.navigate(['/']);
+      }
+      },
+      (err)=>{
+       console.log(err.error)
+      }
+     )
+    // alert("hello")
   }
 
 }

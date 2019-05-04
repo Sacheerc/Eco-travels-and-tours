@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {TourPlacesComponent} from '../../tour-places.component'
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tour-places-sidebar',
@@ -7,11 +6,12 @@ import {TourPlacesComponent} from '../../tour-places.component'
   styleUrls: ['./tour-places-sidebar.component.css']
 })
 export class TourPlacesSidebarComponent implements OnInit {
-  package:any;
-  constructor(private tourplaces:TourPlacesComponent) { }
+
+  @Input() package:any
+
+  constructor() { }
 
   ngOnInit() {
-    this.package=this.tourplaces.getpackage();
   }
 
 }

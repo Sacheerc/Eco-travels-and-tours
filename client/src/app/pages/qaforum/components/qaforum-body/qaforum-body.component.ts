@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import {QuestionService} from '../../../../services/questions/question.service';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-qaforum-body',
@@ -12,7 +13,8 @@ import {QuestionService} from '../../../../services/questions/question.service';
 export class QaforumBodyComponent implements OnInit {
   
   constructor(private questionService:QuestionService){}
-  
+  @Output() toggleParent = new EventEmitter<string>();
+
   ngOnInit() {
     this.resetForm();
   }
@@ -35,5 +37,7 @@ export class QaforumBodyComponent implements OnInit {
     this.questionService.postQuestion(form.value).subscribe((res)=>{
     });
     this.resetForm(form);
+    this.toggleParent.next('ok');
   }
+  
 }

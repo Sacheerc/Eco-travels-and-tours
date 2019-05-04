@@ -1,8 +1,8 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import {QuestionService} from '../../../../services/questions/question.service';
-import { Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-qaforum-body',

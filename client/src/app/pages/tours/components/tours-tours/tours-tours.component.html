@@ -1,14 +1,16 @@
-
-<div class="col-md-9">
+<div class="col-md-12">
   <div class="row">
     <div *ngIf="packages.length>0" class="wrap-division">
-      <div *ngFor="let package of packages" class="col-md-6 col-sm-6 " >
+      <div *ngFor="let package of packages" class="col-md-4 col-sm-4">
         <div class="tour">
-          <a href="/tourplaces/{{package._id}}" class="tour-img" [ngStyle]="{'background-image':'url(http://localhost:3000/tourpackages/'+ package.coverimage + ')'}">
+          <a href="/tourplaces/{{package._id}}" class="tour-img"
+            [ngStyle]="{'background-image':'url(http://localhost:3000/tourpackages/'+ package.coverimage + ')'}">
             <p class="price"><span>{{package.price}} Lkr</span> <small>/ {{package.duration}}</small></p>
           </a>
           <span class="desc">
-            <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> {{package.reviews}} Reviews</p>
+            <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                  class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
+              {{package.reviews}} Reviews</p>
             <h2><a href="tour-place.html">{{package.package}}</a></h2>
             <span class="city">{{package.location}}</span>
           </span>

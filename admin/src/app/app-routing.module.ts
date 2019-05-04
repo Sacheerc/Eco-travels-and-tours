@@ -15,10 +15,10 @@ const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
   {path:"dashboard",component:DashboardComponent,canActivate:[AuthGuard]},
   {path:"login",component:LoginComponent,canActivate:[AuthLoginGuard]},
-  {path:"guides",component:GuidesComponent},
-  {path:"customers",component:CustomersComponent},
-  {path:"packages",component:PackagesComponent},
-  {path:"regGuide", component:RegisterGuideComponent}
+  {path:"guides",component:GuidesComponent,canActivate:[AuthGuard]},
+  {path:"customers",component:CustomersComponent,canActivate:[AuthGuard]},
+  {path:"packages",component:PackagesComponent,canActivate:[AuthGuard]},
+  {path:"regGuide", component:RegisterGuideComponent,canActivate:[AuthGuard]}
 
 ];
 

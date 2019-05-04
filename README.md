@@ -17,12 +17,12 @@ There are three efferent major applications for
  - Back end node express application
 
 > you have to configure  above application one by one separately. Follow the installation instructions.   
+# Config application
+- Rename "keys.js.example" file to keys.js in  api/src/config/
+- Open the keys.js file and replace relevant fields with your api-keys
 
 # Installation
 ***Preferred Editor : Visual Studio Code (You can use your own java script editor )***
-
- 
-
  - Clone the repository in to your local machine
  - Open the root directory(Eco-travels-and-tours) from Visual Studio Code.
  - Open three new terminals and type following commands

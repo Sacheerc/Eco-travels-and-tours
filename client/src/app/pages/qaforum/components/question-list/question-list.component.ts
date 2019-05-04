@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import {QuestionService} from '../../../../services/questions/question.service';
 import { Question } from '../../../../shared/models/question.model';
+import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
 @Component({
   selector: 'app-question-list',
   templateUrl: './question-list.component.html',
@@ -13,6 +15,10 @@ export class QuestionListComponent implements OnInit {
 
   constructor(private questionService:QuestionService){}
   
+  answerForm = new FormGroup({
+    answer:new FormControl('')
+  });
+  
   ngOnInit() {
     this.refreshQuestionList();
   }
@@ -20,6 +26,33 @@ export class QuestionListComponent implements OnInit {
   refreshQuestionList(){
     this.questionService.getQuestionList().subscribe((res)=>{
       this.questionService.questions=res as Question[];
+    });
+  }
+
+  onSubmit(id: string){
+ this.questionService.postAnswer(id, this.answerForm.value).subscribe((res)=>{
+  
+});
+    this.answerForm.controls['answer'].setValue('');
+    alert("Answer posted");
+    setTimeout(()=>{
+      this.refreshQuestionList();
+      
+    },400);
+    
+  }
+
+  onDelete(id:String)
+  {
+    this.questionService.deleteQuestion(id).subscribe((res)=>{
+      this.refreshQuestionList();
+    });
+  }
+
+  onAnswerDelete(id:String)
+  {
+    this.questionService.deleteAnswer(id).subscribe((res)=>{
+      this.refreshQuestionList();
     });
   }
 

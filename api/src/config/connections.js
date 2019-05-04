@@ -1,16 +1,19 @@
 // required modules
 var mongoose = require("mongoose");
+const keys =require('./keys')
+
+mongoose.set('useCreateIndex', true);
 
 // Build the connection string
-var dbURI ="mongodb+srv://Admin:pUoDr1d77k7nc2Eo@ecotravels-xre1s.gcp.mongodb.net/ecotravels?retryWrites=true";
+var dbURI =keys.mongouri.uri
 
 // Create the database connection
-mongoose.connect(dbURI);
+mongoose.connect(dbURI,{ useNewUrlParser: true });
 
 // CONNECTION EVENTS
 // When successfully connected
 mongoose.connection.on("connected", function() {
-  console.log("Mongoose default connection open to " + dbURI);
+  console.log("Connection succeeded: Connected to MongoDB eco_Travels ");
 });
 
 // If the connection throws an error

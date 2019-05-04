@@ -1,0 +1,24 @@
+
+.semi-transparent-button {
+    display: inline;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 8px;
+    border: 1px solid #fff;
+    width: 80%;
+    max-width: 200px;
+    background: #fff; /* fallback color for old browsers */background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-out;
+  }
+.semi-transparent-button:hover,
+.semi-transparent-button:focus,
+.semi-transparent-button:active {
+  background: rgba(255, 221, 0, 0.8);
+  color: white;
+  transition: all 0.5s ease-in;
+}

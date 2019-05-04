@@ -14,13 +14,15 @@
         </div>
         <div class="tab-content">
           <div id="tours" class="tab-pane fade in active">
-            <form method="post" class="colorlib-form">
+            <form [formGroup]="myForm" class="colorlib-form">
               <div class="row">
-                <div class="col-md-3">
+                <!-- <div class="col-md-3" style="color:white"> Find the most suitable tour package for you </div> -->
+                <div class="col-md-4">
                   <div class="form-group">
-                    <label for="date">Where:</label>
+                    <label for="location">Where</label>
                     <div class="form-field">
                       <input
+                        formControlName="where"
                         type="text"
                         id="location"
                         class="form-control"
@@ -29,7 +31,21 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="date">Price(LKR)</label>
+                      <div class="form-field">
+                        <input
+                          formControlName="price"
+                          type="text"
+                          id="price"
+                          class="form-control"
+                          placeholder="100000"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                <!-- <div class="col-md-2">
                   <div class="form-group">
                     <label for="date">Check-in:</label>
                     <div class="form-field">
@@ -56,14 +72,14 @@
                       />
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="guests">Guest</label>
                     <div class="form-field">
                       <i class="icon icon-arrow-down3"></i>
                       <select name="people" id="people" class="form-control">
-                        <option value="#">1</option>
+                        <option value="#" style="color:black">1</option>
                         <option value="#">2</option>
                         <option value="#">3</option>
                         <option value="#">4</option>
@@ -73,13 +89,12 @@
                   </div>
                 </div>
                 <div class="col-md-2">
-                  <input
-                    type="submit"
-                    name="submit"
-                    id="submit"
-                    value="Find Tours"
-                    class="btn btn-primary btn-block"
-                  />
+                  <a
+                    href="/tours/{{this.myForm.controls['where'].value+' '+this.myForm.controls['price'].value}}"
+                    class="btn btn-primary btn-block">
+                    Find Tours
+                  </a>
+                  
                 </div>
               </div>
             </form>

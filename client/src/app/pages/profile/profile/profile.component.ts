@@ -2,29 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-index-main-nav',
-  templateUrl: './index-main-nav.component.html',
-  styleUrls: ['./index-main-nav.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class IndexMainNavComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   currentuser:any;
   constructor(private loginService:LoginService,private router:Router) { }
 
   ngOnInit() {
-    this.currentuser=JSON.parse(localStorage.getItem('user'))
-  }
-
-  public logout(){
-    this.loginService.logout().subscribe(async (result)=>{
+    this.loginService.getloginpage().subscribe((result)=>{
+      if(result){
+        localStorage.setItem('user',JSON.stringify(result))
+      }else{
         localStorage.removeItem('user');
-        await this.router.navigate(['/'])
-        location.reload();
+        this.router.navigate(['/']);
+      }
       },
       (err)=>{
        console.log(err.error)
       }
      )
+    // alert("hello")
   }
 
 }

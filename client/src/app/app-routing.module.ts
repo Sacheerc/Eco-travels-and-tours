@@ -20,6 +20,7 @@ const routes: Routes = [
   {path:"about",component:AboutusComponent},
   {path:"contact",component:ContactComponent},
   {path:"tourplaces/:id",component:TourPlacesComponent},
+  {path:"tours/:id",component:ToursComponent},
   {path:"qaforum",component:QaforumComponent},
   {path:"profile",component:ProfileComponent},
   {path:"**",component:PageNotFoundComponent}

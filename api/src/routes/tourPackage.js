@@ -17,6 +17,7 @@ router.get("/", function(req, res, next) {
   });
 
   router.post("/findtourpackages", function(req, res, next) {
+    console.log(req.body)
     tourPackageController.findTourPackages(req.body.key,(err, docs) => {
         if (err) {
           return next(err);

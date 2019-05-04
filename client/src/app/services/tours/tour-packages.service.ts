@@ -10,6 +10,7 @@ const httpOptions = {
 };
 
 const urltourpackage=environment.appUrl+"/tourpackage";
+const urlfindtourpackages=environment.appUrl+"/tourpackage/findtourpackages"
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,22 @@ export class TourPackagesService {
   getpackages(){
     return this.http.get(urltourpackage);
   }
+
+  findtourpackage(data) {
+    return this.http.post(urlfindtourpackages, data, {
+      observe:'body',
+      withCredentials:true,
+      headers:new HttpHeaders().append('Content-Type','application/json')
+    })
+  }
+
+  setfilteredpackages(data:any){
+    this.packages=data;
+  }
+  getfileteredpackages(){
+    return this.packages;
+  }
+
 
 
 }

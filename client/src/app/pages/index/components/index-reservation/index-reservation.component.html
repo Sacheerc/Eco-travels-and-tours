@@ -14,14 +14,15 @@
         </div>
         <div class="tab-content">
           <div id="tours" class="tab-pane fade in active">
-            <form method="post" class="colorlib-form">
+            <form [formGroup]="myForm" class="colorlib-form">
               <div class="row">
                 <!-- <div class="col-md-3" style="color:white"> Find the most suitable tour package for you </div> -->
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="date">Where</label>
+                    <label for="location">Where</label>
                     <div class="form-field">
                       <input
+                        formControlName="where"
                         type="text"
                         id="location"
                         class="form-control"
@@ -35,6 +36,7 @@
                       <label for="date">Price(LKR)</label>
                       <div class="form-field">
                         <input
+                          formControlName="price"
                           type="text"
                           id="price"
                           class="form-control"
@@ -87,13 +89,12 @@
                   </div>
                 </div>
                 <div class="col-md-2">
-                  <input
-                    type="submit"
-                    name="submit"
-                    id="submit"
-                    value="Find Tours"
-                    class="btn btn-primary btn-block"
-                  />
+                  <a
+                    href="/tours/{{this.myForm.controls['where'].value+' '+this.myForm.controls['price'].value}}"
+                    class="btn btn-primary btn-block">
+                    Find Tours
+                  </a>
+                  
                 </div>
               </div>
             </form>

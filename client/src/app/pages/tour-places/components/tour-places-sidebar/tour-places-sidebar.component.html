@@ -9,7 +9,7 @@
                   <label for="date">Start Date:</label>
                   <div class="form-field">
                     <i class="icon icon-calendar2"></i>
-                    <input type="text" id="date" class="form-control date" placeholder="2019-05-01">
+                    <input type="text" id="date" class="form-control date" required placeholder="Select a Date">
                   </div>
                 </div>
               </div>
@@ -23,10 +23,10 @@
               </div>
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="guests">Maximum No of Guests</label>
+                  <label for="guests">Maximum No of Guests : {{package.maxguest}}</label>
                   <div class="form-field">
                     <div class="form-field">
-                      <input name="guests" id="guests" class="form-control" placeholder="12" disabled>
+                      <input type="number" name="guests" id="guests" class="form-control" required placeholder="--">
                     </div>
                   </div>
                 </div>
@@ -44,7 +44,7 @@
               </div>
 
               <div class="col-md-12">
-                <input type="submit" name="submit" id="submit" value="Reserve" class="btn btn-primary btn-block">
+                <button type="submit" name="submit" id="submit"  class="btn btn-primary btn-block">Check Availability</button>
               </div>
             </div>
           </form>

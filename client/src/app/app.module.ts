@@ -47,6 +47,7 @@ import { LoginService } from './services/login/login.service'
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { QuestionListComponent } from './pages/qaforum/components/question-list/question-list.component';
 import { ProfileComponent } from './pages/profile/profile/profile.component';
+import { ProfileBodyComponent } from './pages/profile/components/profile-body/profile-body.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,6 +89,7 @@ import { ProfileComponent } from './pages/profile/profile/profile.component';
     PageNotFoundComponent,
     QuestionListComponent,
     ProfileComponent,
+    ProfileBodyComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,8 @@ export class ProfileComponent implements OnInit {
   constructor(private loginService:LoginService,private router:Router) { }
 
   ngOnInit() {
-    this.loginService.getloginpage().subscribe((result)=>{
+    
+    this.loginService.getloginpage().subscribe(async (result)=>{
       if(result){
         localStorage.setItem('user',JSON.stringify(result))
       }else{

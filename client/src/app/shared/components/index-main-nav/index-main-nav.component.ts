@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
 
@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./index-main-nav.component.css']
 })
 export class IndexMainNavComponent implements OnInit {
+  @Input() isLoggedIn='false';
   currentuser:any;
+
   constructor(private loginService:LoginService,private router:Router) { }
 
   ngOnInit() {
@@ -18,7 +20,7 @@ export class IndexMainNavComponent implements OnInit {
   public logout(){
     this.loginService.logout().subscribe(async (result)=>{
         localStorage.removeItem('user');
-        await this.router.navigate(['/'])
+        this.router.navigate(['/'])
         location.reload();
       },
       (err)=>{

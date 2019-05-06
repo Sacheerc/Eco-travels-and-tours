@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,13 +10,15 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   currentuser:any;
-  constructor(private loginService:LoginService,private router:Router) { }
+  profilenavigator:any;
+  constructor(private loginService:LoginService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit() {
     
     this.loginService.getloginpage().subscribe(async (result)=>{
       if(result){
-        localStorage.setItem('user',JSON.stringify(result))
+        await localStorage.setItem('user',JSON.stringify(result))
+        this.currentuser=result;
       }else{
         localStorage.removeItem('user');
         this.router.navigate(['/']);
@@ -26,7 +28,12 @@ export class ProfileComponent implements OnInit {
        console.log(err.error)
       }
      )
-    // alert("hello")
+
+     this.route.paramMap.subscribe(param => {
+      this.profilenavigator = param.get('id'); 
+      // alert(this.profilenavigator) 
+    });
+    console.log(this.currentuser)
   }
 
 }

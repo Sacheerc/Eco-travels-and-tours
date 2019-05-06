@@ -46,8 +46,10 @@ import { TourPackagesService } from './services/tours/tour-packages.service';
 import { LoginService } from './services/login/login.service'
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { QuestionListComponent } from './pages/qaforum/components/question-list/question-list.component';
-import { ProfileComponent } from './pages/profile/profile/profile.component';
-import { ProfileBodyComponent } from './pages/profile/components/profile-body/profile-body.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileSidebarComponent } from './pages/profile/components/profile-sidebar/profile-sidebar.component';
+import { ProfileProfileComponent } from './pages/profile/components/profile-profile/profile-profile.component';
+import { ProfileReservationsComponent } from './pages/profile/components/profile-reservations/profile-reservations.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +91,9 @@ import { ProfileBodyComponent } from './pages/profile/components/profile-body/pr
     PageNotFoundComponent,
     QuestionListComponent,
     ProfileComponent,
-    ProfileBodyComponent,
+    ProfileSidebarComponent,
+    ProfileProfileComponent,
+    ProfileReservationsComponent,
   ],
   imports: [
     BrowserModule,

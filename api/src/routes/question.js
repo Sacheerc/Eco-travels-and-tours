@@ -25,8 +25,8 @@ router.get("/",(req,res)=>{
 });
 
 router.post("/",(req,res)=>{
-    console.log(req.body);
-    console.log("req body");
+    console.log(req.user);
+    console.log("req user");
     var qstn=new Question({
         title:req.body.title,
         description:req.body.description,
@@ -48,8 +48,8 @@ router.post("/",(req,res)=>{
 
 });
 router.post("/:id",(req,res)=>{
-    console.log(req.body);
-    console.log("req body");
+    console.log(req);
+    console.log("req user");
 
     Question.findById(req.params.id,(err,question)=>{
         if(err) {

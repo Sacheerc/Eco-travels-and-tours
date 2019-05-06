@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { FormControl } from '@angular/forms';
@@ -12,6 +12,8 @@ import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrie
   providers:[QuestionService]
 })
 export class QuestionListComponent implements OnInit {
+  @Input() isLoggedIn='false';
+  currentuser:any;
 
   constructor(private questionService:QuestionService){}
   
@@ -21,6 +23,7 @@ export class QuestionListComponent implements OnInit {
   
   ngOnInit() {
     this.refreshQuestionList();
+    this.currentuser=JSON.parse(localStorage.getItem('user'));
   }
 
   refreshQuestionList(){

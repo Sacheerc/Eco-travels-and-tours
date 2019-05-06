@@ -5,8 +5,10 @@
 <div id="colorlib-contact">
     <div class="container" >
         <div class="row">
-            <div class="col-md-2">              
-                <button class="btn btn-primary" (click)="toggleOn()">Ask A Question</button>
+            <div class="col-md-2" >              
+                <a href="http://localhost:3000/auth/google"><button *ngIf="!currentuser && isLoggedIn!='true'" class="btn btn-primary">Ask A Question</button></a>
+                <button  *ngIf="currentuser || isLoggedIn=='true'" class="btn btn-primary" (click)="toggleOn()">Ask A Question</button>
+                
             </div>
         
             <div class="col-md-8">

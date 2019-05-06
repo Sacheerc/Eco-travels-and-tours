@@ -44,9 +44,10 @@
         <hr>
         <form  [formGroup]="answerForm" (ngSubmit)="onSubmit(qstn._id)">
         <div class="col-md-10">
-      <input type="text" formControlName="answer"  class="form-control" placeholder="State your opinion">
-        </div>
-        <div class="col-md-1"><button class="btn btn-primary">Post</button>
+      <input *ngIf="!currentuser && isLoggedIn!='true'" type="text" formControlName="answer"  class="form-control" placeholder="State your opinion" disabled>
+      <input *ngIf="currentuser || isLoggedIn=='true'" type="text" formControlName="answer"  class="form-control" placeholder="State your opinion" required>
+         </div>
+        <div class="col-md-1"><button class="btn btn-primary" [disabled]="!answerForm.valid">Post</button>
         </div> 
         </form>    
       </div>

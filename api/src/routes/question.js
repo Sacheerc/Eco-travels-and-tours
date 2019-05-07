@@ -27,14 +27,13 @@ router.get("/",(req,res)=>{
 router.post("/",(req,res)=>{
     console.log(req.body);
     console.log("req body");
+    
     var qstn=new Question({
-        title:req.body.title,
-        description:req.body.description,
+        title:req.body[0].title,
+        description:req.body[0].description,
         author:{
-            // _id:req.user._id,
-            // username:req.user.username
-            _id:123456789,
-            username: "tharushi"
+            _id:req.body[1]._id,
+            username: req.body[1].username
         }
     });
 
@@ -58,12 +57,10 @@ router.post("/:id",(req,res)=>{
         else
         {
             var ans=new Answer({
-                text: req.body.answer,
+                text: req.body[0].answer,
                 author:{
-                    // _id:req.user._id,
-                    // username:req.user.username
-                    _id:123456789,
-                    username: "tharushi"
+                    _id:req.body[1]._id,
+                    username: req.body[1].username
                 }
             });
             ans.save();
@@ -76,6 +73,8 @@ router.post("/:id",(req,res)=>{
                 }});
         }
     });
+    
+    
 
 });
 

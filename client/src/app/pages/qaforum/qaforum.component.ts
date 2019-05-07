@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-qaforum',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QaforumComponent implements OnInit {
   public isOn:boolean=false;
+  @Input() isLoggedIn='false';
+  currentuser:any;
+
   constructor() { }
 
   ngOnInit() {
+    this.currentuser=JSON.parse(localStorage.getItem('user'))
   }
 
   toggleOn(){

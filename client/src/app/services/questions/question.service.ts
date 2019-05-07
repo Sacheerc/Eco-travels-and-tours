@@ -18,13 +18,12 @@ export class QuestionService {
 
   constructor(private http:HttpClient) { }
 
-  postQuestion(qstn: Question){
-    console.log(qstn);
-    return this.http.post(this.baseURL,qstn);
+  postQuestion(qstn: Question, currentuser:any){
+    return this.http.post(this.baseURL,[qstn,currentuser]);
   }
 
-  postAnswer(id: String, answer: String){
-    return this.http.post(this.baseURL+"/"+id,answer);
+  postAnswer(id: String, answer: String, currentuser:any){
+    return this.http.post(this.baseURL+"/"+id,[answer,currentuser]);
   }
   getQuestionList(){
     return this.http.get(this.baseURL);

@@ -53,7 +53,8 @@ var rateSort = require("./src/routes/rateSort");
 var salarySort = require("./src/routes/salarySort");
 var tourSort = require("./src/routes/tourSort");
 var questionRouter = require("./src/routes/question");
-var dashBoard = require('./src/routes/dashboard')
+var dashBoard = require('./src/routes/dashboard');
+var reservationRoutes = require('./src/routes/reservation');
 
 
 // application routings
@@ -68,6 +69,7 @@ app.use("/salarysort", salarySort);
 app.use("/toursort", tourSort);
 app.use("/getguide", getGuides); 
 app.use("/qaforum",questionRouter);
+app.use("/reservation",reservationRoutes);
 
 
 // Config image url path

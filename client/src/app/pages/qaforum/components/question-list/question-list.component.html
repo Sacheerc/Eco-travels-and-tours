@@ -17,7 +17,7 @@
       {{qstn.description}}
     </h5></a>
     <div class="row" style="float:right; padding-right: 7%">
-      <a class="btn btn-primary btn-sm" (click)="onDelete(qstn._id)"> Delete 
+      <a *ngIf="currentuser && qstn.author.username==currentuser.username" class="btn btn-primary btn-sm" (click)="onDelete(qstn._id)"> Delete 
           </a>
       </div>
     <hr class="style14">
@@ -34,8 +34,8 @@
           <div class="col-md-2">
             {{ans.date| date:"MMM d, y h:mm a"}}
           </div>
-          <div class="col-md-2">
-              <a class="btn btn-primary btn-sm" (click)="onAnswerDelete(ans._id)"> Delete 
+          <div class="col-md-2"> 
+              <a *ngIf="currentuser && ans.author.username==currentuser.username" class="btn btn-primary btn-sm" (click)="onAnswerDelete(ans._id)"> Delete 
                 </a>
             </div>
             
@@ -44,10 +44,9 @@
         <hr>
         <form  [formGroup]="answerForm" (ngSubmit)="onSubmit(qstn._id)">
         <div class="col-md-10">
-      <input *ngIf="!currentuser && isLoggedIn!='true'" type="text" formControlName="answer"  class="form-control" placeholder="State your opinion" disabled>
       <input *ngIf="currentuser || isLoggedIn=='true'" type="text" formControlName="answer"  class="form-control" placeholder="State your opinion" required>
          </div>
-        <div class="col-md-1"><button class="btn btn-primary" [disabled]="!answerForm.valid">Post</button>
+        <div class="col-md-1"><button *ngIf="currentuser || isLoggedIn=='true'" class="btn btn-primary" [disabled]="!answerForm.valid">Post</button>
         </div> 
         </form>    
       </div>

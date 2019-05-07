@@ -33,7 +33,7 @@ export class QuestionListComponent implements OnInit {
   }
 
   onSubmit(id: string){
- this.questionService.postAnswer(id, this.answerForm.value).subscribe((res)=>{
+ this.questionService.postAnswer(id, this.answerForm.value,this.currentuser).subscribe((res)=>{
   
 });
     this.answerForm.controls['answer'].setValue('');

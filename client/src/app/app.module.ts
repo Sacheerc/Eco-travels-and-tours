@@ -55,6 +55,8 @@ import { ProfileProfileComponent } from './pages/profile/components/profile-prof
 import { ProfileReservationsComponent } from './pages/profile/components/profile-reservations/profile-reservations.component';
 import { ReservationsService } from './services/reservations/reservations.service';
 import { AvailableDialogComponent } from './pages/tour-places/components/available-dialog/available-dialog.component';
+import { PopupModalsService } from './services/popup-modals/popup-modals.service';
+import { UnavailableDialogComponent } from './pages/tour-places/components/unavailable-dialog/unavailable-dialog.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +103,7 @@ import { AvailableDialogComponent } from './pages/tour-places/components/availab
     ProfileProfileComponent,
     ProfileReservationsComponent,
     AvailableDialogComponent,
+    UnavailableDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,9 +116,15 @@ import { AvailableDialogComponent } from './pages/tour-places/components/availab
     BrowserAnimationsModule
   ],
   entryComponents: [
-    AvailableDialogComponent
+    AvailableDialogComponent,
+    UnavailableDialogComponent,
    ],
-  providers: [TourPackagesService,LoginService,ReservationsService],
+  providers: [
+    TourPackagesService,
+    LoginService,
+    ReservationsService,
+    PopupModalsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

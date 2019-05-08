@@ -50,6 +50,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileSidebarComponent } from './pages/profile/components/profile-sidebar/profile-sidebar.component';
 import { ProfileProfileComponent } from './pages/profile/components/profile-profile/profile-profile.component';
 import { ProfileReservationsComponent } from './pages/profile/components/profile-reservations/profile-reservations.component';
+import { ReservationsService } from './services/reservations/reservations.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,7 +104,7 @@ import { ProfileReservationsComponent } from './pages/profile/components/profile
     FormsModule,
     HttpClientModule,
   ],
-  providers: [TourPackagesService,LoginService],
+  providers: [TourPackagesService,LoginService,ReservationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

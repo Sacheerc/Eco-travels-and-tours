@@ -29,7 +29,7 @@ router.post("/reserve", function(req, res, next) {
 });
 
 router.post("/check", function(req, res, next) {
-    reservationController.getReservations(req.body.date,(err, docs) => {
+    reservationController.getReservations(req.body,(err, docs) => {
         if (err) {
           return next(err);
         } else {

@@ -9,26 +9,32 @@ ReservationController.prototype.reserve = function(reservationData, callback) {
     .catch(err => callback(err));
 };
 
-ReservationController.prototype.getReservations = (date,callback)=>{
-    var enddate=new Date(date);
-    enddate.setDate(enddate.getDate()+2)
-    console.log(enddate)
-    Reservation.find({
-        tourdate: {
-            $gte: date,
-            $lt: enddate
-        }
-    }, function (err, docs) {
-        if (err || !docs) {
-            var err = new Error("Sorry.");
-            err.status = 401;
-            callback(err);
-          } else {
-           
-            callback(null, docs);
+// check tour availability
+ReservationController.prototype.getReservations = (body, callback) => {
+  var enddate = new Date(body.date);
+  enddate.setDate(enddate.getDate() + body.duration);
+  Reservation.find(
+    {
+      $and: [
+        {
+          tourdate: {
+            $gte: body.date,
+            $lte: enddate
           }
-    });
-}
-
+        },
+        { packageid: body.packageid }
+      ]
+    },
+    function(err, docs) {
+      if (err || !docs) {
+        var err = new Error("Sorry.");
+        err.status = 401;
+        callback(err);
+      } else {
+        callback(null, docs);
+      }
+    }
+  );
+};
 
 module.exports = ReservationController;

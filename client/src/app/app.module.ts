@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
+import { MatDialogModule, MatButtonModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexMainNavComponent } from './shared/components/index-main-nav/index-main-nav.component';
@@ -51,6 +54,7 @@ import { ProfileSidebarComponent } from './pages/profile/components/profile-side
 import { ProfileProfileComponent } from './pages/profile/components/profile-profile/profile-profile.component';
 import { ProfileReservationsComponent } from './pages/profile/components/profile-reservations/profile-reservations.component';
 import { ReservationsService } from './services/reservations/reservations.service';
+import { AvailableDialogComponent } from './pages/tour-places/components/available-dialog/available-dialog.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +100,7 @@ import { ReservationsService } from './services/reservations/reservations.servic
     ProfileSidebarComponent,
     ProfileProfileComponent,
     ProfileReservationsComponent,
+    AvailableDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,7 +108,13 @@ import { ReservationsService } from './services/reservations/reservations.servic
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    MatDialogModule,
+    MatButtonModule,
+    BrowserAnimationsModule
   ],
+  entryComponents: [
+    AvailableDialogComponent
+   ],
   providers: [TourPackagesService,LoginService,ReservationsService],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ReactiveFormsModule,FormGroup, FormBuilder } from '@angular/forms';
-import { ReservationsService } from '../../../../services/reservations/reservations.service'
+import { ReservationsService } from '../../../../services/reservations/reservations.service';
 
 @Component({
   selector: 'app-tour-places-sidebar',

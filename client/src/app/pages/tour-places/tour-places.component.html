@@ -1,5 +1,6 @@
 <!-- import main navigation component -->
 <app-index-main-nav></app-index-main-nav>
+
 <!-- Destinations -->
 <aside id="colorlib-hero">
     <div class="flexslider">
@@ -20,6 +21,8 @@
         </ul>
       </div>
   </aside>
+
+  
 
   <div class="colorlib-wrap">
     <div class="container">
@@ -49,7 +52,8 @@
                     </div>
                   </div>
                   <div class="col-md-12 animate-box text-center">
-                    <p><a href="#" class="btn btn-primary">Book Now!</a></p>
+                    <button  class="btn btn-primary" (click)='openModal()'>Book Now!</button>
+                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open Large Modal</button> -->
                   </div>
                 </div>
               </div>

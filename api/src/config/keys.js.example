@@ -10,6 +10,6 @@ module.exports = {
         cookieKey:<your-cookie-key> //Any key word you want to use
     },
     mongouri:{
-        uri:'mongodb+srv://Admin:pUoDr1d77k7nc2Eo@ecotravels-xre1s.gcp.mongodb.net/ecotravels?retryWrites=true'
+        uri:<your-project-mongo-connection-string>
     }
 };

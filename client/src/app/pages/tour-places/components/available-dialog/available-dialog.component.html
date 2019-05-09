@@ -1,0 +1,19 @@
+<h2 mat-dialog-title class="text-success text-center">{{modalTitle}}</h2>
+<hr>
+<mat-dialog-content class="text-danger">*Do you wish to reserve this package with following details</mat-dialog-content>
+<mat-dialog-content>
+    <br>
+    <div class="topic">Tour package Name:</div>
+    <input type="text" class="form-control details text-dark" placeholder="Sri Lanka Ancient City" readonly>
+    <div class="topic">Reserved Date:</div>
+    <input type="text" class="form-control details text-dark" placeholder="Sri Lanka Ancient City" readonly>
+    <div class="topic">No of Guests:</div>
+    <input type="text" class="form-control details text-dark" placeholder="Sri Lanka Ancient City" readonly>
+    <div class="topic">Total Price:</div>
+    <input type="text" class="form-control details text-dark" placeholder="Sri Lanka Ancient City" readonly>
+</mat-dialog-content>
+<hr>
+<mat-dialog-actions>
+ <button mat-button mat-dialog-close class="btn-sm btn-danger">Close</button>
+ <a href="/tours" mat-button mat-dialog-close class="btn-sm btn-primary" style="float:right">Reserve Now</a>
+</mat-dialog-actions>

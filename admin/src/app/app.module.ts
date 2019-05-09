@@ -18,6 +18,7 @@ import { PackagesComponent } from './pages/packages/packages.component';
 import { LoginService } from './services/login.service';
 import { AuthGuard } from './guard/auth.guard';
 import { AuthLoginGuard } from './guard/auth-login.guard';
+import { ReservationsComponent } from './pages/reservations/reservations.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AuthLoginGuard } from './guard/auth-login.guard';
     GuidesComponent,
     RegisterGuideComponent,
     CustomersComponent,
-    PackagesComponent
+    PackagesComponent,
+    ReservationsComponent
 
   ],
   imports: [

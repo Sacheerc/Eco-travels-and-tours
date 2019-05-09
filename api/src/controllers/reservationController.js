@@ -37,4 +37,19 @@ ReservationController.prototype.getReservations = (body, callback) => {
   );
 };
 
+// get all reservations
+ReservationController.prototype.getAllReservations = (callback) => {
+  Reservation.find({},
+    function(err, docs) {
+      if (err || !docs) {
+        var err = new Error("Sorry.");
+        err.status = 401;
+        callback(err);
+      } else {
+        callback(null, docs);
+      }
+    }
+  );
+};
+
 module.exports = ReservationController;

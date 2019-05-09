@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from 'src/app/services/dashboard-service/dashboard.service';
 
-// config external demo.js file
+// only for avoid undefined key word error.
 declare var demo: any;
 
 @Component({

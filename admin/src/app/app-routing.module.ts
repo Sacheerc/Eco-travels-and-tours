@@ -9,6 +9,7 @@ import { RegisterGuideComponent } from './pages/guides/register-guide/register-g
 import { enableDebugTools } from '@angular/platform-browser';
 import { AuthGuard } from './guard/auth.guard';
 import { AuthLoginGuard } from './guard/auth-login.guard';
+import { ReservationsComponent } from './pages/reservations/reservations.component'
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path:"guides",component:GuidesComponent,canActivate:[AuthGuard]},
   {path:"customers",component:CustomersComponent,canActivate:[AuthGuard]},
   {path:"packages",component:PackagesComponent,canActivate:[AuthGuard]},
-  {path:"regGuide", component:RegisterGuideComponent,canActivate:[AuthGuard]}
+  {path:"regGuide", component:RegisterGuideComponent,canActivate:[AuthGuard]},
+  {path:"reservations", component:ReservationsComponent,canActivate:[AuthGuard]},
 
 ];
 

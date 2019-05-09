@@ -31,9 +31,20 @@ router.post("/reserve", function(req, res, next) {
   }
 });
 
-// route for check tour package availabiliti
+// route for check tour package availability
 router.post("/check", function(req, res, next) {
   reservationController.getReservations(req.body, (err, docs) => {
+    if (err) {
+      return next(err);
+    } else {
+      res.json(docs);
+    }
+  });
+});
+
+// route for check guides availability
+router.post("/checkguides", function(req, res, next) {
+  reservationController.getAvailableGuides(req.body, (err, docs) => {
     if (err) {
       return next(err);
     } else {

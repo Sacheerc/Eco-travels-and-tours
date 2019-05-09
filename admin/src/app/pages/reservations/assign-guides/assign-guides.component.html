@@ -10,10 +10,16 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h5 class="card-category">Reservations</h5>
+              <h5 class="card-category">Assign Guides</h5>
               <div class="row">
-                <div class="col-md-6">
-                  <h4 class="card-title">Upcoming Tours</h4>
+                <div class="col-md-12">
+                  <h4 class="card-title">
+                    {{ reservedpackage.packagename }} on
+                    {{
+                      stringAsDate(reservedpackage.tourdate)
+                        | date: "dd/MM/yyyy"
+                    }}
+                  </h4>
                 </div>
                 <!-- <div class="col-md-6">
                   Sort by
@@ -24,50 +30,51 @@
               </div>
             </div>
             <div class="card-body">
+              <h5 class="card-category">Available guides for this tour</h5>
               <!-- <div class="col-md-4">
                 <a class="btn btn-success" routerLink="/regGuide">Add Guide</a>
               </div> -->
               <div class="table-responsive">
-                <table class="table text-center">
+                <table class="table">
                   <thead class=" text-primary">
                     <th>
-                      Tour Dates
+                      Name
                     </th>
                     <th>
-                      Package Name
+                      Image
                     </th>
                     <th>
-                      Client Name
+                      Rating
                     </th>
                     <th>
-                      No of Guests
+                      Tour Count
                     </th>
                     <th>
                       Contact
                     </th>
                     <th>
-                      Tour Guide
+                      Salary
                     </th>
                   </thead>
-                  <tbody *ngIf="reservations">
-                    <tr *ngFor="let reservation of reservations">
+                  <tbody *ngIf="guides">
+                    <tr *ngFor="let guide of filteredguides">
                       <td>
-                        {{ stringAsDate(reservation.tourdate) | date:'dd/MM/yyyy'  }}
-                      </td>
-                      <td style="max-width:10px">
-                        {{ reservation.packagename }}
-                      </td>
-                      <td style="max-width:20px">
-                        {{ reservation.clientname }}
-                      </td>
-                      <td class="text-center">
-                        {{ reservation.guestcount }}
+                        {{ guide.name }}
                       </td>
                       <td>
-                        {{ reservation.contact }}
+                        url
                       </td>
                       <td>
-                        <a routerLink="/reservations/{{reservation._id}}" class="btn btn-primary text-light">{{ reservation.guidename }}</a>
+                        {{ guide.rate }}
+                      </td>
+                      <td>
+                        {{ guide.tourcount }}
+                      </td>
+                      <td>
+                        {{ guide.phonenumber }}
+                      </td>
+                      <td>
+                        {{ guide.salary }}
                       </td>
                     </tr>
                   </tbody>

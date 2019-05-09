@@ -13,12 +13,16 @@ import { RegisterGuideComponent } from './pages/guides/register-guide/register-g
 import { GuidesComponent } from './pages/guides/guides.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { PackagesComponent } from './pages/packages/packages.component';
+import { ReservationsComponent } from './pages/reservations/reservations.component';
+import { AssignGuidesComponent } from './pages/reservations/assign-guides/assign-guides.component';
+
 
 // Import services
 import { LoginService } from './services/login.service';
 import { AuthGuard } from './guard/auth.guard';
 import { AuthLoginGuard } from './guard/auth-login.guard';
-import { ReservationsComponent } from './pages/reservations/reservations.component';
+import { ReservationsService } from './services/reservation-service/reservations.service';
+
 
 
 @NgModule({
@@ -32,7 +36,8 @@ import { ReservationsComponent } from './pages/reservations/reservations.compone
     RegisterGuideComponent,
     CustomersComponent,
     PackagesComponent,
-    ReservationsComponent
+    ReservationsComponent,
+    AssignGuidesComponent
 
   ],
   imports: [
@@ -41,7 +46,7 @@ import { ReservationsComponent } from './pages/reservations/reservations.compone
     HttpClientModule,
     FormsModule
   ],
-  providers: [LoginService,AuthGuard,AuthLoginGuard],
+  providers: [LoginService, AuthGuard, AuthLoginGuard, ReservationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

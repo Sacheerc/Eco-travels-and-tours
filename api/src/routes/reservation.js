@@ -64,4 +64,16 @@ router.get("/reservations", function(req, res, next) {
   });
 });
 
+// route for assign tourguides for reservations
+router.post("/assignguides",(req,res,next)=>{
+  reservationController.assignTourGuides(req.body, (err, result) => {
+    if (err) {
+      return next(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+
 module.exports = router;

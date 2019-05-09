@@ -22,6 +22,8 @@ var reservationSchema = new mongoose.Schema({
         type:String,
         default:"Not Assigned"
     },
+    guestcount:Number,
+    duration:Number
 
 });
 

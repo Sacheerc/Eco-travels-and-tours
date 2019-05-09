@@ -1,4 +1,5 @@
 var Reservation = require("../models/reservation");
+var Guide = require("../models/guide");
 
 function ReservationController() {}
 
@@ -12,8 +13,8 @@ ReservationController.prototype.reserve = function(reservationData, callback) {
 // check tour availability
 ReservationController.prototype.getReservations = (body, callback) => {
   var enddate = new Date(body.date);
-  var date=new Date(body.date);
-  date.setDate(date.getDate()- body.duration)
+  var date = new Date(body.date);
+  date.setDate(date.getDate() - body.duration);
   enddate.setDate(enddate.getDate() + body.duration);
   Reservation.find(
     {
@@ -42,8 +43,8 @@ ReservationController.prototype.getReservations = (body, callback) => {
 // get available tour guides
 ReservationController.prototype.getAvailableGuides = (body, callback) => {
   var enddate = new Date(body.date);
-  var date=new Date(body.date);
-  date.setDate(date.getDate()- body.duration)
+  var date = new Date(body.date);
+  date.setDate(date.getDate() - body.duration);
   enddate.setDate(enddate.getDate() + body.duration);
   Reservation.find(
     {
@@ -76,6 +77,21 @@ ReservationController.prototype.getAllReservations = callback => {
       callback(null, docs);
     }
   }).sort(tourdate);
+};
+
+// Assign tour guides
+ReservationController.prototype.assignTourGuides = (body, callback) => {
+  const reservation = Reservation.updateOne(
+    { _id: body.reservationid },
+    { $set: { guidename: body.guidename } }
+  );
+  const guide = Guide.updateOne(
+    { _id: body.guideid },
+    { $set: { tourcount: body.tourcount } }
+  );
+  Promise.all([reservation, guide])
+    .then(result => callback(null, result))
+    .catch(err => callback(err));
 };
 
 module.exports = ReservationController;

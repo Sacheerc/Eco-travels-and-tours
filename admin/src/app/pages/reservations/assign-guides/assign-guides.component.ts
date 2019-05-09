@@ -26,7 +26,6 @@ export class AssignGuidesComponent implements OnInit {
         allguides.push(result[i].name)
       }
       this.allguides = allguides;
-
     },
       (err) => {
         console.log(err.error)
@@ -69,6 +68,10 @@ export class AssignGuidesComponent implements OnInit {
 
   stringAsDate(dateStr: string) {
     return new Date(dateStr);
+  }
+
+  assignGuides(guide,reservationId){
+    alert(guide.name+reservationId+guide._Id)
   }
 
 }

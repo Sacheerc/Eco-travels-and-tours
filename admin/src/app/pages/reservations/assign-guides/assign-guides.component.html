@@ -35,7 +35,7 @@
                 <a class="btn btn-success" routerLink="/regGuide">Add Guide</a>
               </div> -->
               <div class="table-responsive">
-                <table class="table">
+                <table class="table text-center">
                   <thead class=" text-primary">
                     <th>
                       Name
@@ -58,7 +58,7 @@
                   </thead>
                   <tbody *ngIf="guides">
                     <tr *ngFor="let guide of filteredguides">
-                      <td>
+                      <td class="text-left">
                         {{ guide.name }}
                       </td>
                       <td>
@@ -74,7 +74,7 @@
                         {{ guide.phonenumber }}
                       </td>
                       <td>
-                        {{ guide.salary }}
+                          <button class="btn btn-primary" (click)="assignGuides(guide,reservedpackage._id,guide._id)">Assign</button>
                       </td>
                     </tr>
                   </tbody>

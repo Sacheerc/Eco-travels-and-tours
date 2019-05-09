@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import {QuestionService} from '../../../../services/questions/question.service';
@@ -14,9 +14,12 @@ export class QaforumBodyComponent implements OnInit {
   
   constructor(private questionService:QuestionService){}
   @Output() toggleParent = new EventEmitter<string>();
-
+  @Input() isLoggedIn='false';
+  currentuser:any;
+  
   ngOnInit() {
     this.resetForm();
+    this.currentuser=JSON.parse(localStorage.getItem('user'));
   }
   resetForm(form? : NgForm)
   {
@@ -34,7 +37,8 @@ export class QaforumBodyComponent implements OnInit {
 
   onSubmit(form:NgForm){
     alert("success");
-    this.questionService.postQuestion(form.value).subscribe((res)=>{
+    console.log(this.currentuser);
+    this.questionService.postQuestion(form.value,this.currentuser).subscribe((res)=>{
     });
     this.resetForm(form);
     this.toggleParent.next('ok');

@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
+import { MatDialogModule, MatButtonModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexMainNavComponent } from './shared/components/index-main-nav/index-main-nav.component';
@@ -46,7 +49,15 @@ import { TourPackagesService } from './services/tours/tour-packages.service';
 import { LoginService } from './services/login/login.service'
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { QuestionListComponent } from './pages/qaforum/components/question-list/question-list.component';
-import { ProfileComponent } from './pages/profile/profile/profile.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileSidebarComponent } from './pages/profile/components/profile-sidebar/profile-sidebar.component';
+import { ProfileProfileComponent } from './pages/profile/components/profile-profile/profile-profile.component';
+import { ProfileReservationsComponent } from './pages/profile/components/profile-reservations/profile-reservations.component';
+import { ReservationsService } from './services/reservations/reservations.service';
+import { AvailableDialogComponent } from './pages/tour-places/components/available-dialog/available-dialog.component';
+import { PopupModalsService } from './services/popup-modals/popup-modals.service';
+import { UnavailableDialogComponent } from './pages/tour-places/components/unavailable-dialog/unavailable-dialog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,6 +99,11 @@ import { ProfileComponent } from './pages/profile/profile/profile.component';
     PageNotFoundComponent,
     QuestionListComponent,
     ProfileComponent,
+    ProfileSidebarComponent,
+    ProfileProfileComponent,
+    ProfileReservationsComponent,
+    AvailableDialogComponent,
+    UnavailableDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,8 +111,20 @@ import { ProfileComponent } from './pages/profile/profile/profile.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    MatDialogModule,
+    MatButtonModule,
+    BrowserAnimationsModule
   ],
-  providers: [TourPackagesService,LoginService],
+  entryComponents: [
+    AvailableDialogComponent,
+    UnavailableDialogComponent,
+   ],
+  providers: [
+    TourPackagesService,
+    LoginService,
+    ReservationsService,
+    PopupModalsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,14 +2,14 @@
   <div class="sidebar-wrap">
     <div class="side search-wrap animate-box">
       <h3 class="sidebar-heading">Tour Details</h3>
-      <form method="post" class="colorlib-form">
+      <form [formGroup]="myForm" class="colorlib-form">
               <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="date">Start Date:</label>
                   <div class="form-field">
                     <i class="icon icon-calendar2"></i>
-                    <input type="text" id="date" class="form-control date" placeholder="2019-05-01">
+                    <input type="date" id="date" formControlName="date" class="form-control" required placeholder="Select a Date">
                   </div>
                 </div>
               </div>
@@ -17,16 +17,16 @@
                 <div class="form-group">
                   <label for="guests">Duration</label>
                   <div class="form-field">
-                    <input name="duration" id="duration" class="form-control" placeholder="{{package.duration}} (fixed)" disabled>
+                    <input name="duration" id="duration" class="form-control" placeholder="{{package.duration}} Days (fixed)" disabled>
                   </div>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="guests">Maximum No of Guests</label>
+                  <label for="guests">Maximum No of Guests : {{package.maxguest}}</label>
                   <div class="form-field">
                     <div class="form-field">
-                      <input name="guests" id="guests" class="form-control" placeholder="12" disabled>
+                      <input type="number" formControlName="guestcount" placeholder="0" id="guests" class="form-control" required>
                     </div>
                   </div>
                 </div>
@@ -44,7 +44,7 @@
               </div>
 
               <div class="col-md-12">
-                <input type="submit" name="submit" id="submit" value="Reserve" class="btn btn-primary btn-block">
+                <button type="button" (click)="checkavailability()" name="submit" id="submit"  class="btn btn-primary btn-block">Check Availability</button>
               </div>
             </div>
           </form>

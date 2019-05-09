@@ -39,6 +39,7 @@ ReservationController.prototype.getReservations = (body, callback) => {
 
 // get all reservations
 ReservationController.prototype.getAllReservations = (callback) => {
+  var tourdate = {tourdate:1};
   Reservation.find({},
     function(err, docs) {
       if (err || !docs) {
@@ -49,7 +50,7 @@ ReservationController.prototype.getAllReservations = (callback) => {
         callback(null, docs);
       }
     }
-  );
+  ).sort(tourdate);
 };
 
 module.exports = ReservationController;

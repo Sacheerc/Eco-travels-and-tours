@@ -21,5 +21,8 @@ export class ReservationsComponent implements OnInit {
       }
      )
   }
+  stringAsDate(dateStr: string) {
+    return new Date(dateStr);
+  }
 
 }

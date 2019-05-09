@@ -28,7 +28,7 @@
                 <a class="btn btn-success" routerLink="/regGuide">Add Guide</a>
               </div> -->
               <div class="table-responsive">
-                <table class="table">
+                <table class="table text-center">
                   <thead class=" text-primary">
                     <th>
                       Tour Dates
@@ -52,15 +52,15 @@
                   <tbody *ngIf="reservations">
                     <tr *ngFor="let reservation of reservations">
                       <td>
-                        {{ reservation.tourdate }}
+                        {{ stringAsDate(reservation.tourdate) | date:'dd/MM/yyyy'  }}
                       </td>
-                      <td>
+                      <td style="max-width:10px">
                         {{ reservation.packagename }}
                       </td>
-                      <td>
+                      <td style="max-width:20px">
                         {{ reservation.clientname }}
                       </td>
-                      <td>
+                      <td class="text-center">
                         {{ reservation.guestcount }}
                       </td>
                       <td>

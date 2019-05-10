@@ -67,10 +67,10 @@
                         {{ reservation.contact }}
                       </td>
                       <td *ngIf="reservation.guidename=='Not Assigned'">
-                        <a routerLink="/reservations/{{reservation._id}}" class="btn btn-primary text-light" >{{ reservation.guidename }}</a>
+                        <a routerLink="/reservations/{{reservation._id}}" class="btn btn-primary text-light" style="width:200px">{{ reservation.guidename }}</a>
                       </td>
                       <td *ngIf="reservation.guidename!='Not Assigned'">
-                        <a routerLink="/reservations/{{reservation._id}}"  >{{ reservation.guidename }}</a>
+                        <a routerLink="/#" style="width:200px" (click)="removeAssignedGuide()">{{ reservation.guidename }}</a>
                       </td>
                     </tr>
                   </tbody>

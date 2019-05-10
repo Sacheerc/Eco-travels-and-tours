@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationsService } from '../../services/reservation-service/reservations.service'
+import { PopupModalService } from '../../services/popup-modals-service/popup-modal.service';
 
 @Component({
   selector: 'app-reservations',
@@ -8,7 +9,7 @@ import { ReservationsService } from '../../services/reservation-service/reservat
 })
 export class ReservationsComponent implements OnInit {
   reservations:any;
-  constructor(private reservationService:ReservationsService) { }
+  constructor(private reservationService:ReservationsService,private popupService:PopupModalService) { }
 
   ngOnInit() {
     this.reservationService.getAllReservations().subscribe((result)=>{
@@ -23,6 +24,10 @@ export class ReservationsComponent implements OnInit {
   }
   stringAsDate(dateStr: string) {
     return new Date(dateStr);
+  }
+
+  removeAssignedGuide(){
+    this.popupService.openModal();
   }
 
 }

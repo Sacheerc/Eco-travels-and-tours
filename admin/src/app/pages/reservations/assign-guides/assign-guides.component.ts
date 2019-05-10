@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ReservationsService } from '../../../services/reservation-service/reservations.service';
 import { GetGuidesService } from '../../../services/get-guides.service';
 
+
 @Component({
   selector: 'app-assign-guides',
   templateUrl: './assign-guides.component.html',
@@ -16,7 +17,11 @@ export class AssignGuidesComponent implements OnInit {
   allguides: any;
   filteredguides:any
 
-  constructor(private getGuide: GetGuidesService, private route: ActivatedRoute, private reservationService: ReservationsService) { }
+  constructor(
+    private getGuide: GetGuidesService, 
+    private route: ActivatedRoute, 
+    private reservationService: ReservationsService,
+    ) { }
 
   ngOnInit() {
     this.getGuide.getGuides().subscribe((result) => {
@@ -85,5 +90,7 @@ export class AssignGuidesComponent implements OnInit {
       }
     )
   }
+
+  
 
 }

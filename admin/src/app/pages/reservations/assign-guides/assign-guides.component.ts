@@ -71,7 +71,19 @@ export class AssignGuidesComponent implements OnInit {
   }
 
   assignGuides(guide,reservationId){
-    alert(guide.name+reservationId+guide._Id)
+    const data={
+      reservationid:reservationId,
+      guidename:guide.name,
+      guideid:guide._id,
+      tourcount:guide.tourcount+1
+    };
+    this.reservationService.assignGuides(data).subscribe((result) => {
+      console.log(result)
+    },
+      (err) => {
+        console.log(err.error)
+      }
+    )
   }
 
 }

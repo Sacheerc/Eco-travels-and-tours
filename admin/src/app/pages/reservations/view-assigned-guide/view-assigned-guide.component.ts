@@ -18,7 +18,6 @@ export class ViewAssignedGuideComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private reservationService:ReservationsService,
     private router:Router,
-    public dialog: MatDialog
     ) {
     this.guide = data.guide;
     this.reservation=data.reservation;
@@ -29,22 +28,6 @@ export class ViewAssignedGuideComponent implements OnInit {
     
   }
 
-  removeAssignedGuides(guide,reservationId){
-    const data={
-      reservationid:reservationId,
-      guidename:"Not Assigned",
-      guideid:guide._id,
-      tourcount:guide.tourcount-1
-    };
-    this.reservationService.assignGuides(data).subscribe((result) => {
-      console.log(result)
-      this.dialog.closeAll();
-      location.reload(); 
-    },
-      (err) => {
-        console.log(err.error)
-      }
-    )
-  }
+  
 
 }

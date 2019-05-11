@@ -6,10 +6,9 @@ import { MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./confirmation-dialog.component.css']
 })
 export class ConfirmationDialogComponent implements OnInit {
-  modalTitle: string;
+  dialogdata: any;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
-    this.modalTitle = data.title;
-    console.log(data)
+    this.dialogdata = data.data;
    }
 
   ngOnInit() {

@@ -1,7 +1,8 @@
-<h2 mat-dialog-title>{{modalTitle}}</h2>
-<mat-dialog-content>Do you wish to continue previous shopping?</mat-dialog-content>
-<mat-dialog-actions>
- <button mat-button mat-dialog-close>No</button>
- <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog.-->
- <button mat-button [mat-dialog-close]="true">Yes</button>
-</mat-dialog-actions>
+<h2 class="text-center text-danger" mat-dialog-title>{{dialogdata.title}}</h2>
+<hr>
+<mat-dialog-content>{{dialogdata.description}}</mat-dialog-content>
+<div class="button-container text-center">
+        <button mat-button mat-dialog-close class="btn btn-primary" style="margin:10px;">Close</button>
+        <button mat-button class="btn btn-danger" [mat-dialog-close]="true" style="margin:10px">Remove</button>
+</div>
+<hr>

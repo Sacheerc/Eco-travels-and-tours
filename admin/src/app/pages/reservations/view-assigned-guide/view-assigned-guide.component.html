@@ -24,6 +24,6 @@
     <hr>
     <div class="button-container">
             <button mat-button mat-dialog-close class="btn btn-primary" style="margin:10px;">Close</button>
-            <button mat-button class="btn btn-danger" (click)="removeAssignedGuides(guide,reservation._id)" style="margin:10px">Remove</button>
+            <button mat-button class="btn btn-danger" [mat-dialog-close]="true" style="margin:10px">Remove</button>
     </div>
   </div>

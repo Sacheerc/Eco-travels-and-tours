@@ -10,19 +10,21 @@ export class PopupModalService {
 
   constructor(public dialog: MatDialog) { }
 
-  openModal() {
+  removeAssignedGuideConfimationModal(title,description) {
+    const data={
+      title:title,
+      description:description
+    }
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+    dialogConfig.width="500px"
     dialogConfig.data = {
       id: 1,
-      title: 'Angular For Beginners'
+      data: data
     };
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("Dialog was closed")
-      console.log(result)
-    });
+    return this.dialog.open(ConfirmationDialogComponent, dialogConfig);
+    
   }
 
   closeModel(){
@@ -33,15 +35,12 @@ export class PopupModalService {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+    dialogConfig.width="370px"
     dialogConfig.data = {
       id: 1,
       guide: guide,
       reservation:reservation
     };
-    const dialogRef = this.dialog.open(ViewAssignedGuideComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("Dialog was closed")
-      console.log(result)
-    });
+    return this.dialog.open(ViewAssignedGuideComponent, dialogConfig);
   }
 }

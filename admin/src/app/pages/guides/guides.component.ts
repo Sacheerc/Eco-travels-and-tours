@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { GetGuidesService } from 'src/app/services/get-guides.service';
+import {environment} from 'src/environments/environment'
 
+// const url=environment.appUrl+"/tourguides/guide-1.jpg"
 
 @Component({
   selector: 'app-guides',
@@ -10,7 +12,7 @@ import { GetGuidesService } from 'src/app/services/get-guides.service';
 })
 export class GuidesComponent implements OnInit {
   guides:any;
-
+  url=environment.appUrl+"/tourguides/"
   constructor(private getguideservice:GetGuidesService) { }
 
   ngOnInit() {

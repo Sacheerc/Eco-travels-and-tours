@@ -450,7 +450,7 @@ h1, h2, h3, h4, h5, h6, figure {
       padding: 15px 20px !important;
       color: #000; }
     #colorlib-reservation .nav-tabs li.active {
-      color: #fff !important !important;
+      color: #fff !important;
       background: #2C2E3E !important; }
   @media screen and (max-width: 768px) {
     #colorlib-reservation .nav-tabs {

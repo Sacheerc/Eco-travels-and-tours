@@ -1,4 +1,4 @@
-<h2 mat-dialog-title class="text-center text-primary">{{reservation.packagename}}</h2>
+<h2 mat-dialog-title class="text-center">{{reservation.packagename}}</h2>
 <div class="card card-user" style="width:320px">
     <div class="image">
       <img src="../assets/img/bg5.jpg" alt="...">
@@ -7,7 +7,7 @@
       <div class="author">
         <div>
           <img class="avatar border-gray" [src]="url+guide.imgurl" alt="...">
-          <h5 class="title text-primary">{{guide.name}}</h5>
+          <h5 class="title text-warning">{{guide.name}}</h5>
         </div>
         <p class="">
           {{guide.email}}
@@ -23,7 +23,7 @@
     </div>
     <hr>
     <div class="button-container">
-            <button mat-button mat-dialog-close class="btn btn-primary" style="margin:10px;">Close</button>
-            <button mat-button class="btn btn-danger" [mat-dialog-close]="true" style="margin:10px">Remove</button>
+            <button  mat-dialog-close  class="btn btn-warning btn-round" style="margin:20px;width: 100px">Close</button>
+            <button  class="btn btn-danger btn-round"  [mat-dialog-close]="true" style="margin:20px;width:100px">Remove</button>
     </div>
   </div>

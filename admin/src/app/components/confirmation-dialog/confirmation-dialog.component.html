@@ -1,9 +1,10 @@
 <h2 class="text-center text-danger" mat-dialog-title>{{dialogdata.title}}</h2>
 <hr>
 <mat-dialog-content>{{dialogdata.description}}</mat-dialog-content>
-<div class="button-container text-center">
-        <button mat-button mat-dialog-close class="btn btn-primary" style="margin:10px;">Close</button>
-        <button *ngIf="dialogdata.button=='Remove'" mat-button class="btn btn-danger" [mat-dialog-close]="true" style="margin:10px">Remove</button>
-        <button *ngIf="dialogdata.button!='Remove'" mat-button class="btn btn-success" [mat-dialog-close]="true" style="margin:10px">{{dialogdata.button}}</button>
-</div>
 <hr>
+<div class="button-container text-center">
+        <button  mat-dialog-close class="btn btn-warning btn-round" style="margin:10px;width: 100px">Close</button>
+        <button *ngIf="dialogdata.button=='Remove'"  class="btn btn-danger btn-round" [mat-dialog-close]="true" style="margin:10px;width: 100px">Remove</button>
+        <button *ngIf="dialogdata.button!='Remove'"  class="btn btn-danger btn-round" [mat-dialog-close]="true" style="margin:10px;width: 100px">{{dialogdata.button}}</button>
+</div>
+<!-- <hr> -->

@@ -1,5 +1,5 @@
 <div class="wrapper ">
-  <app-sidebar></app-sidebar>
+  <app-sidebar active="reservations"></app-sidebar>
 
   <div class="main-panel" id="main-panel">
     <app-navbar></app-navbar>
@@ -12,9 +12,17 @@
             <div class="card-header">
               <h5 class="card-category">Reservations</h5>
               <div class="row">
-                <div class="col-md-6">
-                  <h4 class="card-title">Upcoming Tours</h4>
+                <div class="col-md-1">
+                  <h3 class="card-title text-warning text-right">
+                      <i class="now-ui-icons loader_refresh spin"></i>
+                      <!-- <p style="margin-top:-5px;margin-left:20px"> Upcoming Tours</p>  -->
+                    </h3>
                 </div>
+                <div class="col-md-11 text-left">
+                    <h3 class="card-title text-warning">
+                        <p style="margin-top:-5px;"> Upcoming Tours</p> 
+                    </h3>
+                  </div>
                 <!-- <div class="col-md-6">
                   Sort by
                   <a class="btn btn-success" (click)="rateSort()">Rating</a>
@@ -29,7 +37,7 @@
               </div> -->
               <div class="table-responsive">
                 <table class="table text-center">
-                  <thead class=" text-primary">
+                  <thead class=" text-dark">
                     <th>
                       Tour Dates
                     </th>
@@ -67,10 +75,11 @@
                         {{ reservation.contact }}
                       </td>
                       <td *ngIf="reservation.guidename=='Not Assigned'">
-                        <a routerLink="/reservations/{{reservation._id}}" class="btn btn-primary text-light" style="width:200px">{{ reservation.guidename }}</a>
+                        <a routerLink="/reservations/{{reservation._id}}" style="width:130px" class="btn btn-secondary btn-round">{{ reservation.guidename }}</a>
                       </td>
                       <td *ngIf="reservation.guidename!='Not Assigned'">
-                        <a routerLink="/#" style="width:200px" (click)="openAssignedGuide(findGuide(reservation.guidename),reservation)">{{ reservation.guidename }}</a>
+                        <a routerLink="/#" style="width:130px" class="btn btn-warning btn-round" (click)="openAssignedGuide(findGuide(reservation.guidename),reservation)">View Guide 
+                        </a>
                         <!-- <a routerLink="/#" style="width:200px" (click)="findGuide(reservation.guidename)">{{ reservation.guidename }}</a> -->
                       </td>
                     </tr>

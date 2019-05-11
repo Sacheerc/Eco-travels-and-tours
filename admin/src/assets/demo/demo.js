@@ -105,8 +105,7 @@ demo = {
     });
   },
 
-  initDashboardPageCharts: function() {
-
+  initDashboardPageCharts:function() {
     chartColor = "#FFFFFF";
 
     // General configuration for the charts with Line gradientStroke

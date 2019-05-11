@@ -18,7 +18,7 @@ export class PopupModalService {
     }
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
+    dialogConfig.autoFocus = false;
     dialogConfig.width="500px"
     dialogConfig.data = {
       id: 1,
@@ -35,7 +35,7 @@ export class PopupModalService {
   openAssignedGuideModal(guide,reservation) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
+    dialogConfig.autoFocus = false;
     dialogConfig.width="370px"
     dialogConfig.data = {
       id: 1,

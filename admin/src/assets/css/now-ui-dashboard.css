@@ -482,7 +482,7 @@ Copyright (c) 2015 Daniel Eden
       box-shadow: none; }
 
 .btn-info {
-  background-color: #2CA8FF;
+  background-color: #00BBF0;
   color: #FFFFFF; }
   .btn-info:hover, .btn-info:focus, .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus, .btn-info:active:hover, .btn-info.active:hover,
   .show > .btn-info.dropdown-toggle,
@@ -501,10 +501,10 @@ Copyright (c) 2015 Daniel Eden
   fieldset[disabled] .btn-info.focus,
   fieldset[disabled] .btn-info:active,
   fieldset[disabled] .btn-info.active {
-    background-color: #2CA8FF;
-    border-color: #2CA8FF; }
+    background-color: #00BBF0;
+    border-color: #00BBF0; }
   .btn-info.btn-link {
-    color: #2CA8FF; }
+    color: #00BBF0; }
     .btn-info.btn-link:hover, .btn-info.btn-link:focus, .btn-info.btn-link:active {
       background-color: transparent;
       color: #4bb5ff;
@@ -512,16 +512,16 @@ Copyright (c) 2015 Daniel Eden
       box-shadow: none; }
 
 .btn-warning {
-  background-color: #FFB236;
-  color: #FFFFFF; }
+  background-color: #FFDD00;
+  color: rgb(37, 37, 37); }
   .btn-warning:hover, .btn-warning:focus, .btn-warning:not(:disabled):not(.disabled):active, .btn-warning:not(:disabled):not(.disabled).active, .btn-warning:not(:disabled):not(.disabled):active:focus, .btn-warning:not(:disabled):not(.disabled).active:focus, .btn-warning:active:hover, .btn-warning.active:hover,
   .show > .btn-warning.dropdown-toggle,
   .show > .btn-warning.dropdown-toggle:focus,
   .show > .btn-warning.dropdown-toggle:hover {
-    background-color: #ffbe55;
-    color: #FFFFFF;
+    background-color: rgb(230, 199, 3);
+    color: white;
     box-shadow: none;
-    border-color: #ffbe55; }
+    border-color: rgb(230, 199, 3); }
   .btn-warning:not([data-action]):not([class*="btn-outline-"]):hover {
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17); }
   .btn-warning.disabled, .btn-warning.disabled:hover, .btn-warning.disabled:focus, .btn-warning.disabled.focus, .btn-warning.disabled:active, .btn-warning.disabled.active, .btn-warning:disabled, .btn-warning:disabled:hover, .btn-warning:disabled:focus, .btn-warning:disabled.focus, .btn-warning:disabled:active, .btn-warning:disabled.active, .btn-warning[disabled], .btn-warning[disabled]:hover, .btn-warning[disabled]:focus, .btn-warning[disabled].focus, .btn-warning[disabled]:active, .btn-warning[disabled].active,
@@ -531,13 +531,13 @@ Copyright (c) 2015 Daniel Eden
   fieldset[disabled] .btn-warning.focus,
   fieldset[disabled] .btn-warning:active,
   fieldset[disabled] .btn-warning.active {
-    background-color: #FFB236;
-    border-color: #FFB236; }
+    background-color: #FFDD00;
+    border-color: #FFDD00; }
   .btn-warning.btn-link {
-    color: #FFB236; }
+    color: #FFDD00; }
     .btn-warning.btn-link:hover, .btn-warning.btn-link:focus, .btn-warning.btn-link:active {
       background-color: transparent;
-      color: #ffbe55;
+      color: #FFDD00;
       text-decoration: none;
       box-shadow: none; }
 
@@ -598,7 +598,7 @@ Copyright (c) 2015 Daniel Eden
     .btn-neutral.btn-danger:hover, .btn-neutral.btn-danger:focus, .btn-neutral.btn-danger:active, .btn-neutral.btn-danger:active:focus {
       color: #ff5555 !important; }
   .btn-neutral.btn-info {
-    color: #2CA8FF; }
+    color: #00BBF0; }
     .btn-neutral.btn-info:hover, .btn-neutral.btn-info:focus, .btn-neutral.btn-info:active, .btn-neutral.btn-info:active:focus {
       color: #4bb5ff !important; }
   .btn-neutral.btn-warning {
@@ -657,8 +657,8 @@ Copyright (c) 2015 Daniel Eden
     box-shadow: none; }
 
 .btn-outline-info {
-  color: #2CA8FF;
-  border-color: #2CA8FF; }
+  color: #00BBF0;
+  border-color: #00BBF0; }
   .btn-outline-info:hover, .btn-outline-info:focus, .btn-outline-info:not(:disabled):not(.disabled):active, .btn-outline-info:not(:disabled):not(.disabled).active, .btn-outline-info:not(:disabled):not(.disabled):active:focus, .btn-outline-info:not(:disabled):not(.disabled).active:focus, .btn-outline-info:active:hover, .btn-outline-info.active:hover,
   .show > .btn-outline-info.dropdown-toggle,
   .show > .btn-outline-info.dropdown-toggle:focus,
@@ -1295,7 +1295,7 @@ a.text-primary:focus, a.text-primary:hover {
 
 .text-info,
 a.text-info:focus, a.text-info:hover {
-  color: #2CA8FF !important; }
+  color: #00BBF0 !important; }
 
 .text-success,
 a.text-success:focus, a.text-success:hover {
@@ -1303,7 +1303,7 @@ a.text-success:focus, a.text-success:hover {
 
 .text-warning,
 a.text-warning:focus, a.text-warning:hover {
-  color: #FFB236 !important; }
+  color: #FFDD00 !important; }
 
 .text-danger,
 a.text-danger:focus, a.text-danger:hover {
@@ -1704,7 +1704,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
   background-color: #f96332 !important; }
 
 .bg-info {
-  background-color: #2CA8FF !important; }
+  background-color: #00BBF0 !important; }
 
 .bg-success {
   background-color: #18ce0f !important; }
@@ -1713,7 +1713,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
   background-color: #FF3636 !important; }
 
 .bg-warning {
-  background-color: #FFB236 !important; }
+  background-color: #FFDD00 !important; }
 
 .bg-white {
   background-color: #FFFFFF !important; }
@@ -1920,9 +1920,9 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
     .dropdown-menu.dropdown-success .dropdown-divider {
       background-color: rgba(255, 255, 255, 0.2); }
   .dropdown-menu.dropdown-warning {
-    background-color: #ffac27; }
+    background-color: #FFDD00; }
     .dropdown-menu.dropdown-warning:before {
-      color: #ffac27; }
+      color: #FFDD00; }
     .dropdown-menu.dropdown-warning .dropdown-header:not([href]):not([tabindex]) {
       color: rgba(255, 255, 255, 0.8); }
     .dropdown-menu.dropdown-warning .dropdown-item {
@@ -2780,13 +2780,13 @@ Created using IcoMoon - icomoon.io
     z-index: 3; }
   .sidebar[data-color="blue"]:after,
   .off-canvas-sidebar[data-color="blue"]:after {
-    background: #2CA8FF; }
+    background: #00BBF0; }
   .sidebar[data-color="blue"] .nav li.active > a:not([data-toggle="collapse"]),
   .off-canvas-sidebar[data-color="blue"] .nav li.active > a:not([data-toggle="collapse"]) {
-    color: #2CA8FF; }
+    color: #00BBF0; }
     .sidebar[data-color="blue"] .nav li.active > a:not([data-toggle="collapse"]) i,
     .off-canvas-sidebar[data-color="blue"] .nav li.active > a:not([data-toggle="collapse"]) i {
-      color: #2CA8FF; }
+      color: #00BBF0; }
   .sidebar[data-color="green"]:after,
   .off-canvas-sidebar[data-color="green"]:after {
     background: #18ce0f; }
@@ -2816,13 +2816,14 @@ Created using IcoMoon - icomoon.io
       color: #FF3636; }
   .sidebar[data-color="yellow"]:after,
   .off-canvas-sidebar[data-color="yellow"]:after {
-    background: #FFB236; }
+    background: #2C2E3E;
+    color: #FFDD00 }
   .sidebar[data-color="yellow"] .nav li.active > a:not([data-toggle="collapse"]),
   .off-canvas-sidebar[data-color="yellow"] .nav li.active > a:not([data-toggle="collapse"]) {
-    color: #FFB236; }
+    color: #FFDD00; }
     .sidebar[data-color="yellow"] .nav li.active > a:not([data-toggle="collapse"]) i,
     .off-canvas-sidebar[data-color="yellow"] .nav li.active > a:not([data-toggle="collapse"]) i {
-      color: #FFB236; }
+      color: #FFDD00; }
 
 .visible-on-sidebar-regular {
   display: inline-block !important; }
@@ -2869,7 +2870,7 @@ Created using IcoMoon - icomoon.io
   padding-bottom: 45px;
   background: #141E30;
   /* fallback for old browsers */
-  background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
+  background: linear-gradient(to right, rgb(32, 33, 44) 0%, #2C2E3E 60%, #FFDD00 100%);
   position: relative;
   overflow: hidden; }
   .panel-header .header .title {
@@ -2984,7 +2985,7 @@ Created using IcoMoon - icomoon.io
   .fixed-plugin .badge:hover {
     border-color: #00bbff; }
   .fixed-plugin .badge-blue {
-    background-color: #2CA8FF; }
+    background-color: #00BBF0; }
   .fixed-plugin .badge-green {
     background-color: #18ce0f; }
   .fixed-plugin .badge-orange {
@@ -3163,7 +3164,7 @@ Created using IcoMoon - icomoon.io
   .card[data-background-color="yellow"] {
     background-color: #FFB236; }
   .card[data-background-color="blue"] {
-    background-color: #2CA8FF; }
+    background-color: #00BBF0; }
   .card[data-background-color="green"] {
     background-color: #18ce0f; }
   .card .image {

@@ -115,13 +115,13 @@
                     <tbody *ngIf="guides.length>0">
                       <tr *ngFor="let guide of guides">
                         <td>
+                          <img [src]="url+guide.imgurl" alt="" style="width:100px">
+                        </td>
+                        <td>
                           {{guide.name}}
                         </td>
                         <td>
-                          url
-                        </td>
-                        <td>
-                          {{guide.rate}}
+                          <button class="btn btn-warning" aria-readonly="true">{{guide.rate}}</button>
                         </td>
                         <td>
                             {{guide.tourcount}}

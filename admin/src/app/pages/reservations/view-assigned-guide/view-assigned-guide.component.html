@@ -1,0 +1,29 @@
+<h2 mat-dialog-title class="text-center">{{reservation.packagename}}</h2>
+<div class="card card-user" style="width:320px">
+    <div class="image">
+      <img src="../assets/img/bg5.jpg" alt="...">
+    </div>
+    <div class="card-body">
+      <div class="author">
+        <div>
+          <img class="avatar border-gray" [src]="url+guide.imgurl" alt="...">
+          <h5 class="title text-warning">{{guide.name}}</h5>
+        </div>
+        <p class="">
+          {{guide.email}}
+          <br>
+          {{guide.phonenumber}} 
+        </p>
+      </div>
+      <p class=" text-center">
+         {{guide.address}}
+        <br> Nic : {{guide.nic}}
+        <br>{{guide.rate}} Ratings
+      </p>
+    </div>
+    <hr>
+    <div class="button-container">
+            <button  mat-dialog-close  class="btn btn-warning btn-round" style="margin:20px;width: 100px">Close</button>
+            <button  class="btn btn-danger btn-round"  [mat-dialog-close]="true" style="margin:20px;width:100px">Remove</button>
+    </div>
+  </div>

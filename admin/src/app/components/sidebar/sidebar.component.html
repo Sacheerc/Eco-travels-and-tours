@@ -1,39 +1,39 @@
-<div class="sidebar" data-color="blue">
+<div class="sidebar" data-color="yellow">
   <!--
     Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
 -->
   <div class="logo">
-    <a href="http://www.ecotravels.com" class="simple-text logo-normal">
-      Eco Travels & Tours
+    <a href="http://www.ecotravels.com" class="text-center logo-normal">
+      <img src="../../../assets/img/logo/logo.png" alt="" style="padding:10px;width:200px">
     </a>
   </div>
   <div class="sidebar-wrapper" id="sidebar-wrapper">
     <ul class="nav">
-      <li class="active ">
+      <li [ngClass]="(active=='dashboard')?'active':''">
         <a href="./dashboard">
           <i class="now-ui-icons design_app"></i>
           <p>Admin Dashboard</p>
         </a>
       </li>
-      <li>
+      <li [ngClass]="(active=='guides')?'active':''">
         <a href="./guides">
           <i class="now-ui-icons design_bullet-list-67"></i>
           <p>Tour Guides</p>
         </a>
       </li>
-      <li>
+      <li [ngClass]="(active=='customers')?'active':''">
         <a href="./customers">
           <i class="now-ui-icons users_single-02"></i>
           <p>Customer Stats</p>
         </a>
       </li>
-      <li>
+      <li [ngClass]="(active=='packages')?'active':''">
         <a href="./packages">
           <i class="now-ui-icons location_map-big"></i>
           <p>Tour Packages</p>
         </a>
       </li>
-      <li>
+      <li [ngClass]="(active=='reservations')?'active':''">
         <a href="./reservations">
           <i class="now-ui-icons shopping_credit-card"></i>
           <p>Reservations</p>

@@ -3,7 +3,6 @@ import { ReservationsService } from '../../services/reservation-service/reservat
 import { PopupModalService } from '../../services/popup-modals-service/popup-modal.service';
 import { GetGuidesService } from 'src/app/services/get-guides.service';
 import { MatDialog } from '@angular/material';
-import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-reservations',
@@ -58,7 +57,7 @@ export class ReservationsComponent implements OnInit {
     var title="Do you Want to Remove?"
     var description="Do you want to remove "+guide.name+" from "+reservation.packagename+" on "+this.stringAsDate(reservation.tourdate)+" ?";
     
-    const dialogRef = this.popupService.removeAssignedGuideConfimationModal(title,description)
+    const dialogRef = this.popupService.confimationModal(title,description)
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.removeAssignedGuides(guide, reservation._id);

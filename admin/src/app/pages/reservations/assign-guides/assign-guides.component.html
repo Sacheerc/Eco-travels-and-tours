@@ -13,11 +13,15 @@
               <h5 class="card-category">Assign Guides</h5>
               <div class="row">
                 <div class="col-md-12">
-                  <h4 class="card-title">
+                  <h4 class="card-title text-primary">
                     {{ reservedpackage.packagename }} on
                     {{
                       stringAsDate(reservedpackage.tourdate)
-                        | date: "dd/MM/yyyy"
+                        | date: "dd"
+                    }}th 
+                    {{
+                      stringAsDate(reservedpackage.tourdate)
+                        | date: "EEEE MMMM yyyy"
                     }}
                   </h4>
                 </div>
@@ -38,10 +42,10 @@
                 <table class="table text-center">
                   <thead class=" text-primary">
                     <th>
-                      Name
+                      Image
                     </th>
                     <th>
-                      Image
+                      Name
                     </th>
                     <th>
                       Rating
@@ -52,29 +56,43 @@
                     <th>
                       Contact
                     </th>
-                    <th>
-                      Salary
-                    </th>
+                    <th></th>
                   </thead>
                   <tbody *ngIf="guides">
                     <tr *ngFor="let guide of filteredguides">
-                      <td class="text-left">
+                      <td>
+                        <img
+                          class="avatar border-gray"
+                          [src]="url + guide.imgurl"
+                          alt=""
+                          style="height:100px;width: 100px"
+                        />
+                      </td>
+                      <td>
                         {{ guide.name }}
                       </td>
                       <td>
-                        url
+                        <button class="btn btn-warning" aria-readonly="true">
+                          {{ guide.rate }}
+                        </button>
                       </td>
                       <td>
-                        {{ guide.rate }}
-                      </td>
-                      <td>
-                        {{ guide.tourcount }}
+                        <button class="btn btn-primary" aria-readonly="true">
+                          {{ guide.tourcount }}
+                        </button>
                       </td>
                       <td>
                         {{ guide.phonenumber }}
                       </td>
                       <td>
-                          <button class="btn btn-primary" (click)="assignGuides(guide,reservedpackage._id,guide._id)">Assign</button>
+                        <button
+                          class="btn btn-primary"
+                          (click)="
+                            confirmAssign(guide,reservedpackage)
+                          "
+                        >
+                          Assign
+                        </button>
                       </td>
                     </tr>
                   </tbody>

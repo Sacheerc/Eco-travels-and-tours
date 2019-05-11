@@ -3,6 +3,7 @@
 <mat-dialog-content>{{dialogdata.description}}</mat-dialog-content>
 <div class="button-container text-center">
         <button mat-button mat-dialog-close class="btn btn-primary" style="margin:10px;">Close</button>
-        <button mat-button class="btn btn-danger" [mat-dialog-close]="true" style="margin:10px">Remove</button>
+        <button *ngIf="dialogdata.button=='Remove'" mat-button class="btn btn-danger" [mat-dialog-close]="true" style="margin:10px">Remove</button>
+        <button *ngIf="dialogdata.button!='Remove'" mat-button class="btn btn-success" [mat-dialog-close]="true" style="margin:10px">{{dialogdata.button}}</button>
 </div>
 <hr>

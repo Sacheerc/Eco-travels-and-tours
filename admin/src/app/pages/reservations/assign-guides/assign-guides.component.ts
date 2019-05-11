@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationsService } from '../../../services/reservation-service/reservations.service';
 import { GetGuidesService } from '../../../services/get-guides.service';
-
+import {environment} from 'src/environments/environment'
+import { MatDialog } from '@angular/material';
+import { PopupModalService } from '../../../services/popup-modals-service/popup-modal.service';
 
 @Component({
   selector: 'app-assign-guides',
@@ -10,6 +12,7 @@ import { GetGuidesService } from '../../../services/get-guides.service';
   styleUrls: ['./assign-guides.component.css']
 })
 export class AssignGuidesComponent implements OnInit {
+  url=environment.appUrl+"/tourguides/"
   reservations: any;
   reservedpackage: any;
   invalidGuides: any;
@@ -21,6 +24,9 @@ export class AssignGuidesComponent implements OnInit {
     private getGuide: GetGuidesService, 
     private route: ActivatedRoute, 
     private reservationService: ReservationsService,
+    public dialog: MatDialog,
+    private router:Router,
+    private popupService: PopupModalService,
     ) { }
 
   ngOnInit() {
@@ -71,6 +77,20 @@ export class AssignGuidesComponent implements OnInit {
     });
   }
 
+  confirmAssign(guide, reservation) {
+    var title="Do you Want to Assign "+guide.name+"?"
+    var description="Do you want to assign "+guide.name+" for "+reservation.packagename+" on "+this.stringAsDate(reservation.tourdate)+" ?";
+    var button="Assign"
+    const dialogRef = this.popupService.confimationModal(title,description,button)
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.assignGuides(guide,reservation._id);
+      } else {
+        console.log(false)
+      }
+    });
+  }
+
   stringAsDate(dateStr: string) {
     return new Date(dateStr);
   }
@@ -83,7 +103,9 @@ export class AssignGuidesComponent implements OnInit {
       tourcount:guide.tourcount+1
     };
     this.reservationService.assignGuides(data).subscribe((result) => {
-      console.log(result)
+      if(result){
+        this.router.navigate(['/reservations'])
+      }
     },
       (err) => {
         console.log(err.error)

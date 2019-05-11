@@ -10,10 +10,11 @@ export class PopupModalService {
 
   constructor(public dialog: MatDialog) { }
 
-  removeAssignedGuideConfimationModal(title,description) {
+  confimationModal(title,description,button="Remove") {
     const data={
       title:title,
-      description:description
+      description:description,
+      button:button
     }
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;

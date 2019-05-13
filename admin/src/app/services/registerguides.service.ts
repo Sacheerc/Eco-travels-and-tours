@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable, of, throwError, from } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment'
 
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
 };
-const url="http://localhost:3000/regGuide";
+const urlRegGuide = environment.appUrl + "/regGuide";
+const urlUploadImage = environment.appUrl + "/regGuide/uploadimage";
 
 
 @Injectable({
@@ -14,14 +16,23 @@ const url="http://localhost:3000/regGuide";
 })
 export class RegisterguidesService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 
-registerguide(data){
+  registerguide(data) {
+    return this.http.post(urlRegGuide, data, {
+      observe: 'body',
+      withCredentials: true,
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    }
+    )
+  }
 
-  console.log(data);
-  return this.http.post(url, data, httpOptions)
-}
+  uploadimage(image) {
+    var formData = new FormData()
+    formData.append('file', image)
+    return this.http.post(urlUploadImage, formData)
+  }
 
 
 }

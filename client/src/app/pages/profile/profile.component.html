@@ -24,13 +24,13 @@
 
 <!-- import profile body -->
 <div id="colorlib-about">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="about-flex">
-        <div class="col-md-2 aside-stretch animate-box">
+      <div class="about-flex" >
+        <div class="col-md-2  aside-stretch animate-box">
           <app-profile-sidebar></app-profile-sidebar>
         </div>
-        <div class="col-xs-10 animate-box">
+        <div class="col-xs-10 animate-box" style="padding:37px">
           <app-profile-profile *ngIf="!profilenavigator"></app-profile-profile>
           <app-profile-reservations *ngIf="profilenavigator=='reservations'"></app-profile-reservations>
         </div>

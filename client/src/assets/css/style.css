@@ -547,7 +547,7 @@ h1, h2, h3, h4, h5, h6, figure {
       color: #00BBF0; }
 
 .aside-stretch {
-  background: #00BBF0; }
+  background: #2C2E3E; }
   .aside-stretch:after {
     position: absolute;
     top: 0;
@@ -555,12 +555,12 @@ h1, h2, h3, h4, h5, h6, figure {
     bottom: 0;
     content: '';
     width: 360%;
-    background: #00BBF0; }
+    background: #2C2E3E; }
   @media screen and (max-width: 768px) {
     .aside-stretch {
-      background: transparent; }
+      background: #2C2E3E; }
       .aside-stretch:after {
-        background: transparent;
+        background: #2C2E3E;
         display: none; } }
 
 .no-gutters {
@@ -1300,28 +1300,35 @@ article {
       bottom: 0;
       content: '';
       width: 360%;
-      background: #00BBF0; }
+      background:   #2C2E3E; }
   .about-flex .about {
-    text-align: right; }
+    text-align: center; }
     @media screen and (max-width: 768px) {
       .about-flex .about {
-        text-align: left; } }
+        text-align: center; } }
     .about-flex .about h2 {
       color: #fff;
       text-transform: uppercase;
       margin-bottom: 2em; }
       @media screen and (max-width: 768px) {
         .about-flex .about h2 {
-          color: #000; } }
+          color: white; } }
     .about-flex .about ul {
-      list-style: none; }
+      list-style: none;
+      align-content: center;
+      padding: 0px;
+      margin-top: 30px;
+       }
       .about-flex .about ul li {
-        margin-bottom: 8px; }
+        margin-bottom: 30px;
+        border: 1px solid white;
+        border-radius: 10px;
+        padding: 10px }
         .about-flex .about ul li a {
           color: #fff; }
           @media screen and (max-width: 768px) {
             .about-flex .about ul li a {
-              color: #000; } }
+              color:white; } }
 
 .contact-info-wrap {
   margin-bottom: 3em; }

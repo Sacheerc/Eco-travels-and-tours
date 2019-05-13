@@ -11,6 +11,7 @@ import { QaforumComponent } from './pages/qaforum/qaforum.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthGuard } from './guard/auth.guard';
+import { GuidesComponent } from './pages/guides/guides.component';
 
 const routes: Routes = [
   {path:"",component:IndexComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:"qaforum",component:QaforumComponent},
   {path:"profile",component:ProfileComponent},
   {path:"profile/:id",component:ProfileComponent},
+  {path:"guides",component:GuidesComponent},
   {path:"**",component:PageNotFoundComponent}
 ];
 

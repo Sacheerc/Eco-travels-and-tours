@@ -1,7 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import { MatDialogModule, MatButtonModule } from '@angular/material';
+import {  MatDialogModule,
+          MatButtonModule, 
+          MatCardModule,
+          MatRadioModule,
+          MatFormFieldModule,
+          MatInputModule,
+          MatProgressBarModule,
+          MatDividerModule,
+        } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -57,6 +65,10 @@ import { ReservationsService } from './services/reservations/reservations.servic
 import { AvailableDialogComponent } from './pages/tour-places/components/available-dialog/available-dialog.component';
 import { PopupModalsService } from './services/popup-modals/popup-modals.service';
 import { UnavailableDialogComponent } from './pages/tour-places/components/unavailable-dialog/unavailable-dialog.component';
+import { GuidesComponent } from './pages/guides/guides.component';
+import { ComponentsComponent } from './pages/guides/components/components.component';
+import { GuidesGuidesComponent } from './pages/guides/components/guides-guides/guides-guides.component';
+import { GuidesHeaderComponent } from './pages/guides/components/guides-header/guides-header.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +116,10 @@ import { UnavailableDialogComponent } from './pages/tour-places/components/unava
     ProfileReservationsComponent,
     AvailableDialogComponent,
     UnavailableDialogComponent,
+    GuidesComponent,
+    ComponentsComponent,
+    GuidesGuidesComponent,
+    GuidesHeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,6 +129,12 @@ import { UnavailableDialogComponent } from './pages/tour-places/components/unava
     HttpClientModule,
     MatDialogModule,
     MatButtonModule,
+    MatCardModule,
+    MatRadioModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressBarModule,
+    MatDividerModule,
     BrowserAnimationsModule
   ],
   entryComponents: [

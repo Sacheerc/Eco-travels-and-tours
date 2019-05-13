@@ -5,6 +5,67 @@ var moment=require('moment');
 var Reservation = require("../models/reservation");
 var Package = require("../models/tour-package");
 
+router.get("/pkgTable",(req,res)=>{
+    Reservation.aggregate([{"$group":{_id:"$packagename",
+                                    guests:{$sum:"$guestcount"},
+                                total:{$sum:"$price"}}}],(err,found)=>{
+        if(err) {
+            console.log(err);
+        }
+        else
+        { 
+            res.send(found);
+        }
+    });
+
+});
+
+
+
+router.get("/pkgIncome",(req,res)=>{
+    var packages={};
+    var pkgIncome={};
+    
+    var keys=[];
+
+    Package.find({},(err,allPackages)=>{
+        if(err) {
+            console.log(err);
+        }
+        else
+        {
+            allPackages.forEach(function(pkg){
+                packages[pkg._id]=[pkg.package,pkg.location];
+            });
+            keys=Object.keys(packages);
+            var c=0;
+            keys.forEach(function(key)
+            {   
+                
+                var pkgYearly=[0,0,0,0,0,0,0,0,0,0,0,0];
+                Reservation.find({payment:"true"},(err,allReservations)=>{
+                    
+                    allReservations.forEach(function(reserve){
+                        if(reserve.packageid===key)
+                        {
+                            var d=moment(reserve.reserveddate);
+                            pkgYearly[d.month()]+=reserve.price;
+                        }
+                    });
+                    pkgIncome[key]=pkgYearly;
+                    c++;
+                    if(c==keys.length)
+                    {
+                        res.send([packages,pkgIncome]);
+                    }
+                
+                });
+            });
+        }
+    });
+
+});
+
 router.get("/destIncome",(req,res)=>{
     var destIncome={};
     

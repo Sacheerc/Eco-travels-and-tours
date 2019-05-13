@@ -55,7 +55,7 @@ var tourSort = require("./src/routes/tourSort");
 var questionRouter = require("./src/routes/question");
 var dashBoard = require('./src/routes/dashboard');
 var reservationRoutes = require('./src/routes/reservation');
-
+var adminRouter = require('./src/routes/admin');
 
 // application routings
 app.use('/auth',authRoutes);
@@ -70,7 +70,7 @@ app.use("/toursort", tourSort);
 app.use("/getguide", getGuides); 
 app.use("/qaforum",questionRouter);
 app.use("/reservation",reservationRoutes);
-
+app.use("/admin",adminRouter);
 
 // Config image url path
 app.use(express.static('public/images'));

@@ -16,6 +16,13 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    demo.initDashboardPageCharts()
+    // demo.initDashboardPageCharts();
+    this.dashBoardService.getIncome().subscribe((result)=>{
+      console.log(result);
+    demo.initIncomeChart(result);;
+    });
   }
+
+
+
 }

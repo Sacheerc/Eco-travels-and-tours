@@ -23,5 +23,9 @@ export class DashboardService {
     });
   }
 
+  getIncome(){
+    return this.http.get("http://localhost:3000/admin/income");
+  }
+
   
 }

@@ -9,4 +9,5 @@ AuthGuideController.prototype.registerGuide = function(userData, callback) {
     .catch(err => callback(err));
 };
 
+
 module.exports = AuthGuideController;

@@ -30,13 +30,11 @@ var GuideSchema = new mongoose.Schema({
     type: String,
     unique: true,
     trim: true
-
   },
   dob: {
     type: String,
     trim: true,
     required: true
-
   },
   salary: {
     type: Number,
@@ -46,14 +44,19 @@ var GuideSchema = new mongoose.Schema({
   tourcount: {
     type: Number,
     trim: true,
-    required: true
+    required: true,
+    default: 0
   },
-  rate:{
-    type:Number,
+  rate: {
+    type: Number,
     trim: true,
-    required:true
+    required: true,
+    default: 0
+  },
+  imgurl: {
+    type: String,
+    default: "No Image"
   }
-
 });
 
 var Guide = mongoose.model("Guide", GuideSchema);

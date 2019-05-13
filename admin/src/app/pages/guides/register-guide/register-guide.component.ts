@@ -43,7 +43,7 @@ export class RegisterGuideComponent implements OnInit {
         alert(err.error)
         this.routs.navigate(['/guides']);
       }
-     )
+    )
 
      // image uploading ,should let someone to check
     //  const formData = new FormData();

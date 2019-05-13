@@ -1,34 +1,38 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { environment } from '../../../environments/environment';
+import { Observable, of, throwError } from 'rxjs';
 
-const urlGetAllRateGuides=environment.appUrl+"/RateGuide/RateGuide";
-const urlFindRateGuides=environment.appUrl+"/RateGuide/RateGuide";
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})
+};
 
+
+const url="http://localhost:3000/getguide";
+const url2="http://localhost:3000/ratesort";
+const url3="http://localhost:3000/salarysort";
+const url4="http://localhost:3000/toursort";
 
 @Injectable({
   providedIn: 'root'
 })
-export class RateGuideService {
+export class GetGuidesService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http:HttpClient) { }
 
-  getAllRateGuides(){
-    return this.http.get(urlGetAllRateGuides,{
-        observe:'body',
-        withCredentials:true,
-        headers:new HttpHeaders().append('Content-Type','application/x-www-form-urlencoded')
-      });
+  getGuides(){
+    return this.http.get(url);
   }
 
-  findRateGuides(id) {
-    return this.http.post(urlFindRateGuides, id, {
-      observe:'body',
-      withCredentials:true,
-      headers:new HttpHeaders().append('Content-Type','application/json')
-    })
+  getRateSortGuides(){
+    return this.http.get(url2);
+
+  }
+
+  getSalarySortGuides(){
+    return this.http.get(url3);
+  }
+
+  getTourSortGuides(){
+    return this.http.get(url4);
   }
 }
-
-

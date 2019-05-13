@@ -1,113 +1,95 @@
-<div id="colorlib-services">
-  <div class="container">
-    <div class="row no-gutters">
+<div class="wrapper ">
+  <!-- <app-sidebar active="guides"></app-sidebar> -->
 
+  <div class="main-panel" id="main-panel">
+    <!-- <app-navbar></app-navbar> -->
 
-    <form>
-      
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{ins.customer_name}}</mat-card-title>
-          <mat-card-subtitle>Rating and reviews</mat-card-subtitle>
-        </mat-card-header>
-        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-        <mat-card-content>
-            
-          <div class="row">
-            <div class="col-md-4">
-                <label class="=rateValue" style="font-size: 72px">4.1</label>
+    <div style="height: 10px;padding:1" class="panel-header"></div>
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-category">Guide Analysis</h5>
+              <div class="row">
+                <div class="col-md-6">
+                  <h4 class="card-title">Tour Guide Stats</h4>
+                </div>
+                <div class="col-md-6">
+                  Sort by
+                  <a class="btn btn-success" (click)="rateSort()">Rating</a>
+                  <a class="btn btn-danger" (click)="tourSort()">Tour Count</a>
+                  <a class="btn btn-info" (click)="salarySort()">Salary</a>
+                </div>
+              </div>
             </div>
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-2">
-                      <label class="=label">5</label>
-                    </div>
-                    <div class="col-md-10">
-                        <mat-progress-bar id="rate5bar" mode="determinate" value="80"></mat-progress-bar>
-                    </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-2">
-                      <label class="=label">4</label>
-                  </div>
-                  <div class="col-md-10">
-                      <mat-progress-bar id="rate4bar" mode="determinate" value="20"></mat-progress-bar>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-2">
-                      <label class="=label">3</label>
-                  </div>
-                  <div class="col-md-10">
-                      <mat-progress-bar id="rate3bar" mode="determinate" value="4"></mat-progress-bar>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-2">
-                      <label class="=label">2</label>
-                  </div>
-                  <div class="col-md-10">
-                      <mat-progress-bar id="rate2bar" mode="determinate" value="10"></mat-progress-bar>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-2">
-                      <label class="=label">1</label>
-                  </div>
-                  <div class="col-md-10">
-                      <mat-progress-bar id="rate1bar" mode="determinate" value="15"></mat-progress-bar>
-                  </div>
-                </div>
+            <div class="card-body">
+              <div class="col-md-4">
+                <a class="btn btn-success" routerLink="/regGuide">Add Guide</a>
+              </div>
+              <div class="container">
+                <router-outlet></router-outlet>
+              </div>
+              <div class="table-responsive text-center">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>
+                      Image
+                    </th>
+                    <th>
+                      Name
+                    </th>
+                    <th>
+                      Rating
+                    </th>
+                    <th>
+                      Tour Count
+                    </th>
+                    <th>
+                      Contact
+                    </th>
+                    <th>
+                      Salary
+                    </th>
+                  </thead>
+                  <tbody *ngIf="guides.length > 0">
+                    <tr *ngFor="let guide of guides">
+                      <td>
+                        <img
+                          class="avatar border-gray"
+                          [src]="url + guide.imgurl"
+                          alt=""
+                          style="height:100px;width: 100px"
+                        />
+                      </td>
+                      <td>
+                        {{ guide.name }}
+                      </td>
+                      <td>
+                        <button class="btn btn-warning" aria-readonly="true">
+                          {{ guide.rate }}
+                        </button>
+                      </td>
+                      <td>
+                        <button class="btn btn-primary" aria-readonly="true">
+                          {{ guide.tourcount }}
+                        </button>
+                      </td>
+                      <td>
+                        {{ guide.phonenumber }}
+                      </td>
+                      <td>
+                        {{ guide.salary }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <!-- <mat-divider></mat-divider> -->
           </div>
-
-          <div>
-            <mat-divider></mat-divider>
-          </div>
-          <div>
-            <label class="cusname">customer name</label>
-            <label class="date">04/02/2018</label>
-            <label class="rate">5</label><br>
-            <label class="comment">Customer first review and coment no. 1 test</label>
-            <mat-divider></mat-divider>
-          </div>
-
-          <div>
-            <label class="cusname">customer name</label>
-            <label class="date">04/02/2018</label>
-            <label class="rate">5</label><br>
-            <label class="comment">Customer first review and coment no. 1 test</label>
-            <mat-divider></mat-divider>
-          </div>
-
-          <div>
-            <label class="cusname">customer name</label>
-            <label class="date">04/02/2018</label>
-            <label class="rate">5</label><br>
-            <label class="comment">Customer first review and coment no. 1 test</label>
-            <mat-divider></mat-divider>
-          </div>  
-          <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Leave a comment"></textarea>
-          </mat-form-field>
-            
-
-       
-        </mat-card-content>
-            
-        <mat-card-actions>
-          <button mat-button >SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-      
-
-      
-
-
-    </form>
-
+        </div>
+      </div>
     </div>
+
   </div>
 </div>

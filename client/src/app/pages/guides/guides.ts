@@ -1,9 +1,10 @@
-
-export interface RateGuide{
-    nic?:string;
-    description?: string; 
-    rate?:number;
-    cusname?: String;
-    email?:string;
+export interface Guide{
+    Id?:number;
+    name?: string; 
+    age?:number;
+    Address?: String;
     phonenumber?:string;
+    email?:string;
+    nic?:string;
+
 }

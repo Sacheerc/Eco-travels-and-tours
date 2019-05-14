@@ -9,6 +9,8 @@ import {  MatDialogModule,
           MatInputModule,
           MatProgressBarModule,
           MatDividerModule,
+          MatTableModule,
+          MatIconModule,
         } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -67,8 +69,8 @@ import { PopupModalsService } from './services/popup-modals/popup-modals.service
 import { UnavailableDialogComponent } from './pages/tour-places/components/unavailable-dialog/unavailable-dialog.component';
 import { GuidesComponent } from './pages/guides/guides.component';
 import { ComponentsComponent } from './pages/guides/components/components.component';
-import { GuidesGuidesComponent } from './pages/guides/components/guides-guides/guides-guides.component';
 import { GuidesHeaderComponent } from './pages/guides/components/guides-header/guides-header.component';
+import { RateGuideComponent } from './pages/guides/components/rate-guide/rate-guide.component';
 
 @NgModule({
   declarations: [
@@ -118,8 +120,9 @@ import { GuidesHeaderComponent } from './pages/guides/components/guides-header/g
     UnavailableDialogComponent,
     GuidesComponent,
     ComponentsComponent,
-    GuidesGuidesComponent,
     GuidesHeaderComponent,
+    RateGuideComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -135,11 +138,14 @@ import { GuidesHeaderComponent } from './pages/guides/components/guides-header/g
     MatInputModule,
     MatProgressBarModule,
     MatDividerModule,
+    MatTableModule,
+    MatIconModule,
     BrowserAnimationsModule
   ],
   entryComponents: [
     AvailableDialogComponent,
     UnavailableDialogComponent,
+    RateGuideComponent,
    ],
   providers: [
     TourPackagesService,
@@ -147,6 +153,7 @@ import { GuidesHeaderComponent } from './pages/guides/components/guides-header/g
     ReservationsService,
     PopupModalsService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [ RateGuideComponent ]
 })
 export class AppModule { }

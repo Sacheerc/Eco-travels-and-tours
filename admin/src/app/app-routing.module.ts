@@ -11,6 +11,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { AuthLoginGuard } from './guard/auth-login.guard';
 import { ReservationsComponent } from './pages/reservations/reservations.component'
 import { AssignGuidesComponent } from './pages/reservations/assign-guides/assign-guides.component';
+import { ImageComponent } from './pages/image/image.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:"regGuide", component:RegisterGuideComponent,canActivate:[AuthGuard]},
   {path:"reservations", component:ReservationsComponent,canActivate:[AuthGuard]},
   {path:"reservations/:id", component:AssignGuidesComponent,canActivate:[AuthGuard]},
+  {path:"image", component:ImageComponent,canActivate:[AuthGuard]},
 
 ];
 

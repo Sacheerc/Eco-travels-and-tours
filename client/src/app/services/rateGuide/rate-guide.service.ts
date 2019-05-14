@@ -15,7 +15,7 @@ const url4="http://localhost:3000/toursort";
 @Injectable({
   providedIn: 'root'
 })
-export class GetGuidesService {
+export class RateGuideService {
 
   constructor(private http:HttpClient) { }
 

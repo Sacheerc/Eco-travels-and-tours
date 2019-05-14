@@ -2,7 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { MatDialogModule, MatButtonModule } from '@angular/material';
+import { 
+          MatDialogModule,
+          MatButtonModule,
+          MatCardModule,
+        
+        } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +32,7 @@ import { ReservationsService } from './services/reservation-service/reservations
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { PopupModalService } from './services/popup-modals-service/popup-modal.service';
 import { ViewAssignedGuideComponent } from './pages/reservations/view-assigned-guide/view-assigned-guide.component';
+import { ImageComponent } from './pages/image/image.component';
 
 
 
@@ -44,7 +50,8 @@ import { ViewAssignedGuideComponent } from './pages/reservations/view-assigned-g
     ReservationsComponent,
     AssignGuidesComponent,
     ConfirmationDialogComponent,
-    ViewAssignedGuideComponent
+    ViewAssignedGuideComponent,
+    ImageComponent
 
   ],
   imports: [
@@ -54,6 +61,7 @@ import { ViewAssignedGuideComponent } from './pages/reservations/view-assigned-g
     FormsModule,
     MatDialogModule,
     MatButtonModule,
+    MatCardModule,
     BrowserAnimationsModule
   ],
   entryComponents: [

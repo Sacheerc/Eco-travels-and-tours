@@ -23,7 +23,6 @@ const routes: Routes = [
   {path:"tours/:id",component:ToursComponent},
   {path:"qaforum",component:QaforumComponent},
   {path:"profile",component:ProfileComponent},
-  {path:"profile/:id",component:ProfileComponent},
   {path:"**",component:PageNotFoundComponent}
 ];
 

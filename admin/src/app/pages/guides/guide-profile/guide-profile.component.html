@@ -1,0 +1,142 @@
+<div class="wrapper ">
+  <app-sidebar active="guides"></app-sidebar>
+
+  <div class="main-panel" id="main-panel">
+    <app-navbar></app-navbar>
+
+    <div style="height: 10px;padding:1" class="panel-header">
+    </div>
+
+
+    <div class="content">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="title">{{guide.name}}'s Profile</h5>
+            </div>
+            <div class="card-body">
+              <form #guides="ngForm" (ngSubmit)="updateform()" method="POST" action="www">
+                <div class="row">
+                  <div class="col-md-5 pr-1">
+                    <div class="form-group">
+                      <label for="userName">Guide Name</label>
+                      <input [(ngModel)]="name" type="text" class="form-control" id="userName" name="guidename"
+                        placeholder="Nimal De Silva" required="true" value="{{guide.name}}" />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 pl-1">
+                    <div class="form-group">
+                      <label for="Email1">Email address</label>
+                      <input [(ngModel)]="email" type="email" class="form-control" id="Email" name="email"
+                        pattern="[a-z0-9][a-z0-9._%+-]*@[a-z0-9][a-z0-9.-]*\.[a-z]{2,20}" placeholder="abc@gmail.com"
+                        required="true" value="{{guide.email}}" />
+                    </div>
+                  </div>
+                  <div class="col-md-3 pl-1">
+                    <div class="form-group">
+                      <label for="phonenumber">Phone Number</label>
+                      <input [(ngModel)]="phonenumber" type="text" class="form-control" id="phonenumber"
+                        name="phonenumber" placeholder="0723456789" required="true" value="{{guide.phonenumber}}" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="address">Address</label>
+                      <input [(ngModel)]="address" class="form-control" id="address" name="address"
+                        placeholder="10/A, ABC road, colombo." value="{{guide.address}}" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+
+                  <div class="col-md-4 pr-1">
+                    <div class="form-group">
+                      <label for="age">Date of Birthday</label>
+                      <input [(ngModel)]="dob" type="text" class="form-control" id="dob" name="dob"
+                        placeholder="DD/MM/YY" value="{{guide.dob}}">
+                    </div>
+                  </div>
+                  <div class="col-md-4 px-1">
+                    <div class="form-group">
+                      <label for="nic">NIC</label>
+                      <input [(ngModel)]="NIC" type="text" class="form-control" pattern="[0-9]*v" id="nic" name="nicNum"
+                        placeholder="9xxxxxxxxv" value="{{guide.nic}}" />
+                    </div>
+                  </div>
+                  <div class="col-md-4 pl-1">
+                    <div class="form-group">
+                      <label for="salary">Salary</label>
+                      <input [(ngModel)]="salary" type="text" class="form-control" id="salary" name="salary"
+                        placeholder="20000" required="true" value="{{guide.salary}}" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2 pr-1">
+                    <div class="form-group">
+                        <label for="tourcount" >Tour Count
+                            <input type="text" name="tourcount" class="form-control" value="{{guide.tourcount}}">
+                          </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8 pl-1"></div>
+                  <div class="col-md-4 pl-1" style="text-align:right">
+                      <button *ngIf="!edit" type="submit" class="btn btn-primary" (click)="edit=true">Edit Profile</button>
+                  </div>
+                    
+                </div>
+                
+
+                <div class="row" *ngIf="edit">
+                  <div class="col-md-3 pl-1">
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary" >Update</button>
+                      <button type="submit" class="btn btn-primary" (click)="edit=false">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+          <div class="col-md-4">
+            <div class="card card-user">
+              <div class="image">
+                <img src="../assets/img/bg5.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <div class="author">
+                  <a href="#">
+                    <img class="avatar border-gray" [src]="url + guide.imgurl" alt="...">
+                    <h5 class="title">{{guide.name}}</h5>
+                  </a>
+                  <p class="description">
+                    {{guide.email}}
+                  </p>
+                </div>
+                <p class="description text-center">
+                  rate
+                </p>
+              </div>
+              <hr>
+              <div class="button-container">
+                <label >Send Email To {{guide.name}}</label>
+                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+                  <i class="fas fa-envelope"></i>
+                </button>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

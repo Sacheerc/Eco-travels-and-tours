@@ -19,8 +19,9 @@ export class RegisterGuideComponent implements OnInit {
   email:string;
   NIC: string;
   salary:number;
+  imgurl:string;
  
- 
+
 
   // fileData=null;
   constructor(private regGuides:RegisterguidesService, private routs:Router, private http: HttpClient) { }
@@ -34,7 +35,7 @@ export class RegisterGuideComponent implements OnInit {
 
 
   submitForm(){
-    var body = `name=${this.name}&address=${this.address}&phonenumber=${this.phonenumber}&email=${this.email}&dob=${this.dob}&nic=${this.NIC}&salary=${this.salary}&tourcount=0&rate=0`;
+    var body = `name=${this.name}&address=${this.address}&phonenumber=${this.phonenumber}&email=${this.email}&dob=${this.dob}&nic=${this.NIC}&salary=${this.salary}&imgurl=${this.imgurl}&tourcount=0&rate=0`;
     console.log(body);
     this.regGuides.registerguide(body).subscribe((result)=>{
       this.routs.navigate(['/guides']);
@@ -43,16 +44,7 @@ export class RegisterGuideComponent implements OnInit {
         alert(err.error)
         this.routs.navigate(['/guides']);
       }
-     )
-
-     // image uploading ,should let someone to check
-    //  const formData = new FormData();
-    //  formData.append('file', this.fileData);
-    //  this.http.post('src/assets/profileImages',formData).subscribe(res => {
-    //    console.log(res);
-    //    alert('SUCCESS!');
-    //  })
-
+    )
 
   }
 

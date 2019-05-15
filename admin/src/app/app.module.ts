@@ -27,6 +27,7 @@ import { ReservationsService } from './services/reservation-service/reservations
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { PopupModalService } from './services/popup-modals-service/popup-modal.service';
 import { ViewAssignedGuideComponent } from './pages/reservations/view-assigned-guide/view-assigned-guide.component';
+import { GuideProfileComponent } from './pages/guides/guide-profile/guide-profile.component';
 
 
 
@@ -44,7 +45,8 @@ import { ViewAssignedGuideComponent } from './pages/reservations/view-assigned-g
     ReservationsComponent,
     AssignGuidesComponent,
     ConfirmationDialogComponent,
-    ViewAssignedGuideComponent
+    ViewAssignedGuideComponent,
+    GuideProfileComponent
 
   ],
   imports: [

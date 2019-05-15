@@ -80,7 +80,7 @@
             </div>
             <div class="card-body">
               <div class="col-md-4">
-                <a class="btn btn-success" routerLink="/regGuide">Add Guide</a>
+                <a class="btn btn-success" href="regGuide" >Add Guide</a>
               </div>
               <div class="container">
                 <router-outlet></router-outlet>
@@ -109,6 +109,7 @@
                   </thead>
                   <tbody *ngIf="guides.length > 0">
                     <tr *ngFor="let guide of guides">
+                      <a href="profile/{{guide._id}}">
                       <td>
                         <img
                           class="avatar border-gray"
@@ -117,9 +118,11 @@
                           style="height:100px;width: 100px"
                         />
                       </td>
+                      </a>
                       <td>
                         {{ guide.name }}
                       </td>
+                  
                       <td>
                         <button class="btn btn-warning" aria-readonly="true">
                           {{ guide.rate }}

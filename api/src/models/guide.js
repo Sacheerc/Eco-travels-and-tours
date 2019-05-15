@@ -52,6 +52,10 @@ var GuideSchema = new mongoose.Schema({
     type:Number,
     trim: true,
     required:true
+  },
+  imgurl:{
+    type:String,
+    trim:true
   }
 
 });

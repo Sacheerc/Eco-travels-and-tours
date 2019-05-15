@@ -50,13 +50,11 @@ import { LoginService } from './services/login/login.service'
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { QuestionListComponent } from './pages/qaforum/components/question-list/question-list.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { ProfileSidebarComponent } from './pages/profile/components/profile-sidebar/profile-sidebar.component';
-import { ProfileProfileComponent } from './pages/profile/components/profile-profile/profile-profile.component';
-import { ProfileReservationsComponent } from './pages/profile/components/profile-reservations/profile-reservations.component';
 import { ReservationsService } from './services/reservations/reservations.service';
 import { AvailableDialogComponent } from './pages/tour-places/components/available-dialog/available-dialog.component';
 import { PopupModalsService } from './services/popup-modals/popup-modals.service';
 import { UnavailableDialogComponent } from './pages/tour-places/components/unavailable-dialog/unavailable-dialog.component';
+import { MyReservationsComponent } from './pages/profile/components/my-reservations/my-reservations.component';
 
 @NgModule({
   declarations: [
@@ -99,11 +97,9 @@ import { UnavailableDialogComponent } from './pages/tour-places/components/unava
     PageNotFoundComponent,
     QuestionListComponent,
     ProfileComponent,
-    ProfileSidebarComponent,
-    ProfileProfileComponent,
-    ProfileReservationsComponent,
     AvailableDialogComponent,
     UnavailableDialogComponent,
+    MyReservationsComponent,
   ],
   imports: [
     BrowserModule,

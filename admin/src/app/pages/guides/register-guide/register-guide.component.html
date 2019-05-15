@@ -111,7 +111,7 @@
 
                       <label for="propic">Profile Picture</label>
                       <a class="btn btn-success">Choose
-                      <input type="file" name="image" />
+                      <input type="file" (change)="createFormData($event)" />
                       </a>
                     </div>
 

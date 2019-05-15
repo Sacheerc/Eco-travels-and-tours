@@ -23,21 +23,8 @@
 </aside>
 
 <!-- import profile body -->
-<div id="colorlib-about">
-  <div class="container">
-    <div class="row">
-      <div class="about-flex">
-        <div class="col-md-2 aside-stretch animate-box">
-          <app-profile-sidebar></app-profile-sidebar>
-        </div>
-        <div class="col-xs-10 animate-box">
-          <app-profile-profile *ngIf="!profilenavigator"></app-profile-profile>
-          <app-profile-reservations *ngIf="profilenavigator=='reservations'"></app-profile-reservations>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<app-my-reservations></app-my-reservations>
+
 
 <!-- import subscribe component -->
 <app-index-subscribe></app-index-subscribe>

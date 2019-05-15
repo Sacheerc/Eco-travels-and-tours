@@ -4,6 +4,7 @@ var reservationSchema = new mongoose.Schema({
     clientid:String,
     clientname:String,
     packageid:String,
+    price:Number,
     packagename:String,
     payment:{
         type:Boolean,

@@ -75,5 +75,16 @@ router.post("/assignguides",(req,res,next)=>{
   });
 });
 
+router.post("/myreservations",(req,res,next)=>{
+  console.log(req.body)
+  reservationController.getMyReservations(req.body.clientid, (err, result) => {
+    if (err) {
+      return next(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 
 module.exports = router;

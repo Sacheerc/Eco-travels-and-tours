@@ -591,6 +591,80 @@ figure {
   padding: 30px 60px;
 }
 
+/* profile tab starts */
+
+#colorlib-profile {
+  clear: both;
+  z-index: 1;
+}
+#colorlib-profile .search-wrap {
+  width: 100%;
+  float: left;
+  display: block;
+  position: relative;
+  z-index: 9;
+  margin-top: -4em !important;
+  padding: 0;
+}
+#colorlib-profile .booknow {
+  margin-top: 5px;
+  display: block;
+}
+#colorlib-profile .booknow h2,
+#colorlib-profile .booknow span {
+  color: #fff;
+}
+#colorlib-profile .booknow h2 {
+  text-transform: uppercase;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+#colorlib-profile .booknow span {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+#colorlib-profile .nav-tabs li {
+  padding: 0;
+  margin-right: 2px;
+  background: #ffdd00;
+  font-size: 16px !important;
+}
+#colorlib-profile .nav-tabs li a {
+  padding: 15px 20px !important;
+  color: #000;
+}
+
+#colorlib-profile .nav-tabs li.active {
+  color: black;
+  background: white !important;
+}
+#colorlib-profile .nav-tabs li.active a {
+  border: none !important;
+  border-bottom: none !important;
+  color: black !important;
+  background: transparent !important;
+  border: 1px solid red;
+}
+
+@media screen and (max-width: 768px) {
+  #colorlib-profile .nav-tabs {
+    margin-left: 10px;
+  }
+  #colorlib-profile .nav-tabs li {
+    font-size: 13px !important;
+  }
+  #colorlib-profile .nav-tabs li a {
+    padding: 10px !important;
+  }
+}
+#colorlib-profile .tab-content {
+  background: white;
+  padding: 30px 60px;
+}
+
+/* profile tab ends */
+
 .colorlib-form label {
   font-weight: normal;
   color: white;

@@ -79,6 +79,20 @@ ReservationController.prototype.getAllReservations = callback => {
   }).sort(tourdate);
 };
 
+// Get reservations according to client id
+ReservationController.prototype.getMyReservations = (clientid,callback) => {
+  var tourdate = { tourdate: -1 };
+  Reservation.find({clientid: clientid}, function(err, docs) {
+    if (err || !docs) {
+      var err = new Error("Sorry.");
+      err.status = 401;
+      callback(err);
+    } else {
+      callback(null, docs);
+    }
+  }).sort(tourdate);
+};
+
 // Assign tour guides
 ReservationController.prototype.assignTourGuides = (body, callback) => {
   const reservation = Reservation.updateOne(

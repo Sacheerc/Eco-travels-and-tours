@@ -4,8 +4,8 @@ var Guide = require("../models/guide");
 function ReservationController() {}
 
 // insert user data to DB
-ReservationController.prototype.reserve = function(reservationData, callback) {
-  Reservation.create(reservationData)
+ReservationController.prototype.reserve = function(reservation, callback) {
+  Reservation.create(reservation)
     .then(reservation => callback(null, reservation))
     .catch(err => callback(err));
 };
@@ -67,7 +67,7 @@ ReservationController.prototype.getAvailableGuides = (body, callback) => {
 
 // get all reservations
 ReservationController.prototype.getAllReservations = callback => {
-  var tourdate = { tourdate: 1 };
+  var tourdate = { tourdate: -1 };
   Reservation.find({}, function(err, docs) {
     if (err || !docs) {
       var err = new Error("Sorry.");
@@ -80,9 +80,9 @@ ReservationController.prototype.getAllReservations = callback => {
 };
 
 // Get reservations according to client id
-ReservationController.prototype.getMyReservations = (clientid,callback) => {
-  var tourdate = { tourdate: -1 };
-  Reservation.find({clientid: clientid}, function(err, docs) {
+ReservationController.prototype.getMyReservations = (clientid, callback) => {
+  var tourdate = { tourdate: 1 };
+  Reservation.find({ clientid: clientid }, function(err, docs) {
     if (err || !docs) {
       var err = new Error("Sorry.");
       err.status = 401;
@@ -104,6 +104,16 @@ ReservationController.prototype.assignTourGuides = (body, callback) => {
     { $set: { tourcount: body.tourcount } }
   );
   Promise.all([reservation, guide])
+    .then(result => callback(null, result))
+    .catch(err => callback(err));
+};
+
+// change reservation status
+ReservationController.prototype.changeStatus = (body, callback) => {
+  Reservation.updateOne(
+    { _id: body.reservationid },
+    { $set: { status: body.status } }
+  )
     .then(result => callback(null, result))
     .catch(err => callback(err));
 };

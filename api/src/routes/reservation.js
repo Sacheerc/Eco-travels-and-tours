@@ -6,18 +6,8 @@ var reservationController = new ReservationController();
 
 // POST route for inserting data
 router.post("/reserve", function(req, res, next) {
-  console.log(req.body);
   if (req.body) {
-    var reservationData = {
-      clientid: req.body.clientid,
-      clientname:req.body.clientname,
-      packageid: req.body.packageid,
-      packagename:req.body.packagename,
-      payment: req.body.payment,
-      tourdate: req.body.tourdate,
-      contact: req.body.contact
-    };
-    reservationController.reserve(reservationData, (err, reservation) => {
+    reservationController.reserve(req.body, (err, reservation) => {
       if (err) {
         return next(err);
       } else {
@@ -65,7 +55,7 @@ router.get("/reservations", function(req, res, next) {
 });
 
 // route for assign tourguides for reservations
-router.post("/assignguides",(req,res,next)=>{
+router.post("/assignguides", (req, res, next) => {
   reservationController.assignTourGuides(req.body, (err, result) => {
     if (err) {
       return next(err);
@@ -75,9 +65,9 @@ router.post("/assignguides",(req,res,next)=>{
   });
 });
 
-router.post("/myreservations",(req,res,next)=>{
-  console.log(req.body)
-  reservationController.getMyReservations(req.body.clientid, (err, result) => {
+router.post("/changestatus", (req, res, next) => {
+  console.log(req.body);
+  reservationController.changeStatus(req.body, (err, result) => {
     if (err) {
       return next(err);
     } else {
@@ -86,5 +76,15 @@ router.post("/myreservations",(req,res,next)=>{
   });
 });
 
+router.post("/myreservations", (req, res, next) => {
+  console.log(req.body);
+  reservationController.getMyReservations(req.body.clientid, (err, result) => {
+    if (err) {
+      return next(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
 
 module.exports = router;

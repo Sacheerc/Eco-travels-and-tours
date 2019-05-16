@@ -84,7 +84,7 @@ export class AssignGuidesComponent implements OnInit {
     const dialogRef = this.popupService.confimationModal(title,description,button)
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.assignGuides(guide,reservation._id);
+        this.assignGuides(guide,reservation);
       } else {
         console.log(false)
       }
@@ -95,9 +95,9 @@ export class AssignGuidesComponent implements OnInit {
     return new Date(dateStr);
   }
 
-  assignGuides(guide,reservationId){
+  assignGuides(guide,reservation){
     const data={
-      reservationid:reservationId,
+      reservationid:reservation._id,
       guidename:guide.name,
       guideid:guide._id,
       tourcount:guide.tourcount+1

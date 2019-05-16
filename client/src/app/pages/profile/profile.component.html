@@ -54,7 +54,7 @@
       </div>
       <div class="tab-content">
         <div id="flight" class="tab-pane fade in active">
-          <app-my-reservations></app-my-reservations>
+          <app-my-reservations *ngIf="currentuser"></app-my-reservations>
         </div>
 
         <div id="hotel" class="tab-pane fade">

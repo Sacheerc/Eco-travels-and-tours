@@ -3,10 +3,10 @@
     <div class="col-md-12">
       <div class="row">
         <div class="wrap-division">
-          <div class="col-md-12 col-md-offset-0 heading2 animate-box">
+          <div class="col-md-12 col-md-offset-0 heading2 ">
             <h2>Active Tours</h2>
           </div>
-
+          
           <div class="row">
             <div *ngFor="let tour of activetours" class="col-md-12">
               <div class="room-wrap">
@@ -59,15 +59,25 @@
                               <br /><br />
                             </div>
                           </div>
-                          <div *ngIf="!tour.guide">
+                          <div *ngIf="!tour.guide && tour.reservation.status=='active'">
                             <h2 class="text-danger">
                               Tour Guide Not Assigned Yet.
                             </h2>
                             <h4 class="text-danger">
-                              Ater we completed the guide asssigning process,
+                              Ater we have completed the guide asssigning process,
                               you will notify via an email.
                             </h4>
                           </div>
+                          <div *ngIf="tour.reservation.status=='requested'">
+                              <h2 class="text-danger">
+                                Your Cancellation request is in Processing.
+                              </h2>
+                              <h4 class="text-danger">
+                                After we have completed the refund process,
+                                you will notify via an email. <br><br>
+                                Thank you.
+                              </h4>
+                            </div>
                           <br />
                         </div>
                         <div class="col-md-4 col-sm-4 text-center">
@@ -77,6 +87,13 @@
                           >
                             <br />
                             20 Days <br />More
+                          </h1>
+                          <h1
+                            *ngIf="tour.reservation.status == 'requested'"
+                            class="text-danger bg-danger"
+                          >
+                            <br />
+                            Refund <br />Requested! <br><br>
                           </h1>
                           <h1
                             *ngIf="tour.reservation.status == 'closed'"
@@ -91,8 +108,9 @@
                             Edit Rate
                           </button>
                           <button
+                            routerLink="/profile"
                             *ngIf="tour.reservation.status == 'active'"
-                            class="btn btn-danger"
+                            class="btn btn-danger"  (click)="requestRefund(tour.reservation)"
                           >
                             Cancel Tour
                           </button>
@@ -105,7 +123,7 @@
             </div>
           </div>
 
-          <div class="col-md-12 col-md-offset-0 heading2 animate-box">
+          <div class="col-md-12 col-md-offset-0 heading2">
             <h2>My Recent Tours with Eco-Travels</h2>
           </div>
 
@@ -139,7 +157,8 @@
                         <div class="col-md-8 col-sm-8">
                           <h2>
                             {{ tour.reservation.price }}.00 Rs :
-                            <span class="text-success">Paid</span>
+                            <span *ngIf="tour.reservation.status=='closed'" class="text-success">Paid</span>
+                            <span *ngIf="tour.reservation.status=='canceled'" class="text-danger">Refunded</span>
                           </h2>
                           <div *ngIf="tour.guide" class="row ">
                             <div class="col-md-4 text-left">
@@ -161,7 +180,7 @@
                               <br /><br />
                             </div>
                           </div>
-                          <div *ngIf="!tour.guide">
+                          <div *ngIf="!tour.guide && tour.reservation.status=='closed'">
                             <h2 class="text-danger">
                               Tour Guide Not Assigned Yet.
                             </h2>
@@ -170,6 +189,14 @@
                               you will notify via an email.
                             </h4>
                           </div>
+                          <div *ngIf="!tour.guide && tour.reservation.status=='canceled'">
+                              <h2 class="text-danger">
+                                Cancelled.
+                              </h2>
+                              <h4 class="text-danger">
+                                This tour was cancelled by <br> {{tour.reservation.clientname}}.
+                              </h4>
+                            </div>
                           <br />
                         </div>
                         <div class="col-md-4 col-sm-4 text-center">

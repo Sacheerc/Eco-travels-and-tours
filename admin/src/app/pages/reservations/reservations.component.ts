@@ -60,7 +60,7 @@ export class ReservationsComponent implements OnInit {
     const dialogRef = this.popupService.confimationModal(title,description)
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.removeAssignedGuides(guide, reservation._id);
+        this.removeAssignedGuides(guide, reservation);
       } else {
         const dialogRef = this.popupService.openAssignedGuideModal(guide, reservation);
         dialogRef.afterClosed().subscribe(result => {
@@ -74,18 +74,69 @@ export class ReservationsComponent implements OnInit {
     });
   }
 
+  // confirm requested cancelations
+  confirmCancelation(guide, reservation) {
+    if(guide){
+      this.confirmRemoval(guide, reservation)
+    }else{
+    var title="Do you Want to Cancel?"
+    var description="Do you want to Refund "+reservation.packagename+" on "+this.stringAsDate(reservation.tourdate)+" to "+reservation.clientname+"?";
+    
+    const dialogRef = this.popupService.confimationModal(title,description,"Confirm")
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.cancelTour("canceled",reservation);
+      } else {
+        console.log(false)
+      }
+    });
+  }
+  }
+
+  completedTour(reservation) {
+    var title="Are You Sure?"
+    var description="Do you want to marked as completed "+reservation.packagename+" on "+this.stringAsDate(reservation.tourdate)+"?";
+    
+    const dialogRef = this.popupService.confimationModal(title,description,"Complete")
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.cancelTour("closed",reservation);
+      } else {
+        console.log(false)
+      }
+    });
+  }
+
+
+
   findGuide(guidename) {
     return this.guides.find(guide => guide.name == guidename)
   }
 
-  removeAssignedGuides(guide, reservationId) {
+  removeAssignedGuides(guide, reservation) {
     const data = {
-      reservationid: reservationId,
+      reservationid: reservation._id,
       guidename: "Not Assigned",
       guideid: guide._id,
       tourcount: guide.tourcount - 1
     };
     this.reservationService.assignGuides(data).subscribe((result) => {
+      console.log(result)
+      this.dialog.closeAll();
+      location.reload();
+    },
+      (err) => {
+        console.log(err.error)
+      }
+    )
+  }
+
+  cancelTour(status,reservation) { 
+      const data = {
+        reservationid: reservation._id,
+        status:status,
+      };
+    this.reservationService.changeStatus(data).subscribe((result) => {
       console.log(result)
       this.dialog.closeAll();
       location.reload();

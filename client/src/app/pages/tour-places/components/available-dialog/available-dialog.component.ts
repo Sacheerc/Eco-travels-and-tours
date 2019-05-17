@@ -7,9 +7,11 @@ import { MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./available-dialog.component.css']
 })
 export class AvailableDialogComponent implements OnInit {
-  modalTitle: string;
+  tour: any;
+  reservation:any;
   constructor(@Inject(MAT_DIALOG_DATA)public data: any) { 
-    this.modalTitle = data.title;
+    this.tour = data.data;
+    this.reservation=data.reservation;
     console.log(data)
   }
 

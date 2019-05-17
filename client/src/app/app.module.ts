@@ -55,6 +55,8 @@ import { AvailableDialogComponent } from './pages/tour-places/components/availab
 import { PopupModalsService } from './services/popup-modals/popup-modals.service';
 import { UnavailableDialogComponent } from './pages/tour-places/components/unavailable-dialog/unavailable-dialog.component';
 import { MyReservationsComponent } from './pages/profile/components/my-reservations/my-reservations.component';
+import { EditProfileComponent } from './pages/profile/components/edit-profile/edit-profile.component';
+import { ConfirmationPopupComponent } from './shared/components/confirmation-popup/confirmation-popup.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,8 @@ import { MyReservationsComponent } from './pages/profile/components/my-reservati
     AvailableDialogComponent,
     UnavailableDialogComponent,
     MyReservationsComponent,
+    EditProfileComponent,
+    ConfirmationPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -114,6 +118,7 @@ import { MyReservationsComponent } from './pages/profile/components/my-reservati
   entryComponents: [
     AvailableDialogComponent,
     UnavailableDialogComponent,
+    ConfirmationPopupComponent
    ],
   providers: [
     TourPackagesService,

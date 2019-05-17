@@ -1,19 +1,19 @@
-<h2 mat-dialog-title class="text-success text-center">{{modalTitle}}</h2>
-<hr>
-<mat-dialog-content class="text-danger">*Do you wish to reserve this package with following details</mat-dialog-content>
-<mat-dialog-content>
-    <br>
-    <div class="topic">Tour package Name:</div>
-    <input type="text" class="form-control details text-dark" placeholder="Sri Lanka Ancient City" readonly>
-    <div class="topic">Reserved Date:</div>
-    <input type="text" class="form-control details text-dark" placeholder="Sri Lanka Ancient City" readonly>
-    <div class="topic">No of Guests:</div>
-    <input type="text" class="form-control details text-dark" placeholder="Sri Lanka Ancient City" readonly>
-    <div class="topic">Total Price:</div>
-    <input type="text" class="form-control details text-dark" placeholder="Sri Lanka Ancient City" readonly>
-</mat-dialog-content>
-<hr>
-<mat-dialog-actions>
- <button mat-button mat-dialog-close class="btn-sm btn-danger">Close</button>
- <a href="/tours" mat-button mat-dialog-close class="btn-sm btn-primary" style="float:right">Reserve Now</a>
-</mat-dialog-actions>
+<div style="width:400px">
+        <h2 class="text-center">{{tour.package}}</h2>
+        <hr>
+        <h4 class="text-danger text-center">*Do you wish to reserve this package with following details</h4>
+        <div class="col-md-12" style="margin-bottom:25px">
+            <div class="topic">Tour package Name:</div>
+            <div class="field text-center" >{{tour.package}}</div>
+            <div class="topic">Reserved Date:</div>
+            <div class="field text-center" >{{reservation.date}}</div>
+            <div class="topic">No of Guests:</div>
+            <div class="field text-center" >{{reservation.guestcount}}</div>
+            <div class="topic">Total Price:</div>
+            <div class="field text-center" >{{tour.price}}.00 Rs</div>
+        </div>
+        <div class="text-center" style="margin-top:100px">
+                <button  mat-dialog-close  class="btn btn-primary" style="margin:5px;width: 100px">Close</button>
+                <button  class="btn btn-danger btn-round"  [mat-dialog-close]="true" style="margin:5px;width:100px">Reserve</button>
+        </div>       
+</div>

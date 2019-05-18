@@ -12,42 +12,71 @@ import { NgForm } from '@angular/forms';
 })
 
 export class RegisterGuideComponent implements OnInit {
-  name:string;
-  address:string;
-  phonenumber:number;
-  dob:string;
-  email:string;
+  name: string;
+  address: string;
+  phonenumber: number;
+  dob: string;
+  email: string;
   NIC: string;
   salary:number;
   imgurl:string;
- 
+  imagename: String;
+  image: File;
 
 
-  // fileData=null;
-  constructor(private regGuides:RegisterguidesService, private routs:Router, private http: HttpClient) { }
+  constructor(private regGuides: RegisterguidesService, private routs: Router, private http: HttpClient) { }
 
   ngOnInit() {
   }
 
-  // fileProgress(fileInput: any){
-  //   this.fileData=<File>fileInput.target.files[0];
-  // }
-
-
-  submitForm(){
-    var body = `name=${this.name}&address=${this.address}&phonenumber=${this.phonenumber}&email=${this.email}&dob=${this.dob}&nic=${this.NIC}&salary=${this.salary}&imgurl=${this.imgurl}&tourcount=0&rate=0`;
-    console.log(body);
-    this.regGuides.registerguide(body).subscribe((result)=>{
-      this.routs.navigate(['/guides']);
-      },
-      (err)=>{
-        alert(err.error)
-        this.routs.navigate(['/guides']);
-      }
-    )
-
+  createFormData(event) {
+    this.image = event.target.files[0];
+    this.imagename = event.target.files[0].name
   }
 
-  
+
+  // submitForm(){
+  //   var body = `name=${this.name}&address=${this.address}&phonenumber=${this.phonenumber}&email=${this.email}&dob=${this.dob}&nic=${this.NIC}&salary=${this.salary}&imgurl=${this.imgurl}&tourcount=0&rate=0`;
+  //   console.log(body);
+  //   this.regGuides.registerguide(body).subscribe((result)=>{
+  //     this.routs.navigate(['/guides']);
+  //     },
+  //     (err)=>{
+  //       alert(err.error)
+  //       this.routs.navigate(['/guides']);
+  //     }
+  //   )
+
+  submitForm() {
+    var body = {
+      name: this.name,
+      address: this.address,
+      phonenumber: this.phonenumber,
+      dob: this.dob,
+      email: this.email,
+      NIC: this.NIC,
+      salary: this.salary,
+      imgurl: this.imagename
+    }
+    this.regGuides.registerguide(body).subscribe((result) => {
+      if (result) {
+        this.regGuides.uploadimage(this.image).subscribe((result) => {
+          alert("registered success")
+          this.routs.navigate(['/guides']);
+        },
+          (err) => {
+            console.log(err.error)
+          }
+        )
+      }
+    },
+      (err) => {
+        console.log(err.error)
+      }
+    )
+    }
+
+
+
 
 }

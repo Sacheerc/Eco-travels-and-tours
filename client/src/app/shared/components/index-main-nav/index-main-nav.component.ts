@@ -20,7 +20,7 @@ export class IndexMainNavComponent implements OnInit {
   public logout(){
     this.loginService.logout().subscribe(async (result)=>{
         localStorage.removeItem('user');
-        this.router.navigate(['/'])
+        await this.router.navigate(['/'])
         location.reload();
       },
       (err)=>{

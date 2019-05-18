@@ -14,6 +14,7 @@ export class DashboardService {
 
   constructor(private http: HttpClient) { 
   }
+  public baseUrl="http://localhost:3000/admin/";
 
   getdashboard(){
     return this.http.get(url,{
@@ -23,5 +24,20 @@ export class DashboardService {
     });
   }
 
+  getIncome(){
+    return this.http.get(this.baseUrl+"income");
+  }
+
+  getReservations(){
+    return this.http.get(this.baseUrl+"reservations");
+  }
+
+  getOngoingTours(){
+    return this.http.get(this.baseUrl+"ongoing");
+  }
   
+  getDestIncome(){
+    return this.http.get(this.baseUrl+"destIncome");
+  }
+
 }

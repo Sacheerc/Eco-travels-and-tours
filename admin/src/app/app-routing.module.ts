@@ -12,6 +12,8 @@ import { AuthLoginGuard } from './guard/auth-login.guard';
 import { ReservationsComponent } from './pages/reservations/reservations.component'
 import { AssignGuidesComponent } from './pages/reservations/assign-guides/assign-guides.component';
 import { GuideProfileComponent } from './pages/guides/guide-profile/guide-profile.component';
+import { SendMailComponent } from './pages/guides/send-mail/send-mail.component';
+import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadcast-emails.component';
 
 
 const routes: Routes = [
@@ -24,7 +26,9 @@ const routes: Routes = [
   {path:"regGuide", component:RegisterGuideComponent,canActivate:[AuthGuard]},
   {path:"reservations", component:ReservationsComponent,canActivate:[AuthGuard]},
   {path:"reservations/:id", component:AssignGuidesComponent,canActivate:[AuthGuard]},
-  {path:"profile/:id", component:GuideProfileComponent,canActivate:[AuthGuard]}
+  {path:"profile/:id", component:GuideProfileComponent,canActivate:[AuthGuard]},
+  {path:"profile/sendmail/:id", component:SendMailComponent, canActivate:[AuthGuard]},
+  {path:"guides/broadcastEmails", component:BroadcastEmailsComponent, canActivate:[AuthGuard]}
 
 ];
 

@@ -56,6 +56,7 @@ var questionRouter = require("./src/routes/question");
 var dashBoard = require('./src/routes/dashboard');
 var reservationRoutes = require('./src/routes/reservation');
 var guideProfile = require('./src/routes/guideProfile');
+var sendMail = require("./src/routes/sendMail");
 
 
 // application routings
@@ -71,6 +72,7 @@ app.use("/toursort", tourSort);
 app.use("/qaforum",questionRouter);
 app.use("/reservation",reservationRoutes);
 app.use("/guideProfile/", guideProfile);
+app.use("/sendmail", sendMail);
 
 
 // Config image url path

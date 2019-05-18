@@ -34,7 +34,7 @@
                         required="true" value="{{guide.email}}" />
                     </div>
                   </div>
-                  <div class="col-md-3 pl-1">
+                  <div class="col-md-3 pl-1"> 
                     <div class="form-group">
                       <label for="phonenumber">Phone Number</label>
                       <input [(ngModel)]="phonenumber" type="text" class="form-control" id="phonenumber"
@@ -128,9 +128,9 @@
               <hr>
               <div class="button-container">
                 <label >Send Email To {{guide.name}}</label>
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+                <a href="profile/sendmail/{{guide._id}}" class="btn btn-neutral btn-icon btn-round btn-lg">
                   <i class="fas fa-envelope"></i>
-                </button>
+                </a>
                 
               </div>
             </div>

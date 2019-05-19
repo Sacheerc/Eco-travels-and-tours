@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material';
 })
 export class ReservationsComponent implements OnInit {
   reservations: any;
+  p: number = 1;
   guides: any
   constructor(
     private reservationService: ReservationsService,
@@ -38,6 +39,7 @@ export class ReservationsComponent implements OnInit {
       }
     )
   }
+
   stringAsDate(dateStr: string) {
     return new Date(dateStr);
   }
@@ -54,10 +56,10 @@ export class ReservationsComponent implements OnInit {
   }
 
   confirmRemoval(guide, reservation) {
-    var title="Do you Want to Remove?"
-    var description="Do you want to remove "+guide.name+" from "+reservation.packagename+" on "+this.stringAsDate(reservation.tourdate)+" ?";
-    
-    const dialogRef = this.popupService.confimationModal(title,description)
+    var title = "Do you Want to Remove?"
+    var description = "Do you want to remove " + guide.name + " from " + reservation.packagename + " on " + this.stringAsDate(reservation.tourdate) + " ?";
+
+    const dialogRef = this.popupService.confimationModal(title, description)
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.removeAssignedGuides(guide, reservation);
@@ -76,31 +78,31 @@ export class ReservationsComponent implements OnInit {
 
   // confirm requested cancelations
   confirmCancelation(guide, reservation) {
-    if(guide){
+    if (guide) {
       this.confirmRemoval(guide, reservation)
-    }else{
-    var title="Do you Want to Cancel?"
-    var description="Do you want to Refund "+reservation.packagename+" on "+this.stringAsDate(reservation.tourdate)+" to "+reservation.clientname+"?";
-    
-    const dialogRef = this.popupService.confimationModal(title,description,"Confirm")
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.cancelTour("canceled",reservation);
-      } else {
-        console.log(false)
-      }
-    });
-  }
+    } else {
+      var title = "Do you Want to Cancel?"
+      var description = "Do you want to Refund " + reservation.packagename + " on " + this.stringAsDate(reservation.tourdate) + " to " + reservation.clientname + "?";
+
+      const dialogRef = this.popupService.confimationModal(title, description, "Confirm")
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.cancelTour("canceled", reservation);
+        } else {
+          console.log(false)
+        }
+      });
+    }
   }
 
   completedTour(reservation) {
-    var title="Are You Sure?"
-    var description="Do you want to marked as completed "+reservation.packagename+" on "+this.stringAsDate(reservation.tourdate)+"?";
-    
-    const dialogRef = this.popupService.confimationModal(title,description,"Complete")
+    var title = "Are You Sure?"
+    var description = "Do you want to marked as completed " + reservation.packagename + " on " + this.stringAsDate(reservation.tourdate) + "?";
+
+    const dialogRef = this.popupService.confimationModal(title, description, "Complete")
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.cancelTour("closed",reservation);
+        this.cancelTour("closed", reservation);
       } else {
         console.log(false)
       }
@@ -131,11 +133,11 @@ export class ReservationsComponent implements OnInit {
     )
   }
 
-  cancelTour(status,reservation) { 
-      const data = {
-        reservationid: reservation._id,
-        status:status,
-      };
+  cancelTour(status, reservation) {
+    const data = {
+      reservationid: reservation._id,
+      status: status,
+    };
     this.reservationService.changeStatus(data).subscribe((result) => {
       console.log(result)
       this.dialog.closeAll();

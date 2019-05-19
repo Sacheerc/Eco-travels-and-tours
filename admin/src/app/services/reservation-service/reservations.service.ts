@@ -6,6 +6,7 @@ const urlGetAllReservations=environment.appUrl+"/reservation/reservations";
 const urlFindReservations=environment.appUrl+"/reservation/reservations";
 const urlCheckGuides=environment.appUrl+"/reservation/checkguides";
 const urlAssignGuides=environment.appUrl+"/reservation/assignguides";
+const urlChangeStatus=environment.appUrl+"/reservation/changestatus";
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,14 @@ export class ReservationsService {
 
   assignGuides(data){
     return this.http.post(urlAssignGuides, data, {
+      observe:'body',
+      withCredentials:true,
+      headers:new HttpHeaders().append('Content-Type','application/json')
+    })
+  }
+
+  changeStatus(data){
+    return this.http.post(urlChangeStatus, data, {
       observe:'body',
       withCredentials:true,
       headers:new HttpHeaders().append('Content-Type','application/json')

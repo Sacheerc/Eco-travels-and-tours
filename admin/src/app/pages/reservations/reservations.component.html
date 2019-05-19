@@ -56,6 +56,9 @@
                     <th>
                       Tour Guide
                     </th>
+                    <th>
+                        Status
+                    </th>
                   </thead>
                   <tbody *ngIf="reservations">
                     <tr *ngFor="let reservation of reservations">
@@ -74,13 +77,18 @@
                       <td>
                         {{ reservation.contact }}
                       </td>
-                      <td *ngIf="reservation.guidename=='Not Assigned'">
-                        <a routerLink="/reservations/{{reservation._id}}" style="width:130px" class="btn btn-secondary btn-round">{{ reservation.guidename }}</a>
-                      </td>
-                      <td *ngIf="reservation.guidename!='Not Assigned'">
-                        <a routerLink="/#" style="width:130px" class="btn btn-warning btn-round" (click)="openAssignedGuide(findGuide(reservation.guidename),reservation)">View Guide 
+                      <td *ngIf="reservation.status!='canceled'">
+                        <a  *ngIf="reservation.guidename=='Not Assigned'" routerLink="/reservations/{{reservation._id}}" style="width:130px" class="btn btn-secondary btn-round">{{ reservation.guidename }}</a>
+                        <a  *ngIf="reservation.guidename!='Not Assigned'" routerLink="/#" style="width:130px" class="btn btn-warning btn-round" (click)="openAssignedGuide(findGuide(reservation.guidename),reservation)">View Guide 
                         </a>
-                        <!-- <a routerLink="/#" style="width:200px" (click)="findGuide(reservation.guidename)">{{ reservation.guidename }}</a> -->
+                      </td>
+                      <td *ngIf="reservation.status=='canceled'"></td>
+                      <td>
+                          <a  *ngIf="reservation.status=='active'" routerLink="/#" style="width:130px" class="btn btn-warning btn-round" (click)="completedTour(reservation)">Active</a>
+                          <a  *ngIf="reservation.status=='closed'" routerLink="/#" style="width:130px" class="text-success" (click)="completedTour(reservation)">Completed</a>
+                          <a  *ngIf="reservation.status=='requested'" routerLink="/#"  style="width:130px" class="btn btn-danger btn-round" (click)="confirmCancelation(findGuide(reservation.guidename),reservation)">Cancelation </a>
+                          <a  *ngIf="reservation.status=='canceled'" routerLink="/#"  style="width:130px" class="text-danger">Refunded </a>
+
                       </td>
                     </tr>
                   </tbody>

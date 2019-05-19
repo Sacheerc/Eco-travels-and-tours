@@ -59,7 +59,7 @@ export class RegisterGuideComponent implements OnInit {
         console.log(err.error)
       }
     )
-  }
+    }
 
 
 

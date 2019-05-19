@@ -13,6 +13,8 @@ export class MyReservationsComponent implements OnInit {
   url=environment.appUrl;
   recenttours=[];
   activetours=[];
+  p:number=1;
+  q:number=1;
   guides:any;
   myreservations:any
   clientid=JSON.parse(localStorage.getItem('user'))._id

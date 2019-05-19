@@ -18,9 +18,11 @@ export class RegisterGuideComponent implements OnInit {
   dob: string;
   email: string;
   NIC: string;
-  salary: number;
+  salary:number;
+  imgurl:string;
   imagename: String;
   image: File;
+
 
   constructor(private regGuides: RegisterguidesService, private routs: Router, private http: HttpClient) { }
 
@@ -31,6 +33,19 @@ export class RegisterGuideComponent implements OnInit {
     this.image = event.target.files[0];
     this.imagename = event.target.files[0].name
   }
+
+
+  // submitForm(){
+  //   var body = `name=${this.name}&address=${this.address}&phonenumber=${this.phonenumber}&email=${this.email}&dob=${this.dob}&nic=${this.NIC}&salary=${this.salary}&imgurl=${this.imgurl}&tourcount=0&rate=0`;
+  //   console.log(body);
+  //   this.regGuides.registerguide(body).subscribe((result)=>{
+  //     this.routs.navigate(['/guides']);
+  //     },
+  //     (err)=>{
+  //       alert(err.error)
+  //       this.routs.navigate(['/guides']);
+  //     }
+  //   )
 
   submitForm() {
     var body = {
@@ -60,6 +75,7 @@ export class RegisterGuideComponent implements OnInit {
       }
     )
     }
+
 
 
 

@@ -29,7 +29,7 @@
                 <button class="btn btn-primary">Go</button>
             </div>
         </div>
-        <app-qaforum-body *ngIf="isOn"></app-qaforum-body>
-        <app-question-list *ngIf="!isOn"></app-question-list> 
+        <app-qaforum-body *ngIf="isOn" (hideParent)="toggleOn()"></app-qaforum-body>
+        <app-question-list></app-question-list> 
 </div>
 <app-footer></app-footer>

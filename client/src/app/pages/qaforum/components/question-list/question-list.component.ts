@@ -5,6 +5,10 @@ import { FormControl } from '@angular/forms';
 import {QuestionService} from '../../../../services/questions/question.service';
 import { Question } from '../../../../shared/models/question.model';
 import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
+import { PopupModalsService } from '../../../../services/popup-modals/popup-modals.service';
+import { MatDialog } from '@angular/material';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-question-list',
   templateUrl: './question-list.component.html',
@@ -14,8 +18,10 @@ import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrie
 export class QuestionListComponent implements OnInit {
   @Input() isLoggedIn='false';
   currentuser:any;
-
-  constructor(private questionService:QuestionService){}
+  constructor(private questionService:QuestionService,
+    private popupService: PopupModalsService,
+    public dialog: MatDialog
+    ){}
   
   answerForm = new FormGroup({
     answer:new FormControl('')
@@ -24,7 +30,7 @@ export class QuestionListComponent implements OnInit {
   ngOnInit() {
     this.refreshQuestionList();
     this.currentuser=JSON.parse(localStorage.getItem('user'));
-  }
+   }
 
   refreshQuestionList(){
     this.questionService.getQuestionList().subscribe((res)=>{
@@ -37,7 +43,6 @@ export class QuestionListComponent implements OnInit {
   
 });
     this.answerForm.controls['answer'].setValue('');
-    alert("Answer posted");
     setTimeout(()=>{
       this.refreshQuestionList();
       
@@ -47,15 +52,35 @@ export class QuestionListComponent implements OnInit {
 
   onDelete(id:String)
   {
-    this.questionService.deleteQuestion(id).subscribe((res)=>{
-      this.refreshQuestionList();
+    var title="Are you sure?"
+    var descr="Do you want to delete your question?"
+
+    const dialogRef = this.popupService.confimationModal(title,descr,"Delete")
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.questionService.deleteQuestion(id).subscribe((res)=>{
+          this.refreshQuestionList();
+        });
+      } else {
+        console.log(false)
+      }
     });
   }
 
   onAnswerDelete(id:String)
   {
-    this.questionService.deleteAnswer(id).subscribe((res)=>{
-      this.refreshQuestionList();
+    var title="Are you sure?"
+    var descr="Do you want to delete your answer?"
+
+    const dialogRef = this.popupService.confimationModal(title,descr,"Delete")
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.questionService.deleteAnswer(id).subscribe((res)=>{
+          this.refreshQuestionList();
+        });
+      } else {
+        console.log(false)
+      }
     });
   }
 

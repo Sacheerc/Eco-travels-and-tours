@@ -8,7 +8,7 @@
           </div>
           
           <div class="row">
-            <div *ngFor="let tour of activetours" class="col-md-12">
+            <div *ngFor="let tour of activetours " class="col-md-12">
               <div class="room-wrap">
                 <div class="row">
                   <div class="col-md-4 col-sm-4">
@@ -128,7 +128,7 @@
           </div>
 
           <div class="row">
-            <div *ngFor="let tour of recenttours" class="col-md-12">
+            <div *ngFor="let tour of recenttours | paginate: { itemsPerPage: 5, currentPage: p }" class="col-md-12">
               <div class="room-wrap">
                 <div class="row">
                   <div class="col-md-4 col-sm-4">
@@ -234,7 +234,13 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="text-center">
+          <pagination-controls
+            class="my-pagination"
+            (pageChange)="p = $event"
+          ></pagination-controls>
+        </div>
+        <!-- <div class="row">
           <div class="col-md-12 text-center">
             <ul class="pagination">
               <li class="disabled"><a href="#">&laquo;</a></li>
@@ -245,7 +251,7 @@
               <li><a href="#">&raquo;</a></li>
             </ul>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

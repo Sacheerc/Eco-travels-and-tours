@@ -14,15 +14,15 @@
               <div class="row">
                 <div class="col-md-1">
                   <h3 class="card-title text-warning text-right">
-                      <i class="now-ui-icons loader_refresh spin"></i>
-                      <!-- <p style="margin-top:-5px;margin-left:20px"> Upcoming Tours</p>  -->
-                    </h3>
+                    <i class="now-ui-icons loader_refresh spin"></i>
+                    <!-- <p style="margin-top:-5px;margin-left:20px"> Upcoming Tours</p>  -->
+                  </h3>
                 </div>
                 <div class="col-md-11 text-left">
-                    <h3 class="card-title text-warning">
-                        <p style="margin-top:-5px;"> Upcoming Tours</p> 
-                    </h3>
-                  </div>
+                  <h3 class="card-title text-warning">
+                    <p style="margin-top:-5px;">Upcoming Tours</p>
+                  </h3>
+                </div>
                 <!-- <div class="col-md-6">
                   Sort by
                   <a class="btn btn-success" (click)="rateSort()">Rating</a>
@@ -57,13 +57,21 @@
                       Tour Guide
                     </th>
                     <th>
-                        Status
+                      Status
                     </th>
                   </thead>
                   <tbody *ngIf="reservations">
-                    <tr *ngFor="let reservation of reservations">
+                    <tr
+                      *ngFor="
+                        let reservation of reservations
+                          | paginate: { itemsPerPage: 7, currentPage: p }
+                      "
+                    >
                       <td>
-                        {{ stringAsDate(reservation.tourdate) | date:'dd/MM/yyyy'  }}
+                        {{
+                          stringAsDate(reservation.tourdate)
+                            | date: "dd/MM/yyyy"
+                        }}
                       </td>
                       <td style="max-width:10px">
                         {{ reservation.packagename }}
@@ -77,23 +85,77 @@
                       <td>
                         {{ reservation.contact }}
                       </td>
-                      <td *ngIf="reservation.status!='canceled'">
-                        <a  *ngIf="reservation.guidename=='Not Assigned'" routerLink="/reservations/{{reservation._id}}" style="width:130px" class="btn btn-secondary btn-round">{{ reservation.guidename }}</a>
-                        <a  *ngIf="reservation.guidename!='Not Assigned'" routerLink="/#" style="width:130px" class="btn btn-warning btn-round" (click)="openAssignedGuide(findGuide(reservation.guidename),reservation)">View Guide 
+                      <td *ngIf="reservation.status != 'canceled'">
+                        <a
+                          *ngIf="reservation.guidename == 'Not Assigned'"
+                          routerLink="/reservations/{{ reservation._id }}"
+                          style="width:130px"
+                          class="btn btn-secondary btn-round"
+                          >{{ reservation.guidename }}</a
+                        >
+                        <a
+                          *ngIf="reservation.guidename != 'Not Assigned'"
+                          routerLink="/#"
+                          style="width:130px"
+                          class="btn btn-warning btn-round"
+                          (click)="
+                            openAssignedGuide(
+                              findGuide(reservation.guidename),
+                              reservation
+                            )
+                          "
+                          >View Guide
                         </a>
                       </td>
-                      <td *ngIf="reservation.status=='canceled'"></td>
+                      <td *ngIf="reservation.status == 'canceled'"></td>
                       <td>
-                          <a  *ngIf="reservation.status=='active'" routerLink="/#" style="width:130px" class="btn btn-warning btn-round" (click)="completedTour(reservation)">Active</a>
-                          <a  *ngIf="reservation.status=='closed'" routerLink="/#" style="width:130px" class="text-success" (click)="completedTour(reservation)">Completed</a>
-                          <a  *ngIf="reservation.status=='requested'" routerLink="/#"  style="width:130px" class="btn btn-danger btn-round" (click)="confirmCancelation(findGuide(reservation.guidename),reservation)">Cancelation </a>
-                          <a  *ngIf="reservation.status=='canceled'" routerLink="/#"  style="width:130px" class="text-danger">Refunded </a>
-
+                        <a
+                          *ngIf="reservation.status == 'active'"
+                          routerLink="/#"
+                          style="width:130px"
+                          class="btn btn-warning btn-round"
+                          (click)="completedTour(reservation)"
+                          >Active</a
+                        >
+                        <a
+                          *ngIf="reservation.status == 'closed'"
+                          routerLink="/#"
+                          style="width:130px"
+                          class="text-success"
+                          (click)="completedTour(reservation)"
+                          >Completed</a
+                        >
+                        <a
+                          *ngIf="reservation.status == 'requested'"
+                          routerLink="/#"
+                          style="width:130px"
+                          class="btn btn-danger btn-round"
+                          (click)="
+                            confirmCancelation(
+                              findGuide(reservation.guidename),
+                              reservation
+                            )
+                          "
+                          >Cancelation
+                        </a>
+                        <a
+                          *ngIf="reservation.status == 'canceled'"
+                          routerLink="/#"
+                          style="width:130px"
+                          class="text-danger"
+                          >Refunded
+                        </a>
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
+            </div>
+            <div class="text-center">
+              <pagination-controls
+                class="my-pagination"
+                (pageChange)="p = $event"
+              ></pagination-controls>
             </div>
           </div>
         </div>

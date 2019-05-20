@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { MatDialogModule, MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -60,12 +61,15 @@ import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadc
     FormsModule,
     MatDialogModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
+  
   entryComponents: [
     ConfirmationDialogComponent,
     ViewAssignedGuideComponent
   ],
+
   providers: [
     LoginService,
     AuthGuard, 

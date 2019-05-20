@@ -4,6 +4,7 @@ import { PopupModalService } from '../../services/popup-modals-service/popup-mod
 import { GetGuidesService } from 'src/app/services/get-guides.service';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TestBed } from '@angular/core/testing';
 
  declare var successNotification:any;
  declare var dangerNotification:any;
@@ -18,6 +19,8 @@ export class ReservationsComponent implements OnInit {
   @Input() notificationAllert='none';
   p: number = 1;
   guides: any
+  all:any;
+  active='all';
   constructor(
     private reservationService: ReservationsService,
     private popupService: PopupModalService,
@@ -60,13 +63,74 @@ export class ReservationsComponent implements OnInit {
 
     this.reservationService.getAllReservations().subscribe((result) => {
       if (result) {
-        this.reservations = result
+        this.reservations = result;
+        this.all=result;
       }
     },
       (err) => {
         console.log(err.error)
       }
     )
+  }
+
+  async notAssigned(){
+    var array=[];
+    await this.all.forEach(reservation => {
+      if(reservation.guidename=='Not Assigned' && reservation.status!='canceled'){
+        array.push(reservation)
+      }
+    });
+    this.reservations=array; 
+    this.active='notAssigned'
+  }
+
+  async assigned(){
+    var array=[];
+    await this.all.forEach(reservation => {
+      if(reservation.guidename!='Not Assigned' && reservation.status!='canceled'){
+        array.push(reservation)
+      }
+    });
+    this.reservations=array;
+    this.active='assigned' 
+  }
+
+  async requested(){
+    var array=[];
+    await this.all.forEach(reservation => {
+      if(reservation.status=='requested'){
+        array.push(reservation)
+      }
+    });
+    this.reservations=array; 
+    this.active='requested'
+  }
+
+  async completed(){
+    var array=[];
+    await this.all.forEach(reservation => {
+      if(reservation.status=='closed'){
+        array.push(reservation)
+      }
+    });
+    this.reservations=array; 
+    this.active='completed'
+  }
+
+  async refunded(){
+    var array=[];
+    await this.all.forEach(reservation => {
+      if(reservation.status=='canceled'){
+        array.push(reservation)
+      }
+    });
+    this.reservations=array; 
+    this.active='refunded'
+  }
+
+  allReservations(){
+    this.reservations=this.all;
+    this.active='all'
   }
 
   stringAsDate(dateStr: string) {

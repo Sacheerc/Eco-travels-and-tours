@@ -14,7 +14,7 @@ router.get("/",(req,res)=>{
     //     console.log(allQuestions);}
 
     // });
-     Question.find({}).populate("answers").exec(function(err,foundQuestions){
+     Question.find({}).sort({date: -1}).populate("answers").exec(function(err,foundQuestions){
         if(err){
             console.log(err);
         }

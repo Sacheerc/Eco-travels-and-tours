@@ -1,11 +1,15 @@
 
 export interface TourGuide{
-    Id?:number;
+    Id?:string;
     name?: string; 
-    age?:number;
-    Address?: String;
-    phonenumber?:string;
+    dob?:string;
+    Address?: string;
+    phonenumber?:number;
     email?:string;
     nic?:string;
+    salary?:number;
+    tourcount?:number;
+    rate?:number;
+    imgurl?:string;
 
 }

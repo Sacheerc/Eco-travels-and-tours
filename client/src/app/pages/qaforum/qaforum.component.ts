@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
+import { textChangeRangeIsUnchanged } from 'typescript';
+
 
 @Component({
   selector: 'app-qaforum',
@@ -9,7 +12,6 @@ export class QaforumComponent implements OnInit {
   public isOn:boolean=false;
   @Input() isLoggedIn='false';
   currentuser:any;
-
   constructor() { }
 
   ngOnInit() {
@@ -17,6 +19,10 @@ export class QaforumComponent implements OnInit {
   }
 
   toggleOn(){
+    this.isOn= !this.isOn;
+  }
+
+  loadQs(){
     this.isOn= !this.isOn;
   }
 }

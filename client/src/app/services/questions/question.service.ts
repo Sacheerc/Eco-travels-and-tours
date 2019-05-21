@@ -29,6 +29,9 @@ export class QuestionService {
     return this.http.get(this.baseURL);
   }
     
+  getFilteredQuestionList(keyword:any){
+    return this.http.get(this.baseURL+'/filter/'+keyword);
+  }
   deleteQuestion(id:String)
   {
     return this.http.delete(this.baseURL+"/"+id);

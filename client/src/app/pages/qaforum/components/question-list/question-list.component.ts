@@ -38,6 +38,13 @@ export class QuestionListComponent implements OnInit {
     });
   }
 
+  filterQuestionList(keyword:any){
+    this.questionService.getFilteredQuestionList(keyword).subscribe((res)=>{
+      this.questionService.questions=res as Question[];
+      alert(res.length + ' results found');
+    });
+  }
+
   onSubmit(id: string){
  this.questionService.postAnswer(id, this.answerForm.value,this.currentuser).subscribe((res)=>{
   

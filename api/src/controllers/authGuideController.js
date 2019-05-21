@@ -11,3 +11,5 @@ AuthGuideController.prototype.registerGuide = function(userData, callback) {
 
 
 module.exports = AuthGuideController;
+
+

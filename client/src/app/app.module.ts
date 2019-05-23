@@ -13,6 +13,8 @@ import {  MatDialogModule,
           MatIconModule,
         } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -140,7 +142,9 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
     MatDividerModule,
     MatTableModule,
     MatIconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule,
+    ToastrModule.forRoot()
   ],
   entryComponents: [
     AvailableDialogComponent,

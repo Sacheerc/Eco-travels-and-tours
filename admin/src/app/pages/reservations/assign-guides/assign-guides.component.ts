@@ -18,7 +18,9 @@ export class AssignGuidesComponent implements OnInit {
   invalidGuides: any;
   guides: any;
   allguides: any;
-  filteredguides:any
+  filteredguides:any;
+  p: number = 1;
+  
 
   constructor(
     private getGuide: GetGuidesService, 
@@ -104,6 +106,7 @@ export class AssignGuidesComponent implements OnInit {
     };
     this.reservationService.assignGuides(data).subscribe((result) => {
       if(result){
+        localStorage.setItem('notification','success')
         this.router.navigate(['/reservations'])
       }
     },

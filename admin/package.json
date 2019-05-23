@@ -24,6 +24,7 @@
     "@types/jquery": "^3.3.29",
     "core-js": "^2.5.4",
     "moment": "^2.24.0",
+    "ngx-pagination": "^3.2.1",
     "querystring": "^0.2.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",

@@ -55,9 +55,12 @@ var tourSort = require("./src/routes/tourSort");
 var questionRouter = require("./src/routes/question");
 var dashBoard = require('./src/routes/dashboard');
 var reservationRoutes = require('./src/routes/reservation');
+var guideProfile = require('./src/routes/guideProfile');
+var sendMail = require("./src/routes/sendMail");
 var adminRouter = require('./src/routes/admin');
 var rateGuideRouter = require('./src/routes/rateGuide');
 var imageRouter = require('./src/routes/image');
+
 
 // application routings
 app.use('/auth',authRoutes);
@@ -68,13 +71,15 @@ app.use("/regGuide", registerGuide);
 app.use("/getguide", getGuides);
 app.use("/ratesort", rateSort); 
 app.use("/salarysort", salarySort);
-app.use("/toursort", tourSort);
-app.use("/getguide", getGuides); 
+app.use("/toursort", tourSort); 
 app.use("/qaforum",questionRouter);
 app.use("/reservation",reservationRoutes);
+app.use("/guideProfile/", guideProfile);
+app.use("/sendmail", sendMail);
 app.use("/admin",adminRouter);
 app.use("/rateguide",rateGuideRouter);
 app.use("/image",imageRouter);
+
 
 // Config image url path
 app.use(express.static('public/images'));
@@ -91,6 +96,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.send(err.message);
 });
+
 
 
 module.exports = app;

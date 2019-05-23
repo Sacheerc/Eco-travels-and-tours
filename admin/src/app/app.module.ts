@@ -9,6 +9,7 @@ import {
         
         } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +34,9 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
 import { PopupModalService } from './services/popup-modals-service/popup-modal.service';
 import { ViewAssignedGuideComponent } from './pages/reservations/view-assigned-guide/view-assigned-guide.component';
 import { ImageComponent } from './pages/image/image.component';
+import { GuideProfileComponent } from './pages/guides/guide-profile/guide-profile.component';
+import { SendMailComponent } from './pages/guides/send-mail/send-mail.component';
+import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadcast-emails.component';
 
 
 
@@ -51,7 +55,10 @@ import { ImageComponent } from './pages/image/image.component';
     AssignGuidesComponent,
     ConfirmationDialogComponent,
     ViewAssignedGuideComponent,
-    ImageComponent
+    ImageComponent,
+    GuideProfileComponent,
+    SendMailComponent,
+    BroadcastEmailsComponent
 
   ],
   imports: [
@@ -62,12 +69,15 @@ import { ImageComponent } from './pages/image/image.component';
     MatDialogModule,
     MatButtonModule,
     MatCardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
+  
   entryComponents: [
     ConfirmationDialogComponent,
     ViewAssignedGuideComponent
   ],
+
   providers: [
     LoginService,
     AuthGuard, 

@@ -50,12 +50,18 @@ var GuideSchema = new mongoose.Schema({
   rate: {
     type: Number,
     trim: true,
+    required:true
+  },
+  imgurl:{
+    type:String,
+    trim:true,
     required: true,
     default: 0
   },
   imgurl: {
     type: String,
     default: "No Image"
+
   }
 });
 

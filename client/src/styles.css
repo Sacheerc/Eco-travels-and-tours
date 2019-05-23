@@ -1,6 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-
+@import '../node_modules/ngx-toastr/toastr.css';
 .red-text{
     color: red;
 }
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: rgb(255, 230, 0);
+    margin: 1px;
+    padding: 5px;
+    padding-top: 8px;
+    width: 40px;
+    height: 38px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in;
+  }
+  
+  .my-pagination /deep/ .ngx-pagination li {
+    margin: 1px;
+    padding: 5px;
+    padding-top: 8px;
+    height: 38px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: gray;
+  }
+  
+  .my-pagination /deep/ .ngx-pagination li:hover {
+    background: rgb(199, 199, 199);
+    border-radius: 5px;
+    color: white;
+    transition: all 0.3s ease-out;
+  }
+  
+  .my-pagination /deep/ .ngx-pagination a:hover {
+    background: none;
+  }
+  
+  .my-pagination /deep/ .ngx-pagination a{
+    background: none;
+    color: none;
+    padding: 0px;
+    margin: 0px;
+  }
+  

@@ -65,7 +65,7 @@ export class TourPlacesSidebarComponent implements OnInit {
               }
               this.reservationService.makeReservation(data).subscribe(async (result) => {
                 await this.router.navigate(['/profile']);
-                location.reload();
+                // location.reload();
               }, (err) => {
                 console.log(err)
               })

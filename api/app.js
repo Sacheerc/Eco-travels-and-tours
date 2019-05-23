@@ -79,6 +79,8 @@ app.use("/admin",adminRouter);
 
 // Config image url path
 app.use(express.static('public/images'));
+app.use('/admin',express.static('public/admin'));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

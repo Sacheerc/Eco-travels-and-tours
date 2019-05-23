@@ -59,6 +59,8 @@ import { MyReservationsComponent } from './pages/profile/components/my-reservati
 import { EditProfileComponent } from './pages/profile/components/edit-profile/edit-profile.component';
 import { ConfirmationPopupComponent } from './shared/components/confirmation-popup/confirmation-popup.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -126,7 +128,7 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
     TourPackagesService,
     LoginService,
     ReservationsService,
-    PopupModalsService
+    PopupModalsService,
   ],
   bootstrap: [AppComponent]
 })

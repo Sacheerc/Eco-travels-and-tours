@@ -5,15 +5,6 @@ var Question = require("../models/question");
 var Answer = require("../models/answer");
 
 router.get("/",(req,res)=>{
-    // Question.find((err,allQuestions)=>{
-    //     if(err) 
-    //     {
-    //         console.log(err);
-    //     }else
-    //     {res.send(allQuestions);
-    //     console.log(allQuestions);}
-
-    // });
      Question.find({}).sort({date: -1}).populate("answers").exec(function(err,foundQuestions){
         if(err){
             console.log(err);
@@ -22,6 +13,19 @@ router.get("/",(req,res)=>{
             res.send(foundQuestions);
         }
      });
+});
+
+router.get("/filter/:keyword",(req,res)=>{
+    var keyword = req.params.keyword;
+Question.find({$or:[{"title":{'$regex':keyword,'$options':'i'}},{"description":{'$regex':keyword,'$options':'i'}} ]})
+        .sort({date: -1}).populate("answers").exec(function(err,foundQuestions){
+       if(err){
+           console.log(err);
+       }
+       else{
+           res.send(foundQuestions);
+       }
+    });
 });
 
 router.post("/",(req,res)=>{

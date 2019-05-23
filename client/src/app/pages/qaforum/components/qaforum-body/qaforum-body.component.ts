@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import {QuestionService} from '../../../../services/questions/question.service';
 import { PopupModalsService } from '../../../../services/popup-modals/popup-modals.service';
 import { MatDialog } from '@angular/material';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-qaforum-body',
@@ -15,7 +16,9 @@ export class QaforumBodyComponent implements OnInit {
   
   constructor(private questionService:QuestionService,
     private popupService: PopupModalsService,
-    public dialog: MatDialog){}
+    public dialog: MatDialog,
+    private toastrService: ToastrService){}
+
   @Output() hideParent = new EventEmitter<string>();
   @Input() isLoggedIn='false';
   currentuser:any;
@@ -45,8 +48,9 @@ export class QaforumBodyComponent implements OnInit {
     const dialogRef = this.popupService.confimationModal(title,descr,"Post")
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        this.toastrService.success('Your question has been added successfully','Success',{timeOut:1000,positionClass:'toast-center-center'});
         this.questionService.postQuestion(form.value,this.currentuser).subscribe((res)=>{
-        });
+            });
         this.resetForm(form);
         this.hideParent.emit();
       } else {

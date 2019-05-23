@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { MatDialogModule, MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -115,7 +116,8 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
     MatDialogModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ToastrModule.forRoot()
   ],
   entryComponents: [
     AvailableDialogComponent,

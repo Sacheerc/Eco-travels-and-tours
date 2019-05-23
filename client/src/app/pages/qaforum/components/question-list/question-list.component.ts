@@ -8,6 +8,7 @@ import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrie
 import { PopupModalsService } from '../../../../services/popup-modals/popup-modals.service';
 import { MatDialog } from '@angular/material';
 import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-question-list',
@@ -20,7 +21,8 @@ export class QuestionListComponent implements OnInit {
   currentuser:any;
   constructor(private questionService:QuestionService,
     private popupService: PopupModalsService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private toastrService: ToastrService
     ){}
   
   answerForm = new FormGroup({
@@ -41,7 +43,12 @@ export class QuestionListComponent implements OnInit {
   filterQuestionList(keyword:any){
     this.questionService.getFilteredQuestionList(keyword).subscribe((res)=>{
       this.questionService.questions=res as Question[];
-      alert(res.length + ' results found');
+      if(Object.keys(res).length==0)
+      {this.toastrService.error(Object.keys(res).length+' results found','',{timeOut:1000,positionClass:'toast-center-center'});}
+      else if(Object.keys(res).length==1)
+      {this.toastrService.success(Object.keys(res).length+' result found','',{timeOut:1000,positionClass:'toast-center-center'});}
+      else
+      {this.toastrService.success(Object.keys(res).length+' results found','',{timeOut:1000,positionClass:'toast-center-center'});}
     });
   }
 

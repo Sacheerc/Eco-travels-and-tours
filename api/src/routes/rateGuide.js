@@ -20,7 +20,7 @@ router.post("/", function(req, res, next) {
         phonenuber: req.body.phonenuber
     };
 
-    // register the user in system
+    // rate guide 
     rateGuideController.rateGuide(userData, (err, user) => {
       if (err) {
         return next(err);
@@ -39,6 +39,17 @@ router.post("/", function(req, res, next) {
 
 router.get("/", function(req,res,next){
   rateGuideController.getRateGuides((err,docs) => {
+      if(err){
+          return next(err);
+      }else {
+          res.json(docs);
+      }
+  }); 
+});
+
+
+router.get("/find", function(req,res,next){
+  rateGuideController.findRateGuides((err,docs) => {
       if(err){
           return next(err);
       }else {

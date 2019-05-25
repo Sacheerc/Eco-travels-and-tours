@@ -33,4 +33,14 @@ router.post("/uploadimage", fileController.coverUpload.single("file"), function(
 //   });
 // });
 
+router.get("/", function(req,res,next){
+  getGuideController.GetImages((err,docs) => {
+      if(err){
+          return next(err);
+      }else {
+          res.json(docs);
+      }
+  });
+});
+
 module.exports = router;

@@ -37,6 +37,7 @@ import { ImageComponent } from './pages/image/image.component';
 import { GuideProfileComponent } from './pages/guides/guide-profile/guide-profile.component';
 import { SendMailComponent } from './pages/guides/send-mail/send-mail.component';
 import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadcast-emails.component';
+import { AddPackageComponent } from './pages/packages/add-package/add-package.component';
 
 
 
@@ -58,7 +59,8 @@ import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadc
     ImageComponent,
     GuideProfileComponent,
     SendMailComponent,
-    BroadcastEmailsComponent
+    BroadcastEmailsComponent,
+    AddPackageComponent
 
   ],
   imports: [

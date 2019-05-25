@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RateGuideService } from 'src/app/services/rateGuide/rate-guide.service';
+import {environment} from 'src/environments/environment';
 
 @Component({
   selector: 'app-guides-header',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuidesHeaderComponent implements OnInit {
 
+  url=environment.appUrl+"/covers/img_bg_cover1.jpg"
+
   constructor() { }
 
   ngOnInit() {
   }
 
 }
+

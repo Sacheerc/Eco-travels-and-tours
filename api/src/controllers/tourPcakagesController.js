@@ -28,4 +28,14 @@ TourPackageController.prototype.findTourPackages=(key,callback)=>{
   })
 }
 
+//add tour package
+TourPackageController.prototype.addTourPackage= function(userData, callback) {
+  tourPackage.create(userData)
+    .then(tour => callback(null, tour))
+    .catch(err => callback(err));
+};
+
+
+
 module.exports = TourPackageController;
+

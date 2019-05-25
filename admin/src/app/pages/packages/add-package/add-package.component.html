@@ -1,0 +1,137 @@
+<div class="wrapper ">
+  <app-sidebar active="packages"></app-sidebar>
+
+  <div class="main-panel" id="main-panel">
+    <app-navbar></app-navbar>
+
+    <div style="height: 10px;padding:1" class="panel-header">
+    </div>
+
+    <div class="content">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="title">Add New Package</h5>
+            </div>
+            <div class="card-body">
+              <form #packages="ngForm" (ngSubmit)="submitForm()" method="POST" action="www">
+                <div class="row">
+                  <div class="col-md-5 pr-1">
+                    <div class="form-group">
+                      <label for="userName">Package Name</label>
+                      <input [(ngModel)]="package" type="text" class="form-control" id="package" name="package"
+                        placeholder="Sri Lanka, Ancient City Tour" required="true" />
+                    </div>
+                  </div>
+
+                  <div class="col-md-5 pr-1">
+                    <div class="form-group">
+                      <label for="userName">Location</label>
+                      <input [(ngModel)]="location" type="text" class="form-control" id="location" name="location"
+                        placeholder="Anuradapura" required="true" />
+                    </div>
+                  </div>
+                  
+
+                  <!-- <div class="col-md-4 pl-1">
+                    <div class="form-group">
+                      <label for="Email1">Location</label>
+                      <input [(ngModel)]="email" type="email" class="form-control" id="Email" name="email"
+                        pattern="[a-z0-9][a-z0-9._%+-]*@[a-z0-9][a-z0-9.-]*\.[a-z]{2,20}" placeholder="abc@gmail.com"
+                        required="true" />
+                    </div>
+                  </div> -->
+                  <div class="col-md-3 pl-1">
+                    <div class="form-group">
+                      <label for="phonenumber">Duration</label>
+                      <input [(ngModel)]="duration" type="text" class="form-control" id="duration"
+                        name="duration" placeholder="3" required="true" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="address">Description</label>
+                      <input [(ngModel)]="description" class="form-control" id="description" name="description"
+                        placeholder="Even the all-powerful Pointing has no control about the blind texts it..." />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="address">Hotels</label>
+                      <input [(ngModel)]="hotels" class="form-control" id="hotels" name="hotels"
+                        placeholder="10/A, ABC road, colombo." />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  
+                    <div class="col-md-4 px-1">
+                      <div class="form-group">
+                        <label for="nic">Reviews</label>
+                        <input [(ngModel)]="reviews" type="text" class="form-control" id="reviews"
+                          name="reviews" placeholder="9" />
+                      </div>
+                    </div>
+                    <div class="col-md-4 px-1">
+                      <div class="form-group">
+                        <label for="nic">Max Guest</label>
+                        <input [(ngModel)]="maxguest" type="text" class="form-control" id="maxguest"
+                          name="maxguest" placeholder="9" />
+                      </div>
+                    </div>
+                    <div class="col-md-4 pl-1">
+                      <div class="form-group">
+                        <label for="salary">Price</label>
+                        <input [(ngModel)]="price" type="text" class="form-control" id="price" name="price"
+                          placeholder="20000" required="true" />
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3 pr-1">
+                    <!-- <input type="file" name="coverimage" name="propic" [(ngModel)]="coverimage" /> -->
+                    <input type="file" (change)="createFormData($event)" />
+                  </div>  
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3 pl-1">
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <a class="btn btn-primary" href="packages">Back</a>
+                  </div>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+ 

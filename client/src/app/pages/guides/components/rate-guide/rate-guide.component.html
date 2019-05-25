@@ -1,10 +1,27 @@
 <h1 mat-dialog-title>Hi {{data.name}}</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
+  <p>Would you like to rate me?</p>
   <!-- <mat-form-field>
     <input matInput [(ngModel)]="data.animal">
   </mat-form-field> -->
-  <mat-icon svgIcon="thumbs-up"></mat-icon>
+  <div class="example-button-row">
+    <button mat-icon-button>
+      <mat-icon >star</mat-icon>
+    </button>
+    <button mat-icon-button color="primary">
+      <mat-icon >star</mat-icon>
+    </button>
+    <button mat-icon-button color="accent">
+      <mat-icon >star</mat-icon>
+    </button>
+    <button mat-icon-button color="warn">
+      <mat-icon >star</mat-icon>
+    </button>
+    <button mat-icon-button color="warn">
+      <mat-icon >star</mat-icon>
+    </button>
+  </div>
+
 
   
   

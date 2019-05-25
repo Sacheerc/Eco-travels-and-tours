@@ -7,7 +7,9 @@ import { environment } from 'src/environments/environment'
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
 };
+
 const urlRegGuide = environment.appUrl + "/regGuide";
+const urlImage = environment.appUrl + "/image";
 const urlUploadImage = environment.appUrl + "/image/uploadimage";
 
 @Injectable({
@@ -27,9 +29,13 @@ export class ImageService {
     )
   }
 
-  uploadimage(image) {
+  uploadimage(image,name) {
     var formData = new FormData()
-    formData.append('file', image)
+    formData.append('file', image,name)
     return this.http.post(urlUploadImage, formData)
+  }
+
+  getImages(){
+    return this.http.get(urlImage);
   }
 }

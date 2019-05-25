@@ -15,6 +15,8 @@ import { RateGuideComponent } from './components/rate-guide/rate-guide.component
 export class GuidesComponent implements OnInit {
   guides:any;
   url=environment.appUrl+"/tourguides/"
+  url1=environment.appUrl+"/covers/img_bg_cover1.jpg"
+
   constructor(private getguideservice:RateGuideService, public dialog: MatDialog) { }
 
   ngOnInit() {

@@ -21,7 +21,7 @@
             <li><a routerLink="/services">Services</a></li>
             <li><a routerLink="/about">About</a></li>
             <li><a routerLink="/contact">Contact</a></li>
-            <li *ngIf="!currentuser && isLoggedIn!='true'"><a class="semi-transparent-button" href="http://localhost:3000/auth/google">Sign In</a></li>
+            <li *ngIf="!currentuser && isLoggedIn!='true'"><a class="semi-transparent-button" href="{{url}}/auth/google">Sign In</a></li>
             <li *ngIf="currentuser || isLoggedIn=='true'"><a class="semi-transparent-button" (click)="logout()">Log Out</a></li>
           </ul>
         </div>

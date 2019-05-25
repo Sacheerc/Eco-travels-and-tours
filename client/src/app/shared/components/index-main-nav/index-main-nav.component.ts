@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment'
 
 @Component({
   selector: 'app-index-main-nav',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class IndexMainNavComponent implements OnInit {
   @Input() isLoggedIn='false';
   currentuser:any;
-
+  url=environment.appUrl;
   constructor(private loginService:LoginService,private router:Router) { }
 
   ngOnInit() {

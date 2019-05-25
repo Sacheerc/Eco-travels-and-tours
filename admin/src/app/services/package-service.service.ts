@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 export class PackageServiceService {
 
   constructor(private http: HttpClient) { }
-  public baseUrl="http://localhost:3000/admin/";
+  public baseUrl=environment.appUrl+"/admin/";
   
   getPackageIncome(){
     return this.http.get(this.baseUrl+"pkgIncome");

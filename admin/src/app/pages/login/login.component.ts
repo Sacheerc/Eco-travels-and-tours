@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 
+declare var dangerNotification:any;
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,9 @@ export class LoginComponent implements OnInit {
       }
      )
    }
+   dangerNotification(top,center,message){
+    dangerNotification(top,center,message);
+  }
 
   submitForm(){
     var body = `username=${this.email}&password=${this.password}`;
@@ -36,8 +40,19 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/dashboard']);
       },
       (err)=>{
-        console.log(err.error)
+        
+        if (this.email.length==0){
+          this.dangerNotification('top','center','Please enter the email address');
+        }
+        else if(this.password.length==0)
+        {
+          this.dangerNotification('top','center','Please enter the password');
+        }
+        else{
+        this.dangerNotification('top','center','Invalid username or password. Please try again');
+        console.log(err.error);
         this.router.navigate(['/']);
+        }
       }
      )
   }

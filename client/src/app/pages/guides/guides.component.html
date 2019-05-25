@@ -1,0 +1,120 @@
+<!-- import main navigation component -->
+<app-index-main-nav></app-index-main-nav>
+
+<!-- import guides header image component -->
+<app-guides-header></app-guides-header>
+
+<div class="colorlib-wrap">
+  <div class="container">
+    <div class="row">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div class="row">
+                  <div class="example-button-row">
+                    <title>Sort by</title>
+                    <button mat-raised-button color="primary" (click)="rateSort()">Rating</button>
+                    <button mat-raised-button color="accent" (click)="tourSort()">Tour Count</button>
+                    <!-- <button mat-raised-button color="warn" (click)="salarySort()">Salary</button> -->
+                  </div>
+                
+                  <mat-divider></mat-divider>
+                </div>
+            </mat-card-header>
+            <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+            <mat-card-content>
+                <div class="col-md-4">
+                    <!-- <a class="btn btn-success" routerLink="/regGuide">Add Guide</a> -->
+                  </div>
+                  <div class="container">
+                    <router-outlet></router-outlet>
+                  </div>
+                  <div class="table-responsive text-center">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          Image
+                        </th>
+                        <th>
+                          Name
+                        </th>
+                        <th>
+                          Rating
+                        </th>
+                        <th>
+                          Tour Count
+                        </th>
+                        <th>
+                          Contact
+                        </th>
+                        <th>
+                          
+                        </th>
+                      </thead>
+                      <tbody *ngIf="guides.length > 0">
+                        <tr *ngFor="let guide of guides">
+                          <td>
+                            <img
+                              class="avatar border-gray"
+                              [src]="url + guide.imgurl"
+                              alt=""
+                              style="height:100px;width: 100px"
+                            />
+                          </td>
+                          <td>
+                            {{ guide.name }}
+                          </td>
+                          <td>
+                            <button class="btn btn-warning" aria-readonly="true">
+                              {{ guide.rate }}
+                            </button>
+                          </td>
+                          <td>
+                            <button class="btn btn-primary" aria-readonly="true">
+                              {{ guide.tourcount }}
+                            </button>
+                          </td>
+                          <td>
+                            {{ guide.phonenumber }}
+                          </td>
+                          <td>
+                            <!-- {{ guide.salary }} -->
+                            <button mat-raised-button color="warn" (click)="openDialog()">Rate me!</button>
+
+                            <!-- <ol>
+                                
+                                  <button mat-raised-button (click)="openDialog()">Pick one</button>
+                                
+                                
+                              </ol> -->
+
+                              
+
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                  </div>
+
+
+                  <button mat-raised-button (click)="openDialog()">Pick one</button>
+            </mat-card-content>
+            <!-- <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions> -->
+        </mat-card>
+    </div>
+  </div>
+</div>
+
+<!-- import subscribe component -->
+<!-- <app-index-subscribe></app-index-subscribe> -->
+
+
+<!-- import footer component -->
+<app-footer></app-footer>
+
+<!-- import arrow-up component -->
+<app-arrow-up></app-arrow-up>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginService } from './services/login/login.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,26 @@ import { LoginService } from './services/login/login.service';
 })
 export class AppComponent {
   title = 'ecoTravels';
-  constructor(private loginService:LoginService){}
+  constructor(private loginService:LoginService,private router:Router){}
 
-  ngOnInit(){
-    this.loginService.getloginpage().subscribe((result)=>{
+ngOnInit(){
+  this.router.events.subscribe(event => {
+    if (event instanceof NavigationEnd) {
+       
+      if (document.getElementById('main') !=null) {
+        document.getElementById('main').remove();
+      }
+      const node8 = document.createElement('script');
+      node8.type = 'text/javascript';
+      node8.src = './assets/js/mainjs.js';
+      node8.id = 'main';
+      document.getElementsByTagName('body')[0].appendChild(node8);
+    }
+});
+
+    this.loginService.getloginpage().subscribe(async (result)=>{
       if(result){
-        localStorage.setItem('user',JSON.stringify(result))
+        await localStorage.setItem('user',JSON.stringify(result))
       }else{
         localStorage.removeItem('user')
       }

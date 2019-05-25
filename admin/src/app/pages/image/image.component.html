@@ -1,0 +1,442 @@
+<div class="wrapper ">
+    <app-sidebar active="image"></app-sidebar>
+  
+    <div class="main-panel" id="main-panel">
+      <app-navbar></app-navbar>
+  
+      <div style="height: 10px;padding:1" class="panel-header"></div>
+      <div class="content">
+        <form #images="ngForm" (ngSubmit)="submitForm()" method="POST" action="www">
+          <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-chart">
+                  <div class="card-header">
+                    <h5 class="card-category">Update Image On</h5>
+                    <h4 class="card-title">Home | Cover</h4>
+                  </div>
+                  <div class="row">
+                  <div class="col-lg-3">
+                    <div class="card-body">
+                      <mat-card class="example-card">
+                          <mat-card-header>
+                            <mat-card-subtitle>cover1.jpg</mat-card-subtitle>
+                          </mat-card-header>
+                          <!-- <img mat-card-image                             [src]="url"                             alt="Photo of a Shiba Inu" style="border-left: 20px"                           />  -->
+                          <img mat-card-image
+                            [src]="url1"
+                            alt="Photo of a Shiba Inu"
+                            style="border-left: 20px"
+                          />
+                          <div class="row">
+                            <div class="form-group">
+                              <!-- <label for="userName">Guide Name</label> -->  
+                              <input 
+                                [(ngModel)]="name" 
+                                type="hidden" 
+                                class="form-control" 
+                                id="img_bg_1"
+                                name="img_bg_1"
+                                placeholder="img_bg_1.jpg"
+                                > 
+                            </div>
+                              
+                              <div class="form-group">
+                                <a class="btn btn-success">Choose
+                                <input type="file" (change)="createFormData($event)" />
+                                </a>
+                              </div>
+                              <div class="form-group">
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                                  <!-- <button class="btn btn-primary" (click)="update_home_cover1()">Update</button> -->
+                              </div>
+                          </div>
+                        </mat-card>
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="card-body">
+                      <mat-card class="example-card">
+                          <mat-card-header>
+                            <mat-card-subtitle>cover2.jpg</mat-card-subtitle>
+                          </mat-card-header>
+                          <img mat-card-image [src]="url2"
+                          alt="Photo of a Shiba Inu"
+                          style="border-left: 20px"  
+                          />
+                          <div class="row">
+                              <div class="form-group">
+                                  <!-- <label for="userName">Guide Name</label> -->  
+                                <input 
+                                  [(ngModel)]="name" 
+                                  type="text" 
+                                  class="form-control" 
+                                  id="userName"
+                                  name="guidename"
+                                  [value]="John"
+                                  placeholder="img_bg_2.jpg"
+                                  > 
+                              </div>
+                              <div class="form-group">
+                                <a class="btn btn-success">Choose
+                                <input type="file" (change)="createFormData($event)" />
+                                </a>
+                              </div>
+                              <div class="form-group">
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                              </div>
+                            </div>
+                        </mat-card>
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="card-body">
+                      <mat-card class="example-card">
+                          <mat-card-header>
+                            <mat-card-subtitle>cover3.jpg</mat-card-subtitle>
+                          </mat-card-header>
+                          <img mat-card-image
+                          [src]="url3"
+                          alt="Photo of a Shiba Inu"
+                          style="border-left: 20px"
+                          />
+                          <div class="row">
+                              <div class="form-group">
+                                <!-- <label for="userName">Guide Name</label> -->  
+                                <input 
+                                  [(ngModel)]="name" 
+                                  type="text" 
+                                  class="form-control" 
+                                  id="userName"
+                                  name="guidename"
+                                  [value]="John"
+                                  placeholder="img_bg_3.jpg"
+                                  > 
+                              </div>
+                              <div class="form-group">
+                                <a class="btn btn-success">Choose
+                                <input type="file" (change)="createFormData($event)" />
+                                </a>
+                              </div>
+                              <div class="form-group">
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                              </div>
+                            </div>
+                        </mat-card>
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="card-body">
+                      <mat-card class="example-card">
+                          <mat-card-header>
+                            <mat-card-subtitle>cover4.jpg</mat-card-subtitle>
+                          </mat-card-header>
+                          <img mat-card-image
+                          [src]="url4" 
+                          alt="Photo of a Shiba Inu"
+                          style="border-left: 20px"
+                          />
+                          <div class="row">
+                              <div class="form-group">
+                                <!-- <label for="userName">Guide Name</label> -->  
+                                <input 
+                                  [(ngModel)]="name" 
+                                  type="text" 
+                                  class="form-control" 
+                                  id="userName"
+                                  name="guidename"
+                                  [value]="John"
+                                  placeholder="img_bg_4.jpg"
+                                  > 
+                              </div>
+                              <div class="form-group">
+                                <a class="btn btn-success">Choose
+                                <input type="file" (change)="createFormData($event)" />
+                                </a>
+                              </div>
+                              <div class="form-group">
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                              </div>
+                            </div>
+                        </mat-card>
+                    </div>
+                  </div>
+                  </div>
+                  
+
+
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              
+                <div class="card card-chart">
+                  <div class="card-header">
+                    <h5 class="card-category">Update Image On</h5>
+                    <h4 class="card-title">Page | Cover</h4>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="card-body">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                              <mat-card-subtitle>cover1.jpg</mat-card-subtitle>
+                            </mat-card-header>
+                            <!-- <img mat-card-image                             [src]="url"                             alt="Photo of a Shiba Inu" style="border-left: 20px"                           />  -->
+                            <img mat-card-image
+                            [src]="url_page1"
+                            alt="Photo of a Shiba Inu"
+                            style="border-left: 20px"
+                            />
+                            <div class="row">
+                                <div class="form-group">
+                                  <!-- <label for="userName">Guide Name</label> -->  
+                                  <input 
+                                    [(ngModel)]="name" 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="userName"
+                                    name="guidename"
+                                    [value]="John"
+                                    placeholder="img_bg_4.jpg"
+                                    > 
+                                </div>
+                                <div class="form-group">
+                                  <a class="btn btn-success">Choose
+                                  <input type="file" (change)="createFormData($event)" />
+                                  </a>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                              </div>
+                          </mat-card>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="card-body">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                              <mat-card-subtitle>cover3.jpg</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image
+                            [src]="url_page2"
+                            alt="Photo of a Shiba Inu"
+                            style="border-left: 20px"
+                            />
+                            <div class="row">
+                                <div class="form-group">
+                                  
+                                  <input 
+                                    [(ngModel)]="name" 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="userName"
+                                    name="guidename"
+                                    [value]="John"
+                                    placeholder="img_bg_4.jpg"
+                                    > 
+                                </div>
+                                <div class="form-group">
+                                  <a class="btn btn-success">Choose
+                                  <input type="file" (change)="createFormData($event)" />
+                                  </a>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                              </div>
+                          </mat-card>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="card-body">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                              <mat-card-subtitle>cover3.jpg</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image
+                            [src]="url_page3"
+                            alt="Photo of a Shiba Inu"
+                            style="border-left: 20px"
+                            />
+                            <div class="row">
+                                <div class="form-group">
+                                  <!-- <label for="userName">Guide Name</label> -->  
+                                  <input 
+                                    [(ngModel)]="name" 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="userName"
+                                    name="guidename"
+                                    [value]="John"
+                                    placeholder="img_bg_4.jpg"
+                                    > 
+                                </div>
+                                <div class="form-group">
+                                  <a class="btn btn-success">Choose
+                                  <input type="file" (change)="createFormData($event)" />
+                                  </a>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                              </div>
+                          </mat-card>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-4">
+                        <div class="card-body">
+                          <mat-card class="example-card">
+                              <mat-card-header>
+                                <mat-card-subtitle>cover1.jpg</mat-card-subtitle>
+                              </mat-card-header>
+                              <!-- <img mat-card-image                             [src]="url"                             alt="Photo of a Shiba Inu" style="border-left: 20px"                           />  -->
+                              <img mat-card-image
+                                [src]="url_page4"
+                                alt="Photo of a Shiba Inu"
+                                style="border-left: 20px"
+                              />
+                              <div class="row">
+                                  <div class="form-group">
+                                    <!-- <label for="userName">Guide Name</label> -->  
+                                    <input 
+                                      [(ngModel)]="name" 
+                                      type="text" 
+                                      class="form-control" 
+                                      id="userName"
+                                      name="guidename"
+                                      [value]="John"
+                                      placeholder="img_bg_4.jpg"
+                                      > 
+                                  </div>
+                                  <div class="form-group">
+                                    <a class="btn btn-success">Choose
+                                    <input type="file" (change)="createFormData($event)" />
+                                    </a>
+                                  </div>
+                                  <div class="form-group">
+                                      <button type="submit" class="btn btn-primary">Submit</button>
+                                  </div>
+                                </div>
+                            </mat-card>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="card-body">
+                          <mat-card class="example-card">
+                              <mat-card-header>
+                                <mat-card-subtitle>cover5.jpg</mat-card-subtitle>
+                              </mat-card-header>
+                             <img mat-card-image
+                             [src]="url_page5"
+                             alt="Photo of a Shiba Inu"
+                             style="border-left: 20px"
+                             />
+                              <div class="row">
+                                  <div class="form-group">
+                                    <!-- <label for="userName">Guide Name</label> -->  
+                                    <input 
+                                      [(ngModel)]="name" 
+                                      type="text" 
+                                      class="form-control" 
+                                      id="userName"
+                                      name="guidename"
+                                      [value]="John"
+                                      placeholder="img_bg_4.jpg"
+                                      > 
+                                  </div>
+                                  <div class="form-group">
+                                    <a class="btn btn-success">Choose
+                                    <input type="file" (change)="createFormData($event)" />
+                                    </a>
+                                  </div>
+                                  <div class="form-group">
+                                      <button type="submit" class="btn btn-primary">Submit</button>
+                                  </div>
+                                </div>
+                            </mat-card>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="card-body">
+                          <mat-card class="example-card">
+                              <mat-card-header>
+                                <mat-card-subtitle>cover3.jpg</mat-card-subtitle>
+                              </mat-card-header>
+                              <img mat-card-image
+                            [src]="url_page6"
+                            alt="Photo of a Shiba Inu"
+                            style="border-left: 20px"
+                            />
+                              <div class="row">
+                                  <div class="form-group">
+                                    <!-- <label for="userName">Guide Name</label> -->  
+                                    <input 
+                                      [(ngModel)]="name" 
+                                      type="text" 
+                                      class="form-control" 
+                                      id="userName"
+                                      name="guidename"
+                                      [value]="John"
+                                      placeholder="img_bg_4.jpg"
+                                      > 
+                                  </div>
+                                  <div class="form-group">
+                                    <a class="btn btn-success">Choose
+                                    <input type="file" (change)="createFormData($event)" />
+                                    </a>
+                                  </div>
+                                  <div class="form-group">
+                                      <button type="submit" class="btn btn-primary">Submit</button>
+                                  </div>
+                                </div>
+                            </mat-card>
+                        </div>
+                      </div>
+                    </div>
+                  
+  
+  
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                    </div>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <footer class="footer">
+        <div class="container-fluid">
+          <nav>
+            <ul>
+              <li>
+                <a href="https://www.ecotravels.com">
+                  Website
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright" id="copyright">
+            &copy;
+            <script>
+              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+            </script> Eco Travels & Tours
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  

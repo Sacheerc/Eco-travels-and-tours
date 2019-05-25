@@ -4,3 +4,6 @@ admin/node_modules/**/*
 admin/package-lock.json
 api/node_modules/**/*
 api/package-lock.json
+# api/public/admin
+# api/public/client
+client/dist/**/*

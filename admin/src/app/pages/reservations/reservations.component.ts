@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ReservationsService } from '../../services/reservation-service/reservations.service'
 import { PopupModalService } from '../../services/popup-modals-service/popup-modal.service';
 import { GetGuidesService } from 'src/app/services/get-guides.service';
 import { MatDialog } from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TestBed } from '@angular/core/testing';
+
+ declare var successNotification:any;
+ declare var dangerNotification:any;
 
 @Component({
   selector: 'app-reservations',
@@ -11,16 +16,47 @@ import { MatDialog } from '@angular/material';
 })
 export class ReservationsComponent implements OnInit {
   reservations: any;
+  @Input() notificationAllert='none';
   p: number = 1;
   guides: any
+  all:any;
+  active='all';
   constructor(
     private reservationService: ReservationsService,
     private popupService: PopupModalService,
     private getGuide: GetGuidesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private route: ActivatedRoute, 
+    private router:Router
   ) { }
 
   ngOnInit() {
+      this.initpage();
+  }
+
+  initpage(){
+    var id=localStorage.getItem('notification')
+      if(id=='success'){
+        var message="Guide Assigning process is Successfully done by Administrator!"
+        this.successNotification('top','center',message);
+        localStorage.removeItem('notification')
+      }
+      if(id=='closed'){
+        var message="The tour was successfully marked as completed by Administrator!"
+        this.successNotification('top','center',message);
+        localStorage.removeItem('notification')
+      }
+      if(id=='removed'){
+        var message="Guide Removal process is Successfully done by Administrator!"
+        this.dangerNotification('top','center',message);
+        localStorage.removeItem('notification')
+      }
+      if(id=='canceled'){
+        var message="The tour cancelled and Money refunded to the user!"
+        this.dangerNotification('top','center',message);
+        localStorage.removeItem('notification')
+      }
+
     this.getGuide.getGuides().subscribe((result) => {
       this.guides = result;
     },
@@ -31,7 +67,8 @@ export class ReservationsComponent implements OnInit {
 
     this.reservationService.getAllReservations().subscribe((result) => {
       if (result) {
-        this.reservations = result
+        this.reservations = result;
+        this.all=result;
       }
     },
       (err) => {
@@ -40,8 +77,76 @@ export class ReservationsComponent implements OnInit {
     )
   }
 
+  async notAssigned(){
+    var array=[];
+    await this.all.forEach(reservation => {
+      if(reservation.guidename=='Not Assigned' && reservation.status!='canceled'){
+        array.push(reservation)
+      }
+    });
+    this.reservations=array; 
+    this.active='notAssigned'
+  }
+
+  async assigned(){
+    var array=[];
+    await this.all.forEach(reservation => {
+      if(reservation.guidename!='Not Assigned' && reservation.status!='canceled'){
+        array.push(reservation)
+      }
+    });
+    this.reservations=array;
+    this.active='assigned' 
+  }
+
+  async requested(){
+    var array=[];
+    await this.all.forEach(reservation => {
+      if(reservation.status=='requested'){
+        array.push(reservation)
+      }
+    });
+    this.reservations=array; 
+    this.active='requested'
+  }
+
+  async completed(){
+    var array=[];
+    await this.all.forEach(reservation => {
+      if(reservation.status=='closed'){
+        array.push(reservation)
+      }
+    });
+    this.reservations=array; 
+    this.active='completed'
+  }
+
+  async refunded(){
+    var array=[];
+    await this.all.forEach(reservation => {
+      if(reservation.status=='canceled'){
+        array.push(reservation)
+      }
+    });
+    this.reservations=array; 
+    this.active='refunded'
+  }
+
+  allReservations(){
+    this.reservations=this.all;
+    this.active='all'
+  }
+
   stringAsDate(dateStr: string) {
     return new Date(dateStr);
+  }
+
+  successNotification(bottom,center,message){
+    successNotification(bottom,center,message);
+  }
+
+  dangerNotification(bottom,center,message){
+    dangerNotification(bottom,center,message);
   }
 
   openAssignedGuide(guide, reservation) {
@@ -125,7 +230,8 @@ export class ReservationsComponent implements OnInit {
     this.reservationService.assignGuides(data).subscribe((result) => {
       console.log(result)
       this.dialog.closeAll();
-      location.reload();
+      localStorage.setItem('notification','removed')
+      this.initpage();
     },
       (err) => {
         console.log(err.error)
@@ -141,7 +247,8 @@ export class ReservationsComponent implements OnInit {
     this.reservationService.changeStatus(data).subscribe((result) => {
       console.log(result)
       this.dialog.closeAll();
-      location.reload();
+      localStorage.setItem('notification',status)
+      this.initpage();
     },
       (err) => {
         console.log(err.error)

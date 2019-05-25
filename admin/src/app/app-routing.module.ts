@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:"dashboard",component:DashboardComponent,canActivate:[AuthGuard]},
   {path:"login",component:LoginComponent,canActivate:[AuthLoginGuard]},
   {path:"guides",component:GuidesComponent,canActivate:[AuthGuard]},
-  {path:"customers",component:CustomersComponent,canActivate:[AuthGuard]},
+  {path:"qaforum",component:CustomersComponent,canActivate:[AuthGuard]},
   {path:"packages",component:PackagesComponent,canActivate:[AuthGuard]},
   {path:"regGuide", component:RegisterGuideComponent,canActivate:[AuthGuard]},
   {path:"reservations", component:ReservationsComponent,canActivate:[AuthGuard]},

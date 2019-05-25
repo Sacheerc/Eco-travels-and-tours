@@ -48,7 +48,7 @@ export class QaforumBodyComponent implements OnInit {
     const dialogRef = this.popupService.confimationModal(title,descr,"Post")
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.toastrService.success('Your question has been added successfully','Success',{timeOut:1000,positionClass:'toast-center-center'});
+        this.toastrService.success('Your question has been added successfully','Success',{timeOut:2000,positionClass:'toast-center-center'});
         this.questionService.postQuestion(form.value,this.currentuser).subscribe((res)=>{
             });
         this.resetForm(form);

@@ -29,8 +29,7 @@ export class DashboardComponent implements OnInit {
     });
 
     this.dashBoardService.getDestIncome().subscribe((result)=>{
-      console.log(result)
-      demo.initDestIncome(result);
+       demo.initDestIncome(result);
     });
   }
 

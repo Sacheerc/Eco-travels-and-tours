@@ -123,7 +123,6 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
     ComponentsComponent,
     GuidesHeaderComponent,
     RateGuideComponent,
-    
     MyReservationsComponent,
     EditProfileComponent,
     ConfirmationPopupComponent,

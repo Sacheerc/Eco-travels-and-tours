@@ -40,7 +40,6 @@ import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadc
 import { AddPackageComponent } from './pages/packages/add-package/add-package.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,6 +86,7 @@ import { AddPackageComponent } from './pages/packages/add-package/add-package.co
     ReservationsService,
     PopupModalService
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

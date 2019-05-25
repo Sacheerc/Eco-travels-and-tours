@@ -86,6 +86,8 @@ app.use("/admin",adminRouter);
 
 // Config image url path
 app.use(express.static('public/images'));
+
+// config server apps
 app.use('/admin',express.static('public/admin'));
 app.use(express.static('public/client'));
 

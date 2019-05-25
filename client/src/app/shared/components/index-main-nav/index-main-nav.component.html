@@ -1,3 +1,27 @@
+<a  class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-white"><i></i></a>
+<div id="colorlib-offcanvas">
+  <ul>
+    <li class="active"><a routerLink="/">Home</a></li>
+    <li class="has-dropdown">
+      <a routerLink="/tours">Tours</a>
+      <ul class="dropdown">
+        <li><a routerLink="#">Destination</a></li>
+        <li><a routerLink="#">Cruises</a></li>
+        <li><a routerLink="#">Hotels</a></li>
+        <li><a routerLink="#">Booking</a></li>
+      </ul>
+    </li>
+    <li><a routerLink="/hotels">Hotels</a></li>
+    <li><a routerLink="/services">Services</a></li>
+    <li><a routerLink="/about">About</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
+    <br>
+    <li *ngIf="!currentuser && isLoggedIn!='true'"><a class="semi-transparent-button" href="{{url}}/auth/google">Sign In</a></li>
+    <li *ngIf="currentuser || isLoggedIn=='true'"><a class="semi-transparent-button" (click)="logout()">Log Out</a></li>
+  </ul>
+
+</div>
+
 <nav class="colorlib-nav" role="navigation">
   <div class="top-menu">
     <div class="container-fluid">
@@ -11,10 +35,10 @@
             <li class="has-dropdown">
               <a routerLink="/tours">Tours</a>
               <ul class="dropdown">
-                <li><a href="#">Destination</a></li>
-                <li><a href="#">Cruises</a></li>
-                <li><a href="#">Hotels</a></li>
-                <li><a href="#">Booking</a></li>
+                <li><a routerLink="#">Destination</a></li>
+                <li><a routerLink="#">Cruises</a></li>
+                <li><a routerLink="#">Hotels</a></li>
+                <li><a routerLink="#">Booking</a></li>
               </ul>
             </li>
             <li><a routerLink="/hotels">Hotels</a></li>

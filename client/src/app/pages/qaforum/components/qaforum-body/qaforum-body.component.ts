@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class QaforumBodyComponent implements OnInit {
   
-  constructor(public questionService:QuestionService,
+  constructor(private questionService:QuestionService,
     private popupService: PopupModalsService,
     public dialog: MatDialog,
     private toastrService: ToastrService){}
@@ -57,7 +57,8 @@ export class QaforumBodyComponent implements OnInit {
         console.log(false)
       }
     });
+
+   
   }
-  clickSubmit(){}
   
 }

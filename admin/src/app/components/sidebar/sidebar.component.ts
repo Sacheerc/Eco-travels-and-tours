@@ -9,7 +9,6 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class SidebarComponent implements OnInit {
   @Input() active:string
-  public LOGO = require("../../../assets/img/logo/logo.png");
   constructor() { }
 
   ngOnInit() {

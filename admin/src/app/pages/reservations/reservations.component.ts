@@ -31,11 +31,7 @@ export class ReservationsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-      this.initpage();
-  }
-
-  initpage(){
-    var id=localStorage.getItem('notification')
+      var id=localStorage.getItem('notification')
       if(id=='success'){
         var message="Guide Assigning process is Successfully done by Administrator!"
         this.successNotification('top','center',message);
@@ -231,7 +227,7 @@ export class ReservationsComponent implements OnInit {
       console.log(result)
       this.dialog.closeAll();
       localStorage.setItem('notification','removed')
-      this.initpage();
+      location.reload();
     },
       (err) => {
         console.log(err.error)
@@ -248,7 +244,7 @@ export class ReservationsComponent implements OnInit {
       console.log(result)
       this.dialog.closeAll();
       localStorage.setItem('notification',status)
-      this.initpage();
+      location.reload()
     },
       (err) => {
         console.log(err.error)

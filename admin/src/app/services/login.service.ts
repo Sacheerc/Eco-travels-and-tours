@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+// import {RequestOptions, Request, RequestMethod} from '@angular/http';
 
 
-const urlpost=environment.appUrl+"/auth/password";
-const urllogin=environment.appUrl+"/auth/login";
-const urllogout=environment.appUrl+"/auth/logout";
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded','NoAuth':'True'})
+};
+
+
+const urlpost="http://localhost:3000/auth/password";
+const urllogin="http://localhost:3000/auth/login";
+const urllogout="http://localhost:3000/auth/logout";
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +47,7 @@ export class LoginService {
   }
 
   isloggedin(){
-    return !!localStorage.getItem('admin')
+    return !!localStorage.getItem('user')
   }
 
 }

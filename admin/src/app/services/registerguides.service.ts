@@ -3,6 +3,10 @@ import { Observable, of, throwError, from } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment'
 
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+};
 const urlRegGuide = environment.appUrl + "/regGuide";
 const urlUploadImage = environment.appUrl + "/regGuide/uploadimage";
 

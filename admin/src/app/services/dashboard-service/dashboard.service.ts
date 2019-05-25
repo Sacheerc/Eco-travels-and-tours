@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded','NoAuth':'True'})
+};
 
-const url=environment.appUrl+"/dashboard";
+const url="http://localhost:3000/dashboard";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class DashboardService {
 
   constructor(private http: HttpClient) { 
   }
-  public baseUrl=environment.appUrl+"/admin/";
+  public baseUrl="http://localhost:3000/admin/";
 
   getdashboard(){
     return this.http.get(url,{

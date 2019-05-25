@@ -2,6 +2,7 @@ const router = require('express').Router();
 const passport = require('passport');
 const authController=require('../controllers/authController')
 const url=require("../config/conf-url")
+const keys =require('../config/keys');
 
 const authCheck = (req,res,next)=>{
   if(!req.user){
@@ -39,6 +40,7 @@ router.get('/google',passport.authenticate('google',{
 router.get('/google/redirect',passport.authenticate('google'),(req,res)=>{
     // res.send(req.user)
     return res.redirect(url.host.client+`/profile`);
+    // return res.redirect(keys.AppUri);
 })
 
 module.exports = router;

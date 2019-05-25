@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TourPackagesService } from 'src/app/services/tours/tour-packages.service';
 import { ActivatedRoute } from '@angular/router';
+import {environment} from 'src/environments/environment'
 
 @Component({
   selector: 'app-tours-tours',
@@ -9,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ToursToursComponent implements OnInit {
   packages: any
+  url=environment.appUrl;
   constructor(private route: ActivatedRoute, private tourpackageservice: TourPackagesService) { }
 
   ngOnInit() {

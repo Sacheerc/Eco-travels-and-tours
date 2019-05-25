@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from 'src/environments/environment'
 // import {RequestOptions, Request, RequestMethod} from '@angular/http';
 
 
@@ -9,9 +10,9 @@ const httpOptions = {
 };
 
 
-const urlpost="http://localhost:3000/auth/password";
-const urllogin="http://localhost:3000/auth/login";
-const urllogout="http://localhost:3000/auth/logout";
+const urlpost=environment.appUrl+"/auth/password";
+const urllogin=environment.appUrl+"/auth/login";
+const urllogout=environment.appUrl+"/auth/logout";
 
 @Injectable({
   providedIn: 'root'

@@ -77,6 +77,8 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
 import { GalleryHeaderComponent } from './pages/gallery/components/gallery-header/gallery-header.component';
 import { GalleryBodyComponent } from './pages/gallery/components/gallery-body/gallery-body.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -124,7 +126,6 @@ import { GalleryBodyComponent } from './pages/gallery/components/gallery-body/ga
     ComponentsComponent,
     GuidesHeaderComponent,
     RateGuideComponent,
-    
     MyReservationsComponent,
     EditProfileComponent,
     ConfirmationPopupComponent,
@@ -162,7 +163,7 @@ import { GalleryBodyComponent } from './pages/gallery/components/gallery-body/ga
     TourPackagesService,
     LoginService,
     ReservationsService,
-    PopupModalsService
+    PopupModalsService,
   ],
   bootstrap: [AppComponent],
   exports: [ RateGuideComponent ]

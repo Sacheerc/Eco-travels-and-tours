@@ -9,12 +9,21 @@ declare var burgerMenu;
   styleUrls: ['./index-main-nav.component.css']
 })
 export class IndexMainNavComponent implements OnInit {
-  @Input() isLoggedIn='false';
-  currentuser:any;
+  isLoggedIn=null;
   url=environment.appUrl;
   constructor(private loginService:LoginService,private router:Router) { }
 
   ngOnInit() {
+    this.init()
+  }
+
+  init(){
+    if(localStorage.getItem('user')){
+      this.isLoggedIn='true'
+    }else{
+      this.isLoggedIn='false'
+    }
+
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
          
@@ -29,12 +38,12 @@ export class IndexMainNavComponent implements OnInit {
       }
   });
   }
-
   public logout(){
     this.loginService.logout().subscribe(async (result)=>{
         localStorage.removeItem('user');
         await this.router.navigate(['/'])
-        location.reload();
+        this.init();
+        // location.reload();
       },
       (err)=>{
        console.log(err.error)

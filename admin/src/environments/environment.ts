@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  appUrl:'http://ecotravels.tk'
-  // appUrl:'http://localhost:3000'
+  // appUrl:'http://ecotravels.tk'
+  appUrl:'http://localhost:3000'
 
 };
 

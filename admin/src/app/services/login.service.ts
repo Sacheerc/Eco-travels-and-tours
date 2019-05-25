@@ -42,7 +42,7 @@ export class LoginService {
   }
 
   isloggedin(){
-    return !!localStorage.getItem('user')
+    return !!localStorage.getItem('admin')
   }
 
 }

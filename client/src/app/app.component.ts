@@ -26,9 +26,9 @@ ngOnInit(){
     }
 });
 
-    this.loginService.getloginpage().subscribe((result)=>{
+    this.loginService.getloginpage().subscribe(async (result)=>{
       if(result){
-        localStorage.setItem('user',JSON.stringify(result))
+        await localStorage.setItem('user',JSON.stringify(result))
       }else{
         localStorage.removeItem('user')
       }

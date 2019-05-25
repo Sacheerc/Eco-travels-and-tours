@@ -16,8 +16,11 @@
     <li><a routerLink="/about">About</a></li>
     <li><a routerLink="/contact">Contact</a></li>
     <br>
-    <li *ngIf="!currentuser && isLoggedIn!='true'"><a class="semi-transparent-button" href="{{url}}/auth/google">Sign In</a></li>
-    <li *ngIf="currentuser || isLoggedIn=='true'"><a class="semi-transparent-button" (click)="logout()">Log Out</a></li>
+    <div *ngIf="isLoggedIn">
+      <li *ngIf="isLoggedIn!='true'"><a class="semi-transparent-button" href="{{url}}/auth/google">Sign In</a></li>
+      <li *ngIf="isLoggedIn=='true'"><a class="semi-transparent-button" (click)="logout()">Log Out</a></li>
+    </div>
+    
   </ul>
 
 </div>
@@ -45,8 +48,8 @@
             <li><a routerLink="/services">Services</a></li>
             <li><a routerLink="/about">About</a></li>
             <li><a routerLink="/contact">Contact</a></li>
-            <li *ngIf="!currentuser && isLoggedIn!='true'"><a class="semi-transparent-button" href="{{url}}/auth/google">Sign In</a></li>
-            <li *ngIf="currentuser || isLoggedIn=='true'"><a class="semi-transparent-button" (click)="logout()">Log Out</a></li>
+                <li *ngIf="isLoggedIn && isLoggedIn!='true'"><a class="semi-transparent-button" href="{{url}}/auth/google">Sign In</a></li>
+                <li *ngIf="isLoggedIn && isLoggedIn=='true'"><a class="semi-transparent-button" (click)="logout()">Log Out</a></li>
           </ul>
         </div>
       </div>

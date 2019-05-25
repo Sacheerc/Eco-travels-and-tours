@@ -65,6 +65,8 @@ var reservationRoutes = require('./src/routes/reservation');
 var guideProfile = require('./src/routes/guideProfile');
 var sendMail = require("./src/routes/sendMail");
 var adminRouter = require('./src/routes/admin');
+var rateGuideRouter = require('./src/routes/rateGuide');
+var imageRouter = require('./src/routes/image');
 
 
 // application routings
@@ -82,6 +84,8 @@ app.use("/reservation",reservationRoutes);
 app.use("/guideProfile/", guideProfile);
 app.use("/sendmail", sendMail);
 app.use("/admin",adminRouter);
+app.use("/rateguide",rateGuideRouter);
+app.use("/image",imageRouter);
 
 
 // Config image url path

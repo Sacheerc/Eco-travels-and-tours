@@ -21,6 +21,32 @@ var TourPackageSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
+  reviews: {
+    type: Number,
+    required: true,
+    trim: true
+  },
+  duration: {
+    type: Number,
+    required: true,
+    trim: true
+  },
+  hotels: {
+    type: Array,
+    required: true,
+    trim: true
+  },
+  coverimage: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  maxguest: {
+    type: Number,
+    required: true,
+    trim: true
+  }
+
 });
 
 var TourPackage = mongoose.model("Tour-package", TourPackageSchema);

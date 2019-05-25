@@ -1,9 +1,11 @@
 // required modules
 var express = require("express");
+var FileController = require("../controllers/fileController");
 var router = express.Router();
 var TourPackageController = require("../controllers/tourPcakagesController");
 
 var tourPackageController = new TourPackageController();
+var fileController = new FileController();
 
 // POST route for logging
 router.get("/", function(req, res, next) {
@@ -27,6 +29,35 @@ router.get("/", function(req, res, next) {
     });
   });
 
+
+  // route for upload guideImage
+router.post("/uploadimage", fileController.packageUpload.single("file"), function(
+  req,
+  res,
+  next
+) {
+  const file = req.file;
+  if (!file) {
+    const error = new Error("Please upload a file");
+    error.httpStatusCode = 400;
+    return next(error);
+  }
+  res.send(file);
+});
+
+// POST route for inserting data
+router.post("/", function(req, res, next) {
+  tourPackageController.addTourPackage(req.body, (err, tour) => {
+    if (err) {
+      return next(err);
+    } else {
+      res.send(tour);
+    }
+  });
+});
+
  
 
 module.exports = router;
+
+

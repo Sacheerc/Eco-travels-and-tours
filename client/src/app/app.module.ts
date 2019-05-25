@@ -1,7 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import { MatDialogModule, MatButtonModule } from '@angular/material';
+import {  MatDialogModule,
+          MatButtonModule, 
+          MatCardModule,
+          MatRadioModule,
+          MatFormFieldModule,
+          MatInputModule,
+          MatProgressBarModule,
+          MatDividerModule,
+          MatTableModule,
+          MatIconModule,
+        } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
@@ -56,6 +66,10 @@ import { ReservationsService } from './services/reservations/reservations.servic
 import { AvailableDialogComponent } from './pages/tour-places/components/available-dialog/available-dialog.component';
 import { PopupModalsService } from './services/popup-modals/popup-modals.service';
 import { UnavailableDialogComponent } from './pages/tour-places/components/unavailable-dialog/unavailable-dialog.component';
+import { GuidesComponent } from './pages/guides/guides.component';
+import { ComponentsComponent } from './pages/guides/components/components.component';
+import { GuidesHeaderComponent } from './pages/guides/components/guides-header/guides-header.component';
+import { RateGuideComponent } from './pages/guides/components/rate-guide/rate-guide.component';
 import { MyReservationsComponent } from './pages/profile/components/my-reservations/my-reservations.component';
 import { EditProfileComponent } from './pages/profile/components/edit-profile/edit-profile.component';
 import { ConfirmationPopupComponent } from './shared/components/confirmation-popup/confirmation-popup.component';
@@ -105,6 +119,11 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
     ProfileComponent,
     AvailableDialogComponent,
     UnavailableDialogComponent,
+    GuidesComponent,
+    ComponentsComponent,
+    GuidesHeaderComponent,
+    RateGuideComponent,
+    
     MyReservationsComponent,
     EditProfileComponent,
     ConfirmationPopupComponent,
@@ -117,6 +136,14 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
     HttpClientModule,
     MatDialogModule,
     MatButtonModule,
+    MatCardModule,
+    MatRadioModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressBarModule,
+    MatDividerModule,
+    MatTableModule,
+    MatIconModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
     ToastrModule.forRoot()
@@ -124,6 +151,7 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
   entryComponents: [
     AvailableDialogComponent,
     UnavailableDialogComponent,
+    RateGuideComponent,
     ConfirmationPopupComponent
    ],
   providers: [
@@ -132,6 +160,7 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
     ReservationsService,
     PopupModalsService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [ RateGuideComponent ]
 })
 export class AppModule { }

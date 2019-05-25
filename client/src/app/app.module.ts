@@ -73,6 +73,9 @@ import { RateGuideComponent } from './pages/guides/components/rate-guide/rate-gu
 import { MyReservationsComponent } from './pages/profile/components/my-reservations/my-reservations.component';
 import { EditProfileComponent } from './pages/profile/components/edit-profile/edit-profile.component';
 import { ConfirmationPopupComponent } from './shared/components/confirmation-popup/confirmation-popup.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
+import { GalleryHeaderComponent } from './pages/gallery/components/gallery-header/gallery-header.component';
+import { GalleryBodyComponent } from './pages/gallery/components/gallery-body/gallery-body.component';
 
 @NgModule({
   declarations: [
@@ -125,6 +128,9 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
     MyReservationsComponent,
     EditProfileComponent,
     ConfirmationPopupComponent,
+    GalleryComponent,
+    GalleryHeaderComponent,
+    GalleryBodyComponent,
   ],
   imports: [
     BrowserModule,

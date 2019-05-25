@@ -76,7 +76,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-3 pr-1">
-                    <input type="file" name="image" name="propic" [(ngModel)]="imgurl" />
+                    <input type="file" (change)="createFormData($event)" >
                   </div>  
                 </div>
 
@@ -84,7 +84,7 @@
                   <div class="col-md-3 pl-1">
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary">Submit</button>
-                      <a class="btn btn-primary" href="guides">Back</a>
+                      <a class="btn btn-primary" routerLink="/guides">Back</a>
                   </div>
                   </div>
                 </div>

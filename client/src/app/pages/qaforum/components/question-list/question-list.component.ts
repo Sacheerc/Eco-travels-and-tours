@@ -19,7 +19,7 @@ import { ToastrService } from 'ngx-toastr';
 export class QuestionListComponent implements OnInit {
   @Input() isLoggedIn='false';
   currentuser:any;
-  constructor(private questionService:QuestionService,
+  constructor(public questionService:QuestionService,
     private popupService: PopupModalsService,
     public dialog: MatDialog,
     private toastrService: ToastrService

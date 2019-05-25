@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
 import { ReservationsService } from '../../../../services/reservations/reservations.service';
 import { PopupModalsService } from '../../../../services/popup-modals/popup-modals.service';
 import { Router } from '@angular/router';
+import {environment} from 'src/environments/environment';
 
 @Component({
   selector: 'app-tour-places-sidebar',
@@ -65,12 +66,13 @@ export class TourPlacesSidebarComponent implements OnInit {
               }
               this.reservationService.makeReservation(data).subscribe(async (result) => {
                 await this.router.navigate(['/profile']);
-                location.reload();
+                // location.reload();
               }, (err) => {
                 console.log(err)
               })
             } else {
-              window.location.href = "http://localhost:3000/auth/google";
+              alert(environment.appUrl+"/auth/google")
+              // window.location.href = environment.appUrl+"/auth/google";
             }
           });
         }

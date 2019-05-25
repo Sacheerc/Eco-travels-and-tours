@@ -11,7 +11,7 @@ const urlUploadImage = environment.appUrl + "/tourPackage/uploadimage";
 export class PackageServiceService {
 
   constructor(private http: HttpClient) { }
-  public baseUrl="http://localhost:3000/admin/";
+  public baseUrl=environment.appUrl+"/admin/";
   
   getPackageIncome(){
     return this.http.get(this.baseUrl+"pkgIncome");

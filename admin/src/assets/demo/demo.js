@@ -577,13 +577,12 @@ demo = {
     });
   },
 
-  initROCCharts: function(reservations,ongoing,destIncome){
-    
-    var ongoingLabels=[]
-    for(var i=0;i<ongoing.length;i++)
-    {
-      ongoingLabels.push(i+1);
-    }
+  initDestIncome: function(destIncome){
+   var dest = Object.keys(destIncome);
+   for(var i=0;i<dest.length;i++){
+     dest[i]=dest[i].substring(0,18);
+   }
+
     chartColor = "#FFFFFF";
 
     // General configuration for the charts with Line gradientStroke
@@ -700,7 +699,7 @@ demo = {
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: Object.keys(destIncome),
+        labels: dest,
         datasets: [{
           label: "Rs",
           borderColor: chartColor,
@@ -782,6 +781,117 @@ demo = {
         }
       }
     });
+  },
+
+  initROCCharts: function(reservations,ongoing,cancellations){
+    
+    var ongoingLabels=[]
+    for(var i=0;i<ongoing.length;i++)
+    {
+      ongoingLabels.push(i+1);
+    }
+    chartColor = "#FFFFFF";
+
+    // General configuration for the charts with Line gradientStroke
+    gradientChartOptionsConfiguration = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+      tooltips: {
+        bodySpacing: 4,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest",
+        xPadding: 10,
+        yPadding: 10,
+        caretPadding: 10
+      },
+      responsive: 1,
+      scales: {
+        yAxes: [{
+          display: 0,
+          gridLines: 0,
+          ticks: {
+            display: false
+          },
+          gridLines: {
+            zeroLineColor: "transparent",
+            drawTicks: false,
+            display: false,
+            drawBorder: false
+          }
+        }],
+        xAxes: [{
+          display: 0,
+          gridLines: 0,
+          ticks: {
+            display: false
+          },
+          gridLines: {
+            zeroLineColor: "transparent",
+            drawTicks: false,
+            display: false,
+            drawBorder: false
+          }
+        }]
+      },
+      layout: {
+        padding: {
+          left: 0,
+          right: 0,
+          top: 15,
+          bottom: 15
+        }
+      }
+    };
+
+    gradientChartOptionsConfigurationWithNumbersAndGrid = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+      tooltips: {
+        bodySpacing: 4,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest",
+        xPadding: 10,
+        yPadding: 10,
+        caretPadding: 10
+      },
+      responsive: true,
+      scales: {
+        yAxes: [{
+          gridLines: 0,
+          gridLines: {
+            zeroLineColor: "transparent",
+            drawBorder: false
+          }
+        }],
+        xAxes: [{
+          display: 0,
+          gridLines: 0,
+          ticks: {
+            display: false
+          },
+          gridLines: {
+            zeroLineColor: "transparent",
+            drawTicks: false,
+            display: false,
+            drawBorder: false
+          }
+        }]
+      },
+      layout: {
+        padding: {
+          left: 0,
+          right: 0,
+          top: 15,
+          bottom: 15
+        }
+      }
+    };
 
     ctx = document.getElementById('barChartSimpleGradientsNumbers').getContext("2d");
 
@@ -810,7 +920,7 @@ demo = {
           fill: true,
           backgroundColor: gradientFill,
           borderWidth: 2,
-          data: [542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 630]
+          data: cancellations
         }]
       },
       options: gradientChartOptionsConfiguration

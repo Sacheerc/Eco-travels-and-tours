@@ -16,6 +16,8 @@ import { GuideProfileComponent } from './pages/guides/guide-profile/guide-profil
 import { SendMailComponent } from './pages/guides/send-mail/send-mail.component';
 import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadcast-emails.component';
 import { AddPackageComponent } from './pages/packages/add-package/add-package.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
+import { AddimageComponent } from './pages/gallery/addimage/addimage.component';
 
 
 const routes: Routes = [
@@ -33,7 +35,9 @@ const routes: Routes = [
   {path:"profile/:id", component:GuideProfileComponent,canActivate:[AuthGuard]},
   {path:"profile/sendmail/:id", component:SendMailComponent, canActivate:[AuthGuard]},
   {path:"guides/broadcastEmails", component:BroadcastEmailsComponent, canActivate:[AuthGuard]},
-  {path:"addPackage", component:AddPackageComponent, canActivate:[AuthGuard]}
+  {path:"addPackage", component:AddPackageComponent, canActivate:[AuthGuard]},
+  {path:"gallery", component:GalleryComponent, canActivate:[AuthGuard]},
+  {path:"addimage", component:AddimageComponent, canActivate:[AuthGuard]}
 
 ];
 

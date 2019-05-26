@@ -38,6 +38,8 @@ import { GuideProfileComponent } from './pages/guides/guide-profile/guide-profil
 import { SendMailComponent } from './pages/guides/send-mail/send-mail.component';
 import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadcast-emails.component';
 import { AddPackageComponent } from './pages/packages/add-package/add-package.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
+import { AddimageComponent } from './pages/gallery/addimage/addimage.component';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import { AddPackageComponent } from './pages/packages/add-package/add-package.co
     GuideProfileComponent,
     SendMailComponent,
     BroadcastEmailsComponent,
-    AddPackageComponent
+    AddPackageComponent,
+    GalleryComponent,
+    AddimageComponent
 
   ],
   imports: [

@@ -29,6 +29,16 @@ const storage3 = multer.diskStorage({
   }
 });
 
+// image upload gallery
+const storage4 = multer.diskStorage({
+  destination: function(req, file, callback) {
+    callback(null, "./public/images/gallery");
+  },
+  filename: function(req, file, callback) {
+    callback(null, file.originalname);
+  }
+});
+
 FileController.prototype.upload = multer({
   storage: storage
 });
@@ -39,6 +49,10 @@ FileController.prototype.coverUpload = multer({
 
 FileController.prototype.packageUpload = multer({
   storage: storage3
+});
+
+FileController.prototype.galleryUpload = multer({
+  storage: storage4
 });
 
 function FileController() {}

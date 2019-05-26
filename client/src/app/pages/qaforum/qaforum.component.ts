@@ -24,6 +24,7 @@ export class QaforumComponent implements OnInit {
 
   toggleOn(){
     this.isOn= !this.isOn;
+    this.filter.refreshQuestionList();
   }
 
   search(){

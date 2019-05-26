@@ -25,9 +25,9 @@
       <a>
         <h6 style="padding-top:2%">{{qstn.author.username}} on {{qstn.date| date:"MMM d, y h:mm a"}}</h6>
     </a>
-    <a *ngIf="currentuser && qstn.author.username==currentuser.username">
+    <!-- <a *ngIf="currentuser && qstn.author.username==currentuser.username">
         <h6>{{qstn.date| date:"MMM d, y h:mm a"}}</h6>
-    </a>
+    </a> -->
     <div class="row">
     <div class="col-md-1">
     </div>
@@ -40,9 +40,9 @@
           </div>
           <div class="col-md-8">
               <h5>{{ans.text}}</h5>
-              <a *ngIf="currentuser && ans.author.username==currentuser.username">
+              <!-- <a *ngIf="currentuser && ans.author.username==currentuser.username">
                   <h6>{{ans.date| date:"MMM d, y h:mm a"}}</h6>
-              </a>
+              </a> -->
               <a><h6>{{ans.author.username}} on {{ans.date| date:"MMM d, y h:mm a"}}</h6></a>
           
           </div>
@@ -57,7 +57,7 @@
         <hr>
         <form  [formGroup]="answerForm" (ngSubmit)="onSubmit(qstn._id)">
         <div class="col-md-10">
-      <input *ngIf="currentuser || isLoggedIn=='true'" type="text" formControlName="answer"  class="form-control" placeholder="State your opinion" required>
+      <input *ngIf="currentuser || isLoggedIn=='true'" type="text" formControlName="answer"  minlength=5 class="form-control" placeholder="State your opinion" required>
          </div>
         <div class="col-md-1"><button *ngIf="currentuser || isLoggedIn=='true'" class="btn btn-primary" >Post</button>
         </div> 

@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   submitForm(){
     var body = `username=${this.email}&password=${this.password}`;
     this.loginService.login(body).subscribe((result)=>{
-      localStorage.setItem('user', JSON.stringify(result)); 
+      localStorage.setItem('admin', JSON.stringify(result)); 
       this.router.navigate(['/dashboard']);
       },
       (err)=>{

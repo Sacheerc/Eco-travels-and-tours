@@ -47,7 +47,7 @@
                     <div class="form-group">
                       <label for="address">Address</label>
                       <input [(ngModel)]="address" class="form-control" id="address" name="address"
-                        placeholder="10/A, ABC road, colombo." value="{{guide.address}}" />
+                        placeholder="10/A, ABC road, colombo." value="" />
                     </div>
                   </div>
                 </div>
@@ -109,7 +109,7 @@
           <div class="col-md-4">
             <div class="card card-user">
               <div class="image">
-                <img src="../assets/img/bg5.jpg" alt="...">
+                <img src="./assets/img/bg5.jpg" alt="...">
               </div>
               <div class="card-body">
                 <div class="author">
@@ -128,9 +128,9 @@
               <hr>
               <div class="button-container">
                 <label >Send Email To {{guide.name}}</label>
-                <a href="profile/sendmail/{{guide._id}}" class="btn btn-neutral btn-icon btn-round btn-lg">
+                <!-- <a href="profile/sendmail/{{guide._id}}" class="btn btn-neutral btn-icon btn-round btn-lg">
                   <i class="fas fa-envelope"></i>
-                </a>
+                </a> -->
                 
               </div>
             </div>

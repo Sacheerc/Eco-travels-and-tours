@@ -1,5 +1,6 @@
 // required modules
 var Gallery = require("../models/gallery");
+var fs = require('fs');
 
 function GalleryController() {}
 
@@ -25,20 +26,14 @@ GalleryController.prototype.addimage = function(imageData, callback) {
 
 
 
+GalleryController.prototype.delete= (key,callback)=>{
+  console.log('this'+key)
+  filePath="../api/public/images/gallery/"+key+".jpg";
+  fs.unlink(filePath,callback);
+}
+  
 
 
-
-// GalleryController.prototype.findgallery=(key,callback)=>{
-//     Gallery.find({$text: { $search:key } },(err,docs)=>{ 
-//     if (err || !docs) {
-//       var err = new Error("Sorry.");
-//       err.status = 401;
-//       callback(err);
-//     } else {
-//       callback(null, docs);
-//     }
-//   })
-// }
 
 
 

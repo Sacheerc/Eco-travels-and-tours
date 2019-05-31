@@ -1,4 +1,5 @@
 var multer = require("multer");
+const fs = require('fs');
 
 const storage = multer.diskStorage({
   destination: function(req, file, callback) {
@@ -54,6 +55,19 @@ FileController.prototype.packageUpload = multer({
 FileController.prototype.galleryUpload = multer({
   storage: storage4
 });
+
+//delete file
+// FileController.prototype.delete = fs.unlink(
+//   filePath, callbackFunction
+// );
+
+
+FileController.prototype.delete=(key,callback)=>{
+  fs.unlink(
+    key, callback
+  )
+}
+
 
 function FileController() {}
 

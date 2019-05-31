@@ -9,7 +9,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})
 };
 
-const urltourpackage=environment.appUrl+"/tourpackage";
+const urlgallery = environment.appUrl + "/gallery";
 const urlfindtourpackages=environment.appUrl+"/tourpackage/findtourpackages"
 
 @Injectable({
@@ -23,9 +23,7 @@ export class GalleryService {
   constructor(private http: HttpClient,private router:Router) {
    }
 
-  getpackages(){
-    return this.http.get(urltourpackage);
-  }
+  
 
   findtourpackage(data) {
     return this.http.post(urlfindtourpackages, data, {
@@ -40,6 +38,10 @@ export class GalleryService {
   }
   getfileteredpackages(){
     return this.packages;
+  }
+
+  getgallery(){
+    return this.http.get(urlgallery);
   }
 
 

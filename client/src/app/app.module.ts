@@ -11,6 +11,7 @@ import {  MatDialogModule,
           MatDividerModule,
           MatTableModule,
           MatIconModule,
+          MatTooltipModule,
         } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -149,6 +150,7 @@ import { GalleryBodyComponent } from './pages/gallery/components/gallery-body/ga
     MatDividerModule,
     MatTableModule,
     MatIconModule,
+    MatTooltipModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
     ToastrModule.forRoot()

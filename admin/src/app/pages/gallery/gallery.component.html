@@ -1,5 +1,5 @@
 <div class="wrapper ">
-  <app-sidebar active="packages"></app-sidebar>
+  <app-sidebar active="gallery"></app-sidebar>
 
   <div class="main-panel" id="main-panel">
     <app-navbar></app-navbar>
@@ -7,113 +7,37 @@
     <div class="panel-header panel-header-lg">
       <canvas id="bigDashboardChart3"></canvas>
     </div>
-    <div class="content">
-      <!-- <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header">
-              <h5 class="card-category">Income by</h5>
-              <h4 class="card-title"> Tour packages</h4>
-              <div class="col-md-4 pl-1">
-                <a class="btn btn-success" href="addimage" >Add Package</a>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead class=" text-primary">
-                    <th>
-                      Package
-                    </th>
-                    <th>
-                      Total Guest Count
-                    </th>
-                    <th class="text-right">
-                      Net Income
-                    </th>
-                  </thead>
-                  <tbody *ngIf="packages.length > 0">
-                    <tr *ngFor="let pkg of packages">
-                      <td>
-                        {{pkg._id }}
-                      </td>
-                      <td>
-                        {{pkg.guests }}
-                      </td>
-                      <td class="text-right">
-                        {{pkg.total}}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-    
+    <div class="content">    
       <div class="col-md-12">
           <div class="row">
               <div class="col-md-4 pl-1">
                   <a class="btn btn-success" href="addimage" >Add Image</a>
                 </div>
-                <div class="row">
-                <div *ngIf="packages.length>0" class="wrap-division">
-                  <div *ngFor="let package of packages" >
-                      <div class="col-md-4">
-                          <div class="card-body">
-                            <mat-card class="example-card">
-                                <mat-card-header>
-                                  <mat-card-subtitle>cover1.jpg</mat-card-subtitle>
-                                </mat-card-header>
-                                <!-- <img mat-card-image                             [src]="url"                             alt="Photo of a Shiba Inu" style="border-left: 20px"                           />  -->
-                                <img mat-card-image
-                                [src]="url" 
-                                alt="Photo of a Shiba Inu"
-                                style="border-left: 20px"
-                                />
-                                <div class="row">
-                                  <div class="form-group">
-                                    <!-- <label for="userName">Guide Name</label> -->  
-                                    <input 
-                                      [(ngModel)]="name" 
-                                      type="hidden" 
-                                      class="form-control" 
-                                      id="img_bg_1"
-                                      name="img_bg_1"
-                                      placeholder="img_bg_1.jpg"
-                                      > 
-                                  </div>
-                                    
-                                    <div class="form-group">
-                                      <a class="btn btn-success">Choose
-                                      <input type="file" (change)="createFormData($event)" />
-                                      </a>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        <!-- <button class="btn btn-primary" (click)="update_home_cover1()">Update</button> -->
-                                    </div>
-                                </div>
-                              </mat-card>
-                          </div>
-                        <!-- </div> -->
-                    <!-- <div class="tour">
-                      <a routerLink="/tourplaces/{{package._id}}" class="tour-img"
-                        [ngStyle]="{'background-image':'url('+url+'/tourpackages/'+ package.coverimage + ')'}">
-                        <p class="price"><span>{{package.price}} Lkr</span> <small>/ {{package.duration}}</small></p>
-                      </a>
-                      <span class="desc">
-                        <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
-                              class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
-                          {{package.reviews}} Reviews</p>
-                        <h2><a routerLink="/tourplaces/{{package._id}}">{{package.package}}</a></h2>
-                        <span class="city">{{package.location}}</span>
-                      </span>
-                    </div> -->
+                
+                <div *ngIf="packages.length > 0">
+                    <div class="row">
+                  <div *ngFor="let package of packages">
+                    
+                    <mat-card class="example-card">
+                      <mat-card-header> 
+                      </mat-card-header>
+                      <img
+                        class="avatar border-gray"
+                        [src]="url+package.galleryimage"
+                        alt=""
+                        style="width: 300px;height: 200px;"
+                      />
+                      <!-- <input type="hidden" name="id" #id="ngmodel" [(ngModel)]="galleryService."> -->
+                      <mat-card-actions>
+                        <button mat-button>Delete</button>
+                      </mat-card-actions>
+                    </mat-card>
+                    
                   </div>
+                  </div>
+
                 </div>
-                </div>
+              
               </div>
           <div class="row">
             <div class="col-md-12 text-center">

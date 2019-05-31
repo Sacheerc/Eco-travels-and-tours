@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 
 const urlgallery = environment.appUrl + "/gallery";
 const urlUploadImage = environment.appUrl + "/gallery/uploadimage";
+const urlDleteImage = environment.appUrl + "/gallery/delete";
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,10 @@ export class GalleryService {
 
   getgallery(){
     return this.http.get(urlgallery);
+  }
+
+  deleteimage(filePath) {
+    return this.http.post(urlDleteImage,filePath);
   }
 
   

@@ -45,6 +45,27 @@ router.get("/", function(req,res,next){
     
 });
 
+//delete
+router.post("/delete/:name", function(req, res, next) {
+  console.log(req.params.name)
+  galleryController.delete(req.params.id,(err, docs) => {
+      if (err) {
+        return next(err);
+      } else {
+        res.json(docs);  
+      }
+  });
+
+
+  galleryController.deleteOne({name:req.params.name}, (err, doc) => {
+      if(!err) { res.send(doc); }
+      else {console.log('Error in Insurance agent Delete :' + JSON.stringify(err, undefined, 2)); }
+  });
+
+});
+
+
+
 
 
 module.exports = router;

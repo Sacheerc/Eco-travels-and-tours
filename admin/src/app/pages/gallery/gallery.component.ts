@@ -16,8 +16,8 @@ declare var demo:any;
 export class GalleryComponent implements OnInit {
   
   public packages:any;
-  url=environment.appUrl+"/gallery/cat.jpg";
-  constructor(private route: ActivatedRoute, private galleryService:GalleryService) { }
+  url=environment.appUrl+"/gallery/";
+  constructor(private route: ActivatedRoute, public galleryService:GalleryService) { }
   
   ngOnInit() {
     this.route.paramMap.subscribe(param => {
@@ -32,6 +32,10 @@ export class GalleryComponent implements OnInit {
       );
 
     });
+  }
+
+  delete() {
+    this.galleryService.deleteimage("url+Anuradapura.jpg");
   }
 
 }

@@ -2,7 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { MatDialogModule, MatButtonModule } from '@angular/material';
+import { 
+          MatDialogModule,
+          MatButtonModule,
+          MatCardModule,
+        
+        } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
 
@@ -28,10 +33,11 @@ import { ReservationsService } from './services/reservation-service/reservations
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { PopupModalService } from './services/popup-modals-service/popup-modal.service';
 import { ViewAssignedGuideComponent } from './pages/reservations/view-assigned-guide/view-assigned-guide.component';
+import { ImageComponent } from './pages/image/image.component';
 import { GuideProfileComponent } from './pages/guides/guide-profile/guide-profile.component';
 import { SendMailComponent } from './pages/guides/send-mail/send-mail.component';
 import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadcast-emails.component';
-
+import { AddPackageComponent } from './pages/packages/add-package/add-package.component';
 
 
 @NgModule({
@@ -49,9 +55,11 @@ import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadc
     AssignGuidesComponent,
     ConfirmationDialogComponent,
     ViewAssignedGuideComponent,
+    ImageComponent,
     GuideProfileComponent,
     SendMailComponent,
-    BroadcastEmailsComponent
+    BroadcastEmailsComponent,
+    AddPackageComponent
 
   ],
   imports: [
@@ -61,6 +69,7 @@ import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadc
     FormsModule,
     MatDialogModule,
     MatButtonModule,
+    MatCardModule,
     BrowserAnimationsModule,
     NgxPaginationModule
   ],
@@ -77,6 +86,7 @@ import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadc
     ReservationsService,
     PopupModalService
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,8 +13,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     this.loginService.getloginpage().subscribe((result)=>{
-      if(!result && localStorage.getItem('user')){
-        localStorage.removeItem('user')
+      if(!result && localStorage.getItem('admin')){
+        localStorage.removeItem('admin')
       }
       },
       (err)=>{

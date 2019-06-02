@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
 
+declare var dangerNotification:any;
 
 @Component({
   selector: 'app-login',
@@ -28,16 +29,38 @@ export class LoginComponent implements OnInit {
       }
      )
    }
+   dangerNotification(top,center,message){
+    dangerNotification(top,center,message);
+  }
 
+   validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
   submitForm(){
+
     var body = `username=${this.email}&password=${this.password}`;
     this.loginService.login(body).subscribe((result)=>{
-      localStorage.setItem('user', JSON.stringify(result)); 
+      localStorage.setItem('admin', JSON.stringify(result)); 
       this.router.navigate(['/dashboard']);
       },
       (err)=>{
-        console.log(err.error)
+        if(this.email.length==0)
+        {
+          this.dangerNotification('top','center','Please enter the email');
+        }
+        else if (!(this.validateEmail(this.email))){
+          this.dangerNotification('top','center','Please enter a valid email');
+        }
+        else if(this.password.length==0)
+        {
+          this.dangerNotification('top','center','Please enter the password');
+        }
+        else{
+        this.dangerNotification('top','center','Invalid username or password. Please try again');
+        console.log(err.error);
         this.router.navigate(['/']);
+        }
       }
      )
   }

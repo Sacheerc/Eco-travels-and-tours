@@ -5,6 +5,25 @@ var moment=require('moment');
 var Reservation = require("../models/reservation");
 var Package = require("../models/tour-package");
 
+router.get("/cancel",(req,res)=>{
+    var cancellations=[0,0,0,0,0,0,0,0,0,0,0,0];
+
+    Reservation.find({status:"canceled"},{reserveddate:1,guestcount:1},(err,found)=>{
+        if(err) {
+            console.log(err);
+        }
+        else
+        {
+            found.forEach(function(result){
+                var d=moment(result.reserveddate);
+                cancellations[d.month()]+=result.guestcount;
+            });
+            res.send(cancellations);
+        }
+    });
+
+});
+
 router.get("/pkgTable",(req,res)=>{
     Reservation.aggregate([{"$group":{_id:"$packagename",
                                     guests:{$sum:"$guestcount"},

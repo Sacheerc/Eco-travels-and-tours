@@ -10,5 +10,6 @@ module.exports = {
     },
     mongouri:{
         uri:'mongodb+srv://Admin:pUoDr1d77k7nc2Eo@ecotravels-xre1s.gcp.mongodb.net/ecotravels?retryWrites=true'
-    }
+    },
+    AppUri:'http://ecotravels.tk'
 };

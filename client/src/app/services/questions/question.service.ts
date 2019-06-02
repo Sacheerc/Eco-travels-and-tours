@@ -5,6 +5,7 @@ import {map} from 'rxjs/operators';
 
 import { Question } from '../../shared/models/question.model';
 import { Answer } from '../../shared/models/answer.model';
+import {environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class QuestionService {
   selectedQuestion: Question;
   questions: Question[];
 
-  readonly baseURL = "http://localhost:3000/qaforum";
+  readonly baseURL = environment.appUrl+"/qaforum";
 
   constructor(private http:HttpClient) { }
 
@@ -29,6 +30,9 @@ export class QuestionService {
     return this.http.get(this.baseURL);
   }
     
+  getFilteredQuestionList(keyword:any){
+    return this.http.get(this.baseURL+'/filter/'+keyword);
+  }
   deleteQuestion(id:String)
   {
     return this.http.delete(this.baseURL+"/"+id);

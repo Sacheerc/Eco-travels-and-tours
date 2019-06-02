@@ -14,13 +14,13 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     // get user informations from browser storage
-    this.currentuser=JSON.parse(localStorage.getItem('user'));
+    this.currentuser=JSON.parse(localStorage.getItem('admin'));
   }
 
   
   public logout(){
     this.loginService.logout().subscribe((result)=>{
-        localStorage.removeItem('user');
+        localStorage.removeItem('admin');
         this.router.navigate(['/login'])
       },
       (err)=>{

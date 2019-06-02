@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { environment } from '../../../src/environments/environment';
+import { environment } from '../../../src/environments/environment'
+
+
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
+
 const urlsendmail=environment.appUrl+"/sendmail";
 const url2=environment.appUrl+"/sendmail/broadcast"
 const urlassignGuide =  environment.appUrl+"/sendmail/assignguide"
 const urlremoveGuide =  environment.appUrl+"/sendmail/removeguide"
 const urlRefundTour =  environment.appUrl+"/sendmail/confirmrefund"
+// const url=environment.appUrl+"/sendmail";
+
 
 @Injectable({
   providedIn: 'root'

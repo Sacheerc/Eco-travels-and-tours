@@ -23,13 +23,13 @@
             </div>
         
             <div class="col-md-8">
-                    <input type="text"  class="form-control" placeholder="Search for a question">
+                    <input type="text" (keyup)="onKey($event)" class="form-control" placeholder="Search for a question">
             </div>
             <div class="col-md-2">
-                <button class="btn btn-primary">Go</button>
+                <button class="btn btn-primary" (click)="search()">Go</button>
             </div>
         </div>
-        <app-qaforum-body *ngIf="isOn"></app-qaforum-body>
-        <app-question-list *ngIf="!isOn"></app-question-list> 
+        <app-qaforum-body *ngIf="isOn" (hideParent)="toggleOn()"></app-qaforum-body>
+        <app-question-list #filter ></app-question-list> 
 </div>
 <app-footer></app-footer>

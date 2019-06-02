@@ -16,7 +16,14 @@ var app = express();
 
 // Solved cross origin request problem
 app.use(cors({
-  origin:['http://localhost:4200','http://127.0.0.1:4200','http://localhost:8080','http://127.0.0.1:8080'],
+  origin:[
+    'http://localhost:4200',
+    'http://127.0.0.1:4200',
+    'http://localhost:8080',
+    'http://127.0.0.1:8080',
+    'http://localhost:3000',
+    keys.AppUri
+  ],
   credentials:true
 }
 ));
@@ -59,6 +66,9 @@ var guideProfile = require('./src/routes/guideProfile');
 var sendMail = require("./src/routes/sendMail");
 var adminRouter = require('./src/routes/admin');
 var getClient = require("./src/routes/getClient")
+var rateGuideRouter = require('./src/routes/rateGuide');
+var imageRouter = require('./src/routes/image');
+
 
 
 // application routings
@@ -77,10 +87,18 @@ app.use("/guideProfile/", guideProfile);
 app.use("/sendmail", sendMail);
 app.use("/admin",adminRouter);
 app.use("/client",getClient)
+app.use("/rateguide",rateGuideRouter);
+app.use("/image",imageRouter);
+
 
 
 // Config image url path
 app.use(express.static('public/images'));
+
+// config server apps
+app.use('/admin',express.static('public/admin'));
+app.use(express.static('public/client'));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -33,7 +33,7 @@ router.post('/password',
 
 // auth with google
 router.get('/google',passport.authenticate('google',{
-    scope:['profile']
+    scope:['openid','profile','email']
 })); 
 
 // callback route for google to redirect to

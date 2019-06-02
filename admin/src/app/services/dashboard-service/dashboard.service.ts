@@ -38,4 +38,8 @@ export class DashboardService {
     return this.http.get(this.baseUrl+"destIncome");
   }
 
+  getCancellations(){
+    return this.http.get(this.baseUrl+'cancel');
+  }
+
 }

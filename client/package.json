@@ -23,6 +23,7 @@
     "@angular/router": "~7.2.0",
     "@types/jquery": "^3.3.29",
     "core-js": "^2.5.4",
+    "karma-firefox-launcher": "^1.1.0",
     "ngx-pagination": "^3.2.1",
     "ngx-toastr": "^10.0.4",
     "rxjs": "~6.3.3",

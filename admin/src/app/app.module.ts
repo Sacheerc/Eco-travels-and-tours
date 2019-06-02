@@ -6,6 +6,11 @@ import {
           MatDialogModule,
           MatButtonModule,
           MatCardModule,
+          MatTableModule,
+          MatPaginatorModule,
+          MatFormFieldModule,
+          MatInputModule,
+          MatTableDataSource,
         
         } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -71,7 +76,11 @@ import { AddPackageComponent } from './pages/packages/add-package/add-package.co
     MatButtonModule,
     MatCardModule,
     BrowserAnimationsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   
   entryComponents: [

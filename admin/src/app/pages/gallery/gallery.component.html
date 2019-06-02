@@ -14,9 +14,9 @@
                   <a class="btn btn-success" href="addimage" >Add Image</a>
                 </div>
                 
-                <div *ngIf="packages.length > 0">
-                    <div class="row">
-                  <div *ngFor="let package of packages">
+                <div *ngIf="gallery.length > 0">
+                  <div class="row">
+                  <div *ngFor="let package of gallery| paginate: { itemsPerPage: 9, currentPage: p }">
                     
                     <mat-card class="example-card">
                       <mat-card-header> 
@@ -27,9 +27,12 @@
                         alt=""
                         style="width: 300px;height: 200px;"
                       />
-                      <!-- <input type="hidden" name="id" #id="ngmodel" [(ngModel)]="galleryService."> -->
+                      <input  [(ngModel)]="name" type="hidden" id="name" name="name"
+                      value={{package.name}} />
+                      <!-- <input  type="hidden" name="name" value={{package.name}}> -->
                       <mat-card-actions>
-                        <button mat-button>Delete</button>
+                        
+                        <button mat-button (click)="delete()">Delete</button>
                       </mat-card-actions>
                     </mat-card>
                     
@@ -39,7 +42,7 @@
                 </div>
               
               </div>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-12 text-center">
               <ul class="pagination">
                 <li class="disabled"><a href="#">&laquo;</a></li>
@@ -50,6 +53,12 @@
                 <li><a href="#">&raquo;</a></li>
               </ul>
             </div>
+          </div> -->
+          <div class="text-center">
+            <pagination-controls
+              class="my-pagination"
+              (pageChange)="p = $event"
+            ></pagination-controls>
           </div>
         </div>
     

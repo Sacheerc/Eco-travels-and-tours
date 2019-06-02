@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 
 const urlgallery = environment.appUrl + "/gallery";
 const urlUploadImage = environment.appUrl + "/gallery/uploadimage";
-const urlDleteImage = environment.appUrl + "/gallery/delete";
+const urlDleteImage = environment.appUrl + "/gallery/deletefile";
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +50,13 @@ export class GalleryService {
   }
 
   deleteimage(filePath) {
-    return this.http.post(urlDleteImage,filePath);
+    console.log("dinuka = "+filePath);
+    // return this.http.post(urlDleteImage,filePath);
+    return this.http.post(urlDleteImage+"/"+filePath,filePath, {
+      observe:'body',
+      withCredentials:true,
+      // headers:new HttpHeaders().append('Content-Type','application/json')
+    })
   }
 
   

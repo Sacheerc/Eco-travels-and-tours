@@ -46,22 +46,27 @@ router.get("/", function(req,res,next){
 });
 
 //delete
-router.post("/delete/:name", function(req, res, next) {
+router.post("/deletefile/:name", function(req, res, next) {
   console.log(req.params.name)
-  galleryController.delete(req.params.id,(err, docs) => {
+  galleryController.delete(req.params.name,(err, gallery) => {
       if (err) {
         return next(err);
       } else {
-        res.json(docs);  
+        res.json(gallery);  
       }
   });
+});
 
-
-  galleryController.deleteOne({name:req.params.name}, (err, doc) => {
-      if(!err) { res.send(doc); }
-      else {console.log('Error in Insurance agent Delete :' + JSON.stringify(err, undefined, 2)); }
+//delete
+router.post("/delete/:name", function(req, res, next) {
+  console.log(req.params.name)
+  galleryController.delete(req.params.name,res,(err, gallery) => {
+      if (err) {
+        return next(err);
+      } else {
+        res.json(gallery);  
+      }
   });
-
 });
 
 

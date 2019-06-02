@@ -53,15 +53,22 @@ export class QuestionListComponent implements OnInit {
   }
 
   onSubmit(id: string){
- this.questionService.postAnswer(id, this.answerForm.value,this.currentuser).subscribe((res)=>{
-  
-});
-    this.answerForm.controls['answer'].setValue('');
-    setTimeout(()=>{
-      this.refreshQuestionList();
-      
-    },400);
+    var l=this.answerForm.value.toString().length;
     
+    if(l!=0){
+      this.questionService.postAnswer(id, this.answerForm.value,this.currentuser).subscribe((res)=>{});
+      this.toastrService.success('Answer added!','Success',{timeOut:2000,progressBar:true,progressAnimation:'increasing',positionClass:'toast-center-center'});
+      
+      this.answerForm.controls['answer'].setValue('');
+      setTimeout(()=>{
+        this.refreshQuestionList();
+      },400);
+    }
+    else
+    {
+    this.toastrService.error('Enter something before you post!','Empty Answer',{timeOut:2000,positionClass:'toast-center-center'});
+      
+    }
   }
 
   onDelete(id:String)
@@ -72,6 +79,7 @@ export class QuestionListComponent implements OnInit {
     const dialogRef = this.popupService.confimationModal(title,descr,"Delete")
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        this.toastrService.success('Post deleted!','Success',{timeOut:2000,progressBar:true,positionClass:'toast-center-center'});
         this.questionService.deleteQuestion(id).subscribe((res)=>{
           this.refreshQuestionList();
         });
@@ -89,6 +97,8 @@ export class QuestionListComponent implements OnInit {
     const dialogRef = this.popupService.confimationModal(title,descr,"Delete")
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        this.toastrService.success('Answer deleted!','Success',{timeOut:2000,progressBar:true,positionClass:'toast-center-center'});
+      
         this.questionService.deleteAnswer(id).subscribe((res)=>{
           this.refreshQuestionList();
         });

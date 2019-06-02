@@ -49,7 +49,7 @@ export class GalleryComponent implements OnInit {
   }
 
   updatePage(id){
-    console.log("dk_ID "+id);
+    
     this.galleryService.setId(id);
     this.rout.navigate(['/updateimage']);
   }

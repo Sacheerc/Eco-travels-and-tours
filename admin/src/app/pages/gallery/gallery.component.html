@@ -1,3 +1,5 @@
+<script>var ObjectId =require('mongoose').Types.ObjectId;</script>
+
 <div class="wrapper ">
   <app-sidebar active="gallery"></app-sidebar>
 
@@ -37,9 +39,9 @@
                       value={{package.name}} />
                       <!-- <input  type="hidden" name="name" value={{package.name}}> -->
                       <mat-card-actions>
-                        <button mat-raised-button (click)="delete()" color="warn">Delete</button>
+                        <button mat-raised-button (click)="delete(package.name)" color="warn">Delete</button>
                         <!-- <button mat-raised-button href="addimage" color="primary">Update</button> -->
-                        <button mat-raised-button color="primary" (click)="updatePage('5cf3253a4ebfe04e38e30a3d')" >Update</button>
+                        <button mat-raised-button color="primary" (click)="updatePage(package._id)" >Update</button>
                       </mat-card-actions>
                     </mat-card>
                     
@@ -49,18 +51,7 @@
                 </div>
               
               </div>
-          <!-- <div class="row">
-            <div class="col-md-12 text-center">
-              <ul class="pagination">
-                <li class="disabled"><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">&raquo;</a></li>
-              </ul>
-            </div>
-          </div> -->
+          
           <div class="text-center">
             <pagination-controls
               class="my-pagination"

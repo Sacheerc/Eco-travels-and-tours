@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
 
 export class AddimageComponent implements OnInit {
 
+  _id: string;
   name1: string;
   description: string;
   imgurl:string;

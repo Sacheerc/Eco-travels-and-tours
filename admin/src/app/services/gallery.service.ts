@@ -5,12 +5,14 @@ import { environment } from 'src/environments/environment';
 const urlgallery = environment.appUrl + "/gallery";
 const urlUploadImage = environment.appUrl + "/gallery/uploadimage";
 const urlDleteImage = environment.appUrl + "/gallery/deletefile";
+const urlUpdateImage = environment.appUrl + "/gallery/update";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GalleryService {
 
+  static id:string;
   constructor(private http: HttpClient) { }
   public baseUrl=environment.appUrl+"/admin/";
   
@@ -59,6 +61,24 @@ export class GalleryService {
     })
   }
 
+
+  updateimage(data) {
+    return this.http.put(urlUpdateImage+"/"+GalleryService.id, data, {
+      observe: 'body',
+      withCredentials: true,
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    }
+    )
+  }
+
+  setId(id:string){
+    console.log(id);
+    GalleryService.id=id;
+    console.log(GalleryService.id);
+  }
+  getId():string{
+    return GalleryService.id;
+  }
   
 
 

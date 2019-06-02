@@ -11,13 +11,14 @@ import { AuthGuard } from './guard/auth.guard';
 import { AuthLoginGuard } from './guard/auth-login.guard';
 import { ReservationsComponent } from './pages/reservations/reservations.component'
 import { AssignGuidesComponent } from './pages/reservations/assign-guides/assign-guides.component';
-// import { ImageComponent } from './pages/image/image.component';
+import { ImageComponent } from './pages/image/image.component';
 import { GuideProfileComponent } from './pages/guides/guide-profile/guide-profile.component';
 import { SendMailComponent } from './pages/guides/send-mail/send-mail.component';
 import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadcast-emails.component';
 import { AddPackageComponent } from './pages/packages/add-package/add-package.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { AddimageComponent } from './pages/gallery/addimage/addimage.component';
+import { UpdateimageComponent } from './pages/gallery/updateimage/updateimage.component';
 
 
 const routes: Routes = [
@@ -37,7 +38,8 @@ const routes: Routes = [
   {path:"guides/broadcastEmails", component:BroadcastEmailsComponent, canActivate:[AuthGuard]},
   {path:"addPackage", component:AddPackageComponent, canActivate:[AuthGuard]},
   {path:"gallery", component:GalleryComponent, canActivate:[AuthGuard]},
-  {path:"addimage", component:AddimageComponent, canActivate:[AuthGuard]}
+  {path:"addimage", component:AddimageComponent, canActivate:[AuthGuard]},
+  {path:"updateimage", component:UpdateimageComponent, canActivate:[AuthGuard]}
 
 ];
 

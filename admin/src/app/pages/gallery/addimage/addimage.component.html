@@ -1,5 +1,5 @@
 <div class="wrapper ">
-  <app-sidebar active="packages"></app-sidebar>
+  <app-sidebar active="gallery"></app-sidebar>
 
   <div class="main-panel" id="main-panel">
     <app-navbar></app-navbar>
@@ -21,7 +21,7 @@
                     <div class="form-group">
                       <label for="userName">Name</label>
                       <input [(ngModel)]="name1" type="text" class="form-control" id="name1" name="name1"
-                        placeholder="Sri Lanka, Ancient City Tour" required="true" />
+                        placeholder="Name of image" required="true" />
                     </div>
                   </div>
 
@@ -31,7 +31,7 @@
                     <div class="form-group">
                       <label for="address">Description</label>
                       <input [(ngModel)]="description" class="form-control" id="description" name="description"
-                        placeholder="Even the all-powerful Pointing has no control about the blind texts it..." />
+                        placeholder="Image Description" />
                     </div>
                   </div>
                 </div>
@@ -48,7 +48,7 @@
                   <div class="col-md-3 pl-1">
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary">Submit</button>
-                      <a class="btn btn-primary" href="packages">Back</a>
+                      <a class="btn btn-primary" href="gallery">Back</a>
                   </div>
                   </div>
                 </div>

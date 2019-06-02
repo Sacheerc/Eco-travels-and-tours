@@ -44,6 +44,22 @@ GalleryController.prototype.delete= (key,callback,res)=>{
   //     else {console.log('Error in Insurance agent Delete :' + JSON.stringify(err, undefined, 2)); }
   // });
 }
+
+
+GalleryController.prototype.update = function(req, res, callback) {
+  console.log('this dk'+req.body.name)
+  var gal ={
+      name: req.body.name,
+      description: req.body.description,
+      galleryimage: req.body.galleryimage,
+      
+  };
+  
+  Gallery.findByIdAndUpdate(req.params.id, { $set: gal},{ new: true},(err,doc) => {
+      if(!err) { res.send(doc); }
+      else {console.log('Error in Driver Update :' + JSON.stringify(err, undefined, 2)); }
+  });
+};
   
 
 

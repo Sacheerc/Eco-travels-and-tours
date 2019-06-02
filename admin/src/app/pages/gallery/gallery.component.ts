@@ -4,7 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { GalleryService } from 'src/app/services/gallery.service';
 import {environment} from 'src/environments/environment';
-
+import { UpdateimageComponent } from './updateimage/updateimage.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 declare var demo:any;
 
@@ -18,7 +19,7 @@ export class GalleryComponent implements OnInit {
   public name: string;
   public gallery:any;
   url=environment.appUrl+"/gallery/";
-  constructor(private route: ActivatedRoute, private rout:Router, public galleryService:GalleryService) { }
+  constructor(private route: ActivatedRoute, private rout:Router, public galleryService:GalleryService, public dialog: MatDialog) { }
   
   ngOnInit() {
     this.route.paramMap.subscribe(param => {
@@ -47,6 +48,13 @@ export class GalleryComponent implements OnInit {
     )
   }
 
+  updatePage(id){
+    console.log("dk_ID "+id);
+    this.galleryService.setId(id);
+    this.rout.navigate(['/updateimage']);
+  }
+
+  
 }
 
 

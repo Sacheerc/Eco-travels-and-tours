@@ -26,13 +26,20 @@
                         [src]="url+package.galleryimage"
                         alt=""
                         style="width: 300px;height: 200px;"
+                        matTooltip={{package.name}}
                       />
+                      <mat-card-content>
+                          <p style="width: 300px;">
+                              {{package.description}} 
+                          </p>
+                        </mat-card-content>
                       <input  [(ngModel)]="name" type="hidden" id="name" name="name"
                       value={{package.name}} />
                       <!-- <input  type="hidden" name="name" value={{package.name}}> -->
                       <mat-card-actions>
-                        
-                        <button mat-button (click)="delete()">Delete</button>
+                        <button mat-raised-button (click)="delete()" color="warn">Delete</button>
+                        <!-- <button mat-raised-button href="addimage" color="primary">Update</button> -->
+                        <button mat-raised-button color="primary" (click)="updatePage('5cf3253a4ebfe04e38e30a3d')" >Update</button>
                       </mat-card-actions>
                     </mat-card>
                     

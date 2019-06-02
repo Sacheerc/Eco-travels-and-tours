@@ -6,6 +6,8 @@ import {
           MatDialogModule,
           MatButtonModule,
           MatCardModule,
+          MatTooltipModule,
+          MatIconModule,
         
         } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,6 +42,7 @@ import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadc
 import { AddPackageComponent } from './pages/packages/add-package/add-package.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { AddimageComponent } from './pages/gallery/addimage/addimage.component';
+import { UpdateimageComponent } from './pages/gallery/updateimage/updateimage.component';
 
 
 @NgModule({
@@ -63,7 +66,8 @@ import { AddimageComponent } from './pages/gallery/addimage/addimage.component';
     BroadcastEmailsComponent,
     AddPackageComponent,
     GalleryComponent,
-    AddimageComponent
+    AddimageComponent,
+    UpdateimageComponent
 
   ],
   imports: [
@@ -74,8 +78,10 @@ import { AddimageComponent } from './pages/gallery/addimage/addimage.component';
     MatDialogModule,
     MatButtonModule,
     MatCardModule,
+    MatTooltipModule,
     BrowserAnimationsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatIconModule,
   ],
   
   entryComponents: [

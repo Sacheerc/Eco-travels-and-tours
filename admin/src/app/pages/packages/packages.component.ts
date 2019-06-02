@@ -18,7 +18,7 @@ export class PackagesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private packageService:PackageServiceService) { }
-  public packages:Package[];
+  public packages;
   displayedColumns: string[] = ['package', 'guestcount', 'income'];
   // dataSource = new MatTableDataSource<Package>(this.packages);
   dataSource 

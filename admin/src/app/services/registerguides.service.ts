@@ -9,6 +9,7 @@ const httpOptions = {
 };
 const urlRegGuide = environment.appUrl + "/regGuide";
 const urlUploadImage = environment.appUrl + "/regGuide/uploadimage";
+const urlUpGuide = environment.appUrl + "/regGuide/update";
 
 
 @Injectable({
@@ -32,6 +33,16 @@ export class RegisterguidesService {
     var formData = new FormData()
     formData.append('file', image)
     return this.http.post(urlUploadImage, formData)
+  }
+
+
+  updateGuide(data) {
+    return this.http.post(urlUpGuide, data, {
+      observe: 'body',
+      withCredentials: true,
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    }
+    )
   }
 
 

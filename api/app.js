@@ -58,6 +58,7 @@ var reservationRoutes = require('./src/routes/reservation');
 var guideProfile = require('./src/routes/guideProfile');
 var sendMail = require("./src/routes/sendMail");
 var adminRouter = require('./src/routes/admin');
+var getClient = require("./src/routes/getClient")
 
 
 // application routings
@@ -75,6 +76,7 @@ app.use("/reservation",reservationRoutes);
 app.use("/guideProfile/", guideProfile);
 app.use("/sendmail", sendMail);
 app.use("/admin",adminRouter);
+app.use("/client",getClient)
 
 
 // Config image url path
@@ -86,6 +88,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {

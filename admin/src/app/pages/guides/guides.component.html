@@ -30,7 +30,7 @@
               </div>
             </div>
             <div class="card-body">
-              
+               
               <div class="container">
                 <router-outlet></router-outlet>
               </div>
@@ -58,7 +58,7 @@
                   </thead>
                   <tbody *ngIf="guides.length > 0">
                     <tr *ngFor="let guide of guides">
-                      <a href="profile/{{guide._id}}">
+                      <a routerLink="profile/{{guide._id}}">
                       <td>
                         <img
                           class="avatar border-gray"

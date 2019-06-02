@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationsService } from '../../../services/reservation-service/reservations.service';
-import { GetGuidesService } from '../../../services/get-guides.service';
+import { GetGuidesService } from '../../../services/getGuides/get-guides.service';
 import {environment} from 'src/environments/environment'
 import { MatDialog } from '@angular/material';
 import { PopupModalService } from '../../../services/popup-modals-service/popup-modal.service';
+import { SendMailService } from 'src/app/services/send-mail.service';
 
 @Component({
   selector: 'app-assign-guides',
@@ -27,6 +28,7 @@ export class AssignGuidesComponent implements OnInit {
     public dialog: MatDialog,
     private router:Router,
     private popupService: PopupModalService,
+    private sendmail:SendMailService
     ) { }
 
   ngOnInit() {
@@ -96,11 +98,26 @@ export class AssignGuidesComponent implements OnInit {
   }
 
   assignGuides(guide,reservation){
+    const mailData = {
+      receivermail: guide.email,
+      packagename:reservation.packagename,
+      tourdates:this.stringAsDate(reservation.tourdate),
+      clientName:reservation.clientname
+
+    }
+    this.sendmail.sendAssinedEmail(mailData).subscribe(
+      result => {
+        console.log("Email successfuly send");
+      }
+     
+    );
+
     const data={
       reservationid:reservation._id,
       guidename:guide.name,
       guideid:guide._id,
-      tourcount:guide.tourcount+1
+      tourcount:guide.tourcount+1,
+  
     };
     this.reservationService.assignGuides(data).subscribe((result) => {
       if(result){
@@ -111,6 +128,9 @@ export class AssignGuidesComponent implements OnInit {
         console.log(err.error)
       }
     )
+
+
+
   }
 
   

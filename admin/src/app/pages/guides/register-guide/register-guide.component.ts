@@ -24,6 +24,7 @@ export class RegisterGuideComponent implements OnInit {
   image: File;
 
 
+  
   constructor(private regGuides: RegisterguidesService, private routs: Router, private http: HttpClient) { }
 
   ngOnInit() {
@@ -36,7 +37,7 @@ export class RegisterGuideComponent implements OnInit {
 
 
   // submitForm(){
-  //   var body = `name=${this.name}&address=${this.address}&phonenumber=${this.phonenumber}&email=${this.email}&dob=${this.dob}&nic=${this.NIC}&salary=${this.salary}&imgurl=${this.imgurl}&tourcount=0&rate=0`;
+    // var body = `name=${this.name}&address=${this.address}&phonenumber=${this.phonenumber}&email=${this.email}&dob=${this.dob}&nic=${this.NIC}&salary=${this.salary}&imgurl=${this.imgurl}&tourcount=0&rate=0`;
   //   console.log(body);
   //   this.regGuides.registerguide(body).subscribe((result)=>{
   //     this.routs.navigate(['/guides']);
@@ -56,8 +57,11 @@ export class RegisterGuideComponent implements OnInit {
       email: this.email,
       NIC: this.NIC,
       salary: this.salary,
-      imgurl: this.imagename
+      imgurl: this.imagename,
+      rate:0,
+      tourcount:0
     }
+    console.log('submit'+ body)
     this.regGuides.registerguide(body).subscribe((result) => {
       if (result) {
         this.regGuides.uploadimage(this.image).subscribe((result) => {

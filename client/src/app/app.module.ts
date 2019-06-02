@@ -77,6 +77,7 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { GalleryHeaderComponent } from './pages/gallery/components/gallery-header/gallery-header.component';
 import { GalleryBodyComponent } from './pages/gallery/components/gallery-body/gallery-body.component';
+import { ReviewComponent } from './pages/tours/components/review/review.component';
 
 
 
@@ -133,6 +134,7 @@ import { GalleryBodyComponent } from './pages/gallery/components/gallery-body/ga
     GalleryComponent,
     GalleryHeaderComponent,
     GalleryBodyComponent,
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -159,6 +161,7 @@ import { GalleryBodyComponent } from './pages/gallery/components/gallery-body/ga
     AvailableDialogComponent,
     UnavailableDialogComponent,
     RateGuideComponent,
+    ReviewComponent,
     ConfirmationPopupComponent
    ],
   providers: [
@@ -168,6 +171,6 @@ import { GalleryBodyComponent } from './pages/gallery/components/gallery-body/ga
     PopupModalsService,
   ],
   bootstrap: [AppComponent],
-  exports: [ RateGuideComponent ]
+  exports: [ RateGuideComponent, ReviewComponent ]
 })
 export class AppModule { }

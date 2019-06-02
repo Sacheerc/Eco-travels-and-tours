@@ -67,6 +67,7 @@ var sendMail = require("./src/routes/sendMail");
 var adminRouter = require('./src/routes/admin');
 var rateGuideRouter = require('./src/routes/rateGuide');
 var imageRouter = require('./src/routes/image');
+var galleryRouter = require('./src/routes/gallery');
 
 
 // application routings
@@ -86,6 +87,7 @@ app.use("/sendmail", sendMail);
 app.use("/admin",adminRouter);
 app.use("/rateguide",rateGuideRouter);
 app.use("/image",imageRouter);
+app.use("/gallery",galleryRouter);
 
 
 // Config image url path

@@ -33,4 +33,14 @@ router.post("/", function(req, res, next) {
   });
 });
 
+router.post("/update", function(req, res, next) {
+  authGuideController.updateGuide(req.body, (err, guide) => {
+    if (err) {
+      return next(err);
+    } else {
+      res.send(guide);
+    }
+  });
+});
+
 module.exports = router;

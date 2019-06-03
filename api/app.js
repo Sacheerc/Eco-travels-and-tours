@@ -83,7 +83,7 @@ app.use("/salarysort", salarySort);
 app.use("/toursort", tourSort); 
 app.use("/qaforum",questionRouter);
 app.use("/reservation",reservationRoutes);
-app.use("/guideProfile/", guideProfile);
+app.use("/guideProfile", guideProfile);
 app.use("/sendmail", sendMail);
 app.use("/admin",adminRouter);
 app.use("/client",getClient)
@@ -106,7 +106,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
+ 
 
 // error handler
 app.use(function(err, req, res, next) {

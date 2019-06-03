@@ -16,7 +16,7 @@
               <h5 class="title">{{guide.name}}'s Profile</h5>
             </div>
             <div class="card-body">
-              <form #guides="ngForm" (ngSubmit)="updateform()" method="POST" action="www">
+              <form #guides="ngForm" method="POST" action="www">
                 <div class="row">
                   <div class="col-md-5 pr-1">
                     <div class="form-group">
@@ -64,7 +64,7 @@
                     <div class="form-group">
                       <label for="nic">NIC</label>
                       <input [(ngModel)]="NIC" type="text" class="form-control" pattern="[0-9]*v" id="nic" name="nicNum"
-                        placeholder="9xxxxxxxxv" value="{{guide.nic}}" />
+                        placeholder="9xxxxxxxxv" value="{{guide.nic}}" >
                     </div>
                   </div>
                   <div class="col-md-4 pl-1">
@@ -79,14 +79,20 @@
                   <div class="col-md-2 pr-1">
                     <div class="form-group">
                         <label for="tourcount" >Tour Count
-                            <input type="text" name="tourcount" class="form-control" value="{{guide.tourcount}}">
+                            <input type="text" name="tourcount" class="form-control" value="{{guide.tourcount}}" disabled>
                           </label>
                     </div>
                   </div>
                 </div>
+                <!-- <div class="row">
+                  <div class="col-md-3 pr-1">
+                    <input type="file" (change)="createFormData($event)" >
+                  </div>  
+                </div> -->
                 <div class="row">
-                  <div class="col-md-8 pl-1"></div>
+                  <div class="col-md-8 pl-1" style="text-align:right"> </div>
                   <div class="col-md-4 pl-1" style="text-align:right">
+                    <button type="submit" class="btn btn-primary" (click)="delete()">Delete Profile</button>
                       <button *ngIf="!edit" type="submit" class="btn btn-primary" (click)="edit=true">Edit Profile</button>
                   </div>
                     
@@ -96,7 +102,7 @@
                 <div class="row" *ngIf="edit">
                   <div class="col-md-3 pl-1">
                     <div class="form-group">
-                      <button type="submit" class="btn btn-primary" >Update</button>
+                      <button type="submit" class="btn btn-primary"(click)="updateform()" >Update</button>
                       <button type="submit" class="btn btn-primary" (click)="edit=false">Back</button>
                     </div>
                   </div>
@@ -122,15 +128,15 @@
                   </p>
                 </div>
                 <p class="description text-center">
-                  rate
+                  Rated : {{rate}}
                 </p>
               </div>
               <hr>
               <div class="button-container">
                 <label >Send Email To {{guide.name}}</label>
-                <!-- <a href="profile/sendmail/{{guide._id}}" class="btn btn-neutral btn-icon btn-round btn-lg">
+                <a href="profile/sendmail/{{guide._id}}" class="btn btn-neutral btn-icon btn-round btn-lg">
                   <i class="fas fa-envelope"></i>
-                </a> -->
+                </a>
                 
               </div>
             </div>

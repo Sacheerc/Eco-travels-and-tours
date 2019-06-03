@@ -12,6 +12,7 @@ const url=environment.appUrl+"/getguide";
 const url2=environment.appUrl+"/ratesort";
 const url3=environment.appUrl+"/salarysort";
 const url4=environment.appUrl+"/toursort";
+const url5=environment.appUrl+"/guideProfile/delete"
 
 
 @Injectable({
@@ -39,12 +40,23 @@ export class GetGuidesService {
   }
 
   guideProfile(Id){
-    const id = '5cc5891ad3f1ef43846da7a7'
+    
     console.log('guide');
-    const urln= `${this.url5}/${id}`
+    const urln= `${this.url5}/${Id}`
     console.log(urln)
     return this.http.get(urln) as Observable <any>; 
-
+  
     
   }
+
+  deleteguide(id){
+    console.log('delete guide')
+    return this.http.post(url5, id, {
+      observe: 'body',
+      withCredentials: true,
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    })
+  }
+
 }
+ 

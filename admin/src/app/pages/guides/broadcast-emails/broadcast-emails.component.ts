@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetGuidesService } from 'src/app/services/getGuides/get-guides.service';
+import { GetGuidesService } from 'src/app/services/get-guides.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SendMailService } from 'src/app/services/send-mail.service';
 

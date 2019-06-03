@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { GetGuidesService } from 'src/app/services/getGuides/get-guides.service';
+import { GetGuidesService } from 'src/app/services/get-guides.service';
 import {environment} from 'src/environments/environment'
 
 // const url=environment.appUrl+"/tourguides/guide-1.jpg"

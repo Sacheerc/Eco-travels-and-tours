@@ -41,7 +41,7 @@ export class TourPlacesSidebarComponent implements OnInit {
     } else {
       var data = JSON.stringify({
         date: date,
-        duration: this.package.duration,
+        duration: this.package.duration, 
         packageid: this.package._id
       });
       this.reservationService.findReservations(data).subscribe((result) => {
@@ -68,7 +68,7 @@ export class TourPlacesSidebarComponent implements OnInit {
               }
               this.reservationService.makeReservation(data).subscribe(async (result) => {
                 await this.router.navigate(['/profile']);
-                // location.reload();
+                 location.reload();
               }, (err) => {
                 console.log(err)
               })

@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthGuard } from './guard/auth.guard';
 import { GuidesComponent } from './pages/guides/guides.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
 
 const routes: Routes = [
   {path:"",component:IndexComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:"profile",component:ProfileComponent},
   {path:"profile/:id",component:ProfileComponent},
   {path:"guides",component:GuidesComponent},
+  {path:"gallery",component:GalleryComponent},
   {path:"**",component:PageNotFoundComponent}
 ];
 

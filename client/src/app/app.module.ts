@@ -11,6 +11,7 @@ import {  MatDialogModule,
           MatDividerModule,
           MatTableModule,
           MatIconModule,
+          MatTooltipModule,
         } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -73,6 +74,10 @@ import { RateGuideComponent } from './pages/guides/components/rate-guide/rate-gu
 import { MyReservationsComponent } from './pages/profile/components/my-reservations/my-reservations.component';
 import { EditProfileComponent } from './pages/profile/components/edit-profile/edit-profile.component';
 import { ConfirmationPopupComponent } from './shared/components/confirmation-popup/confirmation-popup.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
+import { GalleryHeaderComponent } from './pages/gallery/components/gallery-header/gallery-header.component';
+import { GalleryBodyComponent } from './pages/gallery/components/gallery-body/gallery-body.component';
+import { ReviewComponent } from './pages/tours/components/review/review.component';
 
 
 
@@ -126,6 +131,10 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
     MyReservationsComponent,
     EditProfileComponent,
     ConfirmationPopupComponent,
+    GalleryComponent,
+    GalleryHeaderComponent,
+    GalleryBodyComponent,
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -143,6 +152,7 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
     MatDividerModule,
     MatTableModule,
     MatIconModule,
+    MatTooltipModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
     ToastrModule.forRoot()
@@ -151,6 +161,7 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
     AvailableDialogComponent,
     UnavailableDialogComponent,
     RateGuideComponent,
+    ReviewComponent,
     ConfirmationPopupComponent
    ],
   providers: [
@@ -160,6 +171,6 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
     PopupModalsService,
   ],
   bootstrap: [AppComponent],
-  exports: [ RateGuideComponent ]
+  exports: [ RateGuideComponent, ReviewComponent ]
 })
 export class AppModule { }

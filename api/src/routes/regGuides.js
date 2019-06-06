@@ -34,6 +34,7 @@ router.post("/", function(req, res, next) {
 });
 
 router.post("/update", function(req, res, next) {
+  console.log('update called');
   authGuideController.updateGuide(req.body, (err, guide) => {
     if (err) {
       return next(err);

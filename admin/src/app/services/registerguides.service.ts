@@ -33,6 +33,7 @@ export class RegisterguidesService {
 
 
   updateGuide(data) {
+    console.log('send to node')
     return this.http.post(urlUpGuide, data, {
       observe: 'body',
       withCredentials: true,
@@ -40,6 +41,8 @@ export class RegisterguidesService {
     }
     )
   }
+
+  
 
 
 }

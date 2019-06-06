@@ -10,17 +10,39 @@ AuthGuideController.prototype.registerGuide = function(userData, callback) {
 };
 
 AuthGuideController.prototype.updateGuide = function (userdata, callback){
-  var id = {_id:ObjectId("5cc5898dd3f1ef43846da7a8")};
+  console.log('controller update called');
+  var id = {_id:userdata.id};
   var data = {
-    address:'jubili kanuwa, nugegoda.'
-  }
+    email:userdata.email,
+    name:userdata.name,
+    phonenumber:userdata.phonenumber,
+    address:userdata.address,
+    dob:userdata.dob,
+    nic:userdata.nic,
+    salary:userdata.salary,
+    tourcount:userdata.tourcount,
+    rate:userdata.rate
+    
 
-  Guide.update(id,{$set: data})
+  }
+  console.log(data);
+  console.log(id)
+  Guide.updateOne(id,{$set: data})
   .then(guide => callback(null,guide))
   .catch(err => callback(err))
 
 }
 
+
+AuthGuideController.prototype.deleteguide= function(userdata,callback){
+  console.log('delete guide');
+  var id = {_id:userdata.id}
+
+  Guide.deleteOne(id)
+  .then(guide => callback(null,guide))
+  .catch(err => callback(err))
+  
+}
 
 module.exports = AuthGuideController;
 

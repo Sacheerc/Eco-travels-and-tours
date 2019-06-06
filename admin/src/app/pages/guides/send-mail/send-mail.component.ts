@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { SendMailService } from "src/app/services/send-mail.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import { GetGuidesService } from "src/app/services/getGuides/get-guides.service";
+import { GetGuidesService } from "src/app/services/get-guides.service";
 import { environment } from "src/environments/environment";
 
 @Component({

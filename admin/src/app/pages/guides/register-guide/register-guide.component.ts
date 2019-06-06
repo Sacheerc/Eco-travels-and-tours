@@ -47,7 +47,7 @@ export class RegisterGuideComponent implements OnInit {
       phonenumber: this.phonenumber,
       dob: this.dob,
       email: this.email,
-      NIC: this.NIC,
+      nic: this.NIC,
       salary: this.salary,
       imgurl: this.imagename,
       rate:0,

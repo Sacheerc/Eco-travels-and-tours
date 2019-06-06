@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
 import { ReservationsService } from '../../../../services/reservations/reservations.service';
 import { PopupModalsService } from '../../../../services/popup-modals/popup-modals.service';
 import { Router } from '@angular/router';
+import { SendEmailsService } from 'src/app/services/sendEmails/send-emails.service';
 import {environment} from 'src/environments/environment';
 
 @Component({
@@ -18,7 +19,8 @@ export class TourPlacesSidebarComponent implements OnInit {
     private popupModal: PopupModalsService,
     private fb: FormBuilder,
     private reservationService: ReservationsService,
-    private router: Router
+    private router: Router,
+    private sendmail:SendEmailsService
   ) { }
 
   ngOnInit() {
@@ -74,6 +76,7 @@ export class TourPlacesSidebarComponent implements OnInit {
               alert(environment.appUrl+"/auth/google")
               // window.location.href = environment.appUrl+"/auth/google";
             }
+            this.sendreverseEmail(guestcount,data)
           });
         }
         else {
@@ -86,6 +89,28 @@ export class TourPlacesSidebarComponent implements OnInit {
       );
     }
     // console.log(this.myForm.controls['date'].value)
+  }
+ 
+  sendreverseEmail(guestcount,date){
+    var user = JSON.parse(localStorage.getItem('user'))
+    console.log(user.email)
+      var data={
+        recievermail:user.email,
+        clientname:user.username, 
+        packagename:this.package.package,
+        duration:this.package.duration,
+        price:this.package.price,
+        guestcount:guestcount,
+        tourdate:date,
+        
+      };
+      
+      this.sendmail.sendreverseEmail(data).subscribe(result => {
+        console.log('successfully send');
+      })
+
+       
+  
   }
 
 }

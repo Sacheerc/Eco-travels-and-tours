@@ -1,0 +1,68 @@
+<div class="wrapper ">
+    <app-sidebar active="gallery"></app-sidebar>
+  
+    <div class="main-panel" id="main-panel">
+      <app-navbar></app-navbar>
+  
+      <div style="height: 10px;padding:1" class="panel-header">
+      </div>
+      
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-10">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="title">Update Image</h5>
+              </div>
+              <div class="card-body">
+                <form #gallery="ngForm" (ngSubmit)="submitForm()" method="PUT" action="www">
+                  <div class="row">
+                    <div class="col-md-5 pr-1">
+                      <div class="form-group">
+                        <label for="userName">Name</label>
+                        <input [(ngModel)]="name1" type="text" class="form-control" id="name1" name="name1"
+                          placeholder="Name of image" required="true" />
+                      </div>
+                    </div>
+  
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="address">Description</label>
+                        <input [(ngModel)]="description" class="form-control" id="description" name="description"
+                          placeholder="Image Description" />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+                  <div class="row">
+                    <div class="col-md-3 pr-1">
+                      <!-- <input type="file" name="coverimage" name="propic" [(ngModel)]="coverimage" /> -->
+                      <input type="file" (change)="createFormData($event)" />
+                    </div>  
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-md-3 pl-1">
+                      <div class="form-group">
+                        
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a class="btn btn-primary" href="gallery">Back</a>
+                    </div>
+                    </div>
+                  </div>
+  
+                </form>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

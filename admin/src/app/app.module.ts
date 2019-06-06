@@ -11,6 +11,8 @@ import {
           MatFormFieldModule,
           MatInputModule,
           MatTableDataSource,
+          MatTooltipModule,
+          MatIconModule,
         
         } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,7 +33,7 @@ import { AssignGuidesComponent } from './pages/reservations/assign-guides/assign
 
 
 // Import services
-import { LoginService } from './services/login.service';
+import { LoginService } from './services/login/login.service';
 import { AuthGuard } from './guard/auth.guard';
 import { AuthLoginGuard } from './guard/auth-login.guard';
 import { ReservationsService } from './services/reservation-service/reservations.service';
@@ -43,6 +45,9 @@ import { GuideProfileComponent } from './pages/guides/guide-profile/guide-profil
 import { SendMailComponent } from './pages/guides/send-mail/send-mail.component';
 import { BroadcastEmailsComponent } from './pages/guides/broadcast-emails/broadcast-emails.component';
 import { AddPackageComponent } from './pages/packages/add-package/add-package.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
+import { AddimageComponent } from './pages/gallery/addimage/addimage.component';
+import { UpdateimageComponent } from './pages/gallery/updateimage/updateimage.component';
 
 
 @NgModule({
@@ -64,7 +69,10 @@ import { AddPackageComponent } from './pages/packages/add-package/add-package.co
     GuideProfileComponent,
     SendMailComponent,
     BroadcastEmailsComponent,
-    AddPackageComponent
+    AddPackageComponent,
+    GalleryComponent,
+    AddimageComponent,
+    UpdateimageComponent
 
   ],
   imports: [
@@ -75,12 +83,14 @@ import { AddPackageComponent } from './pages/packages/add-package/add-package.co
     MatDialogModule,
     MatButtonModule,
     MatCardModule,
+    MatTooltipModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule
+    MatIconModule,
   ],
   
   entryComponents: [

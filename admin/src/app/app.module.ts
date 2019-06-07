@@ -89,7 +89,7 @@ import { UpdateimageComponent } from './pages/gallery/updateimage/updateimage.co
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
     MatIconModule,
   ],
   

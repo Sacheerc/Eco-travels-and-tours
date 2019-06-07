@@ -31,7 +31,8 @@ export class TourPlacesSidebarComponent implements OnInit {
   }
 
   checkavailability() {
-    var date = this.myForm.controls['date'].value;
+    if(localStorage.getItem("user")){
+      var date = this.myForm.controls['date'].value;
     var guestcount = this.myForm.controls['guestcount'].value;
 
     if (guestcount > this.package.maxguest || guestcount == 0 || !guestcount) {
@@ -47,11 +48,13 @@ export class TourPlacesSidebarComponent implements OnInit {
       this.reservationService.findReservations(data).subscribe((result) => {
         var keys = Object.keys(result);
         var len = keys.length;
+        console.log(this.package)
+        console.log(date)
+        console.log(guestcount)
         if (len == 0) {
           const dialogRef = this.popupModal.tourAvailableModal(this.package, date, guestcount);
           // Execute the reservation data inserting process (Payment gateway should be here)
           dialogRef.afterClosed().subscribe(result => {
-            if (localStorage.getItem('user')) {
               var user = JSON.parse(localStorage.getItem('user'))
               const data = {
                 clientid: user._id,
@@ -67,16 +70,14 @@ export class TourPlacesSidebarComponent implements OnInit {
                 email: "madushansachintha@gmail.com"
               }
               this.reservationService.makeReservation(data).subscribe(async (result) => {
+                this.sendreverseEmail(guestcount,date)
                 await this.router.navigate(['/profile']);
-                 location.reload();
+                location.reload();
               }, (err) => {
                 console.log(err)
               })
-            } else {
-              alert(environment.appUrl+"/auth/google")
-              // window.location.href = environment.appUrl+"/auth/google";
-            }
-            this.sendreverseEmail(guestcount,date)
+           
+            
           });
         }
         else {
@@ -88,6 +89,11 @@ export class TourPlacesSidebarComponent implements OnInit {
         }
       );
     }
+    } else {
+        // alert(environment.appUrl+"/auth/google")
+        window.location.href = environment.appUrl+"/auth/google";
+    }
+    
     // console.log(this.myForm.controls['date'].value)
   }
  

@@ -42,7 +42,7 @@ export class SendMailComponent implements OnInit {
       })
   })
 }
-
+ 
   submitemail() {
     console.log(this.receivermail);
     var data = {

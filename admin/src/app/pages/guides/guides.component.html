@@ -16,16 +16,17 @@
               <div class="row">
                 <div class="col-md-4 pl-1">
                   <h4 class="card-title">Tour Guide Stats</h4>
+                </div> 
+                <div class="col-md-5 pl-1">
+                 
+                  <a [ngClass]="(active=='all')?'btn btn-secondary active':'btn btn-secondary'" (click)="allguides()">All</a>
+                  <a [ngClass]="(active=='rate')?'btn btn-secondary active':'btn btn-secondary'" (click)="rateSort()">Rating</a>
+                  <a [ngClass]="(active=='tour')?'btn btn-secondary active':'btn btn-secondary'" (click)="tourSort()">Tour Count</a>
+                  <a [ngClass]="(active=='salary')?'btn btn-secondary active':'btn btn-secondary'" (click)="salarySort()">Salary</a>
                 </div>
-                <div class="col-md-4 pl-1">
-                  Sort by
-                  <a class="btn btn-success" (click)="rateSort()">Rating</a>
-                  <a class="btn btn-danger" (click)="tourSort()">Tour Count</a>
-                  <a class="btn btn-info" (click)="salarySort()">Salary</a>
-                </div>
-                <div class="col-md-4 pl-1">
-                    <a class="btn btn-success" routerLink="/regGuide" >Add Guide</a>
-                    <a class="btn btn-success" routerLink="/guides/broadcastEmails" >Send Emails</a>
+                <div class="col-md-3 pr-1"> 
+                    <a class="btn btn-success active" routerLink="/regGuide" >Add Guide</a>
+                    <a class="btn btn-success active" routerLink="/guides/broadcastEmails" >Send Emails</a>
                   </div>
               </div>
             </div>

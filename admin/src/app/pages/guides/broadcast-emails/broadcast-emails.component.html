@@ -1,4 +1,4 @@
-<!-- <div class="wrapper ">
+<div class="wrapper ">
   <app-sidebar active="guides"></app-sidebar>
 
   <div class="main-panel" id="main-panel">
@@ -30,6 +30,9 @@
                       <input  type="email" class="form-control" id="receivermail"
                         name="receivermail" disabled value="{{email}}" />
                         <br>
+                      </div>
+                      <div *ngFor="let guide of guides">
+                        {{guide.name}}
                       </div>
                     </div>
                   </div>
@@ -64,9 +67,10 @@
                     </div>
                   </div>
                 </div>
-
+ 
 
               </form>
+              
             </div>
           </div>
         </div>
@@ -116,4 +120,4 @@
 
 
   </div>
-</div> -->
+</div>

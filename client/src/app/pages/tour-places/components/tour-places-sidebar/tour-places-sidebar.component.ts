@@ -76,7 +76,7 @@ export class TourPlacesSidebarComponent implements OnInit {
               alert(environment.appUrl+"/auth/google")
               // window.location.href = environment.appUrl+"/auth/google";
             }
-            this.sendreverseEmail(guestcount,data)
+            this.sendreverseEmail(guestcount,date)
           });
         }
         else {

@@ -1,0 +1,91 @@
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
+<div mat-dialog-content>
+  <!-- <p>Would you like to rate me?</p> -->
+  <!-- <mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field> -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="date">Your Rate :</label>
+        <div class="form-field">
+          <script>
+            var isClicked1 = false;
+            var isClicked2 = false;
+            var isClicked3 = false;
+            var isClicked4 = false;
+            var isClicked5 = false;
+            var isdisabled = false;
+          </script>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="row">
+                    <button mat-icon-button (click)="isClicked1 = !isClicked1 && rateVal(1) " [class.myClass]="isClicked1">
+                      <mat-icon >star</mat-icon>
+                    </button>
+                    <button mat-icon-button  (click)="isClicked2 = !isClicked2 && rateVal(2) " [class.myClass]="isClicked2">
+                      <mat-icon >star</mat-icon>
+                    </button>
+                    <button mat-icon-button  (click)="isClicked3 = !isClicked3 && rateVal(3)" [class.myClass]="isClicked4">
+                      <mat-icon >star</mat-icon>
+                    </button>
+                    <button mat-icon-button  (click)="isClicked4 = !isClicked4 && rateVal(4)" [class.myClass]="isClicked5">
+                      <mat-icon >star</mat-icon>
+                    </button>
+                    <button mat-icon-button  (click)="isClicked5 = !isClicked5 && rateVal(5)" [class.myClass]="isClicked5">
+                      <mat-icon >star</mat-icon>
+                    </button>
+                </div>
+              </div>
+              <div class="col-md-4" ><label style="font-size: 60px; border: 0px; color: goldenrod">{{rate}}</label></div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="date">Your Review :</label>
+        <div class="form-field">
+          <!-- <input type="text" id="location" class="form-control" placeholder="Search Location"> -->
+          <input [(ngModel)]="review" type="text" class="form-control" id="review" name="review"
+                        placeholder="Your review" required="true" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="date">Email :</label>
+        <div class="form-field">
+            <input [(ngModel)]="email" type="text" class="form-control" id="email" name="email"
+            placeholder="youremail@gmail.com" required="true" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="date">Telephone :</label>
+        <div class="form-field">
+            <input [(ngModel)]="phonenumber" type="text" class="form-control" id="phonenumber" name="phonenumber"
+            placeholder="07xxxxxxxx" required="true" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+
+
+  
+  
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Submit</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cancel</button>
+</div>

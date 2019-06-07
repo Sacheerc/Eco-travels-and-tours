@@ -1,13 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ReservationsService } from '../../services/reservation-service/reservations.service'
 import { PopupModalService } from '../../services/popup-modals-service/popup-modal.service';
-import { GetGuidesService } from 'src/app/services/get-guides.service';
+import { GetGuidesService } from 'src/app/services/getGuides/get-guides.service';
 import { MatDialog } from '@angular/material';
+import { SendMailService } from 'src/app/services/send-mail.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestBed } from '@angular/core/testing';
 
  declare var successNotification:any;
  declare var dangerNotification:any;
+
 
 @Component({
   selector: 'app-reservations',
@@ -19,15 +21,21 @@ export class ReservationsComponent implements OnInit {
   @Input() notificationAllert='none';
   p: number = 1;
   guides: any
+  guide: any;
   all:any;
   active='all';
+
   constructor(
     private reservationService: ReservationsService,
     private popupService: PopupModalService,
     private getGuide: GetGuidesService,
     public dialog: MatDialog,
+
+    private sendmail: SendMailService,
+
     private route: ActivatedRoute, 
     private router:Router
+
   ) { }
 
   ngOnInit() {
@@ -221,6 +229,20 @@ export class ReservationsComponent implements OnInit {
   }
 
   removeAssignedGuides(guide, reservation) {
+    const mailData = {
+      receivermail: guide.email,
+      packagename: reservation.packagename,
+      tourdates: this.stringAsDate(reservation.tourdate),
+      clientName: reservation.clientname
+    }
+    this.sendmail.removeAssinedGuideEmail(mailData).subscribe(
+      result => {
+        console.log("Email successfuly send");
+      }
+
+    );
+
+
     const data = {
       reservationid: reservation._id,
       guidename: "Not Assigned",
@@ -240,6 +262,7 @@ export class ReservationsComponent implements OnInit {
   }
 
   cancelTour(status, reservation) {
+    
     const data = {
       reservationid: reservation._id,
       status: status,

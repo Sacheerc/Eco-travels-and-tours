@@ -28,7 +28,7 @@ import { AssignGuidesComponent } from './pages/reservations/assign-guides/assign
 
 
 // Import services
-import { LoginService } from './services/login.service';
+import { LoginService } from './services/login/login.service';
 import { AuthGuard } from './guard/auth.guard';
 import { AuthLoginGuard } from './guard/auth-login.guard';
 import { ReservationsService } from './services/reservation-service/reservations.service';

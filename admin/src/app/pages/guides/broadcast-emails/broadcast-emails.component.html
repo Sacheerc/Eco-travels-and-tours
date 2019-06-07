@@ -18,15 +18,19 @@
               <h5 class="title">Send Emails</h5>
             </div>
             <div class="card-body">
+             
 
               <form #guides="ngForm" (ngSubmit)="submitemail()" method="POST" action="www">
 
                 <div class="row">
                   <div class="col-md-4 pr-1">
                     <div class="form-group">
-                      <label for="Email1">Email address</label>
-                      <input [(ngModel)]="receivermail" type="email" class="form-control" id="receivermail"
-                        name="receivermail" disabled />
+                      <label for="Email1" >Email address</label>
+                      <div *ngFor="let email of emails">
+                      <input  type="email" class="form-control" id="receivermail"
+                        name="receivermail" disabled value="{{email}}" />
+                        <br>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -71,24 +75,31 @@
             <div class="card-header">
               Select Email Addresses
             </div>
+
+            <div *ngFor="let guide of guides">
+              {{guide.name}}
+            </div>
             <div class="card-body">
               <div class="table-full-width table-responsive">
                 <table class="table">
-                  <tbody >
-                    <tr *ngFor="let guide of guides" >
-                      
+                  
+                  <tbody>
+                    
+                    <tr >
+                      <td>
                         <div class="form-check">
                           <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" checked>
+                            <input class="form-check-input" type="checkbox" >
                             <span class="form-check-sign"></span>
                           </label>
                         </div>
-                      
-                      <td class="text-left">{{guide.name}} </td>
+                      </td>
+                      <td class="text-left">ghdj@gmail.com </td>
 
                     </tr>
                   </tbody>
                 </table>
+               
               </div>
             </div>
           </div>

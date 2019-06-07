@@ -1,5 +1,5 @@
 <a  class="js-colorlib-nav-toggle colorlib-nav-toggle colorlib-nav-white"><i></i></a>
-<div id="colorlib-offcanvas">
+<!-- <div id="colorlib-offcanvas">
   <ul>
     <li class="active"><a routerLink="/">Home</a></li>
     <li class="has-dropdown">
@@ -23,7 +23,7 @@
     
   </ul>
 
-</div>
+</div> -->
 
 <nav class="colorlib-nav" role="navigation">
   <div class="top-menu">
@@ -34,21 +34,23 @@
         </div>
         <div class="col-xs-10 text-right menu-1">
           <ul>
-            <li class="active"><a routerLink="/">Home</a></li>
+            <!-- <li class="active"><a routerLink="/">Home</a></li> -->
+            <li><a routerLink="/">Home</a></li>
             <li class="has-dropdown">
               <a routerLink="/tours">Tours</a>
-              <ul class="dropdown">
+              <!-- <ul class="dropdown">
                 <li><a routerLink="#">Destination</a></li>
                 <li><a routerLink="#">Cruises</a></li>
                 <li><a routerLink="#">Hotels</a></li>
                 <li><a routerLink="#">Booking</a></li>
-              </ul>
+              </ul> -->
             </li>
 
             <li><a routerLink="/hotels">Hotels</a></li>
             <li><a routerLink="/services">Services</a></li>
             <li><a routerLink="/about">About</a></li>
             <li><a routerLink="/guides">Guides</a></li>
+            <!-- <li><a routerLink="/guides">Guides</a></li> -->
             <li><a href="gallery">Gallery</a></li>
             <li><a routerLink="/contact">Contact</a></li>
                 <li *ngIf="isLoggedIn && isLoggedIn!='true'"><a class="semi-transparent-button" href="{{url}}/auth/google">Sign In</a></li>

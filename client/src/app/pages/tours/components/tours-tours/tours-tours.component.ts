@@ -12,12 +12,14 @@ import { ReviewComponent } from '../review/review.component';
 })
 export class ToursToursComponent implements OnInit {
   packages: any
+  string:any;
   url=environment.appUrl;
   constructor(private route: ActivatedRoute, private tourpackageservice: TourPackagesService,public dialog: MatDialog) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(param => {
       const id = param.get('id');
+      this.string=id;
       if (id) {
         var key = JSON.stringify({ key: id });
         this.tourpackageservice.findtourpackage(key).subscribe(async (result) => {

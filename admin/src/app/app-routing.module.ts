@@ -31,6 +31,7 @@ const routes: Routes = [
   {path:"regGuide", component:RegisterGuideComponent,canActivate:[AuthGuard]},
   {path:"reservations", component:ReservationsComponent,canActivate:[AuthGuard]},
   {path:"reservations/:id", component:AssignGuidesComponent,canActivate:[AuthGuard]},
+  // {path:"image", component:ImageComponent,canActivate:[AuthGuard]},
   {path:"guides/profile/:id", component:GuideProfileComponent,canActivate:[AuthGuard]},
   {path:"image", component:ImageComponent,canActivate:[AuthGuard]},
   {path:"reservations/assignguides/:id", component:AssignGuidesComponent,canActivate:[AuthGuard]},

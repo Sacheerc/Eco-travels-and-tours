@@ -10,6 +10,7 @@ import {environment} from 'src/environments/environment'
 })
 
 export class GalleryBodyComponent implements OnInit {
+  p=1;
   packages: any
   url=environment.appUrl+"/gallery/";
   constructor(private route: ActivatedRoute, private galleryservice: GalleryService) { }

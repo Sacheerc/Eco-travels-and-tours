@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationsService } from '../../../services/reservation-service/reservations.service';
-import { GetGuidesService } from '../../../services/getGuides/get-guides.service';
+import { GetGuidesService } from '../../../services/get-guides.service';
 import {environment} from 'src/environments/environment'
 import { MatDialog } from '@angular/material';
 import { PopupModalService } from '../../../services/popup-modals-service/popup-modal.service';

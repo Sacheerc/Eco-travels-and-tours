@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { GetGuidesService } from 'src/app/services/getGuides/get-guides.service';
+import { GetGuidesService } from 'src/app/services/get-guides.service';
 import {environment} from 'src/environments/environment'
 
 // const url=environment.appUrl+"/tourguides/guide-1.jpg"
@@ -14,23 +14,19 @@ import {environment} from 'src/environments/environment'
 export class GuidesComponent implements OnInit {
   guides:any;
   url=environment.appUrl+"/tourguides/"
-  constructor(private getguideservice:GetGuidesService) { }
+  active="all"
 
+  constructor(private getguideservice:GetGuidesService) { }
+ 
+  
   ngOnInit() {
-    this.getguideservice.getGuides().subscribe((result)=>{
-      this.guides=result
-      console.log(this.guides)
-      },
-      (err)=>{
-       console.log(err.error)
-      }
-     )
+   this.allguides()
 
 
   }
 
-  rateSort(){
-    this.getguideservice.getRateSortGuides().subscribe((result)=>{
+ async allguides(){
+   await this.getguideservice.getGuides().subscribe((result)=>{
       this.guides=result
       console.log(this.guides)
       },
@@ -38,11 +34,25 @@ export class GuidesComponent implements OnInit {
        console.log(err.error)
       }
      )
+     this.active="all";
+  }
+
+ async rateSort(){
+    await this.getguideservice.getRateSortGuides().subscribe((result)=>{
+      this.guides=result
+      console.log(this.guides)
+      },
+      (err)=>{
+       console.log(err.error)
+      }
+     )
+     
+     this.active="rate";
     
   }
 
-  salarySort(){
-    this.getguideservice.getSalarySortGuides().subscribe((result)=>{
+  async salarySort(){
+   await this.getguideservice.getSalarySortGuides().subscribe((result)=>{
       this.guides=result
       console.log(this.guides)
       },
@@ -50,10 +60,11 @@ export class GuidesComponent implements OnInit {
        console.log(err.error)
       }
      )
+     this.active="salary";
   }
 
-  tourSort(){
-    this.getguideservice.getTourSortGuides().subscribe((result)=>{
+  async tourSort(){
+    await this.getguideservice.getTourSortGuides().subscribe((result)=>{
       this.guides=result
       console.log(this.guides)
       },
@@ -61,6 +72,8 @@ export class GuidesComponent implements OnInit {
        console.log(err.error)
       }
      )
+
+     this.active="tour";
   }
 
   

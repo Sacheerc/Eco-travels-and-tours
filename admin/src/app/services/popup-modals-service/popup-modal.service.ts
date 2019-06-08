@@ -24,6 +24,7 @@ export class PopupModalService {
       id: 1,
       data: data
     };
+    console.log("asd");
     return this.dialog.open(ConfirmationDialogComponent, dialogConfig);
     
   }

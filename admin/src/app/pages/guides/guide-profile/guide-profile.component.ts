@@ -1,10 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { GetGuidesService } from "src/app/services/getGuides/get-guides.service";
+import { GetGuidesService } from "src/app/services/get-guides.service";
 import { TourGuide } from "src/app/pages/guides/tourGuide";
 import { environment } from "src/environments/environment";
 import { RegisterGuideComponent } from "../register-guide/register-guide.component";
 import { RegisterguidesService } from "src/app/services/registerguides.service";
+import { PopupModalService } from 'src/app/services/popup-modals-service/popup-modal.service';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: "app-guide-profile",
@@ -15,7 +17,7 @@ export class GuideProfileComponent implements OnInit {
   guide: any;
   url = environment.appUrl + "/tourguides/";
   edit = false;
-  id:any;
+  id:any; 
 
   name: string;
   address: string;
@@ -32,7 +34,11 @@ export class GuideProfileComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private getGuideService: GetGuidesService,
-    private regGuides: RegisterguidesService
+    private regGuides: RegisterguidesService,
+    private popupService:PopupModalService,
+    private dialog:MatDialog 
+      
+    
   ) {}
 
   ngOnInit() {
@@ -66,7 +72,7 @@ export class GuideProfileComponent implements OnInit {
   updateform() {
     console.log(this.name);
     console.log(this.id);
-    //var body = `name=${this.name}&address=${this.address}&phonenumber=${this.phonenumber}&email=${this.email}&dob=${this.dob}&nic=${this.NIC}&salary=${this.salary}&imgurl=${this.imgurl}&tourcount=${this.tourcount}&rate=${this.rate}`;
+    if(this.id && this.name && this.email && this.NIC){
     var body = {
       id:this.id,
       name: this.name,
@@ -74,21 +80,56 @@ export class GuideProfileComponent implements OnInit {
       phonenumber: this.phonenumber,
       dob: this.dob,
       email: this.email,
-      NIC: this.NIC,
+      nic: this.NIC,
       salary: this.salary,
       rate:this.rate,
       tourcount:this.tourcount
+       
     };
-    console.log(body);
-    this.regGuides.registerguide(body).subscribe(
+    console.log(this.id);
+    this.regGuides.updateGuide(body).subscribe(
       result => {},
       err => {
         alert(err.error);
       }
     );
+    location.reload();
   }
 }
 
-interface person {
+
+  delete(){
+    var data={
+      id:this.id
+    }
+    console.log("data"+data);
+
+    var title = 'You want to delete Guide ?';
+    var description = 'you are going to delete guide'+this.name+' Are you shur you want to delete ' + this.name;
+     const dialogRef = this.popupService.confimationModal(title, description, "Delete")
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(result);
+        if (result) {
+          this.confirmdeletion(data);
+         
+        } else {
+          console.log(false);
+        }
+      });
+   
+  }
+
+  confirmdeletion(data){
+    this.getGuideService.deleteguide(data).subscribe(result => {
+      console.log('successfully deleted');
+      this.dialog.closeAll()
+    })
+    this.router.navigate(['/guides']);
+    //location.reload();
+  }
+
+} 
+
+// interface person {
   
-}
+// }

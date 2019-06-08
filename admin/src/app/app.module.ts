@@ -6,6 +6,11 @@ import {
           MatDialogModule,
           MatButtonModule,
           MatCardModule,
+          MatTableModule,
+          MatPaginatorModule,
+          MatFormFieldModule,
+          MatInputModule,
+          MatTableDataSource,
           MatTooltipModule,
           MatIconModule,
         
@@ -81,6 +86,10 @@ import { UpdateimageComponent } from './pages/gallery/updateimage/updateimage.co
     MatTooltipModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatIconModule,
   ],
   

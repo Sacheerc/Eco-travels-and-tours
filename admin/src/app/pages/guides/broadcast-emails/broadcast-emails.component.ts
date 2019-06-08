@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetGuidesService } from 'src/app/services/getGuides/get-guides.service';
+import { GetGuidesService } from 'src/app/services/get-guides.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SendMailService } from 'src/app/services/send-mail.service';
 
@@ -13,13 +13,12 @@ export class BroadcastEmailsComponent implements OnInit {
   guides: any;
   message: string;
   subject: string;
-
   data = {
     emails: this.emails,
     data: this.message
   }
 
-
+ 
   constructor(private getguideservice: GetGuidesService, private sendmail: SendMailService,
     private routs: Router,
     private rout: ActivatedRoute) { }
@@ -27,7 +26,7 @@ export class BroadcastEmailsComponent implements OnInit {
   ngOnInit() {
     this.getguideservice.getGuides().subscribe((result) => {
       this.guides = result
-      console.log(this.guides.email)
+      console.log(this.guides)
     },
       (err) => {
         console.log(err.error)

@@ -1,3 +1,139 @@
-<p>
-  edit-profile works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="wrap-division">
+   
+          <div>
+            <div class="col-md-12 col-md-offset-0 heading2" style="margin-bottom:20px">
+              <h2>My Recent Tours with Eco-Travels</h2>
+            </div>
+            <div *ngIf="constRecentTours.length==0" class="text-center">
+              <h3>You don't have recent tours with Eco-Travels!</h3>
+              <a routerLink="/tours" class="btn btn-primary text-light" style="color: white">Reserve a Tour</a>
+            </div>
+  
+            <div  *ngIf="constRecentTours.length!=0" class="row">
+              <div class="row col-md-12 text-right">
+                <button [ngClass]="(active=='all')?'btn btn-primary':'btn btn-secondary'" (click)="all()" style="width: 120px">All</button>
+                <button [ngClass]="(active=='completed')?'btn btn-primary':'btn btn-secondary'" (click)="completed()" style="width: 120px">Completed</button>
+                <button [ngClass]="(active=='cancelled')?'btn btn-primary':'btn btn-secondary'" (click)="cancelled()" style="width: 120px">Cancelled</button>
+              </div>
+              <br><br>
+              <div *ngFor="let tour of recenttours | paginate: { itemsPerPage: 5, currentPage: p }" class="col-md-12">
+                <div class="room-wrap">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                      <div
+                        class="room-img"
+                        [ngStyle]="{
+                          'background-image':
+                            'url(' +
+                            url +
+                            '/tourpackages/' +
+                            tour.reservation.imgurl +
+                            ')'
+                        }"
+                      ></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+                      <div class="desc">
+                        <h1>
+                          <a
+                            href="/tourplaces/{{ tour.reservation.packageid }}"
+                            class="head"
+                            >{{ tour.reservation.packagename }}</a
+                          >
+                        </h1>
+                       
+                        <div class="row">
+                          <div class="col-md-8 col-sm-8">
+                              <h4>Tour date : <span class="text-success"><b> {{
+                                  stringAsDate(tour.reservation.tourdate)
+                                    | date: "dd/MM/yyyy"
+                                }}</b> </span> </h4>
+                            <h4>
+                              Price : {{ tour.reservation.price }}.00 Rs :
+                              <span *ngIf="tour.reservation.status=='closed'" class="text-success"><b> Paid</b></span>
+                              <span *ngIf="tour.reservation.status=='canceled'" class="text-danger"><b>Refunded</b></span>
+                            </h4>
+                            <div *ngIf="tour.guide" class="row ">
+                              <div class="col-md-4 text-left">
+                                <img
+                                  class="zoom img-thumbnail"
+                                  [src]="url + '/tourguides/' + tour.guide.imgurl"
+                                  alt=""
+                                />
+                              </div>
+                              <div class="col-md-8 text-left">
+                                <h2>Guide : {{ tour.reservation.guidename }}</h2>
+                                Contact: {{ tour.guide.phonenumber }}
+                                <br />
+                                Email: {{ tour.guide.email }}
+                                <br />
+                                Ratings: {{ tour.guide.rate }} Ratings
+                                <br />
+                                Tours Completed: {{ tour.guide.tourcount }}
+                                <br /><br />
+                              </div>
+                            </div>
+                            <div *ngIf="!tour.guide && tour.reservation.status=='closed'">
+                              <h4><b>Tour Guide Not Assigned Yet.</b> </h4>
+                              <h4>
+                                Ater we completed the guide asssigning process,
+                                you will notify via an email.
+                              </h4>
+                            </div>
+                            <div *ngIf="!tour.guide && tour.reservation.status=='canceled'">
+                                <h2 class="text-danger">
+                                  <b> Cancelled.</b>
+                                </h2>
+                                <h4>
+                                  This tour was cancelled by {{tour.reservation.clientname}}.
+                                </h4>
+                              </div>
+                            <br />
+                          </div>
+                          <div class="col-md-4 col-sm-4 text-left" style="padding-top: 40px">   
+                            <h2
+                              *ngIf="tour.reservation.status == 'closed'"
+                              class="text-success"
+                            >
+                            <b> Completed</b>
+                            </h2>
+                            <button
+                              *ngIf="tour.reservation.status == 'closed'"
+                              class="btn-sm btn-primary"
+                            >
+                              Edit Rate
+                            </button>
+                            <button
+                              *ngIf="tour.reservation.status == 'active'"
+                              class="btn btn-danger"
+                            >
+                              Cancel Tour
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>    
+              </div>
+              <div class="text-center">
+                  <pagination-controls
+                    class="my-pagination"
+                    (pageChange)="p = $event"
+                  ></pagination-controls>
+                </div>
+            
+            </div>
+
+          </div>
+          
+          </div>
+          
+      </div>
+    </div>
+  </div>
+</div>

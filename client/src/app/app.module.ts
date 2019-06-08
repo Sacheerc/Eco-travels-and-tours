@@ -12,6 +12,7 @@ import {  MatDialogModule,
           MatDividerModule,
           MatTableModule,
           MatIconModule,
+          MatPaginatorModule,
           MatTooltipModule,
         } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -157,6 +158,7 @@ import { ReviewComponent } from './pages/tours/components/review/review.componen
     BrowserAnimationsModule,
     NgxPaginationModule,
     HttpClientTestingModule,
+    MatPaginatorModule,
     ToastrModule.forRoot()
   ],
   entryComponents: [

@@ -168,7 +168,7 @@ const dbData = {
 router.post("/reverse", function (req, res, next) {
   console.log('called reverse')
   var outputclient = `
-    <h2>you have a email</h2>
+    <h2>you have a email from ecotravels</h2>
     <h3>Dear ${req.body.clientname} , </h3><br>
     <h4>You Reversed a tour </h4>
     <h4>Tour Details: </h4>
@@ -193,7 +193,7 @@ router.post("/reverse", function (req, res, next) {
     <br>
 
     `
-
+var emails = ['rmmdsilva95@gmail.com',req.body.recievermail]
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -209,24 +209,50 @@ router.post("/reverse", function (req, res, next) {
     }
 
   });
- 
-  // send mail to client
+
+for(var i=0;i<2;i++){
+  if(i==0){
+    let info2 = transporter.sendMail({
+        from: '"echoTravels" <ecotravels451@gmail.com>',
+        to: emails[i],
+        subject: 'Tour reservation',
+        text: "Hello world?",
+        html: outputadmin
+      });
+  }else{
   let infotoclient = transporter.sendMail({
     from: '"echoTravels" <ecotravels451@gmail.com>',
-    to: req.body.recievermail,//req.body.recievermail,
+    to: emails[i],//req.body.recievermail,
     subject: 'Tour reservation',
     text: "Hello world?",
     html: outputclient
+  
   });
+}
+}
 
-//send mail to admin
-  let info2 = transporter.sendMail({
-    from: '"echoTravels" <ecotravels451@gmail.com>',
-    to: 'rmmdsilva95@gmail.com',
-    subject: 'Tour reservation',
-    text: "Hello world?",
-    html: outputadmin
-  });
+
+
+
+  //send mail to admin
+  // let info2 = transporter.sendMail({
+  //   from: '"echoTravels" <ecotravels451@gmail.com>',
+  //   to: 'rmmdsilva95@gmail.com',
+  //   subject: 'Tour reservation',
+  //   text: "Hello world?",
+  //   html: outputadmin
+  // });
+ 
+  // // send mail to client
+  // let infotoclient = transporter.sendMail({
+  //   from: '"echoTravels" <ecotravels451@gmail.com>',
+  //   to: req.body.recievermail,//req.body.recievermail,
+  //   subject: 'Tour reservation',
+  //   text: "Hello world?",
+  //   html: outputclient
+  // });
+
+
 
   // EmailController.sendEmail(req.body, (err, email) => {
   //   if(err){
@@ -240,6 +266,8 @@ router.post("/reverse", function (req, res, next) {
 }
 )
  
+
+//refund request email to admin from client
 router.post("/refundreq", function (req, res, next) {
   console.log('called remove')
   var output = `
@@ -390,7 +418,7 @@ router.post("/broadcast", function (req, res, next) {
 
   // send mail with defined transport object
   const emails = req.body.receivermails
-console
+
   for (var i = 0; i < emails.length; i++) {
     let info = transporter.sendMail({
       from: '"echoTravels" <ecotravels451@gmail.com>',

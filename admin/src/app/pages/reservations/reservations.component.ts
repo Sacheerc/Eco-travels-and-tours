@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ReservationsService } from '../../services/reservation-service/reservations.service'
 import { PopupModalService } from '../../services/popup-modals-service/popup-modal.service';
-import { GetGuidesService } from 'src/app/services/getGuides/get-guides.service';
+import { GetGuidesService } from 'src/app/services/get-guides.service';
 import { MatDialog } from '@angular/material';
 import { SendMailService } from 'src/app/services/send-mail.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -30,9 +30,7 @@ export class ReservationsComponent implements OnInit {
     private popupService: PopupModalService,
     private getGuide: GetGuidesService,
     public dialog: MatDialog,
-
     private sendmail: SendMailService,
-
     private route: ActivatedRoute, 
     private router:Router
 
@@ -199,6 +197,7 @@ export class ReservationsComponent implements OnInit {
 
       const dialogRef = this.popupService.confimationModal(title, description, "Confirm")
       dialogRef.afterClosed().subscribe(result => {
+        console.log(result);
         if (result) {
           this.cancelTour("canceled", reservation);
         } else {

@@ -14,14 +14,15 @@ export class ProfileComponent implements OnInit {
   constructor(private loginService:LoginService,private router:Router) { }
 
   ngOnInit() {
-    this.loginService.getloginpage().subscribe(async (result)=>{
+   this.loginService.getloginpage().subscribe((result)=>{
+      console.log(result)
       if(result){
         localStorage.setItem('user',JSON.stringify(result))
         this.currentuser=result;
         console.log(result)
       }else{
         localStorage.removeItem('user');
-        await this.router.navigate(['/']);
+        this.router.navigate(['/tours']);
         location.reload()
       }
       },

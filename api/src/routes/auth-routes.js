@@ -38,8 +38,7 @@ router.get('/google',passport.authenticate('google',{
 
 // callback route for google to redirect to
 router.get('/google/redirect',passport.authenticate('google'),(req,res)=>{
-    // res.send(req.user)
-    return res.redirect(url.host.client+`/profile`);
+    return res.redirect(url.host.client+"/tours");
     // return res.redirect(keys.AppUri);
 })
 

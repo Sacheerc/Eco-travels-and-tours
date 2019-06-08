@@ -3,6 +3,7 @@ import { ReservationsService } from 'src/app/services/reservations/reservations.
 import { PopupModalsService } from 'src/app/services/popup-modals/popup-modals.service'
 import {environment} from 'src/environments/environment';
 import { MatDialog } from '@angular/material';
+import { SendEmailsService } from 'src/app/services/sendEmails/send-emails.service';
 
 @Component({
   selector: 'app-my-reservations',
@@ -19,7 +20,7 @@ export class MyReservationsComponent implements OnInit {
   myreservations:any
   clientid=JSON.parse(localStorage.getItem('user'))._id
 
-  constructor(public dialog: MatDialog,private reservationService:ReservationsService, private popupService:PopupModalsService) { }
+  constructor(public dialog: MatDialog,private reservationService:ReservationsService, private popupService:PopupModalsService,private sendmail:SendEmailsService) { }
  
   ngOnInit() {
   this.reservationService.getMyReservations(this.clientid).subscribe((result) => {
@@ -93,6 +94,17 @@ export class MyReservationsComponent implements OnInit {
   }
 
   sendRefundRequest(reservation){
+    const maildata = {
+      packagename:reservation.packagename,
+      tourdate:reservation.tourdate,
+      price:reservation.price,
+      clientname:reservation.clientname
+    }
+
+    this.sendmail.sendRefundEmail(maildata).subscribe(result => {
+      console.log('successfully send');
+    })
+
     const data={
       reservationid:reservation._id,
       status:"requested"

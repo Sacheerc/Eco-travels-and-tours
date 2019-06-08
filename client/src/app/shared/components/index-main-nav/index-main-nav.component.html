@@ -38,12 +38,10 @@
             <li><a routerLink="/">Home</a></li>
             <li class="has-dropdown">
               <a routerLink="/tours">Tours</a>
-              <!-- <ul class="dropdown">
-                <li><a routerLink="#">Destination</a></li>
-                <li><a routerLink="#">Cruises</a></li>
-                <li><a routerLink="#">Hotels</a></li>
-                <li><a routerLink="#">Booking</a></li>
-              </ul> -->
+              <ul class="dropdown">
+                <li><a routerLink="/tours">Find Tours</a></li>
+                <li *ngIf="isLoggedIn && isLoggedIn=='true'"><a routerLink="/profile">My Tours</a></li>
+              </ul>
             </li>
 
             <!-- <li><a routerLink="/hotels">Hotels</a></li> -->

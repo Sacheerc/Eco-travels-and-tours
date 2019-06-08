@@ -32,7 +32,7 @@
           <div class="col-md-12">
             <div class="wrap-division">
               <div class="col-md-12 col-md-offset-0 heading2 ">
-                <h2>{{ package.package }}</h2>
+                <h2>{{ package.package | titlecase }}</h2>
               </div>
               <div class="row">
                 <div class="col-md-12 ">
@@ -51,7 +51,7 @@
                       </div>
                       <div class="col-md-6 col-sm-6">
                         <div class="desc">
-                          <span class="day-tour">Day 1</span>
+                          <span class="day-tour">Tour Description</span>
                           <h2>{{ package.location }}</h2>
                           <p>{{ package.description }}</p>
                         </div>

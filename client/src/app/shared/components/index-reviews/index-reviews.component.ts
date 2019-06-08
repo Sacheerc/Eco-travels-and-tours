@@ -29,4 +29,6 @@ export class IndexReviewsComponent implements OnInit {
     });
   }
 
+
+
 }

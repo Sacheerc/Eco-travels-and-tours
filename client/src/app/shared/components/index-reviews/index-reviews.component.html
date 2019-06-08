@@ -19,49 +19,58 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-8 col-md-offset-2 animate-box">
-          <div class="owl-carousel2">
+          <div class="col-md-12 ">
+              <div class="row">
+                <div *ngIf="packages.length>0" class="wrap-division">
+                  <div *ngFor="let package of packages | paginate: { itemsPerPage: 1, currentPage: p }" class="col-md-12">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-12 ">
+                        <mat-card class="example-card">
+                        <div class="row">
+                            <mat-card-header> 
+                                <div class="col-md-8">
+                                  <div class="row" style="align-content: left;">
+                                      <mat-icon class="myClass">star</mat-icon>
+                                      <mat-icon class="myClass">star</mat-icon>
+                                      <mat-icon class="myClass">star</mat-icon>
+                                      <mat-icon class="myClass">star</mat-icon>
+                                      <mat-icon class="myClass">star</mat-icon>
+                                  </div>
+                                </div>
 
-              
-
-            <div class="item">
-              <div class="testimony text-center">
-                <span
-                  class="img-user"
-                  style="background-image: url(../assets/images/person2.jpg);"
-                ></span>
-                <span class="user">James Fisher</span>
-                <small>New York, USA</small>
-                <blockquote>
-                  <p>
-                    "EcoTravels is a super reliable travel company in Sri Lanka. I just came back, super satisfied and in love with the country. Lakshi, one of the agents in EcoTravels is beyond helpful, always available and hard working.She planned our entire iterary within 24 hours of notice and made it happen for us, while making sure everything was wonderful including hotels, car, tour guide etc. "
-                  </p>
-                </blockquote>
+                            </mat-card-header>
+                            <mat-card-subtitle>
+                              <div class="col-md-8">
+                                <label style="font-size: 14px;">Rate Number :</label>
+                                <label style="font-size: 20px; border: 0px; color: goldenrod">{{package.rate}}</label>
+                              </div>
+                            </mat-card-subtitle>
+                            
+                            
+                          </div>
+                          <div>
+                              <label >{{package.description}}</label>
+                          </div>
+                          <div>
+                              <label style="font-size: 8px; border: 0px; color: rgb(150, 149, 148)">Rated By :</label>
+                              <label style="font-size: 8px; border: 0px; color: rgb(150, 149, 148)">{{package.email}}</label>
+                          </div>
+                      </mat-card>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="text-center">
+                      <pagination-controls
+                        class="my-pagination"
+                        (pageChange)="p = $event"
+                      ></pagination-controls>
+                    </div>
+                </div>
               </div>
             </div>
-
-
-            <div class="item">
-              <div class="testimony text-center">
-                <span
-                  class="img-user"
-                  style="background-image: url(../assets/images/person3.jpg);"
-                ></span>
-                <span class="user">Jacob Webb</span>
-                <small>Athens, Greece</small>
-                <blockquote>
-                  <p>
-                    "We had great experience in Sri Lanka with the guide of EcoTravels. 
-                    They made our life memorable. Especially Mr Pahan who cleared all our doubts on 
-                    time. The excellent approach followed by EcoTravels ensured we will come back for more!"
-                  </p>
-                </blockquote>
-              </div>
-            </div>
-
-
-          </div>
-        </div>
       </div>
     </div>
   </div>

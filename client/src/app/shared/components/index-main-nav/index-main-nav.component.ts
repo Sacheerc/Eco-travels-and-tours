@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
 import { Router, NavigationEnd } from '@angular/router';
-import { environment } from 'src/environments/environment'
+import { environment } from 'src/environments/environment';
 declare var burgerMenu;
 @Component({
   selector: 'app-index-main-nav',

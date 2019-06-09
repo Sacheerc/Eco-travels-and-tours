@@ -16,3 +16,15 @@
   a:hover{
       color:#ffdd00
   }
+
+
+  .example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  margin-bottom: 16px;
+  
+}
+
+table {
+    width: 100%;
+  }

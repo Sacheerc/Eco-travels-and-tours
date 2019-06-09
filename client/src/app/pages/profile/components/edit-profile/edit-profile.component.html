@@ -104,6 +104,7 @@
                             <button
                               *ngIf="tour.reservation.status == 'closed'"
                               class="btn-sm btn-primary"
+                              (click)="openDialog(tour.reservation._id)"
                             >
                               Edit Rate
                             </button>

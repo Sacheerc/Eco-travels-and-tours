@@ -78,7 +78,8 @@ import { ConfirmationPopupComponent } from './shared/components/confirmation-pop
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { GalleryHeaderComponent } from './pages/gallery/components/gallery-header/gallery-header.component';
 import { GalleryBodyComponent } from './pages/gallery/components/gallery-body/gallery-body.component';
-import { ReviewComponent } from './pages/tours/components/review/review.component';
+// import { ReviewComponent } from './pages/tours/components/review/review.component';
+import { ReviewComponent } from './pages/profile/components/review/review.component';
 
 
 

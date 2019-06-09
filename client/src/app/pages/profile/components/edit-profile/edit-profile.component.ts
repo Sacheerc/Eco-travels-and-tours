@@ -5,6 +5,9 @@ import { environment } from 'src/environments/environment';
 import { MatDialog } from '@angular/material';
 import { SendEmailsService } from 'src/app/services/sendEmails/send-emails.service';
 
+import { TourPackagesService } from 'src/app/services/tours/tour-packages.service';
+import { ReviewComponent } from '../review/review.component';
+
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -22,7 +25,7 @@ export class EditProfileComponent implements OnInit {
   myreservations: any
   clientid = JSON.parse(localStorage.getItem('user'))._id
 
-  constructor(public dialog: MatDialog, private reservationService: ReservationsService, private popupService: PopupModalsService, private sendmail: SendEmailsService) { }
+  constructor(public dialog: MatDialog, private reservationService: ReservationsService, private popupService: PopupModalsService, private sendmail: SendEmailsService,private tourpackageservice: TourPackagesService) { }
 
   ngOnInit() {
     this.reservationService.getMyReservations(this.clientid).subscribe((result) => {
@@ -131,6 +134,19 @@ export class EditProfileComponent implements OnInit {
     this.active='cancelled'
   }
 
+  openDialog(id): void {
+
+    this.tourpackageservice.setId(id);
+    const dialogRef = this.dialog.open(ReviewComponent, {
+      width: '400px',
+      // data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
+  }
  
 
 }

@@ -98,8 +98,8 @@ app.use("/gallery",galleryRouter);
 app.use(express.static('public/images'));
 
 // config server apps
-app.use('/admin',express.static('public/admin'));
-app.use(express.static('public/client'));
+// app.use('/admin',express.static('public/admin'));
+// app.use(express.static('public/client'));
 
 
 // catch 404 and forward to error handler

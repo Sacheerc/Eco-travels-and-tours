@@ -68,6 +68,7 @@ var adminRouter = require('./src/routes/admin');
 var getClient = require("./src/routes/getClient")
 var rateGuideRouter = require('./src/routes/rateGuide');
 var imageRouter = require('./src/routes/image');
+var galleryRouter = require('./src/routes/gallery');
 
 
 
@@ -89,6 +90,7 @@ app.use("/admin",adminRouter);
 app.use("/client",getClient)
 app.use("/rateguide",rateGuideRouter);
 app.use("/image",imageRouter);
+app.use("/gallery",galleryRouter);
 
 
 
@@ -96,8 +98,8 @@ app.use("/image",imageRouter);
 app.use(express.static('public/images'));
 
 // config server apps
-app.use('/admin',express.static('public/admin'));
-app.use(express.static('public/client'));
+// app.use('/admin',express.static('public/admin'));
+// app.use(express.static('public/client'));
 
 
 // catch 404 and forward to error handler

@@ -1,25 +1,34 @@
+<script>var ObjectId =require('mongoose').Types.ObjectId;</script>
+<div *ngIf="string" style="margin-top:-20px"><h4><b>  Search Results for : {{string}} </b></h4></div>
 <div class="col-md-12">
   <div class="row">
     <div *ngIf="packages.length>0" class="wrap-division">
-      <div *ngFor="let package of packages" class="col-md-4 col-sm-4">
+      <div *ngFor="let package of packages  | paginate: { itemsPerPage: 6, currentPage: p }" class="col-md-4 col-sm-4">
         <div class="tour">
           <a routerLink="/tourplaces/{{package._id}}" class="tour-img"
             [ngStyle]="{'background-image':'url('+url+'/tourpackages/'+ package.coverimage + ')'}">
-            <p class="price"><span>{{package.price}} Lkr</span> <small>/ {{package.duration}}</small></p>
+            <p class="price"><span>{{package.price}} Lkr</span> <small>/ {{package.duration}} days</small></p>
           </a>
           <span class="desc">
             <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
                   class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
               {{package.reviews}} Reviews</p>
-            <h2><a routerLink="/tourplaces/{{package._id}}">{{package.package}}</a></h2>
+            <h2><a routerLink="/tourplaces/{{package._id}}">{{package.package | lowercase}}</a></h2>
             <span class="city">{{package.location}}</span>
+            <button mat-raised-button color="warn" (click)="openDialog(package._id)">Rate Package</button>
           </span>
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12 text-center">
+      <div class="text-center">
+          <pagination-controls
+            class="my-pagination"
+            (pageChange)="p = $event"
+          ></pagination-controls>
+        </div>
+    <!-- <div class="col-md-12 text-center">
       <ul class="pagination">
         <li class="disabled"><a href="#">&laquo;</a></li>
         <li class="active"><a href="#">1</a></li>
@@ -28,6 +37,6 @@
         <li><a href="#">4</a></li>
         <li><a href="#">&raquo;</a></li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </div>

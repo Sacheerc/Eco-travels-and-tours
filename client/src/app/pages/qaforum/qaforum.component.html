@@ -31,5 +31,7 @@
         </div>
         <app-qaforum-body *ngIf="isOn" (hideParent)="toggleOn()"></app-qaforum-body>
         <app-question-list #filter ></app-question-list> 
+        <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+             
 </div>
 <app-footer></app-footer>

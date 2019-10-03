@@ -1,0 +1,43 @@
+<div class="col-md-12">
+  <div class="row">
+    <div *ngIf="packages.length>0" class="wrap-division">
+      <div *ngFor="let package of packages | paginate: { itemsPerPage: 12, currentPage: p }" class="col-md-3 col-sm-3">
+        <div class="tour">
+            <mat-card class="example-card">
+                <mat-card-header> 
+                </mat-card-header>
+   
+                <img
+                  class="avatar border-gray"
+                  [src]="url+package.galleryimage"
+                  alt=""
+                  style="width:270px;height: 200px;"
+                  matTooltip={{package.description}}
+                />
+                <mat-card-actions>
+                  <!-- <button mat-button>Delete</button> -->
+                </mat-card-actions>
+              </mat-card>
+          
+          <span class="desc">
+            <!-- <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                  class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
+              {{package.reviews}} Reviews</p>
+            <h2><a href="tour-place.html">{{package.package}}</a></h2>
+            <span class="city">{{package.location}}</span> -->
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+        <div class="text-center">
+          <pagination-controls
+            class="my-pagination"
+            (pageChange)="p = $event"
+          ></pagination-controls>
+        </div>
+    </div>
+  </div>
+</div>

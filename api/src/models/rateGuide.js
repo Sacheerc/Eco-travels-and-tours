@@ -3,14 +3,8 @@ var bcrypt = require("bcrypt");
 
 
 var RateGuideSchema = new mongoose.Schema({
-    nic: {
+    tourid: {
         type: String,
-        trim: true
-    },
-
-    description: {
-        type: String,
-        required: true,
         trim: true
     },
 
@@ -20,7 +14,7 @@ var RateGuideSchema = new mongoose.Schema({
         required:true
     },
 
-    cusname: {
+    review: {
         type: String,
         required: true,
         trim: true

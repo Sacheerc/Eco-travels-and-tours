@@ -56,6 +56,27 @@ router.post("/", function(req, res, next) {
   });
 });
 
+router.post("/review", function(req, res, next) {
+  tourPackageController.addTourPackageReview(req.body, (err, tour) => {
+    if (err) {
+      return next(err);
+    } else {
+      res.send(tour);
+    }
+  });
+});
+
+
+// POST route for logging
+router.get("/review", function(req, res, next) {
+  tourPackageController.getTourPackageReview((err, docs) => {
+      if (err) {
+        return next(err);
+      } else {
+        res.json(docs);  
+      }
+  });
+});
  
 
 module.exports = router;

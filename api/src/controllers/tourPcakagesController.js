@@ -1,5 +1,6 @@
 // required modules
 var tourPackage = require("../models/tour-package");
+var rateGuide = require("../models/rateGuide");
 
 function TourPackageController() {}
 
@@ -34,6 +35,27 @@ TourPackageController.prototype.addTourPackage= function(userData, callback) {
     .then(tour => callback(null, tour))
     .catch(err => callback(err));
 };
+
+//add tour package review
+TourPackageController.prototype.addTourPackageReview= function(userData, callback) {
+  rateGuide.create(userData)
+    .then(rate => callback(null, rate))
+    .catch(err => callback(err));
+};
+
+//get tour package review
+TourPackageController.prototype.getTourPackageReview = (callback)=>{
+  rateGuide.find({}, function (err, docs) {
+      if (err || !docs) {
+          var err = new Error("Sorry.");
+          err.status = 401;
+          callback(err);
+        } else {
+         
+          callback(null, docs);
+        }
+  });
+}
 
 
 

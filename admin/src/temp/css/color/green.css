@@ -1,0 +1,56 @@
+::selection {
+  background-color: #51d466;
+  color: #fff;
+}
+::-moz-selection {
+  background-color: #51d466;
+  color: #fff;
+}
+
+.service-box-01 .sb-icon,
+.resume-box-01 h4,
+.resume-box-01 i,
+.m-btn,
+.m-btn-01,
+.service-box .sb-icon,
+.header .navbar-nav > li.current > a,
+.portfolio-box .filter-01 button.mixitup-control-active,
+.portfolio-box .filter-01 button:hover,
+.portfolio-col .portfolio-col-01 .hover label,
+.portfolio-col .hover label,
+.call-to-action,
+.social-link li a:hover,
+.type-post .title-bar label a,
+.pagination > .active > a, .pagination > .active > a:focus, 
+.pagination > .active > a:hover, 
+.pagination > .active > span, 
+.pagination > .active > span:focus, 
+.pagination > .active > span:hover,
+.thecomment .reply a,
+.owl-nav .owl-prev,
+.owl-nav .owl-next,
+.navbar-toggle,
+.bg-theme {
+	background-color: #51d466;
+}
+
+.section-title h2 span,
+.fixed-header .logo,
+.fixed-header .logo a, 
+.header .navbar-nav > li > a:hover,
+.portfolio-box .filter button.mixitup-control-active,
+.portfolio-box .filter button:hover,
+.pagination > li > a:focus, 
+.pagination > li > a:hover, 
+.pagination > li > span:focus, 
+.pagination > li > span:hover,
+.resume-box h4,
+.widget .widget-title {
+	color:  #51d466;
+}
+
+.contact-us .form-control:focus,
+.contact-us textarea.form-control:focus,
+.comment-respond .form-control:focus{
+	border-color: #51d466;
+}
